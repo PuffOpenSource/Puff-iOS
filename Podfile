@@ -1,3 +1,5 @@
+project 'Puff/Puff.xcodeproj'
+
 # Uncomment this line to define a global platform for your project
 # platform :ios, '9.0'
 
@@ -6,5 +8,5 @@ target 'Puff' do
   # use_frameworks!
 
   # Pods for Puff
-
+  pod 'MMDrawerController', '~> 0.5.7'
 end
