@@ -1,0 +1,6 @@
+# Pods folder
+Pods/
+
+#Mac
+.DS_Store
+
