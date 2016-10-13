@@ -9,4 +9,6 @@ target 'Puff' do
 
   # Pods for Puff
   pod 'MMDrawerController', '~> 0.5.7'
+  pod 'UITableView+FDTemplateLayoutCell', '~> 1.4'
+  pod 'MaterialControls', '~> 1.1.0'
 end
