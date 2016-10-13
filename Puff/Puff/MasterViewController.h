@@ -9,12 +9,12 @@
 #import <UIKit/UIKit.h>
 #import <CoreData/CoreData.h>
 #import "Puff+CoreDataModel.h"
+//#import <MMDrawerController/MMDrawerController.h>
 
-@class DetailViewController;
 
-@interface MasterViewController : UITableViewController <NSFetchedResultsControllerDelegate>
+@interface MasterViewController : UIViewController <NSFetchedResultsControllerDelegate>
 
-@property (strong, nonatomic) DetailViewController *detailViewController;
+//@property (strong, nonatomic) DetailViewController *detailViewController;
 
 @property (strong, nonatomic) NSFetchedResultsController<Event *> *fetchedResultsController;
 @property (strong, nonatomic) NSManagedObjectContext *managedObjectContext;
