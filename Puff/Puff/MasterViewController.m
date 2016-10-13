@@ -10,6 +10,7 @@
 #import "DetailViewController.h"
 
 #import "PFBlowfish.h"
+#import "NSObject+Events.h"
 
 @interface MasterViewController ()
 
@@ -22,17 +23,22 @@
     // Do any additional setup after loading the view, typically from a nib.
     self.navigationItem.leftBarButtonItem = self.editButtonItem;
 
-    UIBarButtonItem *addButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemAdd target:self action:@selector(insertNewObject:)];
-    self.navigationItem.rightBarButtonItem = addButton;
+//    UIBarButtonItem *addButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemAdd target:self action:@selector(insertNewObject:)];
+//    self.navigationItem.rightBarButtonItem = addButton;
+
+    [self subscribe:@"event" handler:^(PFEvent *event) {
+        NSLog(@"%@", event.name);
+    }];
 
 }
 
 - (void)viewDidAppear:(BOOL)animated {
     [super viewDidAppear:animated];
-    for (int i = 0; i < 1000; i++) {
-        [self _cryptoTest];
-//        [self _encryptTest];
-    }
+    [self publish:@"event"];
+//    for (int i = 0; i < 1000; i++) {
+//        [self _cryptoTest];
+////        [self _encryptTest];
+//    }
 }
 
 - (void)_cryptoTest {

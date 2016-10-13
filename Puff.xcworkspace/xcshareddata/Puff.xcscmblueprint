@@ -1,0 +1,30 @@
+{
+  "DVTSourceControlWorkspaceBlueprintPrimaryRemoteRepositoryKey" : "8A4AACBD3FC36720F1D4F47F6B2B6B176B7D2DC9",
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyRepositoryLocationsKey" : {
+
+  },
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyStatesKey" : {
+    "4C26C3EDBF2E1880D69EC96EB92121A2836BA66F" : 9223372036854775807,
+    "8A4AACBD3FC36720F1D4F47F6B2B6B176B7D2DC9" : 9223372036854775807
+  },
+  "DVTSourceControlWorkspaceBlueprintIdentifierKey" : "63C187E5-21F1-4ABF-B6F3-1E3B4A224DE1",
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyPathsKey" : {
+    "4C26C3EDBF2E1880D69EC96EB92121A2836BA66F" : "PodDev\/Material-Controls-For-iOS\/",
+    "8A4AACBD3FC36720F1D4F47F6B2B6B176B7D2DC9" : "Puff-iOS\/"
+  },
+  "DVTSourceControlWorkspaceBlueprintNameKey" : "Puff",
+  "DVTSourceControlWorkspaceBlueprintVersion" : 204,
+  "DVTSourceControlWorkspaceBlueprintRelativePathToProjectKey" : "Puff.xcworkspace",
+  "DVTSourceControlWorkspaceBlueprintRemoteRepositoriesKey" : [
+    {
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "github.com:fpt-software\/Material-Controls-For-iOS.git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "4C26C3EDBF2E1880D69EC96EB92121A2836BA66F"
+    },
+    {
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "https:\/\/bitbucket.org\/BobSun\/puff-ios.git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "8A4AACBD3FC36720F1D4F47F6B2B6B176B7D2DC9"
+    }
+  ]
+}

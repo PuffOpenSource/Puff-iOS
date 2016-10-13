@@ -11,6 +11,9 @@
 @interface PFEvent : NSObject
 @property (copy, nonatomic) NSString *name;
 @property (retain, nonatomic) NSObject* data;
+
+- (instancetype)initWithName:(NSString*)name andData:(NSObject*)obj;
+
 @end
 
 typedef void (^PFEventHanlder)(PFEvent* event);

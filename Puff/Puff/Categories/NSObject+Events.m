@@ -11,16 +11,35 @@
 #import "NSObject+Events.h"
 #import <objc/runtime.h>
 #import <Foundation/Foundation.h>
-#import "EXTScope.h"
 
-static NSString * kEventsDataKey       =   @"kEventsDataKey";
+static NSString * kEventsKey        =   @"kEventsKey";
 
 @implementation PFEvent
+- (instancetype)initWithName:(NSString*)name andData:(NSObject*)obj {
+    self = [super init];
+    if (self) {
+        self.name = name;
+        self.data = obj;
+    }
+    return self;
+}
+
+- (NSString*)description {
+    return [NSString stringWithFormat:@"PFEvent - name: %@, data %@", self.name, self.data];
+}
+
+- (BOOL)isEqual:(id)object {
+    if (![object isKindOfClass:self.class]) {
+        return NO;
+    }
+    PFEvent *typed = object;
+    return [_name isEqualToString:typed.name ] && [self.data isEqual:_data];
+}
 @end
 
 @implementation NSObject (Events)
 static NSOperationQueue *_queue;
-static const char * kSubscriptions = "kSubscriptions";
+static const char* kSubscriptions = "kSubscriptions";
 
 + (void)setDispatchQueue:(NSOperationQueue *)queue {
     _queue = queue;
@@ -31,23 +50,23 @@ static const char * kSubscriptions = "kSubscriptions";
     [[NSNotificationCenter defaultCenter] addObserverForName:eventName object:self queue:_queue usingBlock:^(NSNotification * _Nonnull note) {
         PFEvent *e = [[PFEvent alloc] init];
         e.name = note.name;
-        e.data = [note.userInfo objectForKey:kEventsDataKey];
+        e.data = note.object;
         handler(e);
     }];
     [self _addSubscription:eventName];
 }
 
 -(void)publish:(NSString*)eventName {
-    [[NSNotificationCenter defaultCenter] postNotificationName:eventName object:nil];
+    [[NSNotificationCenter defaultCenter] postNotificationName:eventName object:self];
 }
 
 -(void)publish:(NSString *)eventName withData:(NSObject*)data {
-    [[NSNotificationCenter defaultCenter] postNotificationName:eventName object:self userInfo:@{kEventsDataKey: data}];
+    [[NSNotificationCenter defaultCenter] postNotificationName:eventName object:self userInfo:@{kEventsKey: data}];
 }
 
 -(void)unsubscribe:(NSString *)eventName {
     [self _removeSubscription:eventName];
-    [[NSNotificationCenter defaultCenter] removeObserver:self name:eventName object:nil];
+    [[NSNotificationCenter defaultCenter] removeObserver:self name:eventName object:self];
 }
 
 -(void)cancelAll {

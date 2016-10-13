@@ -7,10 +7,12 @@
 //
 
 #import "AppDelegate.h"
-#import "DetailViewController.h"
-#import "MasterViewController.h"
 
 #import <MMDrawerController/MMDrawerController.h>
+
+#import "NSObject+Events.h"
+#import "DetailViewController.h"
+#import "MasterViewController.h"
 
 @interface AppDelegate () <UISplitViewControllerDelegate>
 @property (strong, nonatomic) UIStoryboard* mainStoryboard;
@@ -52,10 +54,9 @@
     [self.drawerViewController setCloseDrawerGestureModeMask:MMCloseDrawerGestureModeAll];
     
     [self.window setRootViewController: self.drawerViewController];
+
     
-    [self.drawerViewController toggleDrawerSide:MMDrawerSideLeft animated:YES completion:^(BOOL finished) {
-        
-    }];
+    [NSObject setDispatchQueue:[NSOperationQueue mainQueue]];
     
     return YES;
 }
