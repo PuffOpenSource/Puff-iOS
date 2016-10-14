@@ -10,7 +10,6 @@
 
 #import "Config.h"
 
-
 @implementation PFBaseModel
 -(NSManagedObject*)managedObjectWithEntity:(NSEntityDescription *)entity andContext:(NSManagedObjectContext *)context {
     NSException *e = [NSException exceptionWithName:@"BaseModelNotOverriden" reason:@"BaseModle function not overriden!" userInfo:nil];
@@ -32,8 +31,26 @@
     objc_property_t *props = class_copyPropertyList([self class], &total);
     for (int i = 0; i < total; i++) {
         objc_property_t p = props[i];
-        const char *pName = property_getName(p);
-        [ret addObject:[NSString stringWithCString:pName encoding:[NSString defaultCStringEncoding]]];
+        @try {
+            const char *pName = property_getName(p);
+            [ret addObject:[NSString stringWithCString:pName encoding:[NSString defaultCStringEncoding]]];
+        } @catch (NSException *exception) {
+            if (DEBUG) {
+                @throw exception;
+            } else {
+                NSLog(@"Exception Threw from PFBaseMode with reason: %@ and userinfo %@", exception.reason, exception.userInfo);
+            }
+        }
+    }
+    return ret;
+}
+
+- (NSString*)description {
+    NSString * ret = @"PFModel Object - \n";
+    NSArray *properties = [self _getProperties];
+    for (NSString *p in properties) {
+        NSString * pStr = [NSString stringWithFormat:@"\t%@ : %@ \n", p, [self valueForKey:p]];
+        ret = [ret stringByAppendingString:pStr];
     }
     return ret;
 }
