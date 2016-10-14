@@ -11,7 +11,6 @@
 		011536F41D8932CC00C98268 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 011536F31D8932CC00C98268 /* AppDelegate.m */; };
 		011536F71D8932CC00C98268 /* Puff.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 011536F51D8932CC00C98268 /* Puff.xcdatamodeld */; };
 		011536FA1D8932CC00C98268 /* MasterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 011536F91D8932CC00C98268 /* MasterViewController.m */; };
-		011536FD1D8932CC00C98268 /* DetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 011536FC1D8932CC00C98268 /* DetailViewController.m */; };
 		011537001D8932CC00C98268 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 011536FE1D8932CC00C98268 /* Main.storyboard */; };
 		011537021D8932CC00C98268 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 011537011D8932CC00C98268 /* Assets.xcassets */; };
 		011537051D8932CC00C98268 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 011537031D8932CC00C98268 /* LaunchScreen.storyboard */; };
@@ -26,6 +25,10 @@
 		012C69BC1DAF68F1005E7104 /* EXTSelectorChecking.m in Sources */ = {isa = PBXBuildFile; fileRef = 012C69AF1DAF68F1005E7104 /* EXTSelectorChecking.m */; };
 		012C69BD1DAF68F1005E7104 /* NSInvocation+EXT.m in Sources */ = {isa = PBXBuildFile; fileRef = 012C69B31DAF68F1005E7104 /* NSInvocation+EXT.m */; };
 		012C69BE1DAF68F1005E7104 /* NSMethodSignature+EXT.m in Sources */ = {isa = PBXBuildFile; fileRef = 012C69B51DAF68F1005E7104 /* NSMethodSignature+EXT.m */; };
+		01A8B97F1DB0AE8D00D87FCF /* PFDBManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 01A8B97E1DB0AE8D00D87FCF /* PFDBManager.m */; };
+		01A8B9821DB0AE9E00D87FCF /* PFAccountManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 01A8B9811DB0AE9E00D87FCF /* PFAccountManager.m */; };
+		01A8B9881DB0BEC100D87FCF /* PFBaseModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 01A8B9871DB0BEC100D87FCF /* PFBaseModel.m */; };
+		01A8B98B1DB0C0A300D87FCF /* PFAccount.m in Sources */ = {isa = PBXBuildFile; fileRef = 01A8B98A1DB0C0A300D87FCF /* PFAccount.m */; };
 		01D84F7A1D8FC87C00941545 /* PFBlowfish.m in Sources */ = {isa = PBXBuildFile; fileRef = 01D84F791D8FC87C00941545 /* PFBlowfish.m */; };
 		9DE5A47572279C22E1444A2B /* libPods-Puff.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 4A37F394A7D4A5D0EE5AABB7 /* libPods-Puff.a */; };
 /* End PBXBuildFile section */
@@ -38,8 +41,6 @@
 		011536F61D8932CC00C98268 /* Puff.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Puff.xcdatamodel; sourceTree = "<group>"; };
 		011536F81D8932CC00C98268 /* MasterViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MasterViewController.h; sourceTree = "<group>"; };
 		011536F91D8932CC00C98268 /* MasterViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MasterViewController.m; sourceTree = "<group>"; };
-		011536FB1D8932CC00C98268 /* DetailViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DetailViewController.h; sourceTree = "<group>"; };
-		011536FC1D8932CC00C98268 /* DetailViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DetailViewController.m; sourceTree = "<group>"; };
 		011536FF1D8932CC00C98268 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		011537011D8932CC00C98268 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		011537041D8932CC00C98268 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -71,6 +72,14 @@
 		012C69B31DAF68F1005E7104 /* NSInvocation+EXT.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSInvocation+EXT.m"; sourceTree = "<group>"; };
 		012C69B41DAF68F1005E7104 /* NSMethodSignature+EXT.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSMethodSignature+EXT.h"; sourceTree = "<group>"; };
 		012C69B51DAF68F1005E7104 /* NSMethodSignature+EXT.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSMethodSignature+EXT.m"; sourceTree = "<group>"; };
+		01A8B97D1DB0AE8D00D87FCF /* PFDBManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PFDBManager.h; path = Models/PFDBManager.h; sourceTree = "<group>"; };
+		01A8B97E1DB0AE8D00D87FCF /* PFDBManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PFDBManager.m; path = Models/PFDBManager.m; sourceTree = "<group>"; };
+		01A8B9801DB0AE9E00D87FCF /* PFAccountManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PFAccountManager.h; path = Models/PFAccountManager.h; sourceTree = "<group>"; };
+		01A8B9811DB0AE9E00D87FCF /* PFAccountManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PFAccountManager.m; path = Models/PFAccountManager.m; sourceTree = "<group>"; };
+		01A8B9861DB0BEC100D87FCF /* PFBaseModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PFBaseModel.h; path = Models/PFBaseModel.h; sourceTree = "<group>"; };
+		01A8B9871DB0BEC100D87FCF /* PFBaseModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PFBaseModel.m; path = Models/PFBaseModel.m; sourceTree = "<group>"; };
+		01A8B9891DB0C0A300D87FCF /* PFAccount.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PFAccount.h; sourceTree = "<group>"; };
+		01A8B98A1DB0C0A300D87FCF /* PFAccount.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PFAccount.m; sourceTree = "<group>"; };
 		01D84F781D8FC87C00941545 /* PFBlowfish.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PFBlowfish.h; path = Utils/PFBlowfish.h; sourceTree = "<group>"; };
 		01D84F791D8FC87C00941545 /* PFBlowfish.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PFBlowfish.m; path = Utils/PFBlowfish.m; sourceTree = "<group>"; };
 		2667787EC9FB7FA21A1CE652 /* Pods-Puff.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Puff.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Puff/Pods-Puff.debug.xcconfig"; sourceTree = "<group>"; };
@@ -114,16 +123,14 @@
 		011536EE1D8932CC00C98268 /* Puff */ = {
 			isa = PBXGroup;
 			children = (
+				01A8B9851DB0AED600D87FCF /* Resources */,
+				01A8B9841DB0AEBD00D87FCF /* Views */,
+				01A8B97C1DB0AE4300D87FCF /* Models */,
 				012C699C1DAF68E7005E7104 /* Vendor */,
 				012C69981DAF64BF005E7104 /* Categories */,
 				011536F21D8932CC00C98268 /* AppDelegate.h */,
 				011536F31D8932CC00C98268 /* AppDelegate.m */,
 				011537131D8933D000C98268 /* Controller */,
-				011536FE1D8932CC00C98268 /* Main.storyboard */,
-				011537011D8932CC00C98268 /* Assets.xcassets */,
-				011537031D8932CC00C98268 /* LaunchScreen.storyboard */,
-				011537061D8932CC00C98268 /* Info.plist */,
-				011536F51D8932CC00C98268 /* Puff.xcdatamodeld */,
 				011536EF1D8932CC00C98268 /* Supporting Files */,
 				011537121D89331400C98268 /* Utils */,
 			);
@@ -134,6 +141,7 @@
 			isa = PBXGroup;
 			children = (
 				011536F01D8932CC00C98268 /* main.m */,
+				011537061D8932CC00C98268 /* Info.plist */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
@@ -161,8 +169,6 @@
 			children = (
 				011536F81D8932CC00C98268 /* MasterViewController.h */,
 				011536F91D8932CC00C98268 /* MasterViewController.m */,
-				011536FB1D8932CC00C98268 /* DetailViewController.h */,
-				011536FC1D8932CC00C98268 /* DetailViewController.m */,
 			);
 			name = Controller;
 			sourceTree = "<group>";
@@ -213,6 +219,39 @@
 				012C69B51DAF68F1005E7104 /* NSMethodSignature+EXT.m */,
 			);
 			path = extobjc;
+			sourceTree = "<group>";
+		};
+		01A8B97C1DB0AE4300D87FCF /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				011536F51D8932CC00C98268 /* Puff.xcdatamodeld */,
+				01A8B97D1DB0AE8D00D87FCF /* PFDBManager.h */,
+				01A8B97E1DB0AE8D00D87FCF /* PFDBManager.m */,
+				01A8B9801DB0AE9E00D87FCF /* PFAccountManager.h */,
+				01A8B9811DB0AE9E00D87FCF /* PFAccountManager.m */,
+				01A8B9861DB0BEC100D87FCF /* PFBaseModel.h */,
+				01A8B9871DB0BEC100D87FCF /* PFBaseModel.m */,
+				01A8B9891DB0C0A300D87FCF /* PFAccount.h */,
+				01A8B98A1DB0C0A300D87FCF /* PFAccount.m */,
+			);
+			name = Models;
+			sourceTree = "<group>";
+		};
+		01A8B9841DB0AEBD00D87FCF /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				011537031D8932CC00C98268 /* LaunchScreen.storyboard */,
+				011536FE1D8932CC00C98268 /* Main.storyboard */,
+			);
+			name = Views;
+			sourceTree = "<group>";
+		};
+		01A8B9851DB0AED600D87FCF /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				011537011D8932CC00C98268 /* Assets.xcassets */,
+			);
+			name = Resources;
 			sourceTree = "<group>";
 		};
 		C79A086ECA26A5EF40510C4F /* Pods */ = {
@@ -349,7 +388,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				012C69BC1DAF68F1005E7104 /* EXTSelectorChecking.m in Sources */,
-				011536FD1D8932CC00C98268 /* DetailViewController.m in Sources */,
 				012C69BE1DAF68F1005E7104 /* NSMethodSignature+EXT.m in Sources */,
 				011536FA1D8932CC00C98268 /* MasterViewController.m in Sources */,
 				012C69B71DAF68F1005E7104 /* EXTConcreteProtocol.m in Sources */,
@@ -361,9 +399,13 @@
 				012C69BB1DAF68F1005E7104 /* EXTScope.m in Sources */,
 				01D84F7A1D8FC87C00941545 /* PFBlowfish.m in Sources */,
 				012C69B61DAF68F1005E7104 /* EXTADT.m in Sources */,
+				01A8B9821DB0AE9E00D87FCF /* PFAccountManager.m in Sources */,
 				012C699B1DAF64D1005E7104 /* NSObject+Events.m in Sources */,
 				012C69B91DAF68F1005E7104 /* EXTRuntimeExtensions.m in Sources */,
 				011536F71D8932CC00C98268 /* Puff.xcdatamodeld in Sources */,
+				01A8B98B1DB0C0A300D87FCF /* PFAccount.m in Sources */,
+				01A8B9881DB0BEC100D87FCF /* PFBaseModel.m in Sources */,
+				01A8B97F1DB0AE8D00D87FCF /* PFDBManager.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

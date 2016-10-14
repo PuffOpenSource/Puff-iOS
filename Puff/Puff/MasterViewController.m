@@ -7,7 +7,6 @@
 //
 
 #import "MasterViewController.h"
-#import "DetailViewController.h"
 
 #import "PFBlowfish.h"
 #import "NSObject+Events.h"

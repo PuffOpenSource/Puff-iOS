@@ -11,7 +11,6 @@
 #import <MMDrawerController/MMDrawerController.h>
 
 #import "NSObject+Events.h"
-#import "DetailViewController.h"
 #import "MasterViewController.h"
 
 @interface AppDelegate () <UISplitViewControllerDelegate>

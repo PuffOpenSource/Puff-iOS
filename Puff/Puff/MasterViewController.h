@@ -9,6 +9,8 @@
 #import <UIKit/UIKit.h>
 #import <CoreData/CoreData.h>
 #import "Puff+CoreDataModel.h"
+#import "_PFAccount+CoreDataClass.h"
+
 //#import <MMDrawerController/MMDrawerController.h>
 
 
@@ -16,7 +18,7 @@
 
 //@property (strong, nonatomic) DetailViewController *detailViewController;
 
-@property (strong, nonatomic) NSFetchedResultsController<Event *> *fetchedResultsController;
+@property (strong, nonatomic) NSFetchedResultsController<_PFAccount *> *fetchedResultsController;
 @property (strong, nonatomic) NSManagedObjectContext *managedObjectContext;
 
 
