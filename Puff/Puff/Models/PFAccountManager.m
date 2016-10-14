@@ -35,12 +35,43 @@
 }
 
 - (NSError*)saveAccount:(PFAccount *)account {
-    NSEntityDescription *entity = [NSEntityDescription entityForName:@"Account" inManagedObjectContext:[_dbManager context]];
-    [account managedObjectWithEntity:entity andContext:[_dbManager context]];
+    NSManagedObjectContext *ctx = [_dbManager context];
+    NSEntityDescription *entity = [NSEntityDescription entityForName:kEntityNamePFAccount inManagedObjectContext:ctx];
+    [account managedObjectWithEntity:entity andContext:ctx];
     
     NSError *err;
     [[_dbManager context] save:&err];
     return err;
 }
 
+- (NSError*)saveAccountFromDict:(NSDictionary*)dict {
+    return [self saveAccount:[[PFAccount alloc] initWithDict:dict]];
+}
+
+-(NSArray*)fetchAll {
+    NSFetchRequest *req = [NSFetchRequest fetchRequestWithEntityName:kEntityNamePFAccount];
+    NSManagedObjectContext *ctx = [_dbManager context];
+    NSError *err;
+    NSAsynchronousFetchResult *result = [ctx executeRequest:req error:&err];
+    if (err) {
+        return nil;
+    }
+    NSArray *results = [result finalResult];
+    NSMutableArray *ret = [@[] mutableCopy];
+    for (_PFAccount *raw in results) {
+        PFAccount *acct = [[PFAccount alloc] init];
+        [acct copyFromCDRaw:raw];
+        [ret addObject:acct];
+    }
+    return ret;
+}
+
+
+
+-(NSArray*)fetchAccountsByCategory:(int64_t)categoryId {
+    return @[];
+}
+-(PFAccount*)fetchAccountById:(int64_t)acctId {
+    return nil;
+}
 @end

@@ -4,3 +4,5 @@ Pods/
 #Mac
 .DS_Store
 
+# XCode
+xcuserdata

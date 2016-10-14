@@ -21,4 +21,6 @@
 @property (nullable, nonatomic, strong) NSString *salt;
 @property (nonatomic) int64_t type;
 @property (nullable, nonatomic, strong) NSString *website;
+
+- (PFAccount*)initWithDict:(NSDictionary*)dict;
 @end

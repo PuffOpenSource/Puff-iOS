@@ -80,6 +80,7 @@
 		01A8B9871DB0BEC100D87FCF /* PFBaseModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PFBaseModel.m; path = Models/PFBaseModel.m; sourceTree = "<group>"; };
 		01A8B9891DB0C0A300D87FCF /* PFAccount.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PFAccount.h; sourceTree = "<group>"; };
 		01A8B98A1DB0C0A300D87FCF /* PFAccount.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PFAccount.m; sourceTree = "<group>"; };
+		01A8B9B01DB0E1CC00D87FCF /* Config.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = Config.h; path = Config/Config.h; sourceTree = "<group>"; };
 		01D84F781D8FC87C00941545 /* PFBlowfish.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PFBlowfish.h; path = Utils/PFBlowfish.h; sourceTree = "<group>"; };
 		01D84F791D8FC87C00941545 /* PFBlowfish.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PFBlowfish.m; path = Utils/PFBlowfish.m; sourceTree = "<group>"; };
 		2667787EC9FB7FA21A1CE652 /* Pods-Puff.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Puff.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Puff/Pods-Puff.debug.xcconfig"; sourceTree = "<group>"; };
@@ -123,6 +124,7 @@
 		011536EE1D8932CC00C98268 /* Puff */ = {
 			isa = PBXGroup;
 			children = (
+				01A8B9AF1DB0E08600D87FCF /* Config */,
 				01A8B9851DB0AED600D87FCF /* Resources */,
 				01A8B9841DB0AEBD00D87FCF /* Views */,
 				01A8B97C1DB0AE4300D87FCF /* Models */,
@@ -252,6 +254,14 @@
 				011537011D8932CC00C98268 /* Assets.xcassets */,
 			);
 			name = Resources;
+			sourceTree = "<group>";
+		};
+		01A8B9AF1DB0E08600D87FCF /* Config */ = {
+			isa = PBXGroup;
+			children = (
+				01A8B9B01DB0E1CC00D87FCF /* Config.h */,
+			);
+			name = Config;
 			sourceTree = "<group>";
 		};
 		C79A086ECA26A5EF40510C4F /* Pods */ = {

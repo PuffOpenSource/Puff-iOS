@@ -12,10 +12,18 @@
 
 @implementation PFAccount
 
-- (instancetype)initWithDict:(NSDictionary*)dict {
+- (PFAccount*)initWithDict:(NSDictionary*)dict {
     self = [super init];
     if (self) {
         //TODO:
+    }
+    return self;
+}
+
+- (PFAccount*)initWithRaw:(_PFAccount*)raw {
+    self = [super init];
+    if (self) {
+        
     }
     return self;
 }

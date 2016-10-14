@@ -10,6 +10,8 @@
 #import "_PFAccount+CoreDataClass.h"
 #import "PFAccount.h"
 
+static NSString * const kEntityNamePFAccount        =   @"PFAccount";
+
 @interface PFAccountManager : NSObject
 
 +(instancetype)sharedManager;
