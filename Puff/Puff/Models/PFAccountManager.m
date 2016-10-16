@@ -56,22 +56,34 @@
     if (err) {
         return nil;
     }
-    NSArray *results = [result finalResult];
+    return [self _rawResultsToWrapped:[result finalResult]];
+}
+
+
+-(NSArray*)fetchAccountsByCategory:(int64_t)categoryId {
+    NSFetchRequest *req = [NSFetchRequest fetchRequestWithEntityName:kEntityNamePFAccount];
+    NSPredicate *filter = [NSPredicate predicateWithFormat:@"category == %llu", categoryId];
+    [req setPredicate: filter];
+    NSManagedObjectContext *ctx = [_dbManager context];
+    NSError *err;
+    NSAsynchronousFetchResult *result = [ctx executeRequest:req error:&err];
+    if (err) {
+        return nil;
+    }
+    return [self _rawResultsToWrapped:[result finalResult]];
+}
+
+- (NSArray*)fetchAccountsByType:(int64_t)typeId {
+    return @[];
+}
+
+- (NSArray*)_rawResultsToWrapped:(NSArray*)raws {
     NSMutableArray *ret = [@[] mutableCopy];
-    for (_PFAccount *raw in results) {
+    for (_PFAccount *raw in raws) {
         PFAccount *acct = [[PFAccount alloc] init];
         [acct copyFromCDRaw:raw];
         [ret addObject:acct];
     }
     return ret;
-}
-
-
-
--(NSArray*)fetchAccountsByCategory:(int64_t)categoryId {
-    return @[];
-}
--(PFAccount*)fetchAccountById:(int64_t)acctId {
-    return nil;
 }
 @end

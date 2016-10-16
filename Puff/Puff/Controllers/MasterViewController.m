@@ -11,6 +11,8 @@
 #import "PFBlowfish.h"
 #import "NSObject+Events.h"
 
+#import "PFAccountManager.h"
+
 @interface MasterViewController ()
 
 @end
@@ -25,19 +27,19 @@
 //    UIBarButtonItem *addButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemAdd target:self action:@selector(insertNewObject:)];
 //    self.navigationItem.rightBarButtonItem = addButton;
 
-    [self subscribe:@"event" handler:^(PFEvent *event) {
-        NSLog(@"%@", event.name);
-    }];
-
 }
 
 - (void)viewDidAppear:(BOOL)animated {
     [super viewDidAppear:animated];
-    [self publish:@"event"];
 //    for (int i = 0; i < 1000; i++) {
 //        [self _cryptoTest];
 ////        [self _encryptTest];
 //    }
+//    for (int i = 0; i < 10; i++) {
+//        [self _coreDataWriteTest];
+//    }
+    [self _coreDataReadTest];
+    
 }
 
 - (void)_cryptoTest {
@@ -64,6 +66,20 @@
 - (NSString*)_padString:(NSString*)input {
     NSUInteger paddedLength = input.length + (8 - (input.length % 8));
     return [input stringByPaddingToLength:paddedLength withString:@" " startingAtIndex:0];
+}
+
+- (void)_coreDataWriteTest {
+    PFAccount *acct = [[PFAccount alloc] init];
+    acct.name = @"aaaaa";
+    acct.category = 1234567;
+    PFAccountManager *manager = [PFAccountManager sharedManager];
+    [manager saveAccount:acct];
+}
+
+- (void)_coreDataReadTest {
+    PFAccountManager *manager = [PFAccountManager sharedManager];
+    NSArray *accts = [manager fetchAccountsByCategory:1234567];
+    return;
 }
 
 

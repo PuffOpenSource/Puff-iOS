@@ -10,7 +10,6 @@
 		011536F11D8932CC00C98268 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 011536F01D8932CC00C98268 /* main.m */; };
 		011536F41D8932CC00C98268 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 011536F31D8932CC00C98268 /* AppDelegate.m */; };
 		011536F71D8932CC00C98268 /* Puff.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 011536F51D8932CC00C98268 /* Puff.xcdatamodeld */; };
-		011536FA1D8932CC00C98268 /* MasterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 011536F91D8932CC00C98268 /* MasterViewController.m */; };
 		011537001D8932CC00C98268 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 011536FE1D8932CC00C98268 /* Main.storyboard */; };
 		011537021D8932CC00C98268 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 011537011D8932CC00C98268 /* Assets.xcassets */; };
 		011537051D8932CC00C98268 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 011537031D8932CC00C98268 /* LaunchScreen.storyboard */; };
@@ -28,7 +27,12 @@
 		01A8B97F1DB0AE8D00D87FCF /* PFDBManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 01A8B97E1DB0AE8D00D87FCF /* PFDBManager.m */; };
 		01A8B9821DB0AE9E00D87FCF /* PFAccountManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 01A8B9811DB0AE9E00D87FCF /* PFAccountManager.m */; };
 		01A8B9881DB0BEC100D87FCF /* PFBaseModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 01A8B9871DB0BEC100D87FCF /* PFBaseModel.m */; };
-		01A8B98B1DB0C0A300D87FCF /* PFAccount.m in Sources */ = {isa = PBXBuildFile; fileRef = 01A8B98A1DB0C0A300D87FCF /* PFAccount.m */; };
+		01D3AF831DB3C94000EE5CA1 /* PFCategory.m in Sources */ = {isa = PBXBuildFile; fileRef = 01D3AF821DB3C94000EE5CA1 /* PFCategory.m */; };
+		01D3AF861DB3C97B00EE5CA1 /* PFAccount.m in Sources */ = {isa = PBXBuildFile; fileRef = 01D3AF851DB3C97B00EE5CA1 /* PFAccount.m */; };
+		01D3AF891DB3C99800EE5CA1 /* MasterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 01D3AF881DB3C99800EE5CA1 /* MasterViewController.m */; };
+		01D3AF8C1DB3C9B000EE5CA1 /* PFType.m in Sources */ = {isa = PBXBuildFile; fileRef = 01D3AF8B1DB3C9B000EE5CA1 /* PFType.m */; };
+		01D3AF8F1DB3CA3600EE5CA1 /* PFCategoryManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 01D3AF8E1DB3CA3600EE5CA1 /* PFCategoryManager.m */; };
+		01D3AF921DB3CA4500EE5CA1 /* PFTypeManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 01D3AF911DB3CA4500EE5CA1 /* PFTypeManager.m */; };
 		01D84F7A1D8FC87C00941545 /* PFBlowfish.m in Sources */ = {isa = PBXBuildFile; fileRef = 01D84F791D8FC87C00941545 /* PFBlowfish.m */; };
 		9DE5A47572279C22E1444A2B /* libPods-Puff.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 4A37F394A7D4A5D0EE5AABB7 /* libPods-Puff.a */; };
 /* End PBXBuildFile section */
@@ -39,8 +43,6 @@
 		011536F21D8932CC00C98268 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		011536F31D8932CC00C98268 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
 		011536F61D8932CC00C98268 /* Puff.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Puff.xcdatamodel; sourceTree = "<group>"; };
-		011536F81D8932CC00C98268 /* MasterViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MasterViewController.h; sourceTree = "<group>"; };
-		011536F91D8932CC00C98268 /* MasterViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MasterViewController.m; sourceTree = "<group>"; };
 		011536FF1D8932CC00C98268 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		011537011D8932CC00C98268 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		011537041D8932CC00C98268 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -78,9 +80,19 @@
 		01A8B9811DB0AE9E00D87FCF /* PFAccountManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PFAccountManager.m; path = Models/PFAccountManager.m; sourceTree = "<group>"; };
 		01A8B9861DB0BEC100D87FCF /* PFBaseModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PFBaseModel.h; path = Models/PFBaseModel.h; sourceTree = "<group>"; };
 		01A8B9871DB0BEC100D87FCF /* PFBaseModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PFBaseModel.m; path = Models/PFBaseModel.m; sourceTree = "<group>"; };
-		01A8B9891DB0C0A300D87FCF /* PFAccount.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PFAccount.h; sourceTree = "<group>"; };
-		01A8B98A1DB0C0A300D87FCF /* PFAccount.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PFAccount.m; sourceTree = "<group>"; };
 		01A8B9B01DB0E1CC00D87FCF /* Config.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = Config.h; path = Config/Config.h; sourceTree = "<group>"; };
+		01D3AF811DB3C94000EE5CA1 /* PFCategory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PFCategory.h; path = Models/PFCategory.h; sourceTree = "<group>"; };
+		01D3AF821DB3C94000EE5CA1 /* PFCategory.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PFCategory.m; path = Models/PFCategory.m; sourceTree = "<group>"; };
+		01D3AF841DB3C97B00EE5CA1 /* PFAccount.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PFAccount.h; path = Models/PFAccount.h; sourceTree = "<group>"; };
+		01D3AF851DB3C97B00EE5CA1 /* PFAccount.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PFAccount.m; path = Models/PFAccount.m; sourceTree = "<group>"; };
+		01D3AF871DB3C99800EE5CA1 /* MasterViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MasterViewController.h; path = Controllers/MasterViewController.h; sourceTree = "<group>"; };
+		01D3AF881DB3C99800EE5CA1 /* MasterViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MasterViewController.m; path = Controllers/MasterViewController.m; sourceTree = "<group>"; };
+		01D3AF8A1DB3C9B000EE5CA1 /* PFType.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PFType.h; sourceTree = "<group>"; };
+		01D3AF8B1DB3C9B000EE5CA1 /* PFType.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PFType.m; sourceTree = "<group>"; };
+		01D3AF8D1DB3CA3600EE5CA1 /* PFCategoryManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PFCategoryManager.h; path = Models/PFCategoryManager.h; sourceTree = "<group>"; };
+		01D3AF8E1DB3CA3600EE5CA1 /* PFCategoryManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PFCategoryManager.m; path = Models/PFCategoryManager.m; sourceTree = "<group>"; };
+		01D3AF901DB3CA4500EE5CA1 /* PFTypeManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PFTypeManager.h; path = Models/PFTypeManager.h; sourceTree = "<group>"; };
+		01D3AF911DB3CA4500EE5CA1 /* PFTypeManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PFTypeManager.m; path = Models/PFTypeManager.m; sourceTree = "<group>"; };
 		01D84F781D8FC87C00941545 /* PFBlowfish.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PFBlowfish.h; path = Utils/PFBlowfish.h; sourceTree = "<group>"; };
 		01D84F791D8FC87C00941545 /* PFBlowfish.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PFBlowfish.m; path = Utils/PFBlowfish.m; sourceTree = "<group>"; };
 		2667787EC9FB7FA21A1CE652 /* Pods-Puff.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Puff.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Puff/Pods-Puff.debug.xcconfig"; sourceTree = "<group>"; };
@@ -169,8 +181,8 @@
 		011537131D8933D000C98268 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
-				011536F81D8932CC00C98268 /* MasterViewController.h */,
-				011536F91D8932CC00C98268 /* MasterViewController.m */,
+				01D3AF871DB3C99800EE5CA1 /* MasterViewController.h */,
+				01D3AF881DB3C99800EE5CA1 /* MasterViewController.m */,
 			);
 			name = Controller;
 			sourceTree = "<group>";
@@ -233,8 +245,16 @@
 				01A8B9811DB0AE9E00D87FCF /* PFAccountManager.m */,
 				01A8B9861DB0BEC100D87FCF /* PFBaseModel.h */,
 				01A8B9871DB0BEC100D87FCF /* PFBaseModel.m */,
-				01A8B9891DB0C0A300D87FCF /* PFAccount.h */,
-				01A8B98A1DB0C0A300D87FCF /* PFAccount.m */,
+				01D3AF841DB3C97B00EE5CA1 /* PFAccount.h */,
+				01D3AF851DB3C97B00EE5CA1 /* PFAccount.m */,
+				01D3AF811DB3C94000EE5CA1 /* PFCategory.h */,
+				01D3AF821DB3C94000EE5CA1 /* PFCategory.m */,
+				01D3AF8A1DB3C9B000EE5CA1 /* PFType.h */,
+				01D3AF8B1DB3C9B000EE5CA1 /* PFType.m */,
+				01D3AF8D1DB3CA3600EE5CA1 /* PFCategoryManager.h */,
+				01D3AF8E1DB3CA3600EE5CA1 /* PFCategoryManager.m */,
+				01D3AF901DB3CA4500EE5CA1 /* PFTypeManager.h */,
+				01D3AF911DB3CA4500EE5CA1 /* PFTypeManager.m */,
 			);
 			name = Models;
 			sourceTree = "<group>";
@@ -399,23 +419,27 @@
 			files = (
 				012C69BC1DAF68F1005E7104 /* EXTSelectorChecking.m in Sources */,
 				012C69BE1DAF68F1005E7104 /* NSMethodSignature+EXT.m in Sources */,
-				011536FA1D8932CC00C98268 /* MasterViewController.m in Sources */,
 				012C69B71DAF68F1005E7104 /* EXTConcreteProtocol.m in Sources */,
 				011536F41D8932CC00C98268 /* AppDelegate.m in Sources */,
 				011536F11D8932CC00C98268 /* main.m in Sources */,
+				01D3AF921DB3CA4500EE5CA1 /* PFTypeManager.m in Sources */,
 				012C69B81DAF68F1005E7104 /* EXTNil.m in Sources */,
 				012C69BA1DAF68F1005E7104 /* EXTSafeCategory.m in Sources */,
 				012C69BD1DAF68F1005E7104 /* NSInvocation+EXT.m in Sources */,
 				012C69BB1DAF68F1005E7104 /* EXTScope.m in Sources */,
+				01D3AF861DB3C97B00EE5CA1 /* PFAccount.m in Sources */,
 				01D84F7A1D8FC87C00941545 /* PFBlowfish.m in Sources */,
+				01D3AF8F1DB3CA3600EE5CA1 /* PFCategoryManager.m in Sources */,
 				012C69B61DAF68F1005E7104 /* EXTADT.m in Sources */,
+				01D3AF891DB3C99800EE5CA1 /* MasterViewController.m in Sources */,
 				01A8B9821DB0AE9E00D87FCF /* PFAccountManager.m in Sources */,
 				012C699B1DAF64D1005E7104 /* NSObject+Events.m in Sources */,
 				012C69B91DAF68F1005E7104 /* EXTRuntimeExtensions.m in Sources */,
 				011536F71D8932CC00C98268 /* Puff.xcdatamodeld in Sources */,
-				01A8B98B1DB0C0A300D87FCF /* PFAccount.m in Sources */,
 				01A8B9881DB0BEC100D87FCF /* PFBaseModel.m in Sources */,
 				01A8B97F1DB0AE8D00D87FCF /* PFDBManager.m in Sources */,
+				01D3AF8C1DB3C9B000EE5CA1 /* PFType.m in Sources */,
+				01D3AF831DB3C94000EE5CA1 /* PFCategory.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
