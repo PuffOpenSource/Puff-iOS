@@ -13,4 +13,6 @@
 @property (nullable, nonatomic, strong) NSString *icon;
 @property (nonatomic, assign) int64_t identifier;
 @property (nullable, nonatomic, strong) NSString *name;
+
+- (instancetype)initWithDict:(NSDictionary*)dict;
 @end

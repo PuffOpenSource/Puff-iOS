@@ -10,6 +10,8 @@
 #import "_PFType+CoreDataClass.h"
 #import "PFType.h"
 
+static NSString * const kEntityNamePFType       = @"PFType";
+
 @interface PFTypeManager : NSObject
 
 +(instancetype)sharedManager;

@@ -40,7 +40,7 @@
     [account managedObjectWithEntity:entity andContext:ctx];
     
     NSError *err;
-    [[_dbManager context] save:&err];
+    [ctx save:&err];
     return err;
 }
 
@@ -56,7 +56,8 @@
     if (err) {
         return nil;
     }
-    return [self _rawResultsToWrapped:[result finalResult]];
+    return [PFAccount convertFromRaws:[result finalResult] toWrapped:[PFAccount class]];
+//    return [self _rawResultsToWrapped:[result finalResult]];
 }
 
 
@@ -70,20 +71,20 @@
     if (err) {
         return nil;
     }
-    return [self _rawResultsToWrapped:[result finalResult]];
+    return [PFAccount convertFromRaws:[result finalResult] toWrapped:[PFAccount class]];
+//    return [self _rawResultsToWrapped:[result finalResult]];
 }
 
 - (NSArray*)fetchAccountsByType:(int64_t)typeId {
-    return @[];
-}
-
-- (NSArray*)_rawResultsToWrapped:(NSArray*)raws {
-    NSMutableArray *ret = [@[] mutableCopy];
-    for (_PFAccount *raw in raws) {
-        PFAccount *acct = [[PFAccount alloc] init];
-        [acct copyFromCDRaw:raw];
-        [ret addObject:acct];
+    NSFetchRequest *req = [NSFetchRequest fetchRequestWithEntityName:kEntityNamePFAccount];
+    NSPredicate *filter = [NSPredicate predicateWithFormat:@"type == %llu", typeId];
+    [req setPredicate: filter];
+    NSManagedObjectContext *ctx = [_dbManager context];
+    NSError *err;
+    NSAsynchronousFetchResult *result = [ctx executeRequest:req error:&err];
+    if (err) {
+        return nil;
     }
-    return ret;
+    return [PFAccount convertFromRaws:[result finalResult] toWrapped:[PFAccount class]];
 }
 @end

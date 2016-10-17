@@ -18,4 +18,5 @@
 //Requires rawObj's properties contains self properties.
 //Will crash if not.
 - (void)copyFromCDRaw:(NSManagedObject*)rawObj;
++ (NSArray*)convertFromRaws:(NSArray*)raws toWrapped:(Class)clazz;
 @end

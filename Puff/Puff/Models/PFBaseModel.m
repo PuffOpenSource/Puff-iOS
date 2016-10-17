@@ -54,4 +54,14 @@
     }
     return ret;
 }
+
++ (NSArray*)convertFromRaws:(NSArray*)raws toWrapped:(Class)clazz {
+    NSMutableArray *ret = [@[] mutableCopy];
+    for (NSManagedObject *raw in raws) {
+        PFBaseModel *cat = [[clazz alloc] init];
+        [cat copyFromCDRaw:raw];
+        [ret addObject:cat];
+    }
+    return ret;
+}
 @end

@@ -8,24 +8,58 @@
 
 #import "PFTypeManager.h"
 
+@interface PFTypeManager()
+@property (strong) PFDBManager *dbManager;
+@end
+
 @implementation PFTypeManager
 
 +(instancetype)sharedManager {
-    return nil;
+    static PFTypeManager *instance;
+    static dispatch_once_t onceToken;
+    dispatch_once(&onceToken, ^{
+        instance = [[PFTypeManager alloc] init];
+        instance.dbManager = [PFDBManager sharedManager];
+    });
+    
+    return instance;
 }
 
 - (NSError*)saveType:(PFType*)type {
-    return nil;
+    NSManagedObjectContext *ctx = [_dbManager context];
+    NSEntityDescription *entity = [NSEntityDescription entityForName:kEntityNamePFType inManagedObjectContext:ctx];
+    [type managedObjectWithEntity:entity andContext:ctx];
+    
+    NSError *err;
+    [ctx save: &err];
+    return err;
 }
 - (NSError*)saveTypeFromDict:(NSDictionary*)dict {
-    return nil;
+    return [self saveType: [[PFType alloc] initWithDict:dict]];
 }
 
 -(NSArray*)fetchAll {
-    return nil;
+    NSFetchRequest *req = [NSFetchRequest fetchRequestWithEntityName:kEntityNamePFType];
+    NSManagedObjectContext *ctx = [_dbManager context];
+    NSError *err;
+    NSAsynchronousFetchResult *result = [ctx executeRequest:req error:&err];
+    if (err) {
+        return nil;
+    }
+    return [PFType convertFromRaws:[result finalResult] toWrapped:[PFType class]];
 }
 -(NSArray*)fetchTypeByCategory:(int64_t)categoryId {
-    return nil;
+    NSFetchRequest *req = [NSFetchRequest fetchRequestWithEntityName:kEntityNamePFType];
+    NSPredicate *filter = [NSPredicate predicateWithFormat:@"category == %llu", categoryId];
+    [req setPredicate:filter];
+    NSManagedObjectContext *ctx = [_dbManager context];
+    NSError *err;
+    NSAsynchronousFetchResult *result = [ctx executeRequest:req error:&err];
+    if (err) {
+        return nil;
+    }
+    
+    return [PFType convertFromRaws:[result finalResult] toWrapped:[PFType class]];
 }
 
 @end

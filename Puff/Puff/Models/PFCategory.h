@@ -13,4 +13,6 @@
 @property (nonatomic, assign) int64_t identifier;
 @property (nullable, nonatomic, strong) NSString *name;
 @property (nonatomic, assign) int64_t type;
+
+- (instancetype)initWithDict:(NSDictionary*)dict;
 @end
