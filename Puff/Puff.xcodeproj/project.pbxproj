@@ -7,11 +7,14 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		010CFB341DB4B7B600FEE5DE /* PFCategoryUtil.m in Sources */ = {isa = PBXBuildFile; fileRef = 010CFB331DB4B7B600FEE5DE /* PFCategoryUtil.m */; };
+		010CFB381DB4B99000FEE5DE /* PFType.m in Sources */ = {isa = PBXBuildFile; fileRef = 010CFB371DB4B99000FEE5DE /* PFType.m */; };
+		010CFB3A1DB4B9B500FEE5DE /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 010CFB391DB4B9B500FEE5DE /* Assets.xcassets */; };
+		010CFC2C1DB4C03A00FEE5DE /* cats in Resources */ = {isa = PBXBuildFile; fileRef = 010CFC2B1DB4C03A00FEE5DE /* cats */; };
 		011536F11D8932CC00C98268 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 011536F01D8932CC00C98268 /* main.m */; };
 		011536F41D8932CC00C98268 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 011536F31D8932CC00C98268 /* AppDelegate.m */; };
 		011536F71D8932CC00C98268 /* Puff.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 011536F51D8932CC00C98268 /* Puff.xcdatamodeld */; };
 		011537001D8932CC00C98268 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 011536FE1D8932CC00C98268 /* Main.storyboard */; };
-		011537021D8932CC00C98268 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 011537011D8932CC00C98268 /* Assets.xcassets */; };
 		011537051D8932CC00C98268 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 011537031D8932CC00C98268 /* LaunchScreen.storyboard */; };
 		0115370E1D8932DA00C98268 /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0115370D1D8932DA00C98268 /* Security.framework */; };
 		012C699B1DAF64D1005E7104 /* NSObject+Events.m in Sources */ = {isa = PBXBuildFile; fileRef = 012C699A1DAF64D1005E7104 /* NSObject+Events.m */; };
@@ -30,7 +33,6 @@
 		01D3AF831DB3C94000EE5CA1 /* PFCategory.m in Sources */ = {isa = PBXBuildFile; fileRef = 01D3AF821DB3C94000EE5CA1 /* PFCategory.m */; };
 		01D3AF861DB3C97B00EE5CA1 /* PFAccount.m in Sources */ = {isa = PBXBuildFile; fileRef = 01D3AF851DB3C97B00EE5CA1 /* PFAccount.m */; };
 		01D3AF891DB3C99800EE5CA1 /* MasterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 01D3AF881DB3C99800EE5CA1 /* MasterViewController.m */; };
-		01D3AF8C1DB3C9B000EE5CA1 /* PFType.m in Sources */ = {isa = PBXBuildFile; fileRef = 01D3AF8B1DB3C9B000EE5CA1 /* PFType.m */; };
 		01D3AF8F1DB3CA3600EE5CA1 /* PFCategoryManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 01D3AF8E1DB3CA3600EE5CA1 /* PFCategoryManager.m */; };
 		01D3AF921DB3CA4500EE5CA1 /* PFTypeManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 01D3AF911DB3CA4500EE5CA1 /* PFTypeManager.m */; };
 		01D84F7A1D8FC87C00941545 /* PFBlowfish.m in Sources */ = {isa = PBXBuildFile; fileRef = 01D84F791D8FC87C00941545 /* PFBlowfish.m */; };
@@ -38,13 +40,19 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		010CFB311DB4B3A800FEE5DE /* Constants.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Constants.h; path = Config/Constants.h; sourceTree = "<group>"; };
+		010CFB321DB4B7B600FEE5DE /* PFCategoryUtil.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PFCategoryUtil.h; path = Utils/PFCategoryUtil.h; sourceTree = "<group>"; };
+		010CFB331DB4B7B600FEE5DE /* PFCategoryUtil.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PFCategoryUtil.m; path = Utils/PFCategoryUtil.m; sourceTree = "<group>"; };
+		010CFB361DB4B99000FEE5DE /* PFType.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PFType.h; path = Models/PFType.h; sourceTree = "<group>"; };
+		010CFB371DB4B99000FEE5DE /* PFType.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PFType.m; path = Models/PFType.m; sourceTree = "<group>"; };
+		010CFB391DB4B9B500FEE5DE /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Assets.xcassets; path = Resources/Assets.xcassets; sourceTree = "<group>"; };
+		010CFC2B1DB4C03A00FEE5DE /* cats */ = {isa = PBXFileReference; lastKnownFileType = folder; name = cats; path = Resources/cats; sourceTree = "<group>"; };
 		011536EC1D8932CC00C98268 /* Puff.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Puff.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		011536F01D8932CC00C98268 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		011536F21D8932CC00C98268 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		011536F31D8932CC00C98268 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
 		011536F61D8932CC00C98268 /* Puff.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Puff.xcdatamodel; sourceTree = "<group>"; };
 		011536FF1D8932CC00C98268 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
-		011537011D8932CC00C98268 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		011537041D8932CC00C98268 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		011537061D8932CC00C98268 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		0115370D1D8932DA00C98268 /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
@@ -87,8 +95,6 @@
 		01D3AF851DB3C97B00EE5CA1 /* PFAccount.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PFAccount.m; path = Models/PFAccount.m; sourceTree = "<group>"; };
 		01D3AF871DB3C99800EE5CA1 /* MasterViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MasterViewController.h; path = Controllers/MasterViewController.h; sourceTree = "<group>"; };
 		01D3AF881DB3C99800EE5CA1 /* MasterViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MasterViewController.m; path = Controllers/MasterViewController.m; sourceTree = "<group>"; };
-		01D3AF8A1DB3C9B000EE5CA1 /* PFType.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PFType.h; sourceTree = "<group>"; };
-		01D3AF8B1DB3C9B000EE5CA1 /* PFType.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PFType.m; sourceTree = "<group>"; };
 		01D3AF8D1DB3CA3600EE5CA1 /* PFCategoryManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PFCategoryManager.h; path = Models/PFCategoryManager.h; sourceTree = "<group>"; };
 		01D3AF8E1DB3CA3600EE5CA1 /* PFCategoryManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PFCategoryManager.m; path = Models/PFCategoryManager.m; sourceTree = "<group>"; };
 		01D3AF901DB3CA4500EE5CA1 /* PFTypeManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PFTypeManager.h; path = Models/PFTypeManager.h; sourceTree = "<group>"; };
@@ -174,6 +180,8 @@
 			children = (
 				01D84F781D8FC87C00941545 /* PFBlowfish.h */,
 				01D84F791D8FC87C00941545 /* PFBlowfish.m */,
+				010CFB321DB4B7B600FEE5DE /* PFCategoryUtil.h */,
+				010CFB331DB4B7B600FEE5DE /* PFCategoryUtil.m */,
 			);
 			name = Utils;
 			sourceTree = "<group>";
@@ -249,8 +257,8 @@
 				01D3AF851DB3C97B00EE5CA1 /* PFAccount.m */,
 				01D3AF811DB3C94000EE5CA1 /* PFCategory.h */,
 				01D3AF821DB3C94000EE5CA1 /* PFCategory.m */,
-				01D3AF8A1DB3C9B000EE5CA1 /* PFType.h */,
-				01D3AF8B1DB3C9B000EE5CA1 /* PFType.m */,
+				010CFB361DB4B99000FEE5DE /* PFType.h */,
+				010CFB371DB4B99000FEE5DE /* PFType.m */,
 				01D3AF8D1DB3CA3600EE5CA1 /* PFCategoryManager.h */,
 				01D3AF8E1DB3CA3600EE5CA1 /* PFCategoryManager.m */,
 				01D3AF901DB3CA4500EE5CA1 /* PFTypeManager.h */,
@@ -271,7 +279,8 @@
 		01A8B9851DB0AED600D87FCF /* Resources */ = {
 			isa = PBXGroup;
 			children = (
-				011537011D8932CC00C98268 /* Assets.xcassets */,
+				010CFB391DB4B9B500FEE5DE /* Assets.xcassets */,
+				010CFC2B1DB4C03A00FEE5DE /* cats */,
 			);
 			name = Resources;
 			sourceTree = "<group>";
@@ -280,6 +289,7 @@
 			isa = PBXGroup;
 			children = (
 				01A8B9B01DB0E1CC00D87FCF /* Config.h */,
+				010CFB311DB4B3A800FEE5DE /* Constants.h */,
 			);
 			name = Config;
 			sourceTree = "<group>";
@@ -357,8 +367,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				011537051D8932CC00C98268 /* LaunchScreen.storyboard in Resources */,
-				011537021D8932CC00C98268 /* Assets.xcassets in Resources */,
+				010CFB3A1DB4B9B500FEE5DE /* Assets.xcassets in Resources */,
 				011537001D8932CC00C98268 /* Main.storyboard in Resources */,
+				010CFC2C1DB4C03A00FEE5DE /* cats in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -422,6 +433,7 @@
 				012C69B71DAF68F1005E7104 /* EXTConcreteProtocol.m in Sources */,
 				011536F41D8932CC00C98268 /* AppDelegate.m in Sources */,
 				011536F11D8932CC00C98268 /* main.m in Sources */,
+				010CFB341DB4B7B600FEE5DE /* PFCategoryUtil.m in Sources */,
 				01D3AF921DB3CA4500EE5CA1 /* PFTypeManager.m in Sources */,
 				012C69B81DAF68F1005E7104 /* EXTNil.m in Sources */,
 				012C69BA1DAF68F1005E7104 /* EXTSafeCategory.m in Sources */,
@@ -435,10 +447,10 @@
 				01A8B9821DB0AE9E00D87FCF /* PFAccountManager.m in Sources */,
 				012C699B1DAF64D1005E7104 /* NSObject+Events.m in Sources */,
 				012C69B91DAF68F1005E7104 /* EXTRuntimeExtensions.m in Sources */,
+				010CFB381DB4B99000FEE5DE /* PFType.m in Sources */,
 				011536F71D8932CC00C98268 /* Puff.xcdatamodeld in Sources */,
 				01A8B9881DB0BEC100D87FCF /* PFBaseModel.m in Sources */,
 				01A8B97F1DB0AE8D00D87FCF /* PFDBManager.m in Sources */,
-				01D3AF8C1DB3C9B000EE5CA1 /* PFType.m in Sources */,
 				01D3AF831DB3C94000EE5CA1 /* PFCategory.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

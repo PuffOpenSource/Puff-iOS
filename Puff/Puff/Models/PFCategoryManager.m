@@ -13,7 +13,7 @@
 @end
 
 @implementation PFCategoryManager
-- (instancetype)sharedManager {
++ (instancetype)sharedManager {
     static PFCategoryManager *instance;
     static dispatch_once_t onceToken;
     dispatch_once(&onceToken, ^{

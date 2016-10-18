@@ -31,7 +31,7 @@
     </entity>
     <elements>
         <element name="PFAccount" positionX="261" positionY="189" width="128" height="225"/>
-        <element name="PFType" positionX="261" positionY="279" width="128" height="105"/>
         <element name="PFCategory" positionX="270" positionY="288" width="128" height="105"/>
+        <element name="PFType" positionX="261" positionY="279" width="128" height="105"/>
     </elements>
 </model>

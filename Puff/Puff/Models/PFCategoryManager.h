@@ -14,7 +14,7 @@ static NSString * const kEntityNamePFCategory       = @"PFCategory";
 
 @interface PFCategoryManager : NSObject
 
-- (instancetype)sharedManager;
++ (instancetype)sharedManager;
 
 - (NSError*)saveCategory:(PFCategory*)category;
 - (NSError*)saveCategoryFromDict:(NSDictionary*)dict;

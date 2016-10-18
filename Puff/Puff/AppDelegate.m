@@ -13,6 +13,8 @@
 #import "NSObject+Events.h"
 #import "MasterViewController.h"
 
+#import "PFCategoryUtil.h"
+
 @interface AppDelegate () <UISplitViewControllerDelegate>
 @property (strong, nonatomic) UIStoryboard* mainStoryboard;
 
@@ -56,6 +58,8 @@
 
     
     [NSObject setDispatchQueue:[NSOperationQueue mainQueue]];
+    
+    [PFCategoryUtil sharedInstance];
     
     return YES;
 }

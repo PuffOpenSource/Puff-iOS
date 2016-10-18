@@ -57,7 +57,6 @@
         return nil;
     }
     return [PFAccount convertFromRaws:[result finalResult] toWrapped:[PFAccount class]];
-//    return [self _rawResultsToWrapped:[result finalResult]];
 }
 
 
@@ -72,7 +71,6 @@
         return nil;
     }
     return [PFAccount convertFromRaws:[result finalResult] toWrapped:[PFAccount class]];
-//    return [self _rawResultsToWrapped:[result finalResult]];
 }
 
 - (NSArray*)fetchAccountsByType:(int64_t)typeId {
