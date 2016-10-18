@@ -12,6 +12,7 @@
 
 @interface PFDrawerCell ()
 @property (weak, nonatomic) IBOutlet UILabel *nameLabel;
+@property (weak, nonatomic) IBOutlet UIImageView *icon;
 
 @end
 
@@ -30,6 +31,9 @@
 
 - (void)configWithCategory:(PFCategory*)category {
     _nameLabel.text = category.name;
+    NSData *data = [NSData dataWithContentsOfURL:[NSURL fileURLWithPath:category.icon isDirectory:NO]];
+    UIImage *img = [UIImage imageWithData:data];
+    self.icon.image = img;
 }
 
 @end

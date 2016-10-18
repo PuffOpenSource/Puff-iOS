@@ -33,6 +33,9 @@
 //    MasterViewController *controller = (MasterViewController *)masterNavigationController.topViewController;
 //    controller.managedObjectContext = self.persistentContainer.viewContext;
     
+    
+    [PFCategoryUtil sharedInstance];
+    
     UIStoryboard* mainStoryboard;
     
     UIViewController *mainViewController;
@@ -47,10 +50,6 @@
     
     drawerViewController = [[MMDrawerController alloc] initWithCenterViewController: mainViewController leftDrawerViewController:navViewController];
     
-    if (!self.window) {
-        self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
-    }
-    
     [drawerViewController setRestorationIdentifier:@"PFDrawer"];
     [drawerViewController setDrawerVisualStateBlock:[MMDrawerVisualState slideVisualStateBlock]];
     [drawerViewController setMaximumLeftDrawerWidth:200.0];
@@ -58,15 +57,16 @@
     [drawerViewController setCloseDrawerGestureModeMask:MMCloseDrawerGestureModeAll];
     [drawerViewController setShowsShadow:NO];
     
+    
+    if (!self.window) {
+        self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
+    }
+    
     self.window.rootViewController = drawerViewController;
 
     [self.window makeKeyAndVisible];
     
-    
-    
     [NSObject setDispatchQueue:[NSOperationQueue mainQueue]];
-    
-    [PFCategoryUtil sharedInstance];
     
     return YES;
 }
