@@ -27,6 +27,8 @@
 		012C69BC1DAF68F1005E7104 /* EXTSelectorChecking.m in Sources */ = {isa = PBXBuildFile; fileRef = 012C69AF1DAF68F1005E7104 /* EXTSelectorChecking.m */; };
 		012C69BD1DAF68F1005E7104 /* NSInvocation+EXT.m in Sources */ = {isa = PBXBuildFile; fileRef = 012C69B31DAF68F1005E7104 /* NSInvocation+EXT.m */; };
 		012C69BE1DAF68F1005E7104 /* NSMethodSignature+EXT.m in Sources */ = {isa = PBXBuildFile; fileRef = 012C69B51DAF68F1005E7104 /* NSMethodSignature+EXT.m */; };
+		013DC3961DB5F2FF00AB8F50 /* PFDrawerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 013DC3951DB5F2FF00AB8F50 /* PFDrawerViewController.m */; };
+		013DC3991DB5F44000AB8F50 /* PFDrawerCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 013DC3981DB5F44000AB8F50 /* PFDrawerCell.m */; };
 		01A8B97F1DB0AE8D00D87FCF /* PFDBManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 01A8B97E1DB0AE8D00D87FCF /* PFDBManager.m */; };
 		01A8B9821DB0AE9E00D87FCF /* PFAccountManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 01A8B9811DB0AE9E00D87FCF /* PFAccountManager.m */; };
 		01A8B9881DB0BEC100D87FCF /* PFBaseModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 01A8B9871DB0BEC100D87FCF /* PFBaseModel.m */; };
@@ -82,6 +84,10 @@
 		012C69B31DAF68F1005E7104 /* NSInvocation+EXT.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSInvocation+EXT.m"; sourceTree = "<group>"; };
 		012C69B41DAF68F1005E7104 /* NSMethodSignature+EXT.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSMethodSignature+EXT.h"; sourceTree = "<group>"; };
 		012C69B51DAF68F1005E7104 /* NSMethodSignature+EXT.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSMethodSignature+EXT.m"; sourceTree = "<group>"; };
+		013DC3941DB5F2FF00AB8F50 /* PFDrawerViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PFDrawerViewController.h; path = Controllers/PFDrawerViewController.h; sourceTree = "<group>"; };
+		013DC3951DB5F2FF00AB8F50 /* PFDrawerViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PFDrawerViewController.m; path = Controllers/PFDrawerViewController.m; sourceTree = "<group>"; };
+		013DC3971DB5F44000AB8F50 /* PFDrawerCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PFDrawerCell.h; path = Views/PFDrawerCell.h; sourceTree = "<group>"; };
+		013DC3981DB5F44000AB8F50 /* PFDrawerCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PFDrawerCell.m; path = Views/PFDrawerCell.m; sourceTree = "<group>"; };
 		01A8B97D1DB0AE8D00D87FCF /* PFDBManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PFDBManager.h; path = Models/PFDBManager.h; sourceTree = "<group>"; };
 		01A8B97E1DB0AE8D00D87FCF /* PFDBManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PFDBManager.m; path = Models/PFDBManager.m; sourceTree = "<group>"; };
 		01A8B9801DB0AE9E00D87FCF /* PFAccountManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PFAccountManager.h; path = Models/PFAccountManager.h; sourceTree = "<group>"; };
@@ -191,6 +197,8 @@
 			children = (
 				01D3AF871DB3C99800EE5CA1 /* MasterViewController.h */,
 				01D3AF881DB3C99800EE5CA1 /* MasterViewController.m */,
+				013DC3941DB5F2FF00AB8F50 /* PFDrawerViewController.h */,
+				013DC3951DB5F2FF00AB8F50 /* PFDrawerViewController.m */,
 			);
 			name = Controller;
 			sourceTree = "<group>";
@@ -272,6 +280,8 @@
 			children = (
 				011537031D8932CC00C98268 /* LaunchScreen.storyboard */,
 				011536FE1D8932CC00C98268 /* Main.storyboard */,
+				013DC3971DB5F44000AB8F50 /* PFDrawerCell.h */,
+				013DC3981DB5F44000AB8F50 /* PFDrawerCell.m */,
 			);
 			name = Views;
 			sourceTree = "<group>";
@@ -388,7 +398,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
 			showEnvVarsInLog = 0;
 		};
 		8731B1BB842D2979E8904A39 /* [CP] Copy Pods Resources */ = {
@@ -434,6 +444,7 @@
 				011536F41D8932CC00C98268 /* AppDelegate.m in Sources */,
 				011536F11D8932CC00C98268 /* main.m in Sources */,
 				010CFB341DB4B7B600FEE5DE /* PFCategoryUtil.m in Sources */,
+				013DC3991DB5F44000AB8F50 /* PFDrawerCell.m in Sources */,
 				01D3AF921DB3CA4500EE5CA1 /* PFTypeManager.m in Sources */,
 				012C69B81DAF68F1005E7104 /* EXTNil.m in Sources */,
 				012C69BA1DAF68F1005E7104 /* EXTSafeCategory.m in Sources */,
@@ -446,6 +457,7 @@
 				01D3AF891DB3C99800EE5CA1 /* MasterViewController.m in Sources */,
 				01A8B9821DB0AE9E00D87FCF /* PFAccountManager.m in Sources */,
 				012C699B1DAF64D1005E7104 /* NSObject+Events.m in Sources */,
+				013DC3961DB5F2FF00AB8F50 /* PFDrawerViewController.m in Sources */,
 				012C69B91DAF68F1005E7104 /* EXTRuntimeExtensions.m in Sources */,
 				010CFB381DB4B99000FEE5DE /* PFType.m in Sources */,
 				011536F71D8932CC00C98268 /* Puff.xcdatamodeld in Sources */,

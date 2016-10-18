@@ -11,6 +11,8 @@
 #import "PFBlowfish.h"
 #import "NSObject+Events.h"
 
+//#import <MMDrawerController/UIViewController+MMDrawerController.h>
+
 #import "PFAccountManager.h"
 
 @interface MasterViewController ()
@@ -92,20 +94,23 @@
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
+- (IBAction)didClickOpenDrawerButton:(id)sender {
+//    [self.mm_drawerController openDrawerSide:MMDrawerSideLeft animated:YES completion:nil];
+}
 
 
 #pragma mark - Segues
 
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    if ([[segue identifier] isEqualToString:@"showDetail"]) {
-//        NSIndexPath *indexPath = [self.tableView indexPathForSelectedRow];
-//        Event *object = [self.fetchedResultsController objectAtIndexPath:indexPath];
-//        DetailViewController *controller = (DetailViewController *)[[segue destinationViewController] topViewController];
-//        [controller setDetailItem:object];
-//        controller.navigationItem.leftBarButtonItem = self.splitViewController.displayModeButtonItem;
-//        controller.navigationItem.leftItemsSupplementBackButton = YES;
-    }
-}
+//- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+//    if ([[segue identifier] isEqualToString:@"showDetail"]) {
+////        NSIndexPath *indexPath = [self.tableView indexPathForSelectedRow];
+////        Event *object = [self.fetchedResultsController objectAtIndexPath:indexPath];
+////        DetailViewController *controller = (DetailViewController *)[[segue destinationViewController] topViewController];
+////        [controller setDetailItem:object];
+////        controller.navigationItem.leftBarButtonItem = self.splitViewController.displayModeButtonItem;
+////        controller.navigationItem.leftItemsSupplementBackButton = YES;
+//    }
+//}
 
 
 #pragma mark - Fetched results controller

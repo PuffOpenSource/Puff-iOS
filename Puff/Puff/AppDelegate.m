@@ -9,6 +9,7 @@
 #import "AppDelegate.h"
 
 #import <MMDrawerController/MMDrawerController.h>
+#import <MMDrawerController/MMDrawerVisualState.h>
 
 #import "NSObject+Events.h"
 #import "MasterViewController.h"
@@ -16,11 +17,6 @@
 #import "PFCategoryUtil.h"
 
 @interface AppDelegate () <UISplitViewControllerDelegate>
-@property (strong, nonatomic) UIStoryboard* mainStoryboard;
-
-@property (strong, nonatomic) MasterViewController *mainViewController;
-@property (strong, nonatomic) UIViewController *navViewController;
-@property (strong, nonatomic) MMDrawerController *drawerViewController;
 @end
 
 @implementation AppDelegate
@@ -37,25 +33,36 @@
 //    MasterViewController *controller = (MasterViewController *)masterNavigationController.topViewController;
 //    controller.managedObjectContext = self.persistentContainer.viewContext;
     
-    self.mainStoryboard = [UIStoryboard storyboardWithName:@"Main" bundle:[NSBundle bundleForClass:self.class]];
+    UIStoryboard* mainStoryboard;
     
-    self.mainViewController = [_mainStoryboard instantiateInitialViewController];
-    self.navViewController = [_mainStoryboard instantiateViewControllerWithIdentifier:@"NavViewController"];
+    UIViewController *mainViewController;
+    UIViewController *navViewController;
+    MMDrawerController *drawerViewController;
+
+    mainStoryboard = [UIStoryboard storyboardWithName:@"Main" bundle:[NSBundle bundleForClass:self.class]];
     
-    self.drawerViewController = [[MMDrawerController alloc] initWithCenterViewController:self.mainViewController leftDrawerViewController:self.navViewController];
+    mainViewController = [mainStoryboard instantiateViewControllerWithIdentifier:@"MasterViewController"];
+    navViewController = [mainStoryboard instantiateViewControllerWithIdentifier:@"PFDrawerViewController"];
     
+    
+    drawerViewController = [[MMDrawerController alloc] initWithCenterViewController: mainViewController leftDrawerViewController:navViewController];
     
     if (!self.window) {
         self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
     }
     
-    [self.drawerViewController setRestorationIdentifier:@"PFDrawer"];
-    [self.drawerViewController setMaximumRightDrawerWidth:200.0];
-    [self.drawerViewController setOpenDrawerGestureModeMask:MMOpenDrawerGestureModeAll];
-    [self.drawerViewController setCloseDrawerGestureModeMask:MMCloseDrawerGestureModeAll];
+    [drawerViewController setRestorationIdentifier:@"PFDrawer"];
+    [drawerViewController setDrawerVisualStateBlock:[MMDrawerVisualState slideVisualStateBlock]];
+    [drawerViewController setMaximumLeftDrawerWidth:200.0];
+    [drawerViewController setOpenDrawerGestureModeMask:MMOpenDrawerGestureModeAll];
+    [drawerViewController setCloseDrawerGestureModeMask:MMCloseDrawerGestureModeAll];
+    [drawerViewController setShowsShadow:NO];
     
-    [self.window setRootViewController: self.drawerViewController];
+    self.window.rootViewController = drawerViewController;
 
+    [self.window makeKeyAndVisible];
+    
+    
     
     [NSObject setDispatchQueue:[NSOperationQueue mainQueue]];
     
