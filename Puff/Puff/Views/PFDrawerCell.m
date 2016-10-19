@@ -9,6 +9,7 @@
 #import "PFDrawerCell.h"
 
 #import "PFCategory.h"
+#import "PFResUtil.h"
 
 @interface PFDrawerCell ()
 @property (weak, nonatomic) IBOutlet UILabel *nameLabel;
@@ -31,7 +32,7 @@
 
 - (void)configWithCategory:(PFCategory*)category {
     _nameLabel.text = category.name;
-    NSData *data = [NSData dataWithContentsOfURL:[NSURL fileURLWithPath:category.icon isDirectory:NO]];
+    NSData *data = [NSData dataWithContentsOfURL:[NSURL fileURLWithPath: [PFResUtil imagePathForName: category.icon] isDirectory:NO]];
     UIImage *img = [UIImage imageWithData:data];
     self.icon.image = img;
 }

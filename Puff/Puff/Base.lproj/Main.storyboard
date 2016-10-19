@@ -38,13 +38,30 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Fo6-9u-FxE">
+                                <subviews>
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="drawer-header" translatesAutoresizingMaskIntoConstraints="NO" id="1ea-NV-aVq"/>
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="icon-puff" translatesAutoresizingMaskIntoConstraints="NO" id="mKG-EO-ThX">
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="100" id="BDe-hu-5ub"/>
+                                            <constraint firstAttribute="width" constant="100" id="eWy-ac-wdh"/>
+                                        </constraints>
+                                    </imageView>
+                                </subviews>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
+                                    <constraint firstAttribute="trailing" secondItem="1ea-NV-aVq" secondAttribute="trailing" id="6hE-KS-OPK"/>
+                                    <constraint firstItem="1ea-NV-aVq" firstAttribute="top" secondItem="Fo6-9u-FxE" secondAttribute="top" id="9GM-M3-4rC"/>
                                     <constraint firstAttribute="height" constant="160" id="EuN-Kd-Fib"/>
+                                    <constraint firstItem="mKG-EO-ThX" firstAttribute="centerY" secondItem="Fo6-9u-FxE" secondAttribute="centerY" id="INL-Ts-NcA"/>
+                                    <constraint firstItem="1ea-NV-aVq" firstAttribute="leading" secondItem="Fo6-9u-FxE" secondAttribute="leading" id="gyo-by-vS3"/>
+                                    <constraint firstItem="mKG-EO-ThX" firstAttribute="leading" secondItem="Fo6-9u-FxE" secondAttribute="leading" constant="16" id="js6-NC-sbg"/>
+                                    <constraint firstAttribute="bottom" secondItem="1ea-NV-aVq" secondAttribute="bottom" id="v9V-lo-g4O"/>
                                 </constraints>
                             </view>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="F1F-TH-Vo3">
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <color key="backgroundColor" red="0.93333333330000001" green="0.93333333330000001" blue="0.93333333330000001" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="separatorColor" red="0.93333333330000001" green="0.93333333330000001" blue="0.93333333330000001" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="sectionIndexBackgroundColor" red="0.93333333330000001" green="0.93333333330000001" blue="0.93333333330000001" alpha="1" colorSpace="calibratedRGB"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="kReuseIdPFDrawerCell" rowHeight="50" id="b3D-lM-geD" customClass="PFDrawerCell">
                                         <rect key="frame" x="0.0" y="28" width="375" height="50"/>
@@ -64,6 +81,7 @@
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                             </subviews>
+                                            <color key="backgroundColor" red="0.93333333330000001" green="0.93333333330000001" blue="0.93333333330000001" alpha="1" colorSpace="calibratedRGB"/>
                                             <constraints>
                                                 <constraint firstItem="VnH-J8-ktn" firstAttribute="leading" secondItem="RBy-CY-Tjc" secondAttribute="leading" constant="10" id="ELA-uC-zUe"/>
                                                 <constraint firstItem="3h6-fr-CVV" firstAttribute="leading" secondItem="VnH-J8-ktn" secondAttribute="trailing" constant="10" id="UQU-Vb-RDu"/>
@@ -85,7 +103,7 @@
                                 </connections>
                             </tableView>
                         </subviews>
-                        <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="backgroundColor" red="0.93333333333333335" green="0.93333333333333335" blue="0.93333333333333335" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
                             <constraint firstItem="F1F-TH-Vo3" firstAttribute="leading" secondItem="1bQ-lY-FfR" secondAttribute="leading" id="DDl-VB-QmN"/>
                             <constraint firstItem="F1F-TH-Vo3" firstAttribute="top" secondItem="Fo6-9u-FxE" secondAttribute="bottom" id="JDU-4d-2PG"/>
@@ -98,6 +116,7 @@
                     </view>
                     <connections>
                         <outlet property="headerView" destination="Fo6-9u-FxE" id="9DD-fF-WtX"/>
+                        <outlet property="iconImage" destination="mKG-EO-ThX" id="Ryw-IV-3S5"/>
                         <outlet property="tableView" destination="F1F-TH-Vo3" id="iBr-xa-RGX"/>
                     </connections>
                 </viewController>
@@ -106,4 +125,8 @@
             <point key="canvasLocation" x="1785" y="1380"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="drawer-header" width="480" height="300"/>
+        <image name="icon-puff" width="128" height="128"/>
+    </resources>
 </document>

@@ -38,6 +38,7 @@
 		01D3AF8F1DB3CA3600EE5CA1 /* PFCategoryManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 01D3AF8E1DB3CA3600EE5CA1 /* PFCategoryManager.m */; };
 		01D3AF921DB3CA4500EE5CA1 /* PFTypeManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 01D3AF911DB3CA4500EE5CA1 /* PFTypeManager.m */; };
 		01D84F7A1D8FC87C00941545 /* PFBlowfish.m in Sources */ = {isa = PBXBuildFile; fileRef = 01D84F791D8FC87C00941545 /* PFBlowfish.m */; };
+		01EB178B1DB717DF00C71C4B /* PFResUtil.m in Sources */ = {isa = PBXBuildFile; fileRef = 01EB178A1DB717DF00C71C4B /* PFResUtil.m */; };
 		9DE5A47572279C22E1444A2B /* libPods-Puff.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 4A37F394A7D4A5D0EE5AABB7 /* libPods-Puff.a */; };
 /* End PBXBuildFile section */
 
@@ -107,6 +108,8 @@
 		01D3AF911DB3CA4500EE5CA1 /* PFTypeManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PFTypeManager.m; path = Models/PFTypeManager.m; sourceTree = "<group>"; };
 		01D84F781D8FC87C00941545 /* PFBlowfish.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PFBlowfish.h; path = Utils/PFBlowfish.h; sourceTree = "<group>"; };
 		01D84F791D8FC87C00941545 /* PFBlowfish.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PFBlowfish.m; path = Utils/PFBlowfish.m; sourceTree = "<group>"; };
+		01EB17891DB717DF00C71C4B /* PFResUtil.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PFResUtil.h; path = Utils/PFResUtil.h; sourceTree = "<group>"; };
+		01EB178A1DB717DF00C71C4B /* PFResUtil.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PFResUtil.m; path = Utils/PFResUtil.m; sourceTree = "<group>"; };
 		2667787EC9FB7FA21A1CE652 /* Pods-Puff.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Puff.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Puff/Pods-Puff.debug.xcconfig"; sourceTree = "<group>"; };
 		49ED3346F81226C2312BDA01 /* Pods-Puff.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Puff.release.xcconfig"; path = "../Pods/Target Support Files/Pods-Puff/Pods-Puff.release.xcconfig"; sourceTree = "<group>"; };
 		4A37F394A7D4A5D0EE5AABB7 /* libPods-Puff.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-Puff.a"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -188,6 +191,8 @@
 				01D84F791D8FC87C00941545 /* PFBlowfish.m */,
 				010CFB321DB4B7B600FEE5DE /* PFCategoryUtil.h */,
 				010CFB331DB4B7B600FEE5DE /* PFCategoryUtil.m */,
+				01EB17891DB717DF00C71C4B /* PFResUtil.h */,
+				01EB178A1DB717DF00C71C4B /* PFResUtil.m */,
 			);
 			name = Utils;
 			sourceTree = "<group>";
@@ -449,6 +454,7 @@
 				012C69B81DAF68F1005E7104 /* EXTNil.m in Sources */,
 				012C69BA1DAF68F1005E7104 /* EXTSafeCategory.m in Sources */,
 				012C69BD1DAF68F1005E7104 /* NSInvocation+EXT.m in Sources */,
+				01EB178B1DB717DF00C71C4B /* PFResUtil.m in Sources */,
 				012C69BB1DAF68F1005E7104 /* EXTScope.m in Sources */,
 				01D3AF861DB3C97B00EE5CA1 /* PFAccount.m in Sources */,
 				01D84F7A1D8FC87C00941545 /* PFBlowfish.m in Sources */,

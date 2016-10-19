@@ -19,6 +19,8 @@
 @property (strong, nonatomic) NSArray *categories;
 @property (strong, nonatomic) NSArray *catNames;
 @property (strong, nonatomic) NSArray *catIds;
+
+@property (strong, nonatomic) NSString *libPath;
 @end
 
 @implementation PFCategoryUtil
@@ -31,6 +33,7 @@
         BOOL newInstall = [[NSUserDefaults standardUserDefaults] objectForKey:kPFNewInstall] == nil;
         if (newInstall) {
             //Save built in categories for new install only.
+            [instance _copyFiles];
             [instance _initNames];
             [instance initBuiltInCategories];
             [instance initBuiltInTypes];
@@ -45,60 +48,61 @@
     PFCategoryManager *manager = [PFCategoryManager sharedManager];
     PFCategory *cat = nil;
     
+    NSString *catFolder = @"/icon_category";
+    
     cat = [[PFCategory alloc] init];
     cat.name = @"Recent";
     cat.type = catTypeBuiltIn;
     cat.identifier = catIdRecent;
-    cat.icon = [[NSBundle bundleForClass:self.class] pathForResource:[kCategoryFolder stringByAppendingString:@"/cat_recent.png"] ofType:nil];
+    cat.icon = [catFolder stringByAppendingString:@"/cat_recent.png"];
     [manager saveCategory:cat];
     
     cat = [[PFCategory alloc] init];
     cat.name = @"Cards";
     cat.type = catTypeBuiltIn;
     cat.identifier = catIdCards;
-    cat.icon = [[NSBundle bundleForClass:self.class] pathForResource:[kCategoryFolder stringByAppendingString:@"/cat_cards.png"] ofType:nil];
+    cat.icon = [catFolder stringByAppendingString:@"/cat_cards.png"];
     [manager saveCategory:cat];
     
     cat = [[PFCategory alloc] init];
     cat.name = @"Computers";
     cat.type = catTypeBuiltIn;
     cat.identifier = catIdComputers;
-    cat.icon = [[NSBundle bundleForClass:self.class] pathForResource:[kCategoryFolder stringByAppendingString:@"/cat_computer.png"] ofType:nil];
-    [manager saveCategory:cat];
+    cat.icon = [catFolder stringByAppendingString:@"/cat_computer.png"];    [manager saveCategory:cat];
     
     cat = [[PFCategory alloc] init];
     cat.name = @"Devices";
     cat.type = catTypeBuiltIn;
     cat.identifier = catIdDevices;
-    cat.icon = [[NSBundle bundleForClass:self.class] pathForResource:[kCategoryFolder stringByAppendingString:@"/cat_device.png"] ofType:nil];
+    cat.icon = [catFolder stringByAppendingString:@"/cat_device.png"];
     [manager saveCategory:cat];
     
     cat = [[PFCategory alloc] init];
     cat.name = @"Entry";
     cat.type = catTypeBuiltIn;
     cat.identifier = catIdEntry;
-    cat.icon = [[NSBundle bundleForClass:self.class] pathForResource:[kCategoryFolder stringByAppendingString:@"/cat_entry.png"] ofType:nil];
+    cat.icon = [catFolder stringByAppendingString:@"/cat_entry.png"];
     [manager saveCategory:cat];
     
     cat = [[PFCategory alloc] init];
     cat.name = @"Mail";
     cat.type = catTypeBuiltIn;
     cat.identifier = catIdMail;
-    cat.icon = [[NSBundle bundleForClass:self.class] pathForResource:[kCategoryFolder stringByAppendingString:@"/cat_mail.png"] ofType:nil];
+    cat.icon = [catFolder stringByAppendingString:@"/cat_mail.png"];
     [manager saveCategory:cat];
     
     cat = [[PFCategory alloc] init];
     cat.name = @"Social";
     cat.type = catTypeBuiltIn;
     cat.identifier = catIdSocial;
-    cat.icon = [[NSBundle bundleForClass:self.class] pathForResource:[kCategoryFolder stringByAppendingString:@"/cat_social.png"] ofType:nil];
+    cat.icon = [catFolder stringByAppendingString:@"/cat_social.png"];
     [manager saveCategory:cat];
     
     cat = [[PFCategory alloc] init];
     cat.name = @"Website";
     cat.type = catTypeBuiltIn;
     cat.identifier = catIdWebsite;
-    cat.icon = [[NSBundle bundleForClass:self.class] pathForResource:[kCategoryFolder stringByAppendingString:@"/cat_website.png"] ofType:nil];
+    cat.icon = [catFolder stringByAppendingString:@"/cat_website.png"];
     [manager saveCategory:cat];
     
     _categories = [manager fetchAll];
@@ -110,9 +114,8 @@
     NSURL *typeFolderUrl = nil;
     
     for (int i = 0; i < self.catNames.count; i++) {
-        typeFolderUrl = [NSURL fileURLWithPath: [[NSBundle bundleForClass:self.class]
-                                                 pathForResource:[kAssetsFolder stringByAppendingString:self.catNames[i]]
-                                                 ofType:nil]
+        typeFolderUrl = [NSURL fileURLWithPath:
+                                                 [_libPath stringByAppendingString:self.catNames[i]]
                                    isDirectory: YES];
         
         [self _loopFolderAddType:typeFolderUrl andCategoryId:[self.catIds[i] longLongValue]];
@@ -134,7 +137,7 @@
         toAdd = [[PFType alloc] init];
         toAdd.name = [url.lastPathComponent stringByReplacingOccurrencesOfString:@".png" withString:@""];
         toAdd.category = catId;
-        toAdd.icon = url.path;
+        toAdd.icon = [[url.pathComponents objectAtIndex:url.pathComponents.count - 2] stringByAppendingString:url.lastPathComponent];;
         [tm saveType:toAdd];
     }
 }
@@ -143,6 +146,18 @@
     self.catNames = @[@"/cat_cards", @"/cat_computers", @"/cat_device", @"/cat_entry", @"/cat_mail", @"/cat_social", @"/cat_website"];
     self.catIds = @[@(catIdCards), @(catIdComputers), @(catIdDevices), @(catIdEntry), @(catIdMail), @(catIdSocial), @(catIdWebsite)];
     
+}
+
+- (void)_copyFiles {
+    NSString *libPath = [NSSearchPathForDirectoriesInDomains(
+                                                             NSLibraryDirectory, NSUserDomainMask, YES) objectAtIndex:0];
+    libPath = [libPath stringByAppendingString:@"/cats"];
+    NSError *err;
+    NSString *resPath = [[NSBundle bundleForClass:self.class] pathForResource:kAssetsFolder ofType:nil];
+    
+    NSFileManager *fm = [NSFileManager defaultManager];
+    [fm copyItemAtPath:resPath toPath:libPath error:&err];
+    _libPath = libPath;
 }
 
 @end

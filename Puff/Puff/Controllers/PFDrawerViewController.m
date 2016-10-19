@@ -15,6 +15,7 @@
 @interface PFDrawerViewController () <UITableViewDelegate, UITableViewDataSource>
 @property (weak, nonatomic) IBOutlet UIView *headerView;
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
+@property (weak, nonatomic) IBOutlet UIImageView *iconImage;
 @property (strong, nonatomic) NSArray * data;
 @end
 
@@ -22,6 +23,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    _iconImage.layer.cornerRadius = 50;
 }
 
 - (void)viewWillAppear:(BOOL)animated {
