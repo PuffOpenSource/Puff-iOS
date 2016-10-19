@@ -13,6 +13,7 @@
 
 #import "NSObject+Events.h"
 #import "MasterViewController.h"
+#import "PFDrawerViewController.h"
 
 #import "PFCategoryUtil.h"
 
@@ -38,8 +39,8 @@
     
     UIStoryboard* mainStoryboard;
     
-    UIViewController *mainViewController;
-    UIViewController *navViewController;
+    MasterViewController *mainViewController;
+    PFDrawerViewController *navViewController;
     MMDrawerController *drawerViewController;
 
     mainStoryboard = [UIStoryboard storyboardWithName:@"Main" bundle:[NSBundle bundleForClass:self.class]];
@@ -47,6 +48,7 @@
     mainViewController = [mainStoryboard instantiateViewControllerWithIdentifier:@"MasterViewController"];
     navViewController = [mainStoryboard instantiateViewControllerWithIdentifier:@"PFDrawerViewController"];
     
+    navViewController.delegate = mainViewController;
     
     drawerViewController = [[MMDrawerController alloc] initWithCenterViewController: mainViewController leftDrawerViewController:navViewController];
     

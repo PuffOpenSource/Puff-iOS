@@ -8,6 +8,8 @@
 
 #import "MasterViewController.h"
 
+#import "PFDrawerViewController.h"
+
 #import "PFBlowfish.h"
 #import "NSObject+Events.h"
 
@@ -15,8 +17,11 @@
 
 #import "PFAccountManager.h"
 
-@interface MasterViewController ()
+@interface MasterViewController () <PFDrawerViewControllerDelegate, UITableViewDelegate, UITableViewDataSource>
+@property (weak, nonatomic) IBOutlet UITableView *tableView;
+@property (weak, nonatomic) IBOutlet UIButton *addButton;
 
+@property (strong, nonatomic) NSArray *data;
 @end
 
 @implementation MasterViewController
@@ -43,6 +48,39 @@
 //    [self _coreDataReadTest];
     
 }
+- (void)viewWillAppear:(BOOL)animated {
+    [super viewWillAppear:animated];
+}
+
+
+- (void)didReceiveMemoryWarning {
+    [super didReceiveMemoryWarning];
+    // Dispose of any resources that can be recreated.
+}
+- (IBAction)didClickOpenDrawerButton:(id)sender {
+//    [self.mm_drawerController openDrawerSide:MMDrawerSideLeft animated:YES completion:nil];
+}
+
+#pragma mark - PFDrawerViewControllerDelegate
+
+- (void)loadAccountsInCategory:(uint64_t)catId {
+    
+}
+
+#pragma mark - Segues
+
+//- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+//    if ([[segue identifier] isEqualToString:@"showDetail"]) {
+////        NSIndexPath *indexPath = [self.tableView indexPathForSelectedRow];
+////        Event *object = [self.fetchedResultsController objectAtIndexPath:indexPath];
+////        DetailViewController *controller = (DetailViewController *)[[segue destinationViewController] topViewController];
+////        [controller setDetailItem:object];
+////        controller.navigationItem.leftBarButtonItem = self.splitViewController.displayModeButtonItem;
+////        controller.navigationItem.leftItemsSupplementBackButton = YES;
+//    }
+//}
+
+#pragma mark Test Functions.
 
 - (void)_cryptoTest {
     NSString *rawStr = @"oTNgWmpVF0WqPs8bGB/lop5b/fyI8tP3K2SIyj3V+7L8CAhrtfjnNxqV48VQYqKY";
@@ -84,33 +122,6 @@
     return;
 }
 
-
-- (void)viewWillAppear:(BOOL)animated {
-    [super viewWillAppear:animated];
-}
-
-
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
-}
-- (IBAction)didClickOpenDrawerButton:(id)sender {
-//    [self.mm_drawerController openDrawerSide:MMDrawerSideLeft animated:YES completion:nil];
-}
-
-
-#pragma mark - Segues
-
-//- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-//    if ([[segue identifier] isEqualToString:@"showDetail"]) {
-////        NSIndexPath *indexPath = [self.tableView indexPathForSelectedRow];
-////        Event *object = [self.fetchedResultsController objectAtIndexPath:indexPath];
-////        DetailViewController *controller = (DetailViewController *)[[segue destinationViewController] topViewController];
-////        [controller setDetailItem:object];
-////        controller.navigationItem.leftBarButtonItem = self.splitViewController.displayModeButtonItem;
-////        controller.navigationItem.leftItemsSupplementBackButton = YES;
-//    }
-//}
 
 
 #pragma mark - Fetched results controller

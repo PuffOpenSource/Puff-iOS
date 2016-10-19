@@ -8,7 +8,7 @@
 
 #import "PFDrawerViewController.h"
 
-//#import "UIViewController+MMDrawerController.h"
+#import <MMDrawerController/UIViewController+MMDrawerController.h>
 #import "PFDrawerCell.h"
 #import "PFCategoryManager.h"
 
@@ -61,6 +61,12 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     //TODO: Jump to corresponding page & close drawer.
+    [self tableView:tableView didDeselectRowAtIndexPath:indexPath];
+    [self.mm_drawerController closeDrawerAnimated:YES completion:nil];
+    PFCategory *cat = [self.data objectAtIndex:indexPath.row];
+    if (cat && self.delegate) {
+        [self.delegate loadAccountsInCategory:cat.identifier];
+    }
 }
 - (IBAction)didSwipedDrawer:(id)sender {
 //    [[self mm_drawerController] closeDrawerAnimated:YES completion:nil];

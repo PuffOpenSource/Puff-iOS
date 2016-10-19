@@ -8,6 +8,13 @@
 
 #import <UIKit/UIKit.h>
 
-@interface PFDrawerViewController : UIViewController
+@protocol PFDrawerViewControllerDelegate <NSObject>
 
+@required
+- (void)loadAccountsInCategory:(uint64_t)catId;
+
+@end
+
+@interface PFDrawerViewController : UIViewController
+@property (weak, nonatomic) id<PFDrawerViewControllerDelegate> delegate;
 @end
