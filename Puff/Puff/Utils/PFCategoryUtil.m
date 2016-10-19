@@ -137,7 +137,7 @@
         toAdd = [[PFType alloc] init];
         toAdd.name = [url.lastPathComponent stringByReplacingOccurrencesOfString:@".png" withString:@""];
         toAdd.category = catId;
-        toAdd.icon = [[url.pathComponents objectAtIndex:url.pathComponents.count - 2] stringByAppendingString:url.lastPathComponent];;
+        toAdd.icon = [[@"/" stringByAppendingString:[url.pathComponents objectAtIndex:url.pathComponents.count - 2] ] stringByAppendingString: [@"/" stringByAppendingString:url.lastPathComponent]];
         [tm saveType:toAdd];
     }
 }
