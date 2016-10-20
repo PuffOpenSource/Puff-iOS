@@ -9,16 +9,17 @@
 #import "MasterViewController.h"
 
 #import "PFDrawerViewController.h"
+#import "AppDelegate.h"
+
+#import <MaterialControls/MDButton.h>
+#import <MMDrawerController/UIViewController+MMDrawerController.h>
 
 #import "PFBlowfish.h"
 #import "NSObject+Events.h"
 #import "PFResUtil.h"
 #include "Constants.h"
 #import "MainAccountCell.h"
-
-#import <MaterialControls/MDButton.h>
-
-#import <MMDrawerController/UIViewController+MMDrawerController.h>
+#import "PFAddAccountViewController.h"
 
 #import "PFAccountManager.h"
 
@@ -32,6 +33,7 @@
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *rippleHeight;
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *rippleWidth;
 
+@property (weak, nonatomic) IBOutlet UIView *lockView;
 @property (strong, nonatomic) NSArray<PFAccount*> *data;
 
 @end
@@ -47,6 +49,9 @@
 - (void)viewDidAppear:(BOOL)animated {
     [super viewDidAppear:animated];
     [self.addButton setType:MDButtonTypeFloatingAction];
+    
+    AppDelegate *app = [UIApplication sharedApplication].delegate;
+    _lockView.hidden = !app.locked;
     
 }
 - (void)viewWillAppear:(BOOL)animated {
@@ -98,6 +103,8 @@
             [_rippleView.layer removeAnimationForKey:@"cornerRadius"];
             
             //TODO (Bob): Jump to new view controller here.
+            
+            [self presentViewController: [PFAddAccountViewController viewControllerFromStoryboard]animated:NO completion:nil];
         }
     }];
 }

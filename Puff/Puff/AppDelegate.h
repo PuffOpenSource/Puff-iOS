@@ -15,8 +15,7 @@
 
 @property (readonly, strong) NSPersistentContainer *persistentContainer;
 
-//- (void)saveContext;
-
+@property (assign, nonatomic) BOOL locked;
 
 @end
 

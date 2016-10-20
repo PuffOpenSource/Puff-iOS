@@ -8,21 +8,42 @@
 
 #import "PFAddAccountViewController.h"
 
+#import <MaterialControls/MDTextField.h>
+#import "PFResUtil.h"
+
 @interface PFAddAccountViewController ()
+@property (weak, nonatomic) IBOutlet MDTextField *nameField;
 
 @end
 
 @implementation PFAddAccountViewController
 
++ (instancetype)viewControllerFromStoryboard {
+    UIStoryboard *sb = [UIStoryboard storyboardWithName:@"Main" bundle:[NSBundle bundleForClass:self.class]];
+    return [sb instantiateViewControllerWithIdentifier:@"AddAccountViewController"];
+}
+
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
+    _nameField.unifiedBackgroundColor = [PFResUtil pfGreen];
+}
+
+- (void)viewDidAppear:(BOOL)animated {
+    [super viewDidAppear:animated];
+    [_nameField becomeFirstResponder];
 }
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
+
+#pragma mark - IBActions
+- (IBAction)didClickBackButton:(id)sender {
+    [self dismissViewControllerAnimated:YES completion:nil];
+}
+
 
 /*
 #pragma mark - Navigation

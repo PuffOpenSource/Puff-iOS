@@ -17,7 +17,7 @@
 
 #import "PFCategoryUtil.h"
 
-@interface AppDelegate () <UISplitViewControllerDelegate>
+@interface AppDelegate ()
 @end
 
 @implementation AppDelegate
@@ -69,6 +69,8 @@
     [self.window makeKeyAndVisible];
     
     [NSObject setDispatchQueue:[NSOperationQueue mainQueue]];
+    
+    _locked = NO;
     
     return YES;
 }

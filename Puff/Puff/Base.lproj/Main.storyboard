@@ -7,44 +7,6 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Navigation Controller-->
-        <scene sceneID="XZn-8V-5qQ">
-            <objects>
-                <navigationController navigationBarHidden="YES" id="NRw-Mt-DfD" sceneMemberID="viewController">
-                    <simulatedStatusBarMetrics key="simulatedStatusBarMetrics" statusBarStyle="lightContent"/>
-                    <nil key="simulatedTopBarMetrics"/>
-                    <nil key="simulatedBottomBarMetrics"/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="WYg-et-w4S">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
-                        <autoresizingMask key="autoresizingMask"/>
-                    </navigationBar>
-                    <connections>
-                        <segue destination="3gr-vz-ggI" kind="relationship" relationship="rootViewController" id="Kov-n9-Ngs"/>
-                    </connections>
-                </navigationController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="pbZ-H6-l7w" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="1785" y="0.0"/>
-        </scene>
-        <!--View Controller-->
-        <scene sceneID="UMX-6R-SYe">
-            <objects>
-                <viewController storyboardIdentifier="AuthorizeViewController" id="3gr-vz-ggI" sceneMemberID="viewController">
-                    <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="8Pe-bj-8hg"/>
-                        <viewControllerLayoutGuide type="bottom" id="VKo-of-avW"/>
-                    </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="OdJ-VS-HNv">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                    </view>
-                    <navigationItem key="navigationItem" id="Rx5-Nm-w9s"/>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="7J9-Ij-CnA" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="2652" y="0.0"/>
-        </scene>
         <!--Master View Controller-->
         <scene sceneID="z2V-Xl-EfL">
             <objects>
@@ -69,7 +31,7 @@
                                         <subviews>
                                             <button opaque="NO" contentMode="center" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dgZ-Cm-tcO" customClass="MDButton">
                                                 <constraints>
-                                                    <constraint firstAttribute="height" constant="30" id="Xyg-u6-G2W"/>
+                                                    <constraint firstAttribute="height" constant="60" id="Xyg-u6-G2W"/>
                                                     <constraint firstAttribute="width" constant="30" id="u3y-cu-rPr"/>
                                                 </constraints>
                                                 <state key="normal">
@@ -93,7 +55,7 @@
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Czb-gJ-jGs" customClass="MDButton">
                                                 <constraints>
-                                                    <constraint firstAttribute="height" constant="30" id="rJ8-ks-4Dq"/>
+                                                    <constraint firstAttribute="height" constant="60" id="rJ8-ks-4Dq"/>
                                                     <constraint firstAttribute="width" constant="30" id="snb-Xr-BQz"/>
                                                 </constraints>
                                                 <state key="normal">
@@ -159,9 +121,6 @@
                                     <color key="titleShadowColor" red="0.49803921569999998" green="0.49803921569999998" blue="0.49803921569999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 </state>
                                 <userDefinedRuntimeAttributes>
-                                    <userDefinedRuntimeAttribute type="color" keyPath="rippleColor">
-                                        <color key="value" red="1" green="0.3411764705882353" blue="0.13333333333333333" alpha="1" colorSpace="calibratedRGB"/>
-                                    </userDefinedRuntimeAttribute>
                                     <userDefinedRuntimeAttribute type="number" keyPath="type">
                                         <integer key="value" value="2"/>
                                     </userDefinedRuntimeAttribute>
@@ -170,12 +129,19 @@
                                     <action selector="didClickAddButton:" destination="YyR-ky-baK" eventType="touchUpInside" id="pxA-8k-NRu"/>
                                 </connections>
                             </button>
+                            <view contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Xbs-rT-wIh">
+                                <frame key="frameInset" minY="628" width="32" height="39"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstAttribute="trailingMargin" secondItem="U6o-RM-6Ik" secondAttribute="trailing" id="2QY-q6-Xem"/>
                             <constraint firstAttribute="trailingMargin" secondItem="h9q-uc-uQj" secondAttribute="trailing" id="7ng-ai-PB6"/>
+                            <constraint firstAttribute="trailing" secondItem="Xbs-rT-wIh" secondAttribute="trailing" id="7yR-2m-aZk"/>
                             <constraint firstItem="Q4X-Fz-Lpf" firstAttribute="leading" secondItem="Nb9-eC-BgF" secondAttribute="leading" constant="40" id="BDB-wV-Anb"/>
+                            <constraint firstItem="Xbs-rT-wIh" firstAttribute="top" secondItem="cCS-rn-hT1" secondAttribute="bottom" constant="-20" id="DOH-bc-HA4"/>
+                            <constraint firstItem="Xbs-rT-wIh" firstAttribute="leading" secondItem="Nb9-eC-BgF" secondAttribute="leading" id="QXM-TU-wed"/>
                             <constraint firstItem="9bg-ac-RNM" firstAttribute="leading" secondItem="Nb9-eC-BgF" secondAttribute="leading" id="RnS-eY-0nH"/>
                             <constraint firstItem="9bg-ac-RNM" firstAttribute="top" secondItem="cCS-rn-hT1" secondAttribute="bottom" id="S5t-DL-UEO"/>
                             <constraint firstItem="zdo-q6-vBW" firstAttribute="top" secondItem="Q4X-Fz-Lpf" secondAttribute="bottom" id="U1h-BD-W7b"/>
@@ -183,6 +149,7 @@
                             <constraint firstAttribute="trailing" secondItem="Q4X-Fz-Lpf" secondAttribute="trailing" constant="40" id="fxI-hg-26p"/>
                             <constraint firstItem="Q4X-Fz-Lpf" firstAttribute="top" secondItem="cCS-rn-hT1" secondAttribute="bottom" constant="66" id="hrY-LI-ccR"/>
                             <constraint firstItem="zdo-q6-vBW" firstAttribute="top" secondItem="U6o-RM-6Ik" secondAttribute="bottom" constant="20" id="pXz-AZ-8TW"/>
+                            <constraint firstItem="zdo-q6-vBW" firstAttribute="top" secondItem="Xbs-rT-wIh" secondAttribute="bottom" id="ua1-mY-uA1"/>
                             <constraint firstItem="zdo-q6-vBW" firstAttribute="top" secondItem="h9q-uc-uQj" secondAttribute="bottom" constant="20" id="wwp-qp-Wwj"/>
                         </constraints>
                     </view>
@@ -190,6 +157,7 @@
                     <connections>
                         <outlet property="addButton" destination="h9q-uc-uQj" id="QBR-YK-Nf9"/>
                         <outlet property="headerView" destination="9bg-ac-RNM" id="VmF-41-MY9"/>
+                        <outlet property="lockView" destination="Xbs-rT-wIh" id="W1I-BJ-qbh"/>
                         <outlet property="rippleHeight" destination="hn0-9g-oKk" id="BXE-t6-sjy"/>
                         <outlet property="rippleView" destination="U6o-RM-6Ik" id="9BE-FB-6BI"/>
                         <outlet property="rippleWidth" destination="zZl-8l-V6I" id="JS4-09-Lnd"/>
@@ -199,12 +167,12 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="28D-th-OmU" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1786" y="691"/>
+            <point key="canvasLocation" x="1784.8" y="690.40479760119945"/>
         </scene>
-        <!--View Controller-->
+        <!--Add Account View Controller-->
         <scene sceneID="ZYZ-i5-bxF">
             <objects>
-                <viewController storyboardIdentifier="AddAccountViewController" id="dYD-sq-Lui" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="AddAccountViewController" id="dYD-sq-Lui" customClass="PFAddAccountViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="BsC-AD-q1F"/>
                         <viewControllerLayoutGuide type="bottom" id="r8i-G3-nMr"/>
@@ -212,17 +180,145 @@
                     <view key="view" contentMode="scaleToFill" id="WBs-B2-0dc">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="1GD-nR-K0v">
+                                <subviews>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="um5-DY-eM8">
+                                        <color key="backgroundColor" red="0.5450980392" green="0.76470588240000004" blue="0.2901960784" alpha="1" colorSpace="calibratedRGB"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="20" id="y93-1C-uja"/>
+                                        </constraints>
+                                    </view>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="PDL-Bx-IOS">
+                                        <subviews>
+                                            <button opaque="NO" contentMode="center" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="XIs-KU-nsb" customClass="MDButton">
+                                                <constraints>
+                                                    <constraint firstAttribute="width" constant="30" id="HGn-k7-NW9"/>
+                                                    <constraint firstAttribute="height" constant="60" id="lfo-FP-bpf"/>
+                                                </constraints>
+                                                <state key="normal">
+                                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                </state>
+                                                <userDefinedRuntimeAttributes>
+                                                    <userDefinedRuntimeAttribute type="color" keyPath="rippleColor">
+                                                        <color key="value" red="0.93333333330000001" green="0.93333333330000001" blue="0.93333333330000001" alpha="1" colorSpace="calibratedRGB"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                    <userDefinedRuntimeAttribute type="number" keyPath="mdButtonType">
+                                                        <integer key="value" value="1"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                    <userDefinedRuntimeAttribute type="image" keyPath="imageNormal" value="ic-back"/>
+                                                    <userDefinedRuntimeAttribute type="number" keyPath="imageSize">
+                                                        <real key="value" value="25"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                </userDefinedRuntimeAttributes>
+                                                <connections>
+                                                    <action selector="didClickBackButton:" destination="dYD-sq-Lui" eventType="touchUpInside" id="YPb-nw-3YK"/>
+                                                </connections>
+                                            </button>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Add Account" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0sJ-Qs-C1x">
+                                                <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="17"/>
+                                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                        </subviews>
+                                        <color key="backgroundColor" red="0.5450980392" green="0.76470588240000004" blue="0.2901960784" alpha="1" colorSpace="calibratedRGB"/>
+                                        <color key="tintColor" red="0.5450980392" green="0.76470588240000004" blue="0.2901960784" alpha="1" colorSpace="calibratedRGB"/>
+                                        <constraints>
+                                            <constraint firstItem="0sJ-Qs-C1x" firstAttribute="height" secondItem="XIs-KU-nsb" secondAttribute="height" id="1Pv-Q9-ASD"/>
+                                            <constraint firstItem="XIs-KU-nsb" firstAttribute="centerY" secondItem="PDL-Bx-IOS" secondAttribute="centerY" id="IGr-0F-yyx"/>
+                                            <constraint firstItem="0sJ-Qs-C1x" firstAttribute="centerY" secondItem="XIs-KU-nsb" secondAttribute="centerY" id="PvT-ve-7Gc"/>
+                                            <constraint firstItem="XIs-KU-nsb" firstAttribute="leading" secondItem="PDL-Bx-IOS" secondAttribute="leading" constant="8" id="ePc-tE-EkO"/>
+                                            <constraint firstAttribute="height" constant="64" id="h4c-es-c5f"/>
+                                            <constraint firstItem="0sJ-Qs-C1x" firstAttribute="leading" secondItem="XIs-KU-nsb" secondAttribute="trailing" id="hzG-kw-RKZ"/>
+                                            <constraint firstAttribute="trailing" secondItem="0sJ-Qs-C1x" secondAttribute="trailing" id="nFh-sZ-fTV"/>
+                                        </constraints>
+                                    </view>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="te8-g0-nM8" customClass="MDButton">
+                                        <color key="backgroundColor" red="1" green="0.3411764706" blue="0.1333333333" alpha="1" colorSpace="calibratedRGB"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="56" id="2Av-Pr-JLM"/>
+                                            <constraint firstAttribute="height" constant="56" id="TD4-Gb-hgZ"/>
+                                        </constraints>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="color" keyPath="rippleColor">
+                                                <color key="value" red="0.93333333330000001" green="0.93333333330000001" blue="0.93333333330000001" alpha="1" colorSpace="calibratedRGB"/>
+                                            </userDefinedRuntimeAttribute>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="type">
+                                                <integer key="value" value="2"/>
+                                            </userDefinedRuntimeAttribute>
+                                            <userDefinedRuntimeAttribute type="image" keyPath="imageNormal" value="ic-check-mark"/>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="imageSize">
+                                                <real key="value" value="24"/>
+                                            </userDefinedRuntimeAttribute>
+                                        </userDefinedRuntimeAttributes>
+                                    </button>
+                                    <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Y2f-gk-W0l" customClass="MDTextField">
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="boolean" keyPath="floatingLabel" value="YES"/>
+                                            <userDefinedRuntimeAttribute type="string" keyPath="hint" value="Title"/>
+                                            <userDefinedRuntimeAttribute type="string" keyPath="label" value="Ttile"/>
+                                            <userDefinedRuntimeAttribute type="color" keyPath="normalColor">
+                                                <color key="value" red="0.5450980392" green="0.76470588240000004" blue="0.2901960784" alpha="1" colorSpace="calibratedRGB"/>
+                                            </userDefinedRuntimeAttribute>
+                                            <userDefinedRuntimeAttribute type="color" keyPath="highlightColor">
+                                                <color key="value" red="1" green="0.3411764706" blue="0.1333333333" alpha="1" colorSpace="calibratedRGB"/>
+                                            </userDefinedRuntimeAttribute>
+                                            <userDefinedRuntimeAttribute type="color" keyPath="errorColor">
+                                                <color key="value" red="1" green="0.3411764706" blue="0.1333333333" alpha="1" colorSpace="calibratedRGB"/>
+                                            </userDefinedRuntimeAttribute>
+                                            <userDefinedRuntimeAttribute type="color" keyPath="textColor">
+                                                <color key="value" red="0.5450980392" green="0.76470588240000004" blue="0.2901960784" alpha="1" colorSpace="calibratedRGB"/>
+                                            </userDefinedRuntimeAttribute>
+                                            <userDefinedRuntimeAttribute type="color" keyPath="hintColor">
+                                                <color key="value" red="0.49803921569999998" green="0.49803921569999998" blue="0.49803921569999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                            </userDefinedRuntimeAttribute>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="minVisibleLines">
+                                                <integer key="value" value="1"/>
+                                            </userDefinedRuntimeAttribute>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="maxVisibleLines">
+                                                <integer key="value" value="1"/>
+                                            </userDefinedRuntimeAttribute>
+                                            <userDefinedRuntimeAttribute type="boolean" keyPath="dividerAnimation" value="YES"/>
+                                        </userDefinedRuntimeAttributes>
+                                    </containerView>
+                                </subviews>
+                                <color key="backgroundColor" red="0.5450980392" green="0.76470588240000004" blue="0.2901960784" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstItem="um5-DY-eM8" firstAttribute="leading" secondItem="1GD-nR-K0v" secondAttribute="leading" id="2WY-FV-ay2"/>
+                                    <constraint firstAttribute="trailing" secondItem="PDL-Bx-IOS" secondAttribute="trailing" id="Cbs-Rr-LjG"/>
+                                    <constraint firstAttribute="trailingMargin" secondItem="Y2f-gk-W0l" secondAttribute="trailing" id="JUh-6E-m6G"/>
+                                    <constraint firstAttribute="bottom" secondItem="te8-g0-nM8" secondAttribute="bottom" constant="-28" id="MQ6-qs-WJH"/>
+                                    <constraint firstItem="Y2f-gk-W0l" firstAttribute="top" secondItem="0sJ-Qs-C1x" secondAttribute="bottom" id="OWw-ZU-hhF"/>
+                                    <constraint firstItem="um5-DY-eM8" firstAttribute="top" secondItem="1GD-nR-K0v" secondAttribute="top" constant="-20" id="Ors-A7-P2U"/>
+                                    <constraint firstAttribute="height" constant="180" id="Wy5-Y7-I2x"/>
+                                    <constraint firstItem="te8-g0-nM8" firstAttribute="top" secondItem="Y2f-gk-W0l" secondAttribute="bottom" constant="16" id="dMt-Rk-Mps"/>
+                                    <constraint firstItem="PDL-Bx-IOS" firstAttribute="top" secondItem="1GD-nR-K0v" secondAttribute="top" id="i9m-vl-ehg"/>
+                                    <constraint firstItem="Y2f-gk-W0l" firstAttribute="leading" secondItem="1GD-nR-K0v" secondAttribute="leadingMargin" id="iNz-1r-DJB"/>
+                                    <constraint firstItem="PDL-Bx-IOS" firstAttribute="leading" secondItem="1GD-nR-K0v" secondAttribute="leading" id="nGI-3L-NHl"/>
+                                    <constraint firstAttribute="trailing" secondItem="um5-DY-eM8" secondAttribute="trailing" id="rJW-Ii-nTo"/>
+                                    <constraint firstAttribute="trailing" secondItem="te8-g0-nM8" secondAttribute="trailing" constant="16" id="xMk-JQ-tf6"/>
+                                </constraints>
+                            </view>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="trailing" secondItem="1GD-nR-K0v" secondAttribute="trailing" id="4Je-vp-kEi"/>
+                            <constraint firstItem="1GD-nR-K0v" firstAttribute="leading" secondItem="WBs-B2-0dc" secondAttribute="leading" id="Kd7-bS-WGj"/>
+                            <constraint firstItem="1GD-nR-K0v" firstAttribute="top" secondItem="BsC-AD-q1F" secondAttribute="bottom" id="utm-Ze-cRN"/>
+                        </constraints>
                     </view>
+                    <connections>
+                        <outlet property="nameField" destination="Y2f-gk-W0l" id="EWT-1u-0N3"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="bz5-Kc-fRY" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2652" y="690"/>
+            <point key="canvasLocation" x="2652" y="689.5052473763119"/>
         </scene>
-        <!--View Controller-->
+        <!--Settings View Controller-->
         <scene sceneID="ZZr-VW-p32">
             <objects>
-                <viewController storyboardIdentifier="SettingsViewController" id="XtP-l8-IMe" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="SettingsViewController" id="XtP-l8-IMe" customClass="PFSettingsViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="vRG-JG-FHn"/>
                         <viewControllerLayoutGuide type="bottom" id="1XN-yP-e5M"/>
@@ -375,6 +471,8 @@
     </scenes>
     <resources>
         <image name="drawer-header" width="480" height="300"/>
+        <image name="ic-back" width="48" height="48"/>
+        <image name="ic-check-mark" width="50" height="50"/>
         <image name="ic-menu" width="48" height="48"/>
         <image name="ic-more" width="48" height="48"/>
         <image name="icon-puff" width="128" height="128"/>

@@ -24,7 +24,7 @@
 }
 
 + (UIColor*)pfGreen {
-    return [UIColor colorWithRed:0.55 green:0.76 blue:0.29 alpha:1.00];
+    return [UIColor colorWithRed:0.61 green:0.79 blue:0.38 alpha:1.00];
 }
 
 + (UIColor*)pfDarkGreen {
