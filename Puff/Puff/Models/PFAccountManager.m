@@ -85,4 +85,31 @@
     }
     return [PFAccount convertFromRaws:[result finalResult] toWrapped:[PFAccount class]];
 }
+
+- (NSArray*)fetchRecentUsed:(NSInteger)limit {
+    NSFetchRequest *req = [NSFetchRequest fetchRequestWithEntityName:kEntityNamePFAccount];
+
+    NSSortDescriptor *sortDes = [[NSSortDescriptor alloc] initWithKey: @"last_access" ascending:NO comparator:^NSComparisonResult(_PFAccount* obj1, _PFAccount* obj2) {
+        NSDate *d1 = obj1.last_access;
+        NSDate *d2 = obj2.last_access;
+        
+        return [d2 timeIntervalSince1970] - [d1 timeIntervalSince1970];
+    }];
+    
+    NSManagedObjectContext *ctx = [_dbManager context];
+    NSError *err;
+    NSAsynchronousFetchResult *result = [ctx executeRequest:req error:&err];
+    if (err) {
+        return nil;
+    }
+    NSArray *ret = [PFAccount convertFromRaws:[result finalResult] toWrapped:PFAccount.class];
+    if (limit > ret.count) {
+        limit = ret.count;
+    }
+    ret = [ret sortedArrayUsingDescriptors: @[sortDes]];
+    
+    ret = [ret subarrayWithRange:NSMakeRange(0, limit)];
+    
+    return ret;
+}
 @end

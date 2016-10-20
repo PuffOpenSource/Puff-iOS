@@ -22,5 +22,6 @@ static NSString * const kEntityNamePFAccount        =   @"PFAccount";
 -(NSArray*)fetchAll;
 -(NSArray*)fetchAccountsByCategory:(int64_t)categoryId;
 -(NSArray*)fetchAccountsByType:(int64_t)typeId;
+-(NSArray*)fetchRecentUsed:(NSInteger)limit;
 
 @end

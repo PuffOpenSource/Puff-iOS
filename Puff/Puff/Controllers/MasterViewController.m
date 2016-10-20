@@ -144,7 +144,7 @@
 }
 
 - (void)_loadInitCategory {
-    _data = [[PFAccountManager sharedManager] fetchAccountsByCategory:catIdRecent];
+    _data = [[PFAccountManager sharedManager] fetchRecentUsed:10];
     [self.tableView reloadData];
 }
 
