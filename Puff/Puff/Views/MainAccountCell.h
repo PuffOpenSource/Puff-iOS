@@ -8,6 +8,8 @@
 
 #import <UIKit/UIKit.h>
 
+static NSString * const kMainAccountCellReuseId         = @"kMainAccountCellReuseId";
+
 @class PFAccount;
 @interface MainAccountCell : UITableViewCell
 

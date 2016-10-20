@@ -13,6 +13,8 @@
 #import "PFBlowfish.h"
 #import "NSObject+Events.h"
 #import "PFResUtil.h"
+#include "Constants.h"
+#import "MainAccountCell.h"
 
 #import <MaterialControls/MDButton.h>
 
@@ -30,7 +32,7 @@
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *rippleHeight;
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *rippleWidth;
 
-@property (strong, nonatomic) NSArray *data;
+@property (strong, nonatomic) NSArray<PFAccount*> *data;
 
 @end
 
@@ -39,6 +41,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     [self _initUI];
+    [self _loadInitCategory];
 }
 
 - (void)viewDidAppear:(BOOL)animated {
@@ -48,12 +51,27 @@
 }
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
+    
 }
 
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+}
+
+#pragma mark - UITableView Delegate
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
+    if (section == 0) {
+        return _data.count;
+    }
+    return 0;
+}
+
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
+    MainAccountCell *ret = [tableView dequeueReusableCellWithIdentifier:kMainAccountCellReuseId];
+    [ret configWithAccount:_data[indexPath.row]];
+    return ret;
 }
 
 #pragma mark - IBActions
@@ -117,6 +135,17 @@
     layer.shadowColor = [[UIColor grayColor] CGColor];
     layer.shadowRadius = 1.0;
     layer.shadowOpacity = 1.0;
+    
+    //TableView
+    _tableView.delegate = self;
+    _tableView.dataSource = self;
+    
+    [_tableView registerNib:[UINib nibWithNibName:@"MainAccountCell" bundle:[NSBundle bundleForClass:self.class]] forCellReuseIdentifier:kMainAccountCellReuseId];
+}
+
+- (void)_loadInitCategory {
+    _data = [[PFAccountManager sharedManager] fetchAccountsByCategory:catIdRecent];
+    [self.tableView reloadData];
 }
 
 #pragma mark Test Functions.
