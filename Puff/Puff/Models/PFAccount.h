@@ -11,6 +11,7 @@
 @interface PFAccount : PFBaseModel
 @property (nullable, nonatomic, strong) NSString *account;
 @property (nullable, nonatomic, strong) NSString *account_salt;
+@property (nullable, nonatomic, strong) NSString *masked_account;
 @property (nullable, nonatomic, strong) NSString *additional;
 @property (nullable, nonatomic, strong) NSString *additional_salt;
 @property (nonatomic) int64_t category;

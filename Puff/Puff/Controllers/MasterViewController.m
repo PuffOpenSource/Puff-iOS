@@ -16,7 +16,7 @@
 
 #import <MaterialControls/MDButton.h>
 
-//#import <MMDrawerController/UIViewController+MMDrawerController.h>
+#import <MMDrawerController/UIViewController+MMDrawerController.h>
 
 #import "PFAccountManager.h"
 
@@ -84,6 +84,13 @@
     }];
 }
 
+- (IBAction)didClickMenuButton:(id)sender {
+    //Open drawer
+    [self.mm_drawerController openDrawerSide:MMDrawerSideLeft animated:YES completion:nil];
+}
+- (IBAction)didClickMoreButton:(id)sender {
+    //Pop menu
+}
 
 #pragma mark - PFDrawerViewControllerDelegate
 
@@ -93,16 +100,10 @@
 
 #pragma mark - Segues
 
-//- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-//    if ([[segue identifier] isEqualToString:@"showDetail"]) {
-////        NSIndexPath *indexPath = [self.tableView indexPathForSelectedRow];
-////        Event *object = [self.fetchedResultsController objectAtIndexPath:indexPath];
-////        DetailViewController *controller = (DetailViewController *)[[segue destinationViewController] topViewController];
-////        [controller setDetailItem:object];
-////        controller.navigationItem.leftBarButtonItem = self.splitViewController.displayModeButtonItem;
-////        controller.navigationItem.leftItemsSupplementBackButton = YES;
-//    }
-//}
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+    if ([[segue identifier] isEqualToString:@"showDetail"]) {
+    }
+}
 
 #pragma mark - Misc
 

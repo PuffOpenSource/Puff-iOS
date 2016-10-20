@@ -11,6 +11,7 @@
         <attribute name="hash_value" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="icon" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="last_access" optional="YES" attributeType="Date" usesScalarValueType="NO" syncable="YES"/>
+        <attribute name="masked_account" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="salt" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="type" optional="YES" attributeType="Integer 64" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
@@ -30,7 +31,7 @@
         <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
     </entity>
     <elements>
-        <element name="PFAccount" positionX="261" positionY="189" width="128" height="225"/>
+        <element name="PFAccount" positionX="261" positionY="189" width="128" height="240"/>
         <element name="PFCategory" positionX="270" positionY="288" width="128" height="105"/>
         <element name="PFType" positionX="261" positionY="279" width="128" height="105"/>
     </elements>

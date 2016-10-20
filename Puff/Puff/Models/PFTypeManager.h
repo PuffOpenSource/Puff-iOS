@@ -21,5 +21,6 @@ static NSString * const kEntityNamePFType       = @"PFType";
 
 -(NSArray*)fetchAll;
 -(NSArray*)fetchTypeByCategory:(int64_t)categoryId;
+-(PFType*)fetchTypeById:(int64_t)identifier;
 
 @end

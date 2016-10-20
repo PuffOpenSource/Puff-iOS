@@ -33,6 +33,7 @@
     _PFAccount *ret = [[_PFAccount alloc] initWithEntity:entity insertIntoManagedObjectContext:context];
     ret.account = _account;
     ret.account_salt = _account_salt;
+    ret.masked_account = _masked_account;
     ret.additional = _additional;
     ret.additional_salt = _additional_salt;
     ret.category = _category;

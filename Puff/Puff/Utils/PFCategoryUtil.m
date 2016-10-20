@@ -21,6 +21,8 @@
 @property (strong, nonatomic) NSArray *catIds;
 
 @property (strong, nonatomic) NSString *libPath;
+
+@property (assign, nonatomic) NSInteger typeId;
 @end
 
 @implementation PFCategoryUtil
@@ -33,6 +35,7 @@
         BOOL newInstall = [[NSUserDefaults standardUserDefaults] objectForKey:kPFNewInstall] == nil;
         if (newInstall) {
             //Save built in categories for new install only.
+            instance.typeId = 0;
             [instance _copyFiles];
             [instance _initNames];
             [instance initBuiltInCategories];
@@ -138,6 +141,8 @@
         toAdd.name = [url.lastPathComponent stringByReplacingOccurrencesOfString:@".png" withString:@""];
         toAdd.category = catId;
         toAdd.icon = [[@"/" stringByAppendingString:[url.pathComponents objectAtIndex:url.pathComponents.count - 2] ] stringByAppendingString: [@"/" stringByAppendingString:url.lastPathComponent]];
+        toAdd.identifier = _typeId;
+        _typeId += 1;
         [tm saveType:toAdd];
     }
 }

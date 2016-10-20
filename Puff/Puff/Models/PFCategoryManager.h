@@ -21,5 +21,6 @@ static NSString * const kEntityNamePFCategory       = @"PFCategory";
 
 -(NSArray*)fetchAll;
 -(NSArray*)fetchCategoryByType:(int64_t)typeId;
+- (PFCategory*)fetchCategoryById:(int64_t)identifier;
 
 @end

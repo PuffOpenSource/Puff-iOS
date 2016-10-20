@@ -59,4 +59,18 @@
     
     return [PFCategory convertFromRaws:[result finalResult] toWrapped:[PFCategory class]];
 }
+
+- (PFCategory*)fetchTypeById:(int64_t)identifier {
+    NSFetchRequest *req = [NSFetchRequest fetchRequestWithEntityName:kEntityNamePFCategory];
+    NSPredicate *filter = [NSPredicate predicateWithFormat:@"category == %llu", identifier];
+    [req setPredicate:filter];
+    NSManagedObjectContext *ctx = [_dbManager context];
+    NSError *err;
+    NSAsynchronousFetchResult *result = [ctx executeRequest:req error:&err];
+    if (err) {
+        return nil;
+    }
+    
+    return [[PFCategory convertFromRaws:[result finalResult] toWrapped:[PFCategory class]] firstObject];
+}
 @end

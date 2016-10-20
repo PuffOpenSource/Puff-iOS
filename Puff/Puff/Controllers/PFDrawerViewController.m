@@ -68,10 +68,6 @@
         [self.delegate loadAccountsInCategory:cat.identifier];
     }
 }
-- (IBAction)didSwipedDrawer:(id)sender {
-//    [[self mm_drawerController] closeDrawerAnimated:YES completion:nil];
-}
-
 /*
 #pragma mark - Navigation
 
