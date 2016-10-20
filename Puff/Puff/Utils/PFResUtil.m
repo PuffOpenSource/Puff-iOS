@@ -23,6 +23,14 @@
     return [UIColor colorWithRed:1.00 green:0.43 blue:0.17 alpha:1.00];
 }
 
++ (UIColor*)pfGreen {
+    return [UIColor colorWithRed:0.55 green:0.76 blue:0.29 alpha:1.00];
+}
+
++ (UIColor*)pfDarkGreen {
+    return [UIColor colorWithRed:0.41 green:0.62 blue:0.22 alpha:1.00];
+}
+
 + (CGRect)screenSize {
     return [UIScreen mainScreen].bounds;
 }

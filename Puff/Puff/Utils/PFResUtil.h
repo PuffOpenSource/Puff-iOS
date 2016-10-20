@@ -13,5 +13,7 @@
 + (NSString*)imagePathForName:(NSString*)name;
 + (UIImage*)imageForName:(NSString*)name;
 + (UIColor*)pfOrange;
++ (UIColor*)pfGreen;
++ (UIColor*)pfDarkGreen;
 + (CGRect)screenSize;
 @end

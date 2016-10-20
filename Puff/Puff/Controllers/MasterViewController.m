@@ -22,6 +22,8 @@
 
 @interface MasterViewController () <PFDrawerViewControllerDelegate, UITableViewDelegate, UITableViewDataSource>
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
+@property (weak, nonatomic) IBOutlet UIView *headerView;
+@property (weak, nonatomic) IBOutlet UIView *toolbar;
 @property (weak, nonatomic) IBOutlet MDButton *addButton;
 @property (weak, nonatomic) IBOutlet UIView *rippleView;
 
@@ -36,7 +38,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    _rippleView.layer.cornerRadius = 28;
+    [self _initUI];
 }
 
 - (void)viewDidAppear:(BOOL)animated {
@@ -101,6 +103,20 @@
 ////        controller.navigationItem.leftItemsSupplementBackButton = YES;
 //    }
 //}
+
+#pragma mark - Misc
+
+- (void)_initUI {
+    //RippleView
+    _rippleView.layer.cornerRadius = 28;
+    
+    //Toolbar
+    CALayer *layer = _toolbar.layer;
+    layer.shadowOffset = CGSizeMake(0, 2);
+    layer.shadowColor = [[UIColor grayColor] CGColor];
+    layer.shadowRadius = 1.0;
+    layer.shadowOpacity = 1.0;
+}
 
 #pragma mark Test Functions.
 
