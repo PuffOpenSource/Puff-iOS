@@ -12,6 +12,9 @@
 
 #import "PFBlowfish.h"
 #import "NSObject+Events.h"
+#import "PFResUtil.h"
+
+#import <MaterialControls/MDButton.h>
 
 //#import <MMDrawerController/UIViewController+MMDrawerController.h>
 
@@ -19,33 +22,26 @@
 
 @interface MasterViewController () <PFDrawerViewControllerDelegate, UITableViewDelegate, UITableViewDataSource>
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
-@property (weak, nonatomic) IBOutlet UIButton *addButton;
+@property (weak, nonatomic) IBOutlet MDButton *addButton;
+@property (weak, nonatomic) IBOutlet UIView *rippleView;
+
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *rippleHeight;
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *rippleWidth;
 
 @property (strong, nonatomic) NSArray *data;
+
 @end
 
 @implementation MasterViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    // Do any additional setup after loading the view, typically from a nib.
-//    self.navigationItem.leftBarButtonItem = self.editButtonItem;
-
-//    UIBarButtonItem *addButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemAdd target:self action:@selector(insertNewObject:)];
-//    self.navigationItem.rightBarButtonItem = addButton;
-
+    _rippleView.layer.cornerRadius = 28;
 }
 
 - (void)viewDidAppear:(BOOL)animated {
     [super viewDidAppear:animated];
-//    for (int i = 0; i < 1000; i++) {
-//        [self _cryptoTest];
-////        [self _encryptTest];
-//    }
-//    for (int i = 0; i < 10; i++) {
-//        [self _coreDataWriteTest];
-//    }
-//    [self _coreDataReadTest];
+    [self.addButton setType:MDButtonTypeFloatingAction];
     
 }
 - (void)viewWillAppear:(BOOL)animated {
@@ -57,9 +53,35 @@
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
-- (IBAction)didClickOpenDrawerButton:(id)sender {
-//    [self.mm_drawerController openDrawerSide:MMDrawerSideLeft animated:YES completion:nil];
+
+#pragma mark - IBActions
+- (IBAction)didClickAddButton:(id)sender {
+    _rippleView.backgroundColor = _addButton.backgroundColor;
+    
+    CGFloat fullSize = [PFResUtil screenSize].size.height * 2;
+    
+    CABasicAnimation *animation = [CABasicAnimation animationWithKeyPath:@"cornerRadius"];
+    animation.timingFunction = [CAMediaTimingFunction     functionWithName:kCAMediaTimingFunctionEaseInEaseOut];
+    animation.fromValue = [NSNumber numberWithFloat:28];
+    animation.toValue = [NSNumber numberWithFloat:fullSize / 2];
+    animation.duration = 0.4;
+    [_rippleView.layer addAnimation:animation forKey:@"cornerRadius"];
+    
+    [_rippleView.layer setCornerRadius:fullSize / 2];
+    
+    [UIView animateWithDuration:0.4 animations:^{
+        _rippleView.bounds = CGRectMake(0, 0, fullSize, fullSize);
+    } completion:^(BOOL finished) {
+        if (finished) {
+            _rippleView.backgroundColor = [UIColor clearColor];
+            _rippleView.frame = CGRectMake(_addButton.frame.origin.x, _addButton.frame.origin.y, 56, 56);
+            [_rippleView.layer removeAnimationForKey:@"cornerRadius"];
+            
+            //TODO (Bob): Jump to new view controller here.
+        }
+    }];
 }
+
 
 #pragma mark - PFDrawerViewControllerDelegate
 

@@ -12,4 +12,6 @@
 @interface PFResUtil : NSObject
 + (NSString*)imagePathForName:(NSString*)name;
 + (UIImage*)imageForName:(NSString*)name;
++ (UIColor*)pfOrange;
++ (CGRect)screenSize;
 @end

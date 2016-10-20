@@ -18,4 +18,12 @@
 + (UIImage*)imageForName:(NSString*)name {
     return nil;
 }
+
++ (UIColor*)pfOrange {
+    return [UIColor colorWithRed:1.00 green:0.43 blue:0.17 alpha:1.00];
+}
+
++ (CGRect)screenSize {
+    return [UIScreen mainScreen].bounds;
+}
 @end

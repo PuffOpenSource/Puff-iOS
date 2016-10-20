@@ -18,8 +18,51 @@
                     <view key="view" contentMode="scaleToFill" id="Nb9-eC-BgF">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="U6o-RM-6Ik">
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="56" id="hn0-9g-oKk"/>
+                                    <constraint firstAttribute="width" constant="56" id="zZl-8l-V6I"/>
+                                </constraints>
+                            </view>
+                            <button opaque="NO" contentMode="scaleAspectFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="h9q-uc-uQj" customClass="MDButton">
+                                <color key="backgroundColor" red="1" green="0.3411764706" blue="0.1333333333" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="56" id="tQj-Jk-b0H"/>
+                                    <constraint firstAttribute="width" constant="56" id="vDm-5g-euK"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="24"/>
+                                <state key="normal" title="+">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                    <color key="titleShadowColor" red="0.49803921569999998" green="0.49803921569999998" blue="0.49803921569999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                </state>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="color" keyPath="rippleColor">
+                                        <color key="value" red="1" green="0.3411764705882353" blue="0.13333333333333333" alpha="1" colorSpace="calibratedRGB"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="type">
+                                        <integer key="value" value="2"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                                <connections>
+                                    <action selector="didClickAddButton:" destination="YyR-ky-baK" eventType="touchUpInside" id="pxA-8k-NRu"/>
+                                </connections>
+                            </button>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="trailingMargin" secondItem="U6o-RM-6Ik" secondAttribute="trailing" id="2QY-q6-Xem"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="h9q-uc-uQj" secondAttribute="trailing" id="7ng-ai-PB6"/>
+                            <constraint firstItem="zdo-q6-vBW" firstAttribute="top" secondItem="U6o-RM-6Ik" secondAttribute="bottom" constant="20" id="pXz-AZ-8TW"/>
+                            <constraint firstItem="zdo-q6-vBW" firstAttribute="top" secondItem="h9q-uc-uQj" secondAttribute="bottom" constant="20" id="wwp-qp-Wwj"/>
+                        </constraints>
                     </view>
+                    <connections>
+                        <outlet property="addButton" destination="h9q-uc-uQj" id="QBR-YK-Nf9"/>
+                        <outlet property="rippleHeight" destination="hn0-9g-oKk" id="BXE-t6-sjy"/>
+                        <outlet property="rippleView" destination="U6o-RM-6Ik" id="9BE-FB-6BI"/>
+                        <outlet property="rippleWidth" destination="zZl-8l-V6I" id="JS4-09-Lnd"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="28D-th-OmU" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
