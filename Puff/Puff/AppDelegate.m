@@ -14,8 +14,8 @@
 #import "NSObject+Events.h"
 #import "MasterViewController.h"
 #import "PFDrawerViewController.h"
-
 #import "PFCategoryUtil.h"
+#import "PFKeychainHelper.h"
 
 @interface AppDelegate ()
 @property (strong, nonatomic) MasterViewController *mainViewController;
@@ -72,6 +72,11 @@
     [self.window makeKeyAndVisible];
     
     [NSObject setDispatchQueue:[NSOperationQueue mainQueue]];
+    
+    PFKeychainHelper *kHelper = [PFKeychainHelper sharedInstance];
+    NSString *pwd = [kHelper masterPassword];
+    pwd = @"123456";
+    BOOL result = [kHelper setMasterPassword:pwd];
     
     return YES;
 }

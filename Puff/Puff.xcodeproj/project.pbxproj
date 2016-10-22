@@ -34,6 +34,7 @@
 		01A8B97F1DB0AE8D00D87FCF /* PFDBManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 01A8B97E1DB0AE8D00D87FCF /* PFDBManager.m */; };
 		01A8B9821DB0AE9E00D87FCF /* PFAccountManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 01A8B9811DB0AE9E00D87FCF /* PFAccountManager.m */; };
 		01A8B9881DB0BEC100D87FCF /* PFBaseModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 01A8B9871DB0BEC100D87FCF /* PFBaseModel.m */; };
+		01D26AF61DBB99F900A32064 /* PFKeychainHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 01D26AF51DBB99F900A32064 /* PFKeychainHelper.m */; };
 		01D3AF831DB3C94000EE5CA1 /* PFCategory.m in Sources */ = {isa = PBXBuildFile; fileRef = 01D3AF821DB3C94000EE5CA1 /* PFCategory.m */; };
 		01D3AF861DB3C97B00EE5CA1 /* PFAccount.m in Sources */ = {isa = PBXBuildFile; fileRef = 01D3AF851DB3C97B00EE5CA1 /* PFAccount.m */; };
 		01D3AF891DB3C99800EE5CA1 /* MasterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 01D3AF881DB3C99800EE5CA1 /* MasterViewController.m */; };
@@ -43,7 +44,6 @@
 		01EB178B1DB717DF00C71C4B /* PFResUtil.m in Sources */ = {isa = PBXBuildFile; fileRef = 01EB178A1DB717DF00C71C4B /* PFResUtil.m */; };
 		01EB178E1DB744A300C71C4B /* PFAddAccountViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 01EB178D1DB744A300C71C4B /* PFAddAccountViewController.m */; };
 		01EB17911DB744BA00C71C4B /* PFSetMasterPasswordViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 01EB17901DB744BA00C71C4B /* PFSetMasterPasswordViewController.m */; };
-		01EB17941DB744CD00C71C4B /* PFAuthorizeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 01EB17931DB744CD00C71C4B /* PFAuthorizeViewController.m */; };
 		01EB17981DB744EB00C71C4B /* PFQuickPasswordViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 01EB17971DB744EB00C71C4B /* PFQuickPasswordViewController.m */; };
 		01EB179B1DB74B6900C71C4B /* PFSettingsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 01EB179A1DB74B6900C71C4B /* PFSettingsViewController.m */; };
 		01EB179E1DB74B8100C71C4B /* PFPasswordGenViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 01EB179D1DB74B8100C71C4B /* PFPasswordGenViewController.m */; };
@@ -107,6 +107,9 @@
 		01A8B9861DB0BEC100D87FCF /* PFBaseModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PFBaseModel.h; path = Models/PFBaseModel.h; sourceTree = "<group>"; };
 		01A8B9871DB0BEC100D87FCF /* PFBaseModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PFBaseModel.m; path = Models/PFBaseModel.m; sourceTree = "<group>"; };
 		01A8B9B01DB0E1CC00D87FCF /* Config.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = Config.h; path = Config/Config.h; sourceTree = "<group>"; };
+		01D26AF41DBB99F900A32064 /* PFKeychainHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PFKeychainHelper.h; path = Utils/PFKeychainHelper.h; sourceTree = "<group>"; };
+		01D26AF51DBB99F900A32064 /* PFKeychainHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PFKeychainHelper.m; path = Utils/PFKeychainHelper.m; sourceTree = "<group>"; };
+		01D26AF71DBBA84B00A32064 /* Puff.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Puff.entitlements; sourceTree = "<group>"; };
 		01D3AF811DB3C94000EE5CA1 /* PFCategory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PFCategory.h; path = Models/PFCategory.h; sourceTree = "<group>"; };
 		01D3AF821DB3C94000EE5CA1 /* PFCategory.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PFCategory.m; path = Models/PFCategory.m; sourceTree = "<group>"; };
 		01D3AF841DB3C97B00EE5CA1 /* PFAccount.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PFAccount.h; path = Models/PFAccount.h; sourceTree = "<group>"; };
@@ -125,8 +128,6 @@
 		01EB178D1DB744A300C71C4B /* PFAddAccountViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PFAddAccountViewController.m; path = Controllers/PFAddAccountViewController.m; sourceTree = "<group>"; };
 		01EB178F1DB744BA00C71C4B /* PFSetMasterPasswordViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PFSetMasterPasswordViewController.h; path = Controllers/PFSetMasterPasswordViewController.h; sourceTree = "<group>"; };
 		01EB17901DB744BA00C71C4B /* PFSetMasterPasswordViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PFSetMasterPasswordViewController.m; path = Controllers/PFSetMasterPasswordViewController.m; sourceTree = "<group>"; };
-		01EB17921DB744CD00C71C4B /* PFAuthorizeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PFAuthorizeViewController.h; path = Controllers/PFAuthorizeViewController.h; sourceTree = "<group>"; };
-		01EB17931DB744CD00C71C4B /* PFAuthorizeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PFAuthorizeViewController.m; path = Controllers/PFAuthorizeViewController.m; sourceTree = "<group>"; };
 		01EB17961DB744EB00C71C4B /* PFQuickPasswordViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PFQuickPasswordViewController.h; path = Controllers/PFQuickPasswordViewController.h; sourceTree = "<group>"; };
 		01EB17971DB744EB00C71C4B /* PFQuickPasswordViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PFQuickPasswordViewController.m; path = Controllers/PFQuickPasswordViewController.m; sourceTree = "<group>"; };
 		01EB17991DB74B6900C71C4B /* PFSettingsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PFSettingsViewController.h; path = Controllers/PFSettingsViewController.h; sourceTree = "<group>"; };
@@ -174,6 +175,7 @@
 		011536EE1D8932CC00C98268 /* Puff */ = {
 			isa = PBXGroup;
 			children = (
+				01D26AF71DBBA84B00A32064 /* Puff.entitlements */,
 				01A8B9AF1DB0E08600D87FCF /* Config */,
 				01A8B9851DB0AED600D87FCF /* Resources */,
 				01A8B9841DB0AEBD00D87FCF /* Views */,
@@ -216,6 +218,8 @@
 				010CFB331DB4B7B600FEE5DE /* PFCategoryUtil.m */,
 				01EB17891DB717DF00C71C4B /* PFResUtil.h */,
 				01EB178A1DB717DF00C71C4B /* PFResUtil.m */,
+				01D26AF41DBB99F900A32064 /* PFKeychainHelper.h */,
+				01D26AF51DBB99F900A32064 /* PFKeychainHelper.m */,
 			);
 			name = Utils;
 			sourceTree = "<group>";
@@ -231,8 +235,6 @@
 				01EB178D1DB744A300C71C4B /* PFAddAccountViewController.m */,
 				01EB178F1DB744BA00C71C4B /* PFSetMasterPasswordViewController.h */,
 				01EB17901DB744BA00C71C4B /* PFSetMasterPasswordViewController.m */,
-				01EB17921DB744CD00C71C4B /* PFAuthorizeViewController.h */,
-				01EB17931DB744CD00C71C4B /* PFAuthorizeViewController.m */,
 				01EB17961DB744EB00C71C4B /* PFQuickPasswordViewController.h */,
 				01EB17971DB744EB00C71C4B /* PFQuickPasswordViewController.m */,
 				01EB17991DB74B6900C71C4B /* PFSettingsViewController.h */,
@@ -392,7 +394,13 @@
 				TargetAttributes = {
 					011536EB1D8932CC00C98268 = {
 						CreatedOnToolsVersion = 8.0;
+						DevelopmentTeam = W75ZLVNVDN;
 						ProvisioningStyle = Automatic;
+						SystemCapabilities = {
+							com.apple.Keychain = {
+								enabled = 1;
+							};
+						};
 					};
 				};
 			};
@@ -483,13 +491,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				012C69BC1DAF68F1005E7104 /* EXTSelectorChecking.m in Sources */,
+				01D26AF61DBB99F900A32064 /* PFKeychainHelper.m in Sources */,
 				012C69BE1DAF68F1005E7104 /* NSMethodSignature+EXT.m in Sources */,
 				012C69B71DAF68F1005E7104 /* EXTConcreteProtocol.m in Sources */,
 				011536F41D8932CC00C98268 /* AppDelegate.m in Sources */,
 				011536F11D8932CC00C98268 /* main.m in Sources */,
 				01EB179E1DB74B8100C71C4B /* PFPasswordGenViewController.m in Sources */,
 				010CFB341DB4B7B600FEE5DE /* PFCategoryUtil.m in Sources */,
-				01EB17941DB744CD00C71C4B /* PFAuthorizeViewController.m in Sources */,
 				013DC3991DB5F44000AB8F50 /* PFDrawerCell.m in Sources */,
 				01D3AF921DB3CA4500EE5CA1 /* PFTypeManager.m in Sources */,
 				01EB17911DB744BA00C71C4B /* PFSetMasterPasswordViewController.m in Sources */,
@@ -634,9 +642,11 @@
 			baseConfigurationReference = 820B20218AC52C7E98579DA8 /* Pods-Puff.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = Puff/Puff.entitlements;
+				DEVELOPMENT_TEAM = W75ZLVNVDN;
 				INFOPLIST_FILE = Puff/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = bob.sun.Puff;
+				PRODUCT_BUNDLE_IDENTIFIER = bob.sun.leela;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Debug;
@@ -646,9 +656,11 @@
 			baseConfigurationReference = 49ED3346F81226C2312BDA01 /* Pods-Puff.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = Puff/Puff.entitlements;
+				DEVELOPMENT_TEAM = W75ZLVNVDN;
 				INFOPLIST_FILE = Puff/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = bob.sun.Puff;
+				PRODUCT_BUNDLE_IDENTIFIER = bob.sun.leela;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Release;
