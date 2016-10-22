@@ -24,11 +24,16 @@
 #import "PFAccountManager.h"
 
 @interface MasterViewController () <PFDrawerViewControllerDelegate, UITableViewDelegate, UITableViewDataSource>
+
+@property (weak, nonatomic) AppDelegate *app;
+
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
 @property (weak, nonatomic) IBOutlet UIView *headerView;
 @property (weak, nonatomic) IBOutlet UIView *toolbar;
 @property (weak, nonatomic) IBOutlet MDButton *addButton;
 @property (weak, nonatomic) IBOutlet UIView *rippleView;
+@property (weak, nonatomic) IBOutlet UITextField *lockPasswordField;
+@property (weak, nonatomic) IBOutlet UIButton *lockTouchIdIcon;
 
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *rippleHeight;
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *rippleWidth;
@@ -48,15 +53,15 @@
 
 - (void)viewDidAppear:(BOOL)animated {
     [super viewDidAppear:animated];
-    [self.addButton setType:MDButtonTypeFloatingAction];
-    
-    AppDelegate *app = [UIApplication sharedApplication].delegate;
-    _lockView.hidden = !app.locked;
     
 }
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
-    
+    _app = (AppDelegate*)[UIApplication sharedApplication].delegate;
+    _lockView.hidden = !_app.locked;
+    if (_app.locked) {
+        [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(_dismissLockView) name:UIKeyboardDidHideNotification object:nil];
+    }
 }
 
 
@@ -67,7 +72,7 @@
 
 #pragma mark - UITableView Delegate
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    if (section == 0) {
+    if (section == 0 && !_app.locked) {
         return _data.count;
     }
     return 0;
@@ -113,8 +118,13 @@
     //Open drawer
     [self.mm_drawerController openDrawerSide:MMDrawerSideLeft animated:YES completion:nil];
 }
+
 - (IBAction)didClickMoreButton:(id)sender {
     //Pop menu
+}
+
+- (IBAction)didClickedKeyboardAction:(id)sender {
+    [_lockPasswordField resignFirstResponder];
 }
 
 #pragma mark - PFDrawerViewControllerDelegate
@@ -133,6 +143,9 @@
 #pragma mark - Misc
 
 - (void)_initUI {
+    //Lock View
+    _lockPasswordField.layer.cornerRadius = 20;
+    
     //RippleView
     _rippleView.layer.cornerRadius = 28;
     
@@ -152,7 +165,60 @@
 
 - (void)_loadInitCategory {
     _data = [[PFAccountManager sharedManager] fetchRecentUsed:10];
-    [self.tableView reloadData];
+    if (_data.count != 0) {
+        [self.tableView reloadData];
+    } else {
+        //TODO: Show empty view
+    }
+}
+
+- (void)lockViews {
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(_dismissLockView) name:UIKeyboardDidHideNotification object:nil];
+    _lockView.bounds = [PFResUtil screenSize];
+    _lockView.layer.cornerRadius = 0;
+    _lockView.hidden = NO;
+}
+
+- (void)_dismissLockView {
+    if (![self _authorize]) {
+        //TODO: Shake it baby.
+        return;
+    }
+    AppDelegate *app = (AppDelegate*)[UIApplication sharedApplication].delegate;
+    app.locked = NO;
+    
+    CGRect screenSize = [PFResUtil screenSize];
+    CGFloat fullSize = [PFResUtil screenSize].size.height * 2;
+    _lockView.bounds = CGRectMake(0, 0, fullSize, fullSize);
+    
+    CABasicAnimation *animation = [CABasicAnimation animationWithKeyPath:@"cornerRadius"];
+    animation.timingFunction = [CAMediaTimingFunction     functionWithName:kCAMediaTimingFunctionEaseInEaseOut];
+    animation.fromValue = [NSNumber numberWithFloat:fullSize / 2];
+    animation.toValue = [NSNumber numberWithFloat:0];
+    animation.duration = 0.5;
+    [_lockView.layer addAnimation:animation forKey:@"cornerRadius"];
+    
+    [_lockView.layer setCornerRadius:0];
+
+    for (UIView *view in [_lockView subviews]) {
+        view.hidden = YES;
+    }
+    
+    [UIView animateWithDuration:0.5 animations:^{
+        _lockView.bounds = CGRectMake(screenSize.origin.x / 2, screenSize.origin.y / 2, 0, 0);
+    } completion:^(BOOL finished) {
+        if (finished) {
+            _lockView.hidden = YES;
+            for (UIView *view in [_lockView subviews]) {
+                view.hidden = NO;
+            }
+            [[NSNotificationCenter defaultCenter] removeObserver:self name:UIKeyboardDidHideNotification object:nil];
+        }
+    }];
+}
+
+- (BOOL)_authorize {
+    return YES;
 }
 
 #pragma mark Test Functions.
@@ -196,107 +262,5 @@
     NSArray *accts = [manager fetchAccountsByCategory:1234567];
     return;
 }
-
-
-
-#pragma mark - Fetched results controller
-/**
- 
-- (NSFetchedResultsController<Event *> *)fetchedResultsController
-{
-    if (_fetchedResultsController != nil) {
-        return _fetchedResultsController;
-    }
-    
-    NSFetchRequest<Event *> *fetchRequest = Event.fetchRequest;
-    
-    // Set the batch size to a suitable number.
-    [fetchRequest setFetchBatchSize:20];
-    
-    // Edit the sort key as appropriate.
-    NSSortDescriptor *sortDescriptor = [[NSSortDescriptor alloc] initWithKey:@"timestamp" ascending:NO];
-
-    [fetchRequest setSortDescriptors:@[sortDescriptor]];
-    
-    // Edit the section name key path and cache name if appropriate.
-    // nil for section name key path means "no sections".
-    NSFetchedResultsController<Event *> *aFetchedResultsController = [[NSFetchedResultsController alloc] initWithFetchRequest:fetchRequest managedObjectContext:self.managedObjectContext sectionNameKeyPath:nil cacheName:@"Master"];
-    aFetchedResultsController.delegate = self;
-    
-    NSError *error = nil;
-    if (![aFetchedResultsController performFetch:&error]) {
-        // Replace this implementation with code to handle the error appropriately.
-        // abort() causes the application to generate a crash log and terminate. You should not use this function in a shipping application, although it may be useful during development.
-        NSLog(@"Unresolved error %@, %@", error, error.userInfo);
-        abort();
-    }
-    
-    _fetchedResultsController = aFetchedResultsController;
-    return _fetchedResultsController;
-}
-
-- (void)controllerWillChangeContent:(NSFetchedResultsController *)controller
-{
-    [self.tableView beginUpdates];
-}
-
-- (void)controller:(NSFetchedResultsController *)controller didChangeSection:(id <NSFetchedResultsSectionInfo>)sectionInfo
-           atIndex:(NSUInteger)sectionIndex forChangeType:(NSFetchedResultsChangeType)type
-{
-    switch(type) {
-        case NSFetchedResultsChangeInsert:
-            [self.tableView insertSections:[NSIndexSet indexSetWithIndex:sectionIndex] withRowAnimation:UITableViewRowAnimationFade];
-            break;
-            
-        case NSFetchedResultsChangeDelete:
-            [self.tableView deleteSections:[NSIndexSet indexSetWithIndex:sectionIndex] withRowAnimation:UITableViewRowAnimationFade];
-            break;
-            
-        default:
-            return;
-    }
-}
-
-- (void)controller:(NSFetchedResultsController *)controller didChangeObject:(id)anObject
-       atIndexPath:(NSIndexPath *)indexPath forChangeType:(NSFetchedResultsChangeType)type
-      newIndexPath:(NSIndexPath *)newIndexPath
-{
-    UITableView *tableView = self.tableView;
-    
-    switch(type) {
-        case NSFetchedResultsChangeInsert:
-            [tableView insertRowsAtIndexPaths:@[newIndexPath] withRowAnimation:UITableViewRowAnimationFade];
-            break;
-            
-        case NSFetchedResultsChangeDelete:
-            [tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationFade];
-            break;
-            
-        case NSFetchedResultsChangeUpdate:
-            [self configureCell:[tableView cellForRowAtIndexPath:indexPath] withEvent:anObject];
-            break;
-            
-        case NSFetchedResultsChangeMove:
-            [tableView moveRowAtIndexPath:indexPath toIndexPath:newIndexPath];
-            break;
-    }
-}
-
-- (void)controllerDidChangeContent:(NSFetchedResultsController *)controller
-{
-    [self.tableView endUpdates];
-}
-
- */
-
-/*
-// Implementing the above methods to update the table view in response to individual changes may have performance implications if a large number of changes are made simultaneously. If this proves to be an issue, you can instead just implement controllerDidChangeContent: which notifies the delegate that all section and object changes have been processed. 
- 
- - (void)controllerDidChangeContent:(NSFetchedResultsController *)controller
-{
-    // In the simplest, most efficient, case, reload the table view.
-    [self.tableView reloadData];
-}
- */
 
 @end

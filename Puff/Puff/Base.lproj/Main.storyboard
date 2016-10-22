@@ -129,9 +129,47 @@
                                     <action selector="didClickAddButton:" destination="YyR-ky-baK" eventType="touchUpInside" id="pxA-8k-NRu"/>
                                 </connections>
                             </button>
-                            <view contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Xbs-rT-wIh">
-                                <frame key="frameInset" minY="628" width="32" height="39"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Xbs-rT-wIh">
+                                <subviews>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="icon-puff" translatesAutoresizingMaskIntoConstraints="NO" id="DwL-Fc-iOp">
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="120" id="MSt-KG-VGH"/>
+                                            <constraint firstAttribute="width" constant="120" id="w7L-5z-CjN"/>
+                                        </constraints>
+                                    </imageView>
+                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" placeholder="Master Password" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="snA-Uw-dFd">
+                                        <color key="backgroundColor" red="0.93333333330000001" green="0.93333333330000001" blue="0.93333333330000001" alpha="1" colorSpace="calibratedRGB"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="40" id="i5N-by-CFg"/>
+                                        </constraints>
+                                        <nil key="textColor"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits" returnKeyType="go" secureTextEntry="YES"/>
+                                        <connections>
+                                            <action selector="didClickedKeyboardAction:" destination="YyR-ky-baK" eventType="primaryActionTriggered" id="WUa-wP-K8E"/>
+                                        </connections>
+                                    </textField>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="FTU-ad-rVK">
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="50" id="S4g-N1-mIG"/>
+                                            <constraint firstAttribute="height" constant="50" id="g5o-z1-1Si"/>
+                                        </constraints>
+                                        <state key="normal" title="TouchId"/>
+                                        <connections>
+                                            <action selector="didUnlock:" destination="YyR-ky-baK" eventType="touchUpInside" id="Xoe-5l-L64"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                                <color key="backgroundColor" red="0.5450980392" green="0.76470588240000004" blue="0.2901960784" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstItem="DwL-Fc-iOp" firstAttribute="centerX" secondItem="snA-Uw-dFd" secondAttribute="centerX" id="2uf-T2-Xgs"/>
+                                    <constraint firstItem="snA-Uw-dFd" firstAttribute="leading" secondItem="Xbs-rT-wIh" secondAttribute="leading" constant="16" id="3fe-8S-3NX"/>
+                                    <constraint firstAttribute="trailing" secondItem="snA-Uw-dFd" secondAttribute="trailing" constant="16" id="XVW-we-4uY"/>
+                                    <constraint firstItem="snA-Uw-dFd" firstAttribute="top" secondItem="DwL-Fc-iOp" secondAttribute="bottom" constant="30" id="fn8-3X-Cx0"/>
+                                    <constraint firstItem="FTU-ad-rVK" firstAttribute="top" secondItem="snA-Uw-dFd" secondAttribute="bottom" constant="32" id="hi5-OL-CD1"/>
+                                    <constraint firstItem="snA-Uw-dFd" firstAttribute="centerY" secondItem="Xbs-rT-wIh" secondAttribute="centerY" constant="-50" id="qzK-G1-Iun"/>
+                                    <constraint firstItem="FTU-ad-rVK" firstAttribute="centerX" secondItem="Xbs-rT-wIh" secondAttribute="centerX" id="vJi-lO-kCb"/>
+                                </constraints>
                             </view>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -157,6 +195,8 @@
                     <connections>
                         <outlet property="addButton" destination="h9q-uc-uQj" id="QBR-YK-Nf9"/>
                         <outlet property="headerView" destination="9bg-ac-RNM" id="VmF-41-MY9"/>
+                        <outlet property="lockPasswordField" destination="snA-Uw-dFd" id="1xC-3Z-BrF"/>
+                        <outlet property="lockTouchIdIcon" destination="FTU-ad-rVK" id="7vA-pB-3Rr"/>
                         <outlet property="lockView" destination="Xbs-rT-wIh" id="W1I-BJ-qbh"/>
                         <outlet property="rippleHeight" destination="hn0-9g-oKk" id="BXE-t6-sjy"/>
                         <outlet property="rippleView" destination="U6o-RM-6Ik" id="9BE-FB-6BI"/>
@@ -267,7 +307,7 @@
                                                 <color key="value" red="1" green="0.3411764706" blue="0.1333333333" alpha="1" colorSpace="calibratedRGB"/>
                                             </userDefinedRuntimeAttribute>
                                             <userDefinedRuntimeAttribute type="color" keyPath="textColor">
-                                                <color key="value" red="0.5450980392" green="0.76470588240000004" blue="0.2901960784" alpha="1" colorSpace="calibratedRGB"/>
+                                                <color key="value" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                             </userDefinedRuntimeAttribute>
                                             <userDefinedRuntimeAttribute type="color" keyPath="hintColor">
                                                 <color key="value" red="0.49803921569999998" green="0.49803921569999998" blue="0.49803921569999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -396,7 +436,7 @@
                                     <constraint firstAttribute="bottom" secondItem="mKG-EO-ThX" secondAttribute="bottom" constant="16" id="6JP-ol-uPG"/>
                                     <constraint firstAttribute="trailing" secondItem="1ea-NV-aVq" secondAttribute="trailing" id="6hE-KS-OPK"/>
                                     <constraint firstItem="1ea-NV-aVq" firstAttribute="top" secondItem="Fo6-9u-FxE" secondAttribute="top" id="9GM-M3-4rC"/>
-                                    <constraint firstAttribute="height" constant="180" id="EuN-Kd-Fib"/>
+                                    <constraint firstAttribute="height" constant="200" id="EuN-Kd-Fib"/>
                                     <constraint firstItem="1ea-NV-aVq" firstAttribute="leading" secondItem="Fo6-9u-FxE" secondAttribute="leading" id="gyo-by-vS3"/>
                                     <constraint firstItem="mKG-EO-ThX" firstAttribute="leading" secondItem="Fo6-9u-FxE" secondAttribute="leading" constant="16" id="js6-NC-sbg"/>
                                     <constraint firstAttribute="bottom" secondItem="1ea-NV-aVq" secondAttribute="bottom" id="v9V-lo-g4O"/>
@@ -407,7 +447,7 @@
                                 <color key="separatorColor" red="0.93333333330000001" green="0.93333333330000001" blue="0.93333333330000001" alpha="1" colorSpace="calibratedRGB"/>
                                 <color key="sectionIndexBackgroundColor" red="0.93333333330000001" green="0.93333333330000001" blue="0.93333333330000001" alpha="1" colorSpace="calibratedRGB"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="kReuseIdPFDrawerCell" rowHeight="50" id="b3D-lM-geD" customClass="PFDrawerCell">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" reuseIdentifier="kReuseIdPFDrawerCell" rowHeight="50" id="b3D-lM-geD" customClass="PFDrawerCell">
                                         <rect key="frame" x="0.0" y="28" width="375" height="50"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="b3D-lM-geD" id="RBy-CY-Tjc">
@@ -458,6 +498,7 @@
                             <constraint firstItem="Fo6-9u-FxE" firstAttribute="leading" secondItem="1bQ-lY-FfR" secondAttribute="leading" id="nz1-5h-4he"/>
                         </constraints>
                     </view>
+                    <nil key="simulatedStatusBarMetrics"/>
                     <connections>
                         <outlet property="headerView" destination="Fo6-9u-FxE" id="9DD-fF-WtX"/>
                         <outlet property="iconImage" destination="mKG-EO-ThX" id="Ryw-IV-3S5"/>

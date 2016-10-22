@@ -61,7 +61,6 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     //TODO: Jump to corresponding page & close drawer.
-    [self tableView:tableView didDeselectRowAtIndexPath:indexPath];
     [self.mm_drawerController closeDrawerAnimated:YES completion:nil];
     PFCategory *cat = [self.data objectAtIndex:indexPath.row];
     if (cat && self.delegate) {
