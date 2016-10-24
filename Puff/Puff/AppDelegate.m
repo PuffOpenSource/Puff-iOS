@@ -15,6 +15,10 @@
 #import "MasterViewController.h"
 #import "PFDrawerViewController.h"
 #import "PFCategoryUtil.h"
+#import "PFDBManager.h"
+#import "PFAccountManager.h"
+#import "PFTypeManager.h"
+#import "PFCategoryManager.h"
 #import "PFKeychainHelper.h"
 
 @interface AppDelegate ()
@@ -35,8 +39,7 @@
 //    MasterViewController *controller = (MasterViewController *)masterNavigationController.topViewController;
 //    controller.managedObjectContext = self.persistentContainer.viewContext;
     
-    
-    [PFCategoryUtil sharedInstance];
+    [[[PFCategoryUtil alloc] init] initBuiltins];;
     
     _locked = YES;
     
@@ -72,11 +75,6 @@
     [self.window makeKeyAndVisible];
     
     [NSObject setDispatchQueue:[NSOperationQueue mainQueue]];
-    
-    PFKeychainHelper *kHelper = [PFKeychainHelper sharedInstance];
-    NSString *pwd = [kHelper masterPassword];
-    pwd = @"123456";
-    BOOL result = [kHelper setMasterPassword:pwd];
     
     return YES;
 }

@@ -24,7 +24,7 @@
     return instance;
 }
 
-- (NSString*)masterPassword {
+- (NSString*)getMasterPassword {
     
     NSData *ret = nil;
     NSMutableDictionary *keyChainQuery = [self newSearchDictionary:keyChainStoreKey];
@@ -43,24 +43,6 @@
     
     
     return [NSString stringWithUTF8String:ret.bytes];
-    
-//    NSMutableDictionary *queries = [@{} mutableCopy];
-//    [queries setObject:(id)kSecClassGenericPassword forKey:(id)kSecClass];
-//    [queries setObject:keyChainStoreKey forKey:(id)kSecAttrDescription];
-//    [queries setObject:(id)kCFBooleanTrue forKey:(id)kSecMatchCaseInsensitive];
-//    [queries setObject:(id)kSecMatchLimitOne forKey:(id)kSecMatchLimit];
-//    [queries setObject:(id)kCFBooleanTrue forKey:(id)kSecReturnData];
-//    [queries setObject:keyChainAccessGroup forKey:(id)kSecAttrAccessGroup];
-//    
-//    NSData *rawResult = nil;
-//    CFTypeRef typed = (__bridge CFTypeRef)rawResult;
-//    
-//    OSStatus err = noErr;
-//    err = SecItemCopyMatching((CFDictionaryRef)queries, &typed);
-//    if (err != errSecSuccess) {
-//        return @"";
-//    }
-//    return [NSString stringWithUTF8String:rawResult.bytes];
 }
 
 - (BOOL)setMasterPassword:(NSString*)pwd {
@@ -70,15 +52,6 @@
 
     OSStatus err = SecItemAdd((__bridge_retained CFDictionaryRef)keyChainQuery, nil);
     return err == errSecSuccess;
-//    NSMutableDictionary *toAdd = [@{} mutableCopy];
-//    [toAdd setObject:(id)kSecClassGenericPassword forKey:(id)kSecClass];
-//    [toAdd setObject:[NSBundle bundleForClass:self.class].bundleIdentifier forKey:(id)kSecAttrDescription];
-//    [toAdd setObject:keyChainAccessGroup forKey:(id)kSecAttrAccessGroup];
-//    [toAdd setObject:[NSKeyedArchiver archivedDataWithRootObject:pwd] forKey:(id)kSecValueData];
-//    
-//    OSStatus err = noErr;
-//    err = SecItemAdd((CFDictionaryRef) toAdd, NULL);
-//    return err == errSecSuccess;
 }
 
 - (NSMutableDictionary *)newSearchDictionary:(NSString *)identifier

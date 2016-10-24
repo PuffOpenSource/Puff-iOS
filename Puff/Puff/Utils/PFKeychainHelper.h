@@ -14,6 +14,6 @@ static NSString * const keyChainAccessGroup     =   @"sun.bob.leela";
 @interface PFKeychainHelper : NSObject
 + (instancetype)sharedInstance;
 
-- (NSString*)masterPassword;
+- (NSString*)getMasterPassword;
 - (BOOL)setMasterPassword:(NSString*)pwd;
 @end

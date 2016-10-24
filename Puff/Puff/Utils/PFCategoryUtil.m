@@ -27,24 +27,18 @@
 
 @implementation PFCategoryUtil
 
-+ (instancetype)sharedInstance {
-    static PFCategoryUtil *instance;
-    static dispatch_once_t onceToken;
-    dispatch_once(&onceToken, ^{
-        instance = [[PFCategoryUtil alloc] init];
-        BOOL newInstall = [[NSUserDefaults standardUserDefaults] objectForKey:kPFNewInstall] == nil;
-        if (newInstall) {
-            //Save built in categories for new install only.
-            instance.typeId = 0;
-            [instance _copyFiles];
-            [instance _initNames];
-            [instance initBuiltInCategories];
-            [instance initBuiltInTypes];
-            [[NSUserDefaults standardUserDefaults] setBool:@(1) forKey:kPFNewInstall];
-            [[NSUserDefaults standardUserDefaults] synchronize];
-        }
-    });
-    return instance;
+- (void)initBuiltins {
+    BOOL newInstall = [[NSUserDefaults standardUserDefaults] objectForKey:kPFNewInstall] == nil;
+    if (newInstall) {
+        //Save built in categories for new install only.
+        self.typeId = 0;
+        [self _copyFiles];
+        [self _initNames];
+        [self initBuiltInCategories];
+        [self initBuiltInTypes];
+        [[NSUserDefaults standardUserDefaults] setBool:@(1) forKey:kPFNewInstall];
+        [[NSUserDefaults standardUserDefaults] synchronize];
+    }
 }
 
 - (void)initBuiltInCategories {

@@ -18,7 +18,8 @@
     static dispatch_once_t onceToken;
     dispatch_once(&onceToken, ^{
         instance = [[PFCategoryManager alloc] init];
-        instance.dbManager = [PFDBManager sharedManager];
+        instance.dbManager = [[PFDBManager alloc] init];
+//        instance.dbManager = [PFDBManager sharedManager];
     });
     return instance;
 }

@@ -21,7 +21,8 @@
     static PFAccountManager *instance;
     dispatch_once(&onceToken, ^{
         instance = [[PFAccountManager alloc] init];
-        instance.dbManager = [PFDBManager sharedManager];
+        instance.dbManager = [[PFDBManager alloc] init];
+//        instance.dbManager = [PFDBManager sharedManager];
     });
     return instance;
 }

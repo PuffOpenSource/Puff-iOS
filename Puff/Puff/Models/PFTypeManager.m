@@ -18,8 +18,12 @@
     static PFTypeManager *instance;
     static dispatch_once_t onceToken;
     dispatch_once(&onceToken, ^{
+        if (instance) {
+            return;
+        }
         instance = [[PFTypeManager alloc] init];
-        instance.dbManager = [PFDBManager sharedManager];
+        instance.dbManager = [[PFDBManager alloc] init];
+//        instance.dbManager = [PFDBManager sharedManager];
     });
     
     return instance;

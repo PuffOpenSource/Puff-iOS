@@ -12,6 +12,6 @@ static NSString * const       kAssetsFolder        =       @"cats";
 static NSString * const       kCategoryFolder      =       @"cats/icon_category";
 
 @interface PFCategoryUtil : NSObject
+- (void)initBuiltins;
 - (void)initBuiltInCategories;
-+ (instancetype)sharedInstance;
 @end
