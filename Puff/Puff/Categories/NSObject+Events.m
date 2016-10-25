@@ -56,6 +56,12 @@ static const char* kSubscriptions = "kSubscriptions";
     [self _addSubscription:eventName];
 }
 
+- (void)subscribe:(NSString*)eventName selector:(SEL)selector {
+    [self unsubscribe:eventName];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:selector name:eventName object:nil];
+    [self _addSubscription:eventName];
+}
+
 -(void)publish:(NSString*)eventName {
     [[NSNotificationCenter defaultCenter] postNotificationName:eventName object:self];
 }

@@ -60,7 +60,7 @@
     [drawerViewController setRestorationIdentifier:@"PFDrawer"];
     [drawerViewController setDrawerVisualStateBlock:[MMDrawerVisualState slideVisualStateBlock]];
     [drawerViewController setMaximumLeftDrawerWidth:260.0];
-    [drawerViewController setOpenDrawerGestureModeMask:MMOpenDrawerGestureModeAll];
+    [drawerViewController setOpenDrawerGestureModeMask:MMOpenDrawerGestureModeNone];
     [drawerViewController setCloseDrawerGestureModeMask:MMCloseDrawerGestureModeAll];
     [drawerViewController setShouldStretchDrawer:NO];
     [drawerViewController setShowsShadow:NO];
@@ -96,7 +96,6 @@
 
 - (void)applicationWillEnterForeground:(UIApplication *)application {
     // Called as part of the transition from the background to the active state; here you can undo many of the changes made on entering the background.
-    [_mainViewController lockViews];
 }
 
 

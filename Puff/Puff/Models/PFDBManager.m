@@ -18,9 +18,6 @@
     static PFDBManager *instance = nil;
     dispatch_once_t token;
     dispatch_once(&token, ^{
-        if (instance) {
-            return;
-        }
         instance = [[PFDBManager alloc] init];
     });
     return instance;

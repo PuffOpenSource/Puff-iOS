@@ -23,6 +23,7 @@ typedef void (^PFEventHanlder)(PFEvent* event);
 +(void)setDispatchQueue:(NSOperationQueue*)queue;
 
 -(void)subscribe:(NSString*)eventName handler:(PFEventHanlder)handler;
+- (void)subscribe:(NSString*)eventName selector:(SEL)selector;
 -(void)unsubscribe:(NSString*)eventName;
 -(void)publish:(NSString*)eventName;
 -(void)publish:(NSString *)eventName withData:(NSObject*)data;

@@ -48,7 +48,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     [self _initUI];
-    [self _loadInitCategory];
+    [self subscribe:UIApplicationWillResignActiveNotification selector:@selector(lockViews)];
 }
 
 - (void)viewDidAppear:(BOOL)animated {
@@ -61,7 +61,14 @@
     _lockView.hidden = !_app.locked;
     if (_app.locked) {
         [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(_dismissLockView) name:UIKeyboardDidHideNotification object:nil];
+    } else {
+        [self _loadInitCategory];
     }
+}
+
+- (void)viewWillDisappear:(BOOL)animated {
+    [super viewWillDisappear:animated];
+    [[NSNotificationCenter defaultCenter] removeObserver:self name:UIKeyboardWillHideNotification object:nil];
 }
 
 
@@ -84,6 +91,18 @@
     return ret;
 }
 
+#pragma mark - UITableViewDataSource
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
+    if (indexPath.section == 0) {
+        return 260;
+    }
+    return 0;
+}
+
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+    
+}
+
 #pragma mark - IBActions
 - (IBAction)didClickAddButton:(id)sender {
     _rippleView.backgroundColor = _addButton.backgroundColor;
@@ -91,7 +110,7 @@
     CGFloat fullSize = [PFResUtil screenSize].size.height * 2;
     
     CABasicAnimation *animation = [CABasicAnimation animationWithKeyPath:@"cornerRadius"];
-    animation.timingFunction = [CAMediaTimingFunction     functionWithName:kCAMediaTimingFunctionEaseInEaseOut];
+    animation.timingFunction = [CAMediaTimingFunction functionWithName:kCAMediaTimingFunctionEaseInEaseOut];
     animation.fromValue = [NSNumber numberWithFloat:28];
     animation.toValue = [NSNumber numberWithFloat:fullSize / 2];
     animation.duration = 0.4;
@@ -173,10 +192,16 @@
 }
 
 - (void)lockViews {
-    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(_dismissLockView) name:UIKeyboardDidHideNotification object:nil];
+    if (!_lockView.hidden) {
+        //Already locked.
+        return;
+    }
+    [[NSNotificationCenter defaultCenter] removeObserver:self name:UIKeyboardWillHideNotification object:nil];
     _lockView.bounds = [PFResUtil screenSize];
     _lockView.layer.cornerRadius = 0;
     _lockView.hidden = NO;
+    [self.mm_drawerController setOpenDrawerGestureModeMask:MMOpenDrawerGestureModeNone];
+    [self.mm_drawerController closeDrawerAnimated:NO completion:nil];
 }
 
 - (void)_dismissLockView {
@@ -192,7 +217,7 @@
     _lockView.bounds = CGRectMake(0, 0, fullSize, fullSize);
     
     CABasicAnimation *animation = [CABasicAnimation animationWithKeyPath:@"cornerRadius"];
-    animation.timingFunction = [CAMediaTimingFunction     functionWithName:kCAMediaTimingFunctionEaseInEaseOut];
+    animation.timingFunction = [CAMediaTimingFunction functionWithName:kCAMediaTimingFunctionEaseInEaseOut];
     animation.fromValue = [NSNumber numberWithFloat:fullSize / 2];
     animation.toValue = [NSNumber numberWithFloat:0];
     animation.duration = 0.5;
@@ -212,12 +237,14 @@
             for (UIView *view in [_lockView subviews]) {
                 view.hidden = NO;
             }
+            [self _loadInitCategory];
             [[NSNotificationCenter defaultCenter] removeObserver:self name:UIKeyboardDidHideNotification object:nil];
         }
     }];
 }
 
 - (BOOL)_authorize {
+    [self.mm_drawerController setOpenDrawerGestureModeMask:MMOpenDrawerGestureModeAll];
     return YES;
 }
 
