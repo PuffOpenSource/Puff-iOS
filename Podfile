@@ -2,6 +2,7 @@ project 'Puff/Puff.xcodeproj'
 
 # Uncomment this line to define a global platform for your project
 # platform :ios, '9.0'
+use_frameworks!
 
 POD_DEV_ROOT = '/Users/bob.sun/XCodeWorkspace/PodDev'
 
