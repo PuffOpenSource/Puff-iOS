@@ -16,9 +16,6 @@
 
 @interface MasterViewController : UIViewController
 
-- (void)lockViews;
-//@property (strong, nonatomic) DetailViewController *detailViewController;
-
 @property (strong, nonatomic) NSFetchedResultsController<_PFAccount *> *fetchedResultsController;
 @property (strong, nonatomic) NSManagedObjectContext *managedObjectContext;
 

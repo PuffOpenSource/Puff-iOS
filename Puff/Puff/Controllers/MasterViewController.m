@@ -20,8 +20,8 @@
 #include "Constants.h"
 #import "MainAccountCell.h"
 #import "PFAddAccountViewController.h"
-
 #import "PFAccountManager.h"
+#import "PFAppLock.h"
 
 @interface MasterViewController () <PFDrawerViewControllerDelegate, UITableViewDelegate, UITableViewDataSource>
 
@@ -32,13 +32,11 @@
 @property (weak, nonatomic) IBOutlet UIView *toolbar;
 @property (weak, nonatomic) IBOutlet MDButton *addButton;
 @property (weak, nonatomic) IBOutlet UIView *rippleView;
-@property (weak, nonatomic) IBOutlet UITextField *lockPasswordField;
-@property (weak, nonatomic) IBOutlet UIButton *lockTouchIdIcon;
 
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *rippleHeight;
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *rippleWidth;
 
-@property (weak, nonatomic) IBOutlet UIView *lockView;
+
 @property (strong, nonatomic) NSArray<PFAccount*> *data;
 
 @end
@@ -48,7 +46,6 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     [self _initUI];
-    [self subscribe:UIApplicationWillResignActiveNotification selector:@selector(lockViews)];
 }
 
 - (void)viewDidAppear:(BOOL)animated {
@@ -58,12 +55,7 @@
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
     _app = (AppDelegate*)[UIApplication sharedApplication].delegate;
-    _lockView.hidden = !_app.locked;
-    if (_app.locked) {
-        [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(_dismissLockView) name:UIKeyboardDidHideNotification object:nil];
-    } else {
-        [self _loadInitCategory];
-    }
+    [self _loadInitCategory];
 }
 
 - (void)viewWillDisappear:(BOOL)animated {
@@ -79,7 +71,7 @@
 
 #pragma mark - UITableView Delegate
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    if (section == 0 && !_app.locked) {
+    if (section == 0) {
         return _data.count;
     }
     return 0;
@@ -93,7 +85,7 @@
 
 #pragma mark - UITableViewDataSource
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
-    if (indexPath.section == 0) {
+    if (indexPath.section == 0 || [[PFAppLock sharedLock] isLocked]) {
         return 260;
     }
     return 0;
@@ -142,10 +134,6 @@
     //Pop menu
 }
 
-- (IBAction)didClickedKeyboardAction:(id)sender {
-    [_lockPasswordField resignFirstResponder];
-}
-
 #pragma mark - PFDrawerViewControllerDelegate
 
 - (void)loadAccountsInCategory:(uint64_t)catId {
@@ -162,8 +150,6 @@
 #pragma mark - Misc
 
 - (void)_initUI {
-    //Lock View
-    _lockPasswordField.layer.cornerRadius = 20;
     
     //RippleView
     _rippleView.layer.cornerRadius = 28;
@@ -189,63 +175,6 @@
     } else {
         //TODO: Show empty view
     }
-}
-
-- (void)lockViews {
-    if (!_lockView.hidden) {
-        //Already locked.
-        return;
-    }
-    [[NSNotificationCenter defaultCenter] removeObserver:self name:UIKeyboardWillHideNotification object:nil];
-    _lockView.bounds = [PFResUtil screenSize];
-    _lockView.layer.cornerRadius = 0;
-    _lockView.hidden = NO;
-    [self.mm_drawerController setOpenDrawerGestureModeMask:MMOpenDrawerGestureModeNone];
-    [self.mm_drawerController closeDrawerAnimated:NO completion:nil];
-}
-
-- (void)_dismissLockView {
-    if (![self _authorize]) {
-        //TODO: Shake it baby.
-        return;
-    }
-    AppDelegate *app = (AppDelegate*)[UIApplication sharedApplication].delegate;
-    app.locked = NO;
-    
-    CGRect screenSize = [PFResUtil screenSize];
-    CGFloat fullSize = [PFResUtil screenSize].size.height * 2;
-    _lockView.bounds = CGRectMake(0, 0, fullSize, fullSize);
-    
-    CABasicAnimation *animation = [CABasicAnimation animationWithKeyPath:@"cornerRadius"];
-    animation.timingFunction = [CAMediaTimingFunction functionWithName:kCAMediaTimingFunctionEaseInEaseOut];
-    animation.fromValue = [NSNumber numberWithFloat:fullSize / 2];
-    animation.toValue = [NSNumber numberWithFloat:0];
-    animation.duration = 0.5;
-    [_lockView.layer addAnimation:animation forKey:@"cornerRadius"];
-    
-    [_lockView.layer setCornerRadius:0];
-
-    for (UIView *view in [_lockView subviews]) {
-        view.hidden = YES;
-    }
-    
-    [UIView animateWithDuration:0.5 animations:^{
-        _lockView.bounds = CGRectMake(screenSize.origin.x / 2, screenSize.origin.y / 2, 0, 0);
-    } completion:^(BOOL finished) {
-        if (finished) {
-            _lockView.hidden = YES;
-            for (UIView *view in [_lockView subviews]) {
-                view.hidden = NO;
-            }
-            [self _loadInitCategory];
-            [[NSNotificationCenter defaultCenter] removeObserver:self name:UIKeyboardDidHideNotification object:nil];
-        }
-    }];
-}
-
-- (BOOL)_authorize {
-    [self.mm_drawerController setOpenDrawerGestureModeMask:MMOpenDrawerGestureModeAll];
-    return YES;
 }
 
 #pragma mark Test Functions.

@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="11201" systemVersion="16A323" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11161"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="PFLockViewController">
+            <connections>
+                <outlet property="lockPasswordField" destination="fxB-5d-2Ig" id="NkC-cb-LAS"/>
+                <outlet property="lockTouchIdIcon" destination="Nsv-CF-TkD" id="xWs-3g-2Rd"/>
+                <outlet property="lockView" destination="V2I-w8-dib" id="haX-0V-7Sn"/>
+                <outlet property="view" destination="XAh-4t-5YY" id="wk8-EY-UEF"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="XAh-4t-5YY">
+            <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="V2I-w8-dib">
+                    <subviews>
+                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="icon-puff" translatesAutoresizingMaskIntoConstraints="NO" id="ayY-sI-Y64">
+                            <constraints>
+                                <constraint firstAttribute="width" constant="120" id="jTi-Gg-Iaq"/>
+                                <constraint firstAttribute="height" constant="120" id="z9a-aL-V6i"/>
+                            </constraints>
+                        </imageView>
+                        <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" placeholder="Master Password" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="fxB-5d-2Ig">
+                            <color key="backgroundColor" red="0.93333333330000001" green="0.93333333330000001" blue="0.93333333330000001" alpha="1" colorSpace="calibratedRGB"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="40" id="YLY-Uw-0rw"/>
+                            </constraints>
+                            <nil key="textColor"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                            <textInputTraits key="textInputTraits" returnKeyType="go" secureTextEntry="YES"/>
+                            <connections>
+                                <action selector="didClickedKeyboardAction:" destination="-1" eventType="primaryActionTriggered" id="LOY-qU-7JS"/>
+                            </connections>
+                        </textField>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Nsv-CF-TkD">
+                            <constraints>
+                                <constraint firstAttribute="height" constant="50" id="1eP-dH-R5m"/>
+                                <constraint firstAttribute="width" constant="50" id="glh-Fl-DQB"/>
+                            </constraints>
+                            <state key="normal" title="TouchId"/>
+                        </button>
+                    </subviews>
+                    <color key="backgroundColor" red="0.5450980392" green="0.76470588240000004" blue="0.2901960784" alpha="1" colorSpace="calibratedRGB"/>
+                    <constraints>
+                        <constraint firstItem="fxB-5d-2Ig" firstAttribute="leading" secondItem="V2I-w8-dib" secondAttribute="leading" constant="16" id="3kR-vw-oHb"/>
+                        <constraint firstItem="fxB-5d-2Ig" firstAttribute="top" secondItem="ayY-sI-Y64" secondAttribute="bottom" constant="30" id="Chk-qm-lcI"/>
+                        <constraint firstItem="fxB-5d-2Ig" firstAttribute="centerY" secondItem="V2I-w8-dib" secondAttribute="centerY" constant="-50" id="K2J-Di-V6s"/>
+                        <constraint firstAttribute="trailing" secondItem="fxB-5d-2Ig" secondAttribute="trailing" constant="16" id="Vfh-gq-NzE"/>
+                        <constraint firstItem="Nsv-CF-TkD" firstAttribute="centerX" secondItem="V2I-w8-dib" secondAttribute="centerX" id="eZl-OK-Jhz"/>
+                        <constraint firstItem="Nsv-CF-TkD" firstAttribute="top" secondItem="fxB-5d-2Ig" secondAttribute="bottom" constant="32" id="rSO-pa-FiF"/>
+                        <constraint firstItem="ayY-sI-Y64" firstAttribute="centerX" secondItem="fxB-5d-2Ig" secondAttribute="centerX" id="wvD-i2-Xqb"/>
+                    </constraints>
+                </view>
+            </subviews>
+            <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+            <constraints>
+                <constraint firstItem="V2I-w8-dib" firstAttribute="leading" secondItem="XAh-4t-5YY" secondAttribute="leading" id="PRL-ph-Ohe"/>
+                <constraint firstAttribute="trailing" secondItem="V2I-w8-dib" secondAttribute="trailing" id="TdW-s0-tcK"/>
+                <constraint firstAttribute="bottom" secondItem="V2I-w8-dib" secondAttribute="bottom" id="TsB-xA-D4v"/>
+                <constraint firstItem="V2I-w8-dib" firstAttribute="top" secondItem="XAh-4t-5YY" secondAttribute="top" id="fkE-18-GRO"/>
+            </constraints>
+            <nil key="simulatedStatusBarMetrics"/>
+            <nil key="simulatedTopBarMetrics"/>
+            <nil key="simulatedBottomBarMetrics"/>
+        </view>
+    </objects>
+    <resources>
+        <image name="icon-puff" width="128" height="128"/>
+    </resources>
+</document>

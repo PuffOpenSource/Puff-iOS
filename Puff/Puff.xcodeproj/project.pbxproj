@@ -32,6 +32,9 @@
 		013DC3991DB5F44000AB8F50 /* PFDrawerCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 013DC3981DB5F44000AB8F50 /* PFDrawerCell.m */; };
 		017517551DB8B8C80067A586 /* MainAccountCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 017517541DB8B8C80067A586 /* MainAccountCell.xib */; };
 		017517581DB8B8E40067A586 /* MainAccountCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 017517571DB8B8E40067A586 /* MainAccountCell.m */; };
+		017915211DBF6135006FA552 /* PFLockViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 017915201DBF6135006FA552 /* PFLockViewController.m */; };
+		017915231DBF614B006FA552 /* PFLockViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 017915221DBF614B006FA552 /* PFLockViewController.xib */; };
+		017915261DBF617A006FA552 /* PFAppLock.m in Sources */ = {isa = PBXBuildFile; fileRef = 017915251DBF617A006FA552 /* PFAppLock.m */; };
 		01A8B97F1DB0AE8D00D87FCF /* PFDBManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 01A8B97E1DB0AE8D00D87FCF /* PFDBManager.m */; };
 		01A8B9821DB0AE9E00D87FCF /* PFAccountManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 01A8B9811DB0AE9E00D87FCF /* PFAccountManager.m */; };
 		01A8B9881DB0BEC100D87FCF /* PFBaseModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 01A8B9871DB0BEC100D87FCF /* PFBaseModel.m */; };
@@ -103,6 +106,11 @@
 		017517541DB8B8C80067A586 /* MainAccountCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = MainAccountCell.xib; path = Views/MainAccountCell.xib; sourceTree = "<group>"; };
 		017517561DB8B8E40067A586 /* MainAccountCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MainAccountCell.h; path = Views/MainAccountCell.h; sourceTree = "<group>"; };
 		017517571DB8B8E40067A586 /* MainAccountCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MainAccountCell.m; path = Views/MainAccountCell.m; sourceTree = "<group>"; };
+		0179151F1DBF6135006FA552 /* PFLockViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PFLockViewController.h; path = Controllers/PFLockViewController.h; sourceTree = "<group>"; };
+		017915201DBF6135006FA552 /* PFLockViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PFLockViewController.m; path = Controllers/PFLockViewController.m; sourceTree = "<group>"; };
+		017915221DBF614B006FA552 /* PFLockViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = PFLockViewController.xib; path = Views/PFLockViewController.xib; sourceTree = "<group>"; };
+		017915241DBF617A006FA552 /* PFAppLock.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PFAppLock.h; path = Utils/PFAppLock.h; sourceTree = "<group>"; };
+		017915251DBF617A006FA552 /* PFAppLock.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PFAppLock.m; path = Utils/PFAppLock.m; sourceTree = "<group>"; };
 		01A8B97D1DB0AE8D00D87FCF /* PFDBManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PFDBManager.h; path = Models/PFDBManager.h; sourceTree = "<group>"; };
 		01A8B97E1DB0AE8D00D87FCF /* PFDBManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PFDBManager.m; path = Models/PFDBManager.m; sourceTree = "<group>"; };
 		01A8B9801DB0AE9E00D87FCF /* PFAccountManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PFAccountManager.h; path = Models/PFAccountManager.h; sourceTree = "<group>"; };
@@ -223,6 +231,8 @@
 				01EB178A1DB717DF00C71C4B /* PFResUtil.m */,
 				01D26AF41DBB99F900A32064 /* PFKeychainHelper.h */,
 				01D26AF51DBB99F900A32064 /* PFKeychainHelper.m */,
+				017915241DBF617A006FA552 /* PFAppLock.h */,
+				017915251DBF617A006FA552 /* PFAppLock.m */,
 			);
 			name = Utils;
 			sourceTree = "<group>";
@@ -244,6 +254,8 @@
 				01EB179A1DB74B6900C71C4B /* PFSettingsViewController.m */,
 				01EB179C1DB74B8100C71C4B /* PFPasswordGenViewController.h */,
 				01EB179D1DB74B8100C71C4B /* PFPasswordGenViewController.m */,
+				0179151F1DBF6135006FA552 /* PFLockViewController.h */,
+				017915201DBF6135006FA552 /* PFLockViewController.m */,
 			);
 			name = Controller;
 			sourceTree = "<group>";
@@ -332,6 +344,7 @@
 				017517571DB8B8E40067A586 /* MainAccountCell.m */,
 				0106949A1DBCB87D00A15D4D /* PFCardView.h */,
 				0106949B1DBCB87D00A15D4D /* PFCardView.m */,
+				017915221DBF614B006FA552 /* PFLockViewController.xib */,
 			);
 			name = Views;
 			sourceTree = "<group>";
@@ -435,6 +448,7 @@
 				011537051D8932CC00C98268 /* LaunchScreen.storyboard in Resources */,
 				010CFB3A1DB4B9B500FEE5DE /* Assets.xcassets in Resources */,
 				011537001D8932CC00C98268 /* Main.storyboard in Resources */,
+				017915231DBF614B006FA552 /* PFLockViewController.xib in Resources */,
 				010CFC2C1DB4C03A00FEE5DE /* cats in Resources */,
 				017517551DB8B8C80067A586 /* MainAccountCell.xib in Resources */,
 			);
@@ -498,6 +512,7 @@
 				0106949C1DBCB87D00A15D4D /* PFCardView.m in Sources */,
 				012C69BC1DAF68F1005E7104 /* EXTSelectorChecking.m in Sources */,
 				01D26AF61DBB99F900A32064 /* PFKeychainHelper.m in Sources */,
+				017915211DBF6135006FA552 /* PFLockViewController.m in Sources */,
 				012C69BE1DAF68F1005E7104 /* NSMethodSignature+EXT.m in Sources */,
 				012C69B71DAF68F1005E7104 /* EXTConcreteProtocol.m in Sources */,
 				011536F41D8932CC00C98268 /* AppDelegate.m in Sources */,
@@ -528,6 +543,7 @@
 				01EB179B1DB74B6900C71C4B /* PFSettingsViewController.m in Sources */,
 				011536F71D8932CC00C98268 /* Puff.xcdatamodeld in Sources */,
 				01A8B9881DB0BEC100D87FCF /* PFBaseModel.m in Sources */,
+				017915261DBF617A006FA552 /* PFAppLock.m in Sources */,
 				01A8B97F1DB0AE8D00D87FCF /* PFDBManager.m in Sources */,
 				01D3AF831DB3C94000EE5CA1 /* PFCategory.m in Sources */,
 			);

@@ -20,28 +20,21 @@
 #import "PFTypeManager.h"
 #import "PFCategoryManager.h"
 #import "PFKeychainHelper.h"
+#import "PFAppLock.h"
 
 @interface AppDelegate ()
 @property (strong, nonatomic) MasterViewController *mainViewController;
+@property (strong, nonatomic) PFAppLock *appLock;
 @end
 
 @implementation AppDelegate
 
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
-    // Override point for customization after application launch.
-//    UISplitViewController *splitViewController = (UISplitViewController *)self.window.rootViewController;
-//    UINavigationController *navigationController = [splitViewController.viewControllers lastObject];
-//    navigationController.topViewController.navigationItem.leftBarButtonItem = splitViewController.displayModeButtonItem;
-//    splitViewController.delegate = self;
-//
-//    UINavigationController *masterNavigationController = splitViewController.viewControllers[0];
-//    MasterViewController *controller = (MasterViewController *)masterNavigationController.topViewController;
-//    controller.managedObjectContext = self.persistentContainer.viewContext;
     
     [[[PFCategoryUtil alloc] init] initBuiltins];;
     
-    _locked = YES;
+    _appLock = [PFAppLock sharedLock];
     
     UIStoryboard* mainStoryboard;
     
@@ -60,7 +53,7 @@
     [drawerViewController setRestorationIdentifier:@"PFDrawer"];
     [drawerViewController setDrawerVisualStateBlock:[MMDrawerVisualState slideVisualStateBlock]];
     [drawerViewController setMaximumLeftDrawerWidth:260.0];
-    [drawerViewController setOpenDrawerGestureModeMask:MMOpenDrawerGestureModeNone];
+    [drawerViewController setOpenDrawerGestureModeMask:MMOpenDrawerGestureModeAll];
     [drawerViewController setCloseDrawerGestureModeMask:MMCloseDrawerGestureModeAll];
     [drawerViewController setShouldStretchDrawer:NO];
     [drawerViewController setShowsShadow:NO];
@@ -74,6 +67,8 @@
 
     [self.window makeKeyAndVisible];
     
+    [_appLock showLock];
+    
     [NSObject setDispatchQueue:[NSOperationQueue mainQueue]];
     
     return YES;
@@ -83,19 +78,19 @@
 - (void)applicationWillResignActive:(UIApplication *)application {
     // Sent when the application is about to move from active to inactive state. This can occur for certain types of temporary interruptions (such as an incoming phone call or SMS message) or when the user quits the application and it begins the transition to the background state.
     // Use this method to pause ongoing tasks, disable timers, and invalidate graphics rendering callbacks. Games should use this method to pause the game.
-    _locked = YES;
+    [_appLock showLock];
 }
 
 
 - (void)applicationDidEnterBackground:(UIApplication *)application {
     // Use this method to release shared resources, save user data, invalidate timers, and store enough application state information to restore your application to its current state in case it is terminated later.
     // If your application supports background execution, this method is called instead of applicationWillTerminate: when the user quits.
-    _locked = YES;
 }
 
 
 - (void)applicationWillEnterForeground:(UIApplication *)application {
     // Called as part of the transition from the background to the active state; here you can undo many of the changes made on entering the background.
+//    [_appLock showLock];
 }
 
 

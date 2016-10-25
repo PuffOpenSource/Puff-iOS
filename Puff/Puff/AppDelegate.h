@@ -15,7 +15,5 @@
 
 @property (readonly, strong) NSPersistentContainer *persistentContainer;
 
-@property (assign, nonatomic) BOOL locked;
-
 @end
 
