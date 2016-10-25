@@ -135,7 +135,7 @@ static const CGFloat toolBarHeight     = 180;
     }
     _lastContentOffset = scrollView.contentOffset.y;
     if (_headerHeight.constant == actionBarHeight) {
-        _toolBarLabel.text = _nameField.text;
+        _toolBarLabel.text = _nameField.text.length == 0 ? NSLocalizedString(@"Add Account", nil) : _nameField.text;
     } else if (_headerHeight.constant == toolBarHeight) {
         _toolBarLabel.text = NSLocalizedString(@"Add Account", nil);
     }

@@ -8,6 +8,7 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="PFLockViewController">
             <connections>
+                <outlet property="iconImage" destination="ayY-sI-Y64" id="7y8-2E-VOK"/>
                 <outlet property="lockPasswordField" destination="fxB-5d-2Ig" id="NkC-cb-LAS"/>
                 <outlet property="lockTouchIdIcon" destination="Nsv-CF-TkD" id="xWs-3g-2Rd"/>
                 <outlet property="lockView" destination="V2I-w8-dib" id="haX-0V-7Sn"/>
