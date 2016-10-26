@@ -8,6 +8,9 @@
 
 #import <Foundation/Foundation.h>
 
+static NSString * const kAppUnlocked        = @"kAppUnlocked";
+static NSString * const kAppLocked          = @"kAppLocked";
+
 @interface PFAppLock : NSObject
 
 +(instancetype)sharedLock;

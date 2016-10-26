@@ -24,6 +24,22 @@
     return instance;
 }
 
+- (BOOL)checkPassword:(NSString*)password {
+    return [[self getMasterPassword] isEqualToString:password];
+}
+
+- (BOOL)hasMasterPassword {
+    return [self getMasterPassword].length != 0;
+}
+
+- (void)cleanMasterPassword {
+    NSMutableDictionary *query = [self newSearchDictionary:keyChainStoreKey];
+    OSStatus err = SecItemDelete((__bridge_retained CFDictionaryRef)query);
+    if (err == errSecSuccess) {
+        return;
+    }
+}
+
 - (NSString*)getMasterPassword {
     
     NSData *ret = nil;

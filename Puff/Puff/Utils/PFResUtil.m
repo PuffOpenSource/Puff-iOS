@@ -34,4 +34,21 @@
 + (CGRect)screenSize {
     return [UIScreen mainScreen].bounds;
 }
+
++ (void)shakeItBaby:(UIView *)sender withCompletion:(nullable void (^)(void))completion {
+    [CATransaction begin];
+    CABasicAnimation *animation = [CABasicAnimation animationWithKeyPath:@"position"];
+    [animation setDuration:0.05];
+    [animation setRepeatCount:6];
+    [animation setAutoreverses:YES];
+    [animation setFromValue:[NSValue valueWithCGPoint:
+                             CGPointMake([sender center].x - 5.0f, [sender center].y)]];
+    [animation setToValue:[NSValue valueWithCGPoint:
+                           CGPointMake([sender center].x + 5.0f, [sender center].y)]];
+    animation.removedOnCompletion = YES;
+    [CATransaction setCompletionBlock:completion];
+    
+    [[sender layer] addAnimation:animation forKey:@"position"];
+    [CATransaction commit];
+}
 @end

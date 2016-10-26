@@ -8,6 +8,10 @@
 
 #import "PFBaseModel.h"
 
+@class PFAccount;
+
+typedef void(^PFAccountEncryptCallback)( NSError * _Nullable error, PFAccount* _Nullable result);
+
 @interface PFAccount : PFBaseModel
 @property (nullable, nonatomic, strong) NSString *account;
 @property (nullable, nonatomic, strong) NSString *account_salt;
@@ -23,5 +27,7 @@
 @property (nonatomic) int64_t type;
 @property (nullable, nonatomic, strong) NSString *website;
 
-- (PFAccount*)initWithDict:(NSDictionary*)dict;
+- (PFAccount* _Nonnull)initWithDict:(NSDictionary* _Nonnull)dict;
+- (void)encrypt:(PFAccountEncryptCallback) callback;
+- (void)decrypt:(PFAccountEncryptCallback) callback;
 @end

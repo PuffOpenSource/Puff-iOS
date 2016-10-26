@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11201" systemVersion="16A323" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="YyR-ky-baK">
     <dependencies>
+        <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11161"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -15,7 +16,7 @@
                         <viewControllerLayoutGuide type="bottom" id="zdo-q6-vBW"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="Nb9-eC-BgF">
-                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="9bg-ac-RNM">
@@ -168,7 +169,7 @@
                         <viewControllerLayoutGuide type="bottom" id="r8i-G3-nMr"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="WBs-B2-0dc">
-                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="um5-DY-eM8">
@@ -593,7 +594,7 @@
                         <viewControllerLayoutGuide type="bottom" id="lnI-nm-h66"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="aAi-Q6-zEy">
-                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="rmZ-hs-b1I">
@@ -639,28 +640,9 @@
                                             <constraint firstAttribute="height" constant="64" id="vfP-WX-QDX"/>
                                         </constraints>
                                     </view>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="TSF-1s-efn" customClass="MDButton">
-                                        <color key="backgroundColor" red="1" green="0.3411764706" blue="0.1333333333" alpha="1" colorSpace="calibratedRGB"/>
-                                        <constraints>
-                                            <constraint firstAttribute="height" constant="56" id="FVR-Qn-uGp"/>
-                                            <constraint firstAttribute="width" constant="56" id="rjZ-vO-HaI"/>
-                                        </constraints>
-                                        <userDefinedRuntimeAttributes>
-                                            <userDefinedRuntimeAttribute type="color" keyPath="rippleColor">
-                                                <color key="value" red="0.93333333330000001" green="0.93333333330000001" blue="0.93333333330000001" alpha="1" colorSpace="calibratedRGB"/>
-                                            </userDefinedRuntimeAttribute>
-                                            <userDefinedRuntimeAttribute type="number" keyPath="type">
-                                                <integer key="value" value="2"/>
-                                            </userDefinedRuntimeAttribute>
-                                            <userDefinedRuntimeAttribute type="image" keyPath="imageNormal" value="ic-check-mark"/>
-                                            <userDefinedRuntimeAttribute type="number" keyPath="imageSize">
-                                                <real key="value" value="24"/>
-                                            </userDefinedRuntimeAttribute>
-                                        </userDefinedRuntimeAttributes>
-                                    </button>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Set Master Password" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="m3W-SN-Kf4">
                                         <constraints>
-                                            <constraint firstAttribute="height" constant="48" id="6oS-OZ-DEl"/>
+                                            <constraint firstAttribute="height" constant="64" id="6oS-OZ-DEl"/>
                                         </constraints>
                                         <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="20"/>
                                         <color key="textColor" red="0.93333333330000001" green="0.93333333330000001" blue="0.93333333330000001" alpha="1" colorSpace="calibratedRGB"/>
@@ -670,25 +652,107 @@
                                 <color key="backgroundColor" red="0.5450980392" green="0.76470588240000004" blue="0.2901960784" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="trailing" secondItem="fx2-qJ-15C" secondAttribute="trailing" id="08M-qV-Nyz"/>
-                                    <constraint firstAttribute="trailing" secondItem="TSF-1s-efn" secondAttribute="trailing" constant="16" id="JSZ-z0-jvv"/>
-                                    <constraint firstItem="m3W-SN-Kf4" firstAttribute="leading" secondItem="rmZ-hs-b1I" secondAttribute="leading" constant="16" id="MNs-A2-iO6"/>
+                                    <constraint firstItem="m3W-SN-Kf4" firstAttribute="leading" secondItem="rmZ-hs-b1I" secondAttribute="leading" constant="8" id="MNs-A2-iO6"/>
                                     <constraint firstItem="fx2-qJ-15C" firstAttribute="top" secondItem="rmZ-hs-b1I" secondAttribute="top" id="Y7V-Mb-7eI"/>
                                     <constraint firstItem="Ijh-yw-iML" firstAttribute="top" secondItem="rmZ-hs-b1I" secondAttribute="top" constant="-20" id="evk-mG-8xW"/>
                                     <constraint firstAttribute="bottom" secondItem="m3W-SN-Kf4" secondAttribute="bottom" id="hpT-Sa-Tn1"/>
-                                    <constraint firstAttribute="height" constant="180" id="jPg-yF-Pad"/>
+                                    <constraint firstAttribute="height" constant="160" id="jPg-yF-Pad"/>
                                     <constraint firstAttribute="trailing" secondItem="Ijh-yw-iML" secondAttribute="trailing" id="kjs-aj-fOW"/>
                                     <constraint firstItem="Ijh-yw-iML" firstAttribute="leading" secondItem="rmZ-hs-b1I" secondAttribute="leading" id="ngM-s7-EL6"/>
                                     <constraint firstAttribute="trailing" secondItem="m3W-SN-Kf4" secondAttribute="trailing" constant="16" id="sEX-o6-rMX"/>
                                     <constraint firstItem="fx2-qJ-15C" firstAttribute="leading" secondItem="rmZ-hs-b1I" secondAttribute="leading" id="thq-r7-qrB"/>
-                                    <constraint firstAttribute="bottom" secondItem="TSF-1s-efn" secondAttribute="bottom" constant="-28" id="z58-b6-ipr"/>
                                 </constraints>
                             </view>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="gNQ-H2-UGF">
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="gNQ-H2-UGF" customClass="PFCardView">
+                                <subviews>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="v5w-Z0-NNU" customClass="MDTextField">
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="72" id="onn-gd-a3w"/>
+                                        </constraints>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="string" keyPath="hint" value="Enter Master Password"/>
+                                            <userDefinedRuntimeAttribute type="string" keyPath="label" value="Enter Master Password"/>
+                                            <userDefinedRuntimeAttribute type="boolean" keyPath="floatingLabel" value="YES"/>
+                                            <userDefinedRuntimeAttribute type="boolean" keyPath="highlightLabel" value="YES"/>
+                                            <userDefinedRuntimeAttribute type="color" keyPath="normalColor">
+                                                <color key="value" red="0.5450980392" green="0.76470588240000004" blue="0.2901960784" alpha="1" colorSpace="calibratedRGB"/>
+                                            </userDefinedRuntimeAttribute>
+                                            <userDefinedRuntimeAttribute type="color" keyPath="highlightColor">
+                                                <color key="value" red="1" green="0.3411764706" blue="0.1333333333" alpha="1" colorSpace="calibratedRGB"/>
+                                            </userDefinedRuntimeAttribute>
+                                            <userDefinedRuntimeAttribute type="boolean" keyPath="singleLine" value="YES"/>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="minVisibleLines">
+                                                <integer key="value" value="1"/>
+                                            </userDefinedRuntimeAttribute>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="maxVisibleLines">
+                                                <integer key="value" value="1"/>
+                                            </userDefinedRuntimeAttribute>
+                                            <userDefinedRuntimeAttribute type="boolean" keyPath="secureTextEntry" value="YES"/>
+                                        </userDefinedRuntimeAttributes>
+                                    </view>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="8Fv-cS-Z0J" customClass="MDTextField">
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="string" keyPath="hint" value="Confirm Master Password"/>
+                                            <userDefinedRuntimeAttribute type="boolean" keyPath="floatingLabel" value="YES"/>
+                                            <userDefinedRuntimeAttribute type="boolean" keyPath="highlightLabel" value="YES"/>
+                                            <userDefinedRuntimeAttribute type="color" keyPath="normalColor">
+                                                <color key="value" red="0.5450980392" green="0.76470588240000004" blue="0.2901960784" alpha="1" colorSpace="calibratedRGB"/>
+                                            </userDefinedRuntimeAttribute>
+                                            <userDefinedRuntimeAttribute type="color" keyPath="highlightColor">
+                                                <color key="value" red="1" green="0.3411764706" blue="0.1333333333" alpha="1" colorSpace="calibratedRGB"/>
+                                            </userDefinedRuntimeAttribute>
+                                            <userDefinedRuntimeAttribute type="color" keyPath="errorColor">
+                                                <color key="value" red="1" green="0.3411764706" blue="0.1333333333" alpha="1" colorSpace="calibratedRGB"/>
+                                            </userDefinedRuntimeAttribute>
+                                            <userDefinedRuntimeAttribute type="boolean" keyPath="singleLine" value="YES"/>
+                                            <userDefinedRuntimeAttribute type="boolean" keyPath="secureTextEntry" value="YES"/>
+                                            <userDefinedRuntimeAttribute type="string" keyPath="label" value="Confirm Master Password"/>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="minVisibleLines">
+                                                <integer key="value" value="1"/>
+                                            </userDefinedRuntimeAttribute>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="maxVisibleLines">
+                                                <integer key="value" value="1"/>
+                                            </userDefinedRuntimeAttribute>
+                                        </userDefinedRuntimeAttributes>
+                                    </view>
+                                </subviews>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="145" id="ZiN-X8-sKO"/>
+                                    <constraint firstItem="8Fv-cS-Z0J" firstAttribute="top" secondItem="v5w-Z0-NNU" secondAttribute="bottom" constant="16" id="GH6-BX-nho"/>
+                                    <constraint firstItem="8Fv-cS-Z0J" firstAttribute="trailing" secondItem="v5w-Z0-NNU" secondAttribute="trailing" id="Jjk-Cf-fA0"/>
+                                    <constraint firstAttribute="height" constant="200" id="ZiN-X8-sKO"/>
+                                    <constraint firstItem="8Fv-cS-Z0J" firstAttribute="height" secondItem="v5w-Z0-NNU" secondAttribute="height" id="eB1-gk-AsO"/>
+                                    <constraint firstItem="v5w-Z0-NNU" firstAttribute="leading" secondItem="gNQ-H2-UGF" secondAttribute="leading" constant="16" id="fYb-zP-MM5"/>
+                                    <constraint firstAttribute="trailing" secondItem="v5w-Z0-NNU" secondAttribute="trailing" constant="16" id="gI8-9B-2n5"/>
+                                    <constraint firstItem="v5w-Z0-NNU" firstAttribute="top" secondItem="gNQ-H2-UGF" secondAttribute="top" constant="16" id="ncF-oB-Zd3"/>
+                                    <constraint firstItem="8Fv-cS-Z0J" firstAttribute="leading" secondItem="v5w-Z0-NNU" secondAttribute="leading" id="rj2-o3-6YD"/>
                                 </constraints>
                             </view>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="TSF-1s-efn" customClass="MDButton">
+                                <color key="backgroundColor" red="1" green="0.3411764706" blue="0.1333333333" alpha="1" colorSpace="calibratedRGB"/>
+                                <gestureRecognizers/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="56" id="FVR-Qn-uGp"/>
+                                    <constraint firstAttribute="width" constant="56" id="rjZ-vO-HaI"/>
+                                </constraints>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="color" keyPath="rippleColor">
+                                        <color key="value" red="0.93333333330000001" green="0.93333333330000001" blue="0.93333333330000001" alpha="1" colorSpace="calibratedRGB"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="type">
+                                        <integer key="value" value="2"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="image" keyPath="imageNormal" value="ic-check-mark"/>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="imageSize">
+                                        <real key="value" value="24"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                                <connections>
+                                    <action selector="didClickFab:" destination="pni-xu-aoV" eventType="touchUpInside" id="95G-zC-o7b"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" red="0.93333333330000001" green="0.93333333330000001" blue="0.93333333330000001" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
@@ -698,11 +762,19 @@
                             <constraint firstAttribute="trailingMargin" secondItem="gNQ-H2-UGF" secondAttribute="trailing" id="EcM-do-PBP"/>
                             <constraint firstAttribute="trailing" secondItem="rmZ-hs-b1I" secondAttribute="trailing" id="ZMY-6f-c0r"/>
                             <constraint firstItem="gNQ-H2-UGF" firstAttribute="top" secondItem="rmZ-hs-b1I" secondAttribute="bottom" constant="40" id="eDE-fX-HSl"/>
+                            <constraint firstItem="TSF-1s-efn" firstAttribute="top" secondItem="rmZ-hs-b1I" secondAttribute="bottom" constant="-28" id="jLq-aS-MPs"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="TSF-1s-efn" secondAttribute="trailing" id="zSQ-OQ-IOC"/>
                         </constraints>
                     </view>
                     <nil key="simulatedStatusBarMetrics"/>
                     <nil key="simulatedTopBarMetrics"/>
                     <nil key="simulatedBottomBarMetrics"/>
+                    <connections>
+                        <outlet property="backButton" destination="2Z1-rK-7ci" id="ZCw-20-4j8"/>
+                        <outlet property="confirmField" destination="8Fv-cS-Z0J" id="7cE-p8-dDE"/>
+                        <outlet property="headerHeight" destination="jPg-yF-Pad" id="DhB-Uy-2Sp"/>
+                        <outlet property="passwordField" destination="v5w-Z0-NNU" id="SR9-ZL-kJI"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="2Ch-c3-7jw" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -717,7 +789,7 @@
                         <viewControllerLayoutGuide type="bottom" id="1XN-yP-e5M"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="eVs-rU-2vk">
-                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
@@ -735,7 +807,7 @@
                         <viewControllerLayoutGuide type="bottom" id="Osv-Qd-2Co"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="D7Y-oX-4mT">
-                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
@@ -753,7 +825,7 @@
                         <viewControllerLayoutGuide type="bottom" id="GOJ-dp-fD3"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="1bQ-lY-FfR">
-                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Fo6-9u-FxE">
@@ -783,10 +855,10 @@
                                 <color key="sectionIndexBackgroundColor" red="0.93333333330000001" green="0.93333333330000001" blue="0.93333333330000001" alpha="1" colorSpace="calibratedRGB"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" reuseIdentifier="kReuseIdPFDrawerCell" rowHeight="50" id="b3D-lM-geD" customClass="PFDrawerCell">
-                                        <rect key="frame" x="0.0" y="28" width="600" height="50"/>
+                                        <rect key="frame" x="0.0" y="28" width="375" height="50"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="b3D-lM-geD" id="RBy-CY-Tjc">
-                                            <frame key="frameInset" width="600" height="50"/>
+                                            <frame key="frameInset" width="375" height="50"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="VnH-J8-ktn">

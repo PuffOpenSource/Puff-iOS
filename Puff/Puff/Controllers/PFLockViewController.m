@@ -10,6 +10,7 @@
 
 #import "PFResUtil.h"
 #import "PFAppLock.h"
+#import "PFKeychainHelper.h"
 
 @interface PFLockViewController ()
 @property (weak, nonatomic) IBOutlet UIView *lockView;
@@ -59,6 +60,7 @@
     for (UIView *view in _lockView.subviews) {
         view.hidden = NO;
     }
+    _lockPasswordField.text = @"";
     [self.view layoutIfNeeded];
 }
 
@@ -99,15 +101,28 @@
 }
 
 - (BOOL)_authorize {
+    NSString *password = _lockPasswordField.text;
+    if (password.length == 0) {
+        return false;
+    }
+    if (![[PFKeychainHelper sharedInstance] checkPassword:password]) {
+        return false;
+    }
     return YES;
 }
 
 - (void)_keyboardDidHide {
     if (![self _authorize]) {
-        //TODO: Shake it baby.
+        [self _shakeItBaby];
         return;
     }
     [[PFAppLock sharedLock] unlockAndDismiss];
+}
+
+- (void)_shakeItBaby {
+    [PFResUtil shakeItBaby:_lockPasswordField withCompletion:^{
+        [_lockPasswordField becomeFirstResponder];
+    }];
 }
 
 /*

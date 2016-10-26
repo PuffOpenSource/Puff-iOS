@@ -16,4 +16,5 @@
 + (UIColor*)pfGreen;
 + (UIColor*)pfDarkGreen;
 + (CGRect)screenSize;
++ (void)shakeItBaby:(UIView*)sender withCompletion:(nullable void (^)(void))completion;
 @end

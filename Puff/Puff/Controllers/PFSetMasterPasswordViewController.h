@@ -8,6 +8,15 @@
 
 #import <UIKit/UIKit.h>
 
+typedef NS_ENUM(NSInteger){
+    showModeSet,
+    showModeEdit,
+}PFSetMasterShowMode;
+
 @interface PFSetMasterPasswordViewController : UIViewController
+
+@property(assign, nonatomic)PFSetMasterShowMode showMode;
+
++ (instancetype)viewControllerFromStoryBoard;
 
 @end

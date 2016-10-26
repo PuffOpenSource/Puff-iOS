@@ -14,6 +14,7 @@
 #import "NSObject+Events.h"
 #import "MasterViewController.h"
 #import "PFDrawerViewController.h"
+#import "PFSetMasterPasswordViewController.h"
 #import "PFCategoryUtil.h"
 #import "PFDBManager.h"
 #import "PFAccountManager.h"
@@ -67,7 +68,14 @@
 
     [self.window makeKeyAndVisible];
     
-    [_appLock showLock];
+    
+    if (![[PFKeychainHelper sharedInstance] hasMasterPassword]) {
+        PFSetMasterPasswordViewController *vc = [PFSetMasterPasswordViewController viewControllerFromStoryBoard];
+        vc.showMode = showModeSet;
+        [self.window.rootViewController presentViewController:vc animated:YES completion:nil];
+    } else {
+        [_appLock showLock];
+    }
     
     [NSObject setDispatchQueue:[NSOperationQueue mainQueue]];
     

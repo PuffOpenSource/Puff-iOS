@@ -47,4 +47,11 @@
     return ret;
 }
 
+- (void)encrypt:(PFAccountEncryptCallback) callback {
+
+}
+- (void)decrypt:(PFAccountEncryptCallback) callback {
+
+}
+
 @end

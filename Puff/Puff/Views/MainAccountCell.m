@@ -25,7 +25,9 @@
 
 - (void)awakeFromNib {
     [super awakeFromNib];
-    // Initialization code
+    self.opaque = NO;
+    self.backgroundView = [[UIView alloc] init];
+    self.backgroundColor = [UIColor clearColor];    
 }
 
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated {
