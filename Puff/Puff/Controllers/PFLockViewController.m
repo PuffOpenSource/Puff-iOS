@@ -30,10 +30,16 @@
     [super viewDidLoad];
     //Lock View
     _lockPasswordField.layer.cornerRadius = 20;
+    _lockView.layer.needsDisplayOnBoundsChange = YES;
+    _lockView.frame = self.view.frame;
 }
 
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
+}
+
+- (void)viewDidAppear:(BOOL)animated {
+    [super viewDidAppear:animated];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -46,7 +52,7 @@
 }
 
 - (void)showLockView {
-    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(dismissLockView) name:UIKeyboardWillHideNotification object:nil];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(_keyboardDidHide) name:UIKeyboardWillHideNotification object:nil];
     _lockView.bounds = [PFResUtil screenSize];
     _lockView.layer.cornerRadius = 0;
     _lockView.hidden = NO;
@@ -57,59 +63,51 @@
 }
 
 - (void)dismissLockView {
-    if (![self _authorize]) {
-        //TODO: Shake it baby.
-        return;
-    }
     
 //    CGRect screenRect = [PFResUtil screenSize];
 //    CGFloat fullSize = screenRect.size.height * 2;
 //    _lockView.bounds = CGRectMake(0, 0, fullSize, fullSize);
-//    
-//    [_lockView.layer removeAllAnimations];
+//
 //    CABasicAnimation *animation = [CABasicAnimation animationWithKeyPath:@"cornerRadius"];
 //    animation.timingFunction = [CAMediaTimingFunction functionWithName:kCAMediaTimingFunctionEaseInEaseOut];
 //    animation.fromValue = [NSNumber numberWithFloat:fullSize / 2];
 //    animation.toValue = [NSNumber numberWithFloat:0];
 //    animation.duration = 0.5;
+//    animation.removedOnCompletion = YES;
 //    [_lockView.layer addAnimation:animation forKey:@"cornerRadius"];
 //    
 //    [_lockView.layer setCornerRadius:0];
-    
-    CGRect screenRect = [PFResUtil screenSize];
-    CGFloat fullSize = screenRect.size.height * 2;
-    _lockView.bounds = CGRectMake(0, 0, fullSize, fullSize);
-    
-    CABasicAnimation *animation = [CABasicAnimation animationWithKeyPath:@"cornerRadius"];
-    animation.timingFunction = [CAMediaTimingFunction functionWithName:kCAMediaTimingFunctionEaseInEaseOut];
-    animation.fromValue = [NSNumber numberWithFloat:fullSize / 2];
-    animation.toValue = [NSNumber numberWithFloat:0];
-    animation.duration = 0.5;
-    [_lockView.layer addAnimation:animation forKey:@"cornerRadius"];
-    
-    [_lockView.layer setCornerRadius:0];
     
     for (UIView *view in [_lockView subviews]) {
         view.hidden = YES;
     }
     
-    [UIView animateWithDuration:0.5 animations:^{
-        _lockView.bounds = CGRectMake(screenRect.origin.x / 2, screenRect.origin.y / 2, 0, 0);
-    } completion:^(BOOL finished) {
-        if (finished) {
-            _lockView.hidden = YES;
-            for (UIView *view in [_lockView subviews]) {
-                view.hidden = NO;
-            }
-            [self.view layoutIfNeeded];
+//    [UIView animateWithDuration:0.5 animations:^{
+//        _lockView.layer.opacity = 0;
+//    } completion:^(BOOL finished) {
+//        if (finished) {
+//            _lockView.hidden = YES;
+//            for (UIView *view in [_lockView subviews]) {
+//                view.hidden = NO;
+//            }
+//            [self.view layoutIfNeeded];
             [[NSNotificationCenter defaultCenter] removeObserver:self name:UIKeyboardDidHideNotification object:nil];
-            [[PFAppLock sharedLock] unlockAndDismiss];
-        }
-    }];
+            [self dismissViewControllerAnimated:YES completion:nil];
+//        }
+//    }];
+    
 }
 
 - (BOOL)_authorize {
     return YES;
+}
+
+- (void)_keyboardDidHide {
+    if (![self _authorize]) {
+        //TODO: Shake it baby.
+        return;
+    }
+    [[PFAppLock sharedLock] unlockAndDismiss];
 }
 
 /*

@@ -14,6 +14,7 @@
 @interface PFAppLock(){
     @private
     BOOL locked;
+    BOOL lockViewShowing;
 }
 
 @property(strong, nonatomic) PFLockViewController *lockView;
@@ -34,6 +35,7 @@
     self = [super init];
     if (self) {
         self -> locked = YES;
+        self -> lockViewShowing = NO;
         self.lockView = [PFLockViewController viewController];
     }
     return self;
@@ -49,9 +51,13 @@
 
 - (void)showLock {
     self->locked = YES;
+    if (self->lockViewShowing) {
+        return;
+    }
     UIWindow *win = [UIApplication sharedApplication].keyWindow;
-    [[win.subviews firstObject] addSubview:_lockView.view];
+    [win.rootViewController presentViewController:_lockView animated:NO completion:nil];
     [_lockView showLockView];
+    self->lockViewShowing = YES;
 }
 
 - (void)unlock {
@@ -60,8 +66,11 @@
 
 - (void)unlockAndDismiss {
     self->locked = NO;
+    if (!self->lockViewShowing) {
+        return;
+    }
     [_lockView dismissLockView];
-    [_lockView.view removeFromSuperview];
+    self->lockViewShowing = NO;
 }
 
 @end

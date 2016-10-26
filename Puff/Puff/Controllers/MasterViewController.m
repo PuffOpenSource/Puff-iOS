@@ -71,7 +71,7 @@
 
 #pragma mark - UITableView Delegate
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    if (section == 0) {
+    if (section == 0 && ![[PFAppLock sharedLock] isLocked]) {
         return _data.count;
     }
     return 0;
@@ -85,7 +85,7 @@
 
 #pragma mark - UITableViewDataSource
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
-    if (indexPath.section == 0 || [[PFAppLock sharedLock] isLocked]) {
+    if (indexPath.section == 0 && ![[PFAppLock sharedLock] isLocked]) {
         return 260;
     }
     return 0;

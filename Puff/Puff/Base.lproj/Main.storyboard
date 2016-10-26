@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11201" systemVersion="16A323" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="YyR-ky-baK">
     <dependencies>
-        <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11161"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -16,7 +15,7 @@
                         <viewControllerLayoutGuide type="bottom" id="zdo-q6-vBW"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="Nb9-eC-BgF">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="9bg-ac-RNM">
@@ -169,7 +168,7 @@
                         <viewControllerLayoutGuide type="bottom" id="r8i-G3-nMr"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="WBs-B2-0dc">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="um5-DY-eM8">
@@ -594,7 +593,7 @@
                         <viewControllerLayoutGuide type="bottom" id="lnI-nm-h66"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="aAi-Q6-zEy">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="rmZ-hs-b1I">
@@ -718,7 +717,7 @@
                         <viewControllerLayoutGuide type="bottom" id="1XN-yP-e5M"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="eVs-rU-2vk">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
@@ -736,7 +735,7 @@
                         <viewControllerLayoutGuide type="bottom" id="Osv-Qd-2Co"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="D7Y-oX-4mT">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
@@ -754,7 +753,7 @@
                         <viewControllerLayoutGuide type="bottom" id="GOJ-dp-fD3"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="1bQ-lY-FfR">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Fo6-9u-FxE">
@@ -784,10 +783,10 @@
                                 <color key="sectionIndexBackgroundColor" red="0.93333333330000001" green="0.93333333330000001" blue="0.93333333330000001" alpha="1" colorSpace="calibratedRGB"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" reuseIdentifier="kReuseIdPFDrawerCell" rowHeight="50" id="b3D-lM-geD" customClass="PFDrawerCell">
-                                        <rect key="frame" x="0.0" y="28" width="1000" height="50"/>
+                                        <rect key="frame" x="0.0" y="28" width="600" height="50"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="b3D-lM-geD" id="RBy-CY-Tjc">
-                                            <frame key="frameInset" width="1000" height="50"/>
+                                            <frame key="frameInset" width="600" height="50"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="VnH-J8-ktn">
