@@ -12,6 +12,8 @@
 
 typedef void(^PFAccountEncryptCallback)( NSError * _Nullable error, PFAccount* _Nullable result);
 
+#define PFAccountErrorDomain    @"bob.sun.leela"
+
 @interface PFAccount : PFBaseModel
 @property (nullable, nonatomic, strong) NSString *account;
 @property (nullable, nonatomic, strong) NSString *account_salt;

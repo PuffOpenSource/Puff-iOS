@@ -140,7 +140,7 @@
                             <constraint firstItem="zdo-q6-vBW" firstAttribute="top" secondItem="Q4X-Fz-Lpf" secondAttribute="bottom" id="U1h-BD-W7b"/>
                             <constraint firstAttribute="trailing" secondItem="9bg-ac-RNM" secondAttribute="trailing" id="Zdt-E6-jJc"/>
                             <constraint firstAttribute="trailing" secondItem="Q4X-Fz-Lpf" secondAttribute="trailing" constant="40" id="fxI-hg-26p"/>
-                            <constraint firstItem="Q4X-Fz-Lpf" firstAttribute="top" secondItem="cCS-rn-hT1" secondAttribute="bottom" constant="82" id="hrY-LI-ccR"/>
+                            <constraint firstItem="Q4X-Fz-Lpf" firstAttribute="top" secondItem="cCS-rn-hT1" secondAttribute="bottom" constant="66" id="hrY-LI-ccR"/>
                             <constraint firstItem="zdo-q6-vBW" firstAttribute="top" secondItem="U6o-RM-6Ik" secondAttribute="bottom" constant="20" id="pXz-AZ-8TW"/>
                             <constraint firstItem="zdo-q6-vBW" firstAttribute="top" secondItem="h9q-uc-uQj" secondAttribute="bottom" constant="20" id="wwp-qp-Wwj"/>
                         </constraints>

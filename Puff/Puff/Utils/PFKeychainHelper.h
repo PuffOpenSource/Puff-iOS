@@ -18,4 +18,5 @@ static NSString * const keyChainAccessGroup     =   @"sun.bob.leela";
 - (BOOL)hasMasterPassword;
 - (BOOL)setMasterPassword:(NSString*)pwd;
 - (void)cleanMasterPassword;
+- (NSString*)getMasterPassword;
 @end

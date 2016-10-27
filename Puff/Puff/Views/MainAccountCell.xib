@@ -12,15 +12,15 @@
             <rect key="frame" x="0.0" y="0.0" width="375" height="255"/>
             <autoresizingMask key="autoresizingMask"/>
             <tableViewCellContentView key="contentView" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="HWy-Zc-HnQ" id="zkh-r8-Rfs">
-                <frame key="frameInset" width="375" height="254"/>
+                <frame key="frameInset" width="375" height="254.5"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="0pe-v9-li8" customClass="PFCardView">
                         <subviews>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="dah-RG-W9c">
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="130" id="GC2-JH-rks"/>
-                                    <constraint firstAttribute="width" constant="130" id="SeX-tV-n2v"/>
+                                    <constraint firstAttribute="height" constant="90" id="GC2-JH-rks"/>
+                                    <constraint firstAttribute="width" constant="90" id="SeX-tV-n2v"/>
                                 </constraints>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ylb-l5-9Fi">
@@ -86,10 +86,10 @@
                     </view>
                 </subviews>
                 <constraints>
-                    <constraint firstItem="0pe-v9-li8" firstAttribute="top" secondItem="zkh-r8-Rfs" secondAttribute="top" id="X8B-Zd-HnT"/>
+                    <constraint firstItem="0pe-v9-li8" firstAttribute="top" secondItem="zkh-r8-Rfs" secondAttribute="top" constant="8" id="X8B-Zd-HnT"/>
                     <constraint firstAttribute="trailing" secondItem="0pe-v9-li8" secondAttribute="trailing" id="XZ3-G7-OMU"/>
                     <constraint firstItem="0pe-v9-li8" firstAttribute="leading" secondItem="zkh-r8-Rfs" secondAttribute="leading" id="YoW-eo-Ztm"/>
-                    <constraint firstAttribute="bottom" secondItem="0pe-v9-li8" secondAttribute="bottom" constant="16" id="gD8-96-PLw"/>
+                    <constraint firstAttribute="bottom" secondItem="0pe-v9-li8" secondAttribute="bottom" constant="8" id="gD8-96-PLw"/>
                 </constraints>
             </tableViewCellContentView>
             <connections>

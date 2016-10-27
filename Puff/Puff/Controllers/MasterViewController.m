@@ -177,46 +177,4 @@
     }
 }
 
-#pragma mark Test Functions.
-
-- (void)_cryptoTest {
-    NSString *rawStr = @"oTNgWmpVF0WqPs8bGB/lop5b/fyI8tP3K2SIyj3V+7L8CAhrtfjnNxqV48VQYqKY";
-    
-    PFBlowfish *fish = [[PFBlowfish alloc]init];
-    
-    fish.Key = @"123456";
-    fish.IV = @"";
-    [fish prepare];
-    NSString * result = [fish decrypt:rawStr withMode:modeEBC withPadding:paddingRFC];
-    NSLog(@"%@", result);
-}
-
-- (void)_encryptTest {
-    PFBlowfish *fish = [[PFBlowfish alloc] init];
-    fish.Key = @"123456";
-    fish.IV = @"";
-    [fish prepare];
-    NSString *result = [fish encrypt:@"ghgghvg7b0d7bf8-7ac5-4d58-95af-18892b7a712a" withMode:modeEBC withPadding:paddingRFC];
-    NSLog(@"%@", result);
-}
-
-- (NSString*)_padString:(NSString*)input {
-    NSUInteger paddedLength = input.length + (8 - (input.length % 8));
-    return [input stringByPaddingToLength:paddedLength withString:@" " startingAtIndex:0];
-}
-
-- (void)_coreDataWriteTest {
-    PFAccount *acct = [[PFAccount alloc] init];
-    acct.name = @"aaaaa";
-    acct.category = 1234567;
-    PFAccountManager *manager = [PFAccountManager sharedManager];
-    [manager saveAccount:acct];
-}
-
-- (void)_coreDataReadTest {
-    PFAccountManager *manager = [PFAccountManager sharedManager];
-    NSArray *accts = [manager fetchAccountsByCategory:1234567];
-    return;
-}
-
 @end

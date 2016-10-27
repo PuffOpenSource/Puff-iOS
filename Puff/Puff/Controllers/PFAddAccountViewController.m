@@ -92,11 +92,26 @@ static const CGFloat toolBarHeight     = 180;
     
     //Encryption!
     account.account = _accountField.text;
+    account.hash_value = _passwordField.text;
+    account.additional = _additionalField.text;
     
-    id err = [[PFAccountManager sharedManager] saveAccount:account];
-    if (err == nil) {
-        [self dismissViewControllerAnimated:YES completion:nil];
-    }
+    //TODO: Show loading indicator.
+    [account encrypt:^(NSError * _Nullable error, PFAccount * _Nullable result) {
+        if (error) {
+            //TODO: Shake it and dismiss indicator.
+            return;
+        }
+        id err = [[PFAccountManager sharedManager] saveAccount:account];
+        if (err == nil) {
+            //TODO: Dismis indicator.
+            [account decrypt:^(NSError * _Nullable error, PFAccount * _Nullable result) {
+                if (error) {
+                    return;
+                }
+            }];
+            [self dismissViewControllerAnimated:YES completion:nil];
+        }
+    }];
 }
 
 
