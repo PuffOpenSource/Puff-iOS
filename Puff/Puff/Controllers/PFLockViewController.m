@@ -8,6 +8,8 @@
 
 #import "PFLockViewController.h"
 
+#import <LocalAuthentication/LocalAuthentication.h>
+
 #import "PFResUtil.h"
 #import "PFAppLock.h"
 #import "PFKeychainHelper.h"
@@ -15,8 +17,9 @@
 @interface PFLockViewController ()
 @property (weak, nonatomic) IBOutlet UIView *lockView;
 @property (weak, nonatomic) IBOutlet UITextField *lockPasswordField;
-@property (weak, nonatomic) IBOutlet UIButton *lockTouchIdIcon;
+@property (weak, nonatomic) IBOutlet UIButton *btnTouchId;
 @property (weak, nonatomic) IBOutlet UIImageView *iconImage;
+@property (assign, nonatomic) BOOL shouldValidate;
 @end
 
 @implementation PFLockViewController
@@ -33,6 +36,7 @@
     _lockPasswordField.layer.cornerRadius = 20;
     _lockView.layer.needsDisplayOnBoundsChange = YES;
     _lockView.frame = self.view.frame;
+    _btnTouchId.hidden = ![self _hasTouchID];
 }
 
 - (void)viewWillAppear:(BOOL)animated {
@@ -48,10 +52,18 @@
     // Dispose of any resources that can be recreated.
 }
 
+#pragma mark - IBActions
 - (IBAction)didClickedKeyboardAction:(id)sender {
+    _shouldValidate = YES;
     [_lockPasswordField resignFirstResponder];
 }
+- (IBAction)didClickTouchId:(id)sender {
+    _shouldValidate = NO;
+    [_lockPasswordField resignFirstResponder];
+    [self _authorizeWithTouchId];
+}
 
+#pragma mark - UI
 - (void)showLockView {
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(_keyboardDidHide) name:UIKeyboardWillHideNotification object:nil];
     _lockView.bounds = [PFResUtil screenSize];
@@ -66,40 +78,22 @@
 
 - (void)dismissLockView {
     
-//    CGRect screenRect = [PFResUtil screenSize];
-//    CGFloat fullSize = screenRect.size.height * 2;
-//    _lockView.bounds = CGRectMake(0, 0, fullSize, fullSize);
-//
-//    CABasicAnimation *animation = [CABasicAnimation animationWithKeyPath:@"cornerRadius"];
-//    animation.timingFunction = [CAMediaTimingFunction functionWithName:kCAMediaTimingFunctionEaseInEaseOut];
-//    animation.fromValue = [NSNumber numberWithFloat:fullSize / 2];
-//    animation.toValue = [NSNumber numberWithFloat:0];
-//    animation.duration = 0.5;
-//    animation.removedOnCompletion = YES;
-//    [_lockView.layer addAnimation:animation forKey:@"cornerRadius"];
-//    
-//    [_lockView.layer setCornerRadius:0];
-    
     for (UIView *view in [_lockView subviews]) {
         view.hidden = YES;
     }
     
-//    [UIView animateWithDuration:0.5 animations:^{
-//        _lockView.layer.opacity = 0;
-//    } completion:^(BOOL finished) {
-//        if (finished) {
-//            _lockView.hidden = YES;
-//            for (UIView *view in [_lockView subviews]) {
-//                view.hidden = NO;
-//            }
-//            [self.view layoutIfNeeded];
-            [[NSNotificationCenter defaultCenter] removeObserver:self name:UIKeyboardDidHideNotification object:nil];
-            [self dismissViewControllerAnimated:YES completion:nil];
-//        }
-//    }];
+    [[NSNotificationCenter defaultCenter] removeObserver:self name:UIKeyboardDidHideNotification object:nil];
+    [self dismissViewControllerAnimated:YES completion:nil];
     
 }
 
+- (void)_shakeItBaby {
+    [PFResUtil shakeItBaby:_lockPasswordField withCompletion:^{
+        [_lockPasswordField becomeFirstResponder];
+    }];
+}
+
+#pragma mark - Misc
 - (BOOL)_authorize {
     NSString *password = _lockPasswordField.text;
     if (password.length == 0) {
@@ -111,7 +105,36 @@
     return YES;
 }
 
+- (void)_authorizeWithTouchId {
+    LAContext *ctx = [[LAContext alloc] init];
+    if ([self _hasTouchID]) {
+        [ctx evaluatePolicy:LAPolicyDeviceOwnerAuthenticationWithBiometrics localizedReason:NSLocalizedString(@"Unlock with Touch ID", nil) reply:^(BOOL success, NSError * _Nullable error) {
+            dispatch_async(dispatch_get_main_queue(), ^{
+                if (success) {
+                    [[PFAppLock sharedLock] unlockAndDismiss];
+                }
+                if (error) {
+                    if (error.code == LAErrorUserFallback) {
+                        [_lockPasswordField becomeFirstResponder];
+                    } else {
+                        [PFResUtil shakeItBaby:_btnTouchId withCompletion:nil];
+                    }
+                }
+            });
+        }];
+    }
+}
+
+- (BOOL)_hasTouchID {
+    LAContext *ctx = [[LAContext alloc] init];
+    NSError *err;
+    return [ctx canEvaluatePolicy:LAPolicyDeviceOwnerAuthenticationWithBiometrics error:&err];
+}
+
 - (void)_keyboardDidHide {
+    if (!_shouldValidate) {
+        return;
+    }
     if (![self _authorize]) {
         [self _shakeItBaby];
         return;
@@ -119,11 +142,7 @@
     [[PFAppLock sharedLock] unlockAndDismiss];
 }
 
-- (void)_shakeItBaby {
-    [PFResUtil shakeItBaby:_lockPasswordField withCompletion:^{
-        [_lockPasswordField becomeFirstResponder];
-    }];
-}
+
 
 /*
 #pragma mark - Navigation

@@ -30,6 +30,7 @@
 		012C69BE1DAF68F1005E7104 /* NSMethodSignature+EXT.m in Sources */ = {isa = PBXBuildFile; fileRef = 012C69B51DAF68F1005E7104 /* NSMethodSignature+EXT.m */; };
 		013DC3961DB5F2FF00AB8F50 /* PFDrawerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 013DC3951DB5F2FF00AB8F50 /* PFDrawerViewController.m */; };
 		013DC3991DB5F44000AB8F50 /* PFDrawerCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 013DC3981DB5F44000AB8F50 /* PFDrawerCell.m */; };
+		0164612F1DC1E66B0083D129 /* LocalAuthentication.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0164612E1DC1E66B0083D129 /* LocalAuthentication.framework */; };
 		017517551DB8B8C80067A586 /* MainAccountCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 017517541DB8B8C80067A586 /* MainAccountCell.xib */; };
 		017517581DB8B8E40067A586 /* MainAccountCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 017517571DB8B8E40067A586 /* MainAccountCell.m */; };
 		017915211DBF6135006FA552 /* PFLockViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 017915201DBF6135006FA552 /* PFLockViewController.m */; };
@@ -103,6 +104,7 @@
 		013DC3951DB5F2FF00AB8F50 /* PFDrawerViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PFDrawerViewController.m; path = Controllers/PFDrawerViewController.m; sourceTree = "<group>"; };
 		013DC3971DB5F44000AB8F50 /* PFDrawerCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PFDrawerCell.h; path = Views/PFDrawerCell.h; sourceTree = "<group>"; };
 		013DC3981DB5F44000AB8F50 /* PFDrawerCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PFDrawerCell.m; path = Views/PFDrawerCell.m; sourceTree = "<group>"; };
+		0164612E1DC1E66B0083D129 /* LocalAuthentication.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = LocalAuthentication.framework; path = System/Library/Frameworks/LocalAuthentication.framework; sourceTree = SDKROOT; };
 		017517541DB8B8C80067A586 /* MainAccountCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = MainAccountCell.xib; path = Views/MainAccountCell.xib; sourceTree = "<group>"; };
 		017517561DB8B8E40067A586 /* MainAccountCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MainAccountCell.h; path = Views/MainAccountCell.h; sourceTree = "<group>"; };
 		017517571DB8B8E40067A586 /* MainAccountCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MainAccountCell.m; path = Views/MainAccountCell.m; sourceTree = "<group>"; };
@@ -157,6 +159,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0164612F1DC1E66B0083D129 /* LocalAuthentication.framework in Frameworks */,
 				0115370E1D8932DA00C98268 /* Security.framework in Frameworks */,
 				7CC3455F2CC4E9B9128B81E8 /* Pods_Puff.framework in Frameworks */,
 			);
@@ -214,6 +217,7 @@
 		0115370C1D8932DA00C98268 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				0164612E1DC1E66B0083D129 /* LocalAuthentication.framework */,
 				0115370D1D8932DA00C98268 /* Security.framework */,
 				6B7D49088F66C933BBF2413A /* Pods_Puff.framework */,
 			);

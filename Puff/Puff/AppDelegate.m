@@ -57,7 +57,7 @@
     [drawerViewController setOpenDrawerGestureModeMask:MMOpenDrawerGestureModeAll];
     [drawerViewController setCloseDrawerGestureModeMask:MMCloseDrawerGestureModeAll];
     [drawerViewController setShouldStretchDrawer:NO];
-    [drawerViewController setShowsShadow:NO];
+    [drawerViewController setShowsShadow:YES];
     
     
     if (!self.window) {

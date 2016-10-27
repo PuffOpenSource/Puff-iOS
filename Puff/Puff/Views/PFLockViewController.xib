@@ -8,9 +8,9 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="PFLockViewController">
             <connections>
+                <outlet property="btnTouchId" destination="Nsv-CF-TkD" id="E1j-p7-Jg0"/>
                 <outlet property="iconImage" destination="ayY-sI-Y64" id="7y8-2E-VOK"/>
                 <outlet property="lockPasswordField" destination="fxB-5d-2Ig" id="NkC-cb-LAS"/>
-                <outlet property="lockTouchIdIcon" destination="Nsv-CF-TkD" id="xWs-3g-2Rd"/>
                 <outlet property="lockView" destination="V2I-w8-dib" id="haX-0V-7Sn"/>
                 <outlet property="view" destination="XAh-4t-5YY" id="wk8-EY-UEF"/>
             </connections>
@@ -40,12 +40,15 @@
                                 <action selector="didClickedKeyboardAction:" destination="-1" eventType="primaryActionTriggered" id="LOY-qU-7JS"/>
                             </connections>
                         </textField>
-                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Nsv-CF-TkD">
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Nsv-CF-TkD">
                             <constraints>
-                                <constraint firstAttribute="height" constant="50" id="1eP-dH-R5m"/>
-                                <constraint firstAttribute="width" constant="50" id="glh-Fl-DQB"/>
+                                <constraint firstAttribute="height" constant="60" id="1eP-dH-R5m"/>
+                                <constraint firstAttribute="width" constant="60" id="glh-Fl-DQB"/>
                             </constraints>
-                            <state key="normal" title="TouchId"/>
+                            <state key="normal" image="ic-touch-id"/>
+                            <connections>
+                                <action selector="didClickTouchId:" destination="-1" eventType="touchUpInside" id="CNW-83-Zp1"/>
+                            </connections>
                         </button>
                     </subviews>
                     <color key="backgroundColor" red="0.5450980392" green="0.76470588240000004" blue="0.2901960784" alpha="1" colorSpace="calibratedRGB"/>
@@ -73,6 +76,7 @@
         </view>
     </objects>
     <resources>
+        <image name="ic-touch-id" width="50" height="50"/>
         <image name="icon-puff" width="128" height="128"/>
     </resources>
 </document>
