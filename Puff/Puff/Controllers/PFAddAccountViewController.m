@@ -44,6 +44,7 @@
 
 @property (nonatomic, assign) CGFloat lastContentOffset;
 @property (nonatomic, assign) CGSize scrollViewContentSize;
+@property (assign, nonatomic) BOOL keyboardShown;
 
 @end
 
@@ -66,6 +67,7 @@ static const CGFloat toolBarHeight     = 180;
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(_keyboardWillHide:) name:UIKeyboardWillHideNotification object:nil];
     
     [self _initUI];
+    _keyboardShown = NO;
 }
 
 - (void)viewWillAppear:(BOOL)animated {
@@ -133,8 +135,12 @@ static const CGFloat toolBarHeight     = 180;
 #pragma mark - UIScrollViewDelegate
 
 - (void)scrollViewDidScroll:(UIScrollView *)scrollView {
-    if (scrollView != _scrollView) {
+    
+    if (!scrollView.isDragging) {
         _lastContentOffset = 0;
+    }
+    
+    if (scrollView != _scrollView || _keyboardShown) {
         return;
     }
     
@@ -204,10 +210,16 @@ static const CGFloat toolBarHeight     = 180;
     //Suppose to be 16 + kbSize.height, sub 16 margin.
     _layoutBottom.constant = kbSize.height;
     _lastContentOffset += kbSize.height;
+    if (![_nameField isFirstResponder]) {
+        _headerHeight.constant = actionBarHeight;
+        _lastContentOffset -= (toolBarHeight - actionBarHeight);
+    }
     [self.scrollView setNeedsLayout];
-    [UIView animateWithDuration:0.25 animations:^{
+    [UIView animateWithDuration:0.5 animations:^{
+        [_headerView layoutIfNeeded];
         [self.scrollView layoutIfNeeded];
     }];
+    _keyboardShown = YES;
 }
 
 - (void)_keyboardWillHide:(NSNotification*)notification {
@@ -215,10 +227,16 @@ static const CGFloat toolBarHeight     = 180;
     CGSize kbSize = [[info objectForKey:UIKeyboardFrameEndUserInfoKey] CGRectValue].size;
     _layoutBottom.constant = 16;
     _lastContentOffset -= kbSize.height;
+    if (![_nameField isFirstResponder]) {
+        _headerHeight.constant = toolBarHeight;
+        _lastContentOffset += (toolBarHeight - actionBarHeight);
+    }
     [self.scrollView setNeedsLayout];
-    [UIView animateWithDuration:0.25 animations:^{
+    [UIView animateWithDuration:0.5 animations:^{
+        [_headerView layoutIfNeeded];
         [self.scrollView layoutIfNeeded];
     }];
+    _keyboardShown = NO;
 }
 
 - (BOOL)_validateFiels {
