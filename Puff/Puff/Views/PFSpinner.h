@@ -17,6 +17,7 @@
 @end
 
 typedef  void(^PFSpinnerCellConfigureBlock)(UITableViewCell* cell, NSIndexPath* indexPath, NSObject* dataItem);
+typedef void(^PFAnimatedCallback)();
 
 @interface PFSpinner : UIView
 
@@ -24,7 +25,8 @@ typedef  void(^PFSpinnerCellConfigureBlock)(UITableViewCell* cell, NSIndexPath* 
 @property (strong, nonatomic) PFSpinnerCellConfigureBlock configureCallback;
 - (instancetype)initAsSpinnerWithData:(NSArray* _Nonnull)data andFrame:(CGRect)frame;
 - (instancetype)initAsMenuWithData:(NSArray* _Nonnull)data andFrame:(CGRect)frame;
-
+- (void)presentInView:(UIView*)view ;
+- (void)dismiss:(PFAnimatedCallback)cb;
 
 @end
 

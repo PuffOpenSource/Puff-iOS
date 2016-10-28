@@ -63,7 +63,10 @@ static NSString * const kPFSpinnerCellReuseId       = @"kPFSpinnerCellReuseId";
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
-    
+    [tableView deselectRowAtIndexPath:indexPath animated:NO];
+    if (self.spinnerDelegate) {
+        [self.spinnerDelegate pfSpinner:self didSelectItem:[_data objectAtIndex:indexPath.row]];
+    }
 }
 #pragma mark - UITableViewDataSource
 
@@ -95,14 +98,47 @@ static NSString * const kPFSpinnerCellReuseId       = @"kPFSpinnerCellReuseId";
     tableViewFrame.origin.y += 8;
     _tableView = [[UITableView alloc] initWithFrame:tableViewFrame];
     
-    _tableView.layer.shadowColor = [UIColor grayColor].CGColor;
-    _tableView.layer.shadowOffset = CGSizeMake(5, 5);
-    _tableView.layer.shadowOpacity = 0.8;
-    _tableView.layer.masksToBounds = NO;
+    self.layer.shadowColor = [UIColor lightGrayColor].CGColor;
+    self.layer.shadowOffset = CGSizeMake(0, 5);
+    self.layer.shadowOpacity = 0.8;
+    self.layer.shadowRadius = 10;
+    self.layer.masksToBounds = NO;
     
     [self addSubview:_tableView];
-    self.clipsToBounds = YES;
+    _tableView.clipsToBounds = YES;
     _tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
+}
+
+- (void)presentInView:(UIView*)view {
+    
+    CGRect savedRect = self.frame;
+    self.frame = CGRectMake(self.frame.origin.x, self.frame.origin.y, self.frame.size.width, 0);
+    
+    self.clipsToBounds = YES;
+    [view addSubview:self];
+    
+    [UIView animateWithDuration:0.2 animations:^{
+        self.frame = savedRect;
+    } completion:^(BOOL finished) {
+        if (finished) {
+            self.clipsToBounds = NO;
+        }
+    }];
+}
+
+- (void)dismiss:(PFAnimatedCallback)cb {
+    CGRect savedRect = self.frame;
+    self.clipsToBounds = YES;
+    [UIView animateWithDuration:0.2 animations:^{
+        self.frame = CGRectMake(self.frame.origin.x , self.frame.origin.y, self.frame.size.width, 0);
+    } completion:^(BOOL finished) {
+        if (finished) {
+            [self removeFromSuperview];
+            self.frame = savedRect;
+            self.clipsToBounds = NO;
+            cb();
+        }
+    }];
 }
 
 @end

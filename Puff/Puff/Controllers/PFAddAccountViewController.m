@@ -16,7 +16,7 @@
 #import "PFCategoryManager.h"
 #import "PFSpinner.h"
 
-@interface PFAddAccountViewController () <UIScrollViewDelegate>
+@interface PFAddAccountViewController () <UIScrollViewDelegate, PFSpinnerDelegate>
 @property (weak, nonatomic) IBOutlet UIView *headerView;
 @property (weak, nonatomic) IBOutlet UILabel *toolBarLabel;
 @property (weak, nonatomic) IBOutlet MDTextField *nameField;
@@ -230,8 +230,9 @@ static const CGFloat toolBarHeight     = 180;
 
 - (void)_toggleTypeSpinner:(id)sender {
     if (_typeSpinner) {
-        [_typeSpinner removeFromSuperview];
-        _typeSpinner = nil;
+        [_typeSpinner dismiss:^{
+            _typeSpinner = nil;
+        }];
         return;
     }
     [self.view endEditing:YES];
@@ -240,14 +241,15 @@ static const CGFloat toolBarHeight     = 180;
     CGRect spinnerRect = CGRectMake(pos.x,pos.y, typedSender.superview.frame.size.width - 32, 0);
     _typeSpinner = [[PFSpinner alloc] initAsSpinnerWithData:_types andFrame:spinnerRect];
     _typeSpinner.configureCallback = _typeConfigureBlock;
-    
-    [self.view addSubview:_typeSpinner];
+    _typeSpinner.spinnerDelegate = self;
+    [_typeSpinner presentInView:self.view];
 }
 
 - (void)_toggleCategorySpinner:(id)sender {
     if (_categorySpinner) {
-        [_categorySpinner removeFromSuperview];
-        _categorySpinner = nil;
+        [_categorySpinner dismiss:^{
+            _categorySpinner = nil;
+        }];
         return;
     }
     [self.view endEditing:YES];
@@ -256,19 +258,32 @@ static const CGFloat toolBarHeight     = 180;
     CGRect spinnerRect = CGRectMake(pos.x,pos.y, typedSender.superview.frame.size.width - 32, 0);
     _categorySpinner = [[PFSpinner alloc] initAsSpinnerWithData:_categories andFrame:spinnerRect];
     _categorySpinner.configureCallback = _categoryConfigureBlock;
-    
-    [self.view addSubview:_categorySpinner];
+    _categorySpinner.spinnerDelegate = self;
+    [_categorySpinner presentInView:self.view];
 }
 
 - (void)_closeSpinners {
     if (_typeSpinner) {
-        [_typeSpinner removeFromSuperview];
-        _typeSpinner = nil;
+        [_typeSpinner dismiss:^{
+            _typeSpinner = nil;
+        }];
     }
     
     if (_categorySpinner) {
-        [_categorySpinner removeFromSuperview];
-        _categorySpinner = nil;
+        [_categorySpinner dismiss:^{
+            _categorySpinner = nil;
+        }];
+        return;
+    }
+}
+
+#pragma mark - PFSpinnerDelegate
+- (void)pfSpinner:(PFSpinner *)spinner didSelectItem:(id)item {
+    [self _closeSpinners];
+    if (spinner == _typeSpinner) {
+        return;
+    }
+    if (spinner == _categorySpinner) {
         return;
     }
 }
