@@ -32,9 +32,9 @@
 
 - (void)configWithCategory:(PFCategory*)category {
     _nameLabel.text = category.name;
-    NSData *data = [NSData dataWithContentsOfURL:[NSURL fileURLWithPath: [PFResUtil imagePathForName: category.icon] isDirectory:NO]];
-    UIImage *img = [UIImage imageWithData:data];
-    self.icon.image = img;
+//    NSData *data = [NSData dataWithContentsOfURL:[NSURL fileURLWithPath: [PFResUtil imagePathForName: category.icon] isDirectory:NO]];
+//    UIImage *img = [UIImage imageWithData:data];
+    self.icon.image = [PFResUtil imageForName:category.icon];
 }
 
 @end

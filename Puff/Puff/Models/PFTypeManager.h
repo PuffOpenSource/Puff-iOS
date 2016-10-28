@@ -7,11 +7,12 @@
 //
 
 #import "PFDBManager.h"
-#import "_PFType+CoreDataClass.h"
+
 #import "PFType.h"
 
 static NSString * const kEntityNamePFType       = @"PFType";
 
+@class _PFType;
 @interface PFTypeManager : NSObject
 
 +(instancetype)sharedManager;

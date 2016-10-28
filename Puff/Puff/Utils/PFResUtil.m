@@ -16,7 +16,9 @@
     return [libPath stringByAppendingString:name];
 }
 + (UIImage*)imageForName:(NSString*)name {
-    return nil;
+    NSData *data = [NSData dataWithContentsOfURL:[NSURL fileURLWithPath: [self imagePathForName: name] isDirectory:NO]];
+    UIImage *img = [UIImage imageWithData:data];
+    return img;
 }
 
 + (UIColor*)pfOrange {

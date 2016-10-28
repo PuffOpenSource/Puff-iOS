@@ -8,10 +8,10 @@
 
 #import "PFDBManager.h"
 #import "PFCategory.h"
-#import "_PFCategory+CoreDataClass.h"
 
 static NSString * const kEntityNamePFCategory       = @"PFCategory";
 
+@class _PFCategory;
 @interface PFCategoryManager : NSObject
 
 + (instancetype)sharedManager;

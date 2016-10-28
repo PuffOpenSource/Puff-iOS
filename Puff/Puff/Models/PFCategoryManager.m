@@ -7,6 +7,7 @@
 //
 
 #import "PFCategoryManager.h"
+#import "_PFCategory+CoreDataClass.h"
 
 @interface PFCategoryManager()
 @property (strong) PFDBManager *dbManager;

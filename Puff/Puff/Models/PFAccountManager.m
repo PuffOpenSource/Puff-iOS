@@ -7,7 +7,7 @@
 //
 
 #import "PFAccountManager.h"
-
+#import "_PFAccount+CoreDataClass.h"
 #import "PFDBManager.h"
 
 @interface PFAccountManager ()

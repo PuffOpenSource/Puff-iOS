@@ -7,11 +7,11 @@
 //
 
 #import <Foundation/Foundation.h>
-#import "_PFAccount+CoreDataClass.h"
 #import "PFAccount.h"
 
 static NSString * const kEntityNamePFAccount        =   @"PFAccount";
 
+@class _PFAccount;
 @interface PFAccountManager : NSObject
 
 +(instancetype)sharedManager;

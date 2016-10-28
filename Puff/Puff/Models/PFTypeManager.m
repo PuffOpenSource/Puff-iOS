@@ -7,6 +7,8 @@
 //
 
 #import "PFTypeManager.h"
+#import "_PFType+CoreDataClass.h"
+
 
 @interface PFTypeManager()
 @property (strong) PFDBManager *dbManager;
