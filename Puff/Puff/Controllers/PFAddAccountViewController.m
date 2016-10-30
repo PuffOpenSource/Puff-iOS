@@ -35,6 +35,13 @@
 @property (weak, nonatomic) IBOutlet UIImageView *iconImageView;
 @property (weak, nonatomic) IBOutlet MDButton *bottomSaveBtn;
 
+//Spinners
+@property (weak, nonatomic) IBOutlet UIImageView *typeImage;
+@property (weak, nonatomic) IBOutlet UIImageView *categoryImage;
+@property (weak, nonatomic) IBOutlet UIButton *typeButton;
+@property (weak, nonatomic) IBOutlet UIButton *categoryButton;
+
+
 @property (strong, nonatomic) PFSpinner *typeSpinner;
 @property (strong, nonatomic) NSArray *types;
 @property (strong, nonatomic) PFSpinnerCellConfigureBlock typeConfigureBlock;
@@ -46,12 +53,15 @@
 @property (nonatomic, assign) CGSize scrollViewContentSize;
 @property (assign, nonatomic) BOOL keyboardShown;
 
+//Data
+@property (strong, nonatomic) PFType *type;
+@property (strong, nonatomic) PFCategory *category;
 @end
 
 @implementation PFAddAccountViewController 
 
 static const CGFloat actionBarHeight = 64;
-static const CGFloat toolBarHeight     = 180;
+static const CGFloat toolBarHeight   = 180;
 
 + (instancetype)viewControllerFromStoryboard {
     UIStoryboard *sb = [UIStoryboard storyboardWithName:@"Main" bundle:[NSBundle bundleForClass:self.class]];
@@ -108,6 +118,8 @@ static const CGFloat toolBarHeight     = 180;
     account.account = _accountField.text;
     account.hash_value = _passwordField.text;
     account.additional = _additionalField.text;
+    account.category = _category.identifier;
+    account.type = _type.identifier;
     
     //TODO: Show loading indicator.
     [account encrypt:^(NSError * _Nullable error, PFAccount * _Nullable result) {
@@ -128,8 +140,12 @@ static const CGFloat toolBarHeight     = 180;
     }];
 }
 
-- (IBAction)spinnerTest:(id)sender {
+- (IBAction)didClickTypeSpinner:(id)sender {
     [self _toggleTypeSpinner:sender];
+}
+
+- (IBAction)didClickCategorySpinner:(id)sender {
+    [self _toggleCategorySpinner:sender];
 }
 
 #pragma mark - UIScrollViewDelegate
@@ -187,6 +203,7 @@ static const CGFloat toolBarHeight     = 180;
 - (void)_initUI {
     _btnGenerator.backgroundColor = [UIColor lightGrayColor];
     _bottomSaveBtn.backgroundColor = [UIColor lightGrayColor];
+    _nameField.returnKeyType = UIReturnKeyNext;
     
     _typeConfigureBlock = ^(UITableViewCell* cell, NSIndexPath* indexPath, NSObject* dataItem) {
         PFType* typedItem = dataItem;
@@ -202,9 +219,9 @@ static const CGFloat toolBarHeight     = 180;
         typedCell.iconView.image = [PFResUtil imageForName:cat.icon];
     };
     
-    
 }
 - (void)_keyboardWillShow:(NSNotification*)notification {
+    [self _closeSpinners];
     NSDictionary *info = [notification userInfo];
     CGSize kbSize = [[info objectForKey:UIKeyboardFrameEndUserInfoKey] CGRectValue].size;
     //Suppose to be 16 + kbSize.height, sub 16 margin.
@@ -253,10 +270,15 @@ static const CGFloat toolBarHeight     = 180;
         }];
         return;
     }
+    if (_categorySpinner) {
+        [_categorySpinner dismiss:^{
+            _categorySpinner = nil;
+        }];
+    }
     [self.view endEditing:YES];
     UIView *typedSender = sender;
     CGPoint pos = [typedSender convertPoint:typedSender.frame.origin toView:nil];
-    CGRect spinnerRect = CGRectMake(pos.x,pos.y, typedSender.superview.frame.size.width - 32, 0);
+    CGRect spinnerRect = CGRectMake(32 ,pos.y, typedSender.superview.frame.size.width - 32, 0);
     _typeSpinner = [[PFSpinner alloc] initAsSpinnerWithData:_types andFrame:spinnerRect];
     _typeSpinner.configureCallback = _typeConfigureBlock;
     _typeSpinner.spinnerDelegate = self;
@@ -270,10 +292,15 @@ static const CGFloat toolBarHeight     = 180;
         }];
         return;
     }
+    if (_typeSpinner) {
+        [_typeSpinner dismiss:^{
+            _typeSpinner = nil;
+        }];
+    }
     [self.view endEditing:YES];
     UIView *typedSender = sender;
     CGPoint pos = [typedSender convertPoint:typedSender.frame.origin toView:nil];
-    CGRect spinnerRect = CGRectMake(pos.x,pos.y, typedSender.superview.frame.size.width - 32, 0);
+    CGRect spinnerRect = CGRectMake(32 ,pos.y, typedSender.superview.frame.size.width - 32, 0);
     _categorySpinner = [[PFSpinner alloc] initAsSpinnerWithData:_categories andFrame:spinnerRect];
     _categorySpinner.configureCallback = _categoryConfigureBlock;
     _categorySpinner.spinnerDelegate = self;
@@ -299,9 +326,19 @@ static const CGFloat toolBarHeight     = 180;
 - (void)pfSpinner:(PFSpinner *)spinner didSelectItem:(id)item {
     [self _closeSpinners];
     if (spinner == _typeSpinner) {
+        PFType *type = item;
+        _typeImage.image = [PFResUtil imageForName:type.icon];
+        
+        [_typeButton setTitle:type.name forState:UIControlStateNormal];
+        _type = type;
         return;
     }
     if (spinner == _categorySpinner) {
+        PFCategory *category = item;
+        _categoryImage.image = [PFResUtil imageForName:category.icon];
+        
+        [_categoryButton setTitle:category.name forState:UIControlStateNormal];
+        _category = category;
         return;
     }
 }

@@ -137,7 +137,12 @@
 #pragma mark - PFDrawerViewControllerDelegate
 
 - (void)loadAccountsInCategory:(uint64_t)catId {
-    
+    if (catId == catIdRecent) {
+        [self _loadInitCategory];
+        return;
+    }
+    _data = [[PFAccountManager sharedManager] fetchAccountsByCategory:catId];
+    [self.tableView reloadData];
 }
 
 #pragma mark - Segues
