@@ -10,6 +10,7 @@
 
 #import <MaterialControls/MDTextField.h>
 #import <MaterialControls/MDButton.h>
+#import <MaterialControls/MDSnackBar.h>
 #import "PFResUtil.h"
 #import "PFAccountManager.h"
 #import "PFTypeManager.h"
@@ -106,6 +107,8 @@ static const CGFloat toolBarHeight   = 180;
 }
 
 - (IBAction)didClickFab:(id)sender {
+    
+    [self.view endEditing:YES];
     
     if (![self _validateFiels]) {
         return;
@@ -257,6 +260,22 @@ static const CGFloat toolBarHeight   = 180;
 }
 
 - (BOOL)_validateFiels {
+    if (_nameField.text.length == 0) {
+        [_nameField setHasError:YES];
+        [PFResUtil shakeItBaby:_nameField withCompletion:nil];
+        return NO;
+    }
+    if (_passwordField.text.length == 0) {
+        [_passwordField setHasError:YES];
+        [PFResUtil shakeItBaby:_passwordField withCompletion:nil];
+        return NO;
+    }
+    if (_category == nil || _type == nil) {
+        [self.view endEditing:YES];
+        MDSnackbar *snackBar = [[MDSnackbar alloc] initWithText:NSLocalizedString(@"Please choose category and type.", nil) actionTitle:nil duration:3.0];
+        [snackBar show];
+        return NO;
+    }
     return YES;
 }
 
@@ -326,21 +345,32 @@ static const CGFloat toolBarHeight   = 180;
 - (void)pfSpinner:(PFSpinner *)spinner didSelectItem:(id)item {
     [self _closeSpinners];
     if (spinner == _typeSpinner) {
-        PFType *type = item;
-        _typeImage.image = [PFResUtil imageForName:type.icon];
-        
-        [_typeButton setTitle:type.name forState:UIControlStateNormal];
-        _type = type;
+        self.type = item;
         return;
     }
     if (spinner == _categorySpinner) {
-        PFCategory *category = item;
-        _categoryImage.image = [PFResUtil imageForName:category.icon];
-        
-        [_categoryButton setTitle:category.name forState:UIControlStateNormal];
-        _category = category;
+        self.category = item;
         return;
     }
+}
+
+#pragma Getters & Setters
+
+- (void)setType:(PFType *)type {
+    _typeImage.image = [PFResUtil imageForName:type.icon];
+    [_typeButton setTitle:type.name forState:UIControlStateNormal];
+    _type = type;
+    
+    PFCategory *cat = [[PFCategoryManager sharedManager] fetchCategoryById:type.category];
+    self.category = cat;
+}
+
+- (void) setCategory:(PFCategory *)category {
+    _categoryImage.image = [PFResUtil imageForName:category.icon];
+    
+    [_categoryButton setTitle:category.name forState:UIControlStateNormal];
+    
+    _category = category;
 }
 
 /*

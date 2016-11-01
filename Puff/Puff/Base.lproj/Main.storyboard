@@ -184,13 +184,15 @@
                                         <subviews>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="8fi-T4-Wpv">
                                                 <subviews>
-                                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Zb8-U1-ZVE">
+                                                    <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ic-dropdown-arrow" translatesAutoresizingMaskIntoConstraints="NO" id="Zb8-U1-ZVE">
                                                         <constraints>
                                                             <constraint firstAttribute="width" constant="34" id="Jle-TT-xfZ"/>
                                                         </constraints>
                                                     </imageView>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8eZ-RM-TtI">
-                                                        <state key="normal" title="Select Type"/>
+                                                        <state key="normal" title="Select Type">
+                                                            <color key="titleColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                                        </state>
                                                         <connections>
                                                             <action selector="didClickTypeSpinner:" destination="dYD-sq-Lui" eventType="touchUpInside" id="f8D-F5-5jv"/>
                                                         </connections>
@@ -211,13 +213,15 @@
                                             </view>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Yin-j0-JqF">
                                                 <subviews>
-                                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="TCd-TT-oN8">
+                                                    <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ic-dropdown-arrow" translatesAutoresizingMaskIntoConstraints="NO" id="TCd-TT-oN8">
                                                         <constraints>
                                                             <constraint firstAttribute="width" constant="36" id="AWH-ff-7qd"/>
                                                         </constraints>
                                                     </imageView>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="JYC-C2-em4">
-                                                        <state key="normal" title="Select Category"/>
+                                                        <state key="normal" title="Select Category">
+                                                            <color key="titleColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                                        </state>
                                                         <connections>
                                                             <action selector="didClickCategorySpinner:" destination="dYD-sq-Lui" eventType="touchUpInside" id="6MP-th-l6c"/>
                                                         </connections>
@@ -986,6 +990,7 @@
         <image name="drawer-header" width="480" height="300"/>
         <image name="ic-back" width="48" height="48"/>
         <image name="ic-check-mark" width="50" height="50"/>
+        <image name="ic-dropdown-arrow" width="48" height="48"/>
         <image name="ic-menu" width="48" height="48"/>
         <image name="ic-more" width="48" height="48"/>
         <image name="icon-puff" width="128" height="128"/>

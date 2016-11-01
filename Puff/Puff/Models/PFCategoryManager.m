@@ -62,9 +62,9 @@
     return [PFCategory convertFromRaws:[result finalResult] toWrapped:[PFCategory class]];
 }
 
-- (PFCategory*)fetchTypeById:(int64_t)identifier {
+- (PFCategory*)fetchCategoryById:(int64_t)identifier {
     NSFetchRequest *req = [NSFetchRequest fetchRequestWithEntityName:kEntityNamePFCategory];
-    NSPredicate *filter = [NSPredicate predicateWithFormat:@"category == %llu", identifier];
+    NSPredicate *filter = [NSPredicate predicateWithFormat:@"identifier == %llu", identifier];
     [req setPredicate:filter];
     NSManagedObjectContext *ctx = [_dbManager context];
     NSError *err;
