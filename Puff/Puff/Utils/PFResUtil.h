@@ -17,4 +17,5 @@
 + (UIColor*)pfDarkGreen;
 + (CGRect)screenSize;
 + (void)shakeItBaby:(UIView*)sender withCompletion:(nullable void (^)(void))completion;
++ (NSString*)saveImage:(UIImage*)image;
 @end

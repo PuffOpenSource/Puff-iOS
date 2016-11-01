@@ -430,11 +430,15 @@
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
-                                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="G3F-Zo-3dw">
+                                            <imageView contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="G3F-Zo-3dw">
+                                                <gestureRecognizers/>
                                                 <constraints>
                                                     <constraint firstAttribute="width" constant="128" id="Ozp-IC-GDW"/>
                                                     <constraint firstAttribute="height" constant="128" id="w6x-Gz-cl3"/>
                                                 </constraints>
+                                                <connections>
+                                                    <outletCollection property="gestureRecognizers" destination="4dh-yv-FlZ" appends="YES" id="wOX-Ui-Klh"/>
+                                                </connections>
                                             </imageView>
                                         </subviews>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -651,6 +655,11 @@
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="bz5-Kc-fRY" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <tapGestureRecognizer id="4dh-yv-FlZ">
+                    <connections>
+                        <action selector="presentImagePicker:" destination="dYD-sq-Lui" id="5Ox-ZR-XRv"/>
+                    </connections>
+                </tapGestureRecognizer>
             </objects>
             <point key="canvasLocation" x="2652" y="689.5052473763119"/>
         </scene>

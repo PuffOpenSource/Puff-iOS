@@ -28,6 +28,7 @@
 		012C69BC1DAF68F1005E7104 /* EXTSelectorChecking.m in Sources */ = {isa = PBXBuildFile; fileRef = 012C69AF1DAF68F1005E7104 /* EXTSelectorChecking.m */; };
 		012C69BD1DAF68F1005E7104 /* NSInvocation+EXT.m in Sources */ = {isa = PBXBuildFile; fileRef = 012C69B31DAF68F1005E7104 /* NSInvocation+EXT.m */; };
 		012C69BE1DAF68F1005E7104 /* NSMethodSignature+EXT.m in Sources */ = {isa = PBXBuildFile; fileRef = 012C69B51DAF68F1005E7104 /* NSMethodSignature+EXT.m */; };
+		01368F0C1DC89CA800055522 /* MobileCoreServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 01368F0B1DC89CA800055522 /* MobileCoreServices.framework */; };
 		013DC3961DB5F2FF00AB8F50 /* PFDrawerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 013DC3951DB5F2FF00AB8F50 /* PFDrawerViewController.m */; };
 		013DC3991DB5F44000AB8F50 /* PFDrawerCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 013DC3981DB5F44000AB8F50 /* PFDrawerCell.m */; };
 		015EEAA01DC232EC00F207AE /* PFSpinner.m in Sources */ = {isa = PBXBuildFile; fileRef = 015EEA9F1DC232EC00F207AE /* PFSpinner.m */; };
@@ -101,6 +102,7 @@
 		012C69B31DAF68F1005E7104 /* NSInvocation+EXT.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSInvocation+EXT.m"; sourceTree = "<group>"; };
 		012C69B41DAF68F1005E7104 /* NSMethodSignature+EXT.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSMethodSignature+EXT.h"; sourceTree = "<group>"; };
 		012C69B51DAF68F1005E7104 /* NSMethodSignature+EXT.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSMethodSignature+EXT.m"; sourceTree = "<group>"; };
+		01368F0B1DC89CA800055522 /* MobileCoreServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MobileCoreServices.framework; path = System/Library/Frameworks/MobileCoreServices.framework; sourceTree = SDKROOT; };
 		013DC3941DB5F2FF00AB8F50 /* PFDrawerViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PFDrawerViewController.h; path = Controllers/PFDrawerViewController.h; sourceTree = "<group>"; };
 		013DC3951DB5F2FF00AB8F50 /* PFDrawerViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PFDrawerViewController.m; path = Controllers/PFDrawerViewController.m; sourceTree = "<group>"; };
 		013DC3971DB5F44000AB8F50 /* PFDrawerCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PFDrawerCell.h; path = Views/PFDrawerCell.h; sourceTree = "<group>"; };
@@ -162,6 +164,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				01368F0C1DC89CA800055522 /* MobileCoreServices.framework in Frameworks */,
 				0164612F1DC1E66B0083D129 /* LocalAuthentication.framework in Frameworks */,
 				0115370E1D8932DA00C98268 /* Security.framework in Frameworks */,
 				7CC3455F2CC4E9B9128B81E8 /* Pods_Puff.framework in Frameworks */,
@@ -220,6 +223,7 @@
 		0115370C1D8932DA00C98268 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				01368F0B1DC89CA800055522 /* MobileCoreServices.framework */,
 				0164612E1DC1E66B0083D129 /* LocalAuthentication.framework */,
 				0115370D1D8932DA00C98268 /* Security.framework */,
 				6B7D49088F66C933BBF2413A /* Pods_Puff.framework */,

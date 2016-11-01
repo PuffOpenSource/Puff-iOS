@@ -11,13 +11,16 @@
 #import <MaterialControls/MDTextField.h>
 #import <MaterialControls/MDButton.h>
 #import <MaterialControls/MDSnackBar.h>
+
+#import <MobileCoreServices/MobileCoreServices.h>
+
 #import "PFResUtil.h"
 #import "PFAccountManager.h"
 #import "PFTypeManager.h"
 #import "PFCategoryManager.h"
 #import "PFSpinner.h"
 
-@interface PFAddAccountViewController () <UIScrollViewDelegate, PFSpinnerDelegate>
+@interface PFAddAccountViewController () <UIScrollViewDelegate, PFSpinnerDelegate, UIImagePickerControllerDelegate, UINavigationControllerDelegate>
 @property (weak, nonatomic) IBOutlet UIView *headerView;
 @property (weak, nonatomic) IBOutlet UILabel *toolBarLabel;
 @property (weak, nonatomic) IBOutlet MDTextField *nameField;
@@ -57,6 +60,7 @@
 //Data
 @property (strong, nonatomic) PFType *type;
 @property (strong, nonatomic) PFCategory *category;
+@property (strong, nonatomic) NSString *icon;
 @end
 
 @implementation PFAddAccountViewController 
@@ -123,6 +127,9 @@ static const CGFloat toolBarHeight   = 180;
     account.additional = _additionalField.text;
     account.category = _category.identifier;
     account.type = _type.identifier;
+    if (_icon.length == 0) {
+        _icon = _type.icon;
+    }
     
     //TODO: Show loading indicator.
     [account encrypt:^(NSError * _Nullable error, PFAccount * _Nullable result) {
@@ -149,6 +156,20 @@ static const CGFloat toolBarHeight   = 180;
 
 - (IBAction)didClickCategorySpinner:(id)sender {
     [self _toggleCategorySpinner:sender];
+}
+
+- (IBAction)presentImagePicker:(id)sender {
+    if (![UIImagePickerController isSourceTypeAvailable:UIImagePickerControllerSourceTypePhotoLibrary]) {
+        return;
+    }
+    
+    UIImagePickerController *picker = [[UIImagePickerController alloc] init];
+    picker.sourceType = UIImagePickerControllerSourceTypePhotoLibrary;
+    picker.allowsEditing = YES;
+    
+    picker.delegate = self;
+    [self.view endEditing:YES];
+    [self presentViewController:picker animated:YES completion:nil];
 }
 
 #pragma mark - UIScrollViewDelegate
@@ -354,7 +375,37 @@ static const CGFloat toolBarHeight   = 180;
     }
 }
 
-#pragma Getters & Setters
+#pragma mark - UIImagePickerViewControllerDelegate
+
+- (void)imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary<NSString *,id> *)info {
+    UIImage *originalImage, *editedImage, *imageToUse;
+    NSString *mediaType = [info objectForKey: UIImagePickerControllerMediaType];
+    if ((CFStringCompare ((CFStringRef) mediaType, kUTTypeImage, 0)
+         == kCFCompareEqualTo)) {
+        editedImage = (UIImage *) [info objectForKey:
+                                   UIImagePickerControllerEditedImage];
+        originalImage = (UIImage *) [info objectForKey:
+                                     UIImagePickerControllerOriginalImage];
+        
+        if (editedImage) {
+            imageToUse = editedImage;
+        } else {
+            imageToUse = originalImage;
+        }
+    }
+    if (imageToUse) {
+        _icon = [PFResUtil saveImage:imageToUse];
+        _iconImageView.image = imageToUse;
+    }
+    
+    [picker dismissViewControllerAnimated:YES completion:nil];
+}
+
+- (void)imagePickerControllerDidCancel:(UIImagePickerController *)picker {
+    _icon = nil;
+}
+
+#pragma mark - Getters & Setters
 
 - (void)setType:(PFType *)type {
     _typeImage.image = [PFResUtil imageForName:type.icon];

@@ -21,6 +21,16 @@
     return img;
 }
 
+//All images go to `~/Library/cats` in this APP.
++ (NSString*)saveImage:(UIImage*)image {
+    NSString *path = [[[NSUUID UUID] UUIDString] stringByAppendingString:@".png"];
+    path = [@"/" stringByAppendingString:path];
+    NSString *libPath = [NSSearchPathForDirectoriesInDomains(NSLibraryDirectory, NSUserDomainMask, YES) objectAtIndex:0];
+    libPath = [libPath stringByAppendingString:@"/cats"];
+    [UIImagePNGRepresentation(image) writeToFile:[libPath stringByAppendingString:path] atomically:YES];
+    return path;
+}
+
 + (UIColor*)pfOrange {
     return [UIColor colorWithRed:1.00 green:0.43 blue:0.17 alpha:1.00];
 }
