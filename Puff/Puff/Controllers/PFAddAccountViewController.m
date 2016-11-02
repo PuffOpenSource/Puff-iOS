@@ -130,6 +130,7 @@ static const CGFloat toolBarHeight   = 180;
     if (_icon.length == 0) {
         _icon = _type.icon;
     }
+    account.icon = _icon;
     
     //TODO: Show loading indicator.
     [account encrypt:^(NSError * _Nullable error, PFAccount * _Nullable result) {

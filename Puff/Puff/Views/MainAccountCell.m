@@ -9,6 +9,7 @@
 #import "MainAccountCell.h"
 
 #import "PFAccount.h"
+#import "PFResUtil.h"
 #import "PFTypeManager.h"
 
 @interface MainAccountCell ()
@@ -18,6 +19,7 @@
 @property (weak, nonatomic) IBOutlet UIButton *pinButton;
 @property (weak, nonatomic) IBOutlet UIButton *viewButton;
 @property (weak, nonatomic) IBOutlet UIButton *cpyButton;
+@property (weak, nonatomic) IBOutlet UIImageView *iconImage;
 
 @end
 
@@ -41,6 +43,16 @@
     _accountLabel.text = account.masked_account;
     PFType *type = [[PFTypeManager sharedManager] fetchTypeById:account.type];
     _typeLabel.text = type.name;
+    if (account.icon.length > 0) {
+        UIImage *img = [PFResUtil imageForName:account.icon];
+        if (img) {
+            _iconImage.image = img;
+        } else {
+            _iconImage.image = nil;
+        }
+    } else {
+        _iconImage.image = nil;
+    }
 }
 
 @end
