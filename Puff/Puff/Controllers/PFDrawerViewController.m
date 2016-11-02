@@ -16,6 +16,7 @@
 @property (weak, nonatomic) IBOutlet UIView *headerView;
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
 @property (weak, nonatomic) IBOutlet UIImageView *iconImage;
+@property (weak, nonatomic) IBOutlet UILabel *titleLabel;
 @property (strong, nonatomic) NSArray * data;
 @end
 
@@ -24,6 +25,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     _iconImage.layer.cornerRadius = 50;
+    _titleLabel.text = @"Puff";
 }
 
 - (void)viewWillAppear:(BOOL)animated {
@@ -63,9 +65,15 @@
     //TODO: Jump to corresponding page & close drawer.
     [self.mm_drawerController closeDrawerAnimated:YES completion:nil];
     PFCategory *cat = [self.data objectAtIndex:indexPath.row];
+    _titleLabel.text = cat.name;
     if (cat && self.delegate) {
         [self.delegate loadAccountsInCategory:cat.identifier];
     }
+}
+
+#pragma mark - Misc
+- (void)resetTitleLabel {
+    _titleLabel.text = @"Puff";
 }
 /*
 #pragma mark - Navigation

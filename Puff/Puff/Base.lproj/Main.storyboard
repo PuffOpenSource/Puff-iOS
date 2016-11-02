@@ -1006,14 +1006,26 @@
                                             <constraint firstAttribute="width" constant="80" id="eWy-ac-wdh"/>
                                         </constraints>
                                     </imageView>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ebt-U0-MWE">
+                                        <rect key="frame" x="104" y="138" width="200" height="30"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="30" id="Vc0-62-fKi"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <color key="textColor" red="0.93333333330000001" green="0.93333333330000001" blue="0.93333333330000001" alpha="1" colorSpace="calibratedRGB"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
                                 </subviews>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
                                     <constraint firstAttribute="bottom" secondItem="mKG-EO-ThX" secondAttribute="bottom" constant="16" id="6JP-ol-uPG"/>
                                     <constraint firstAttribute="trailing" secondItem="1ea-NV-aVq" secondAttribute="trailing" id="6hE-KS-OPK"/>
                                     <constraint firstItem="1ea-NV-aVq" firstAttribute="top" secondItem="Fo6-9u-FxE" secondAttribute="top" id="9GM-M3-4rC"/>
+                                    <constraint firstAttribute="trailing" secondItem="Ebt-U0-MWE" secondAttribute="trailing" constant="16" id="EI3-VJ-MEv"/>
                                     <constraint firstAttribute="height" constant="200" id="EuN-Kd-Fib"/>
+                                    <constraint firstItem="Ebt-U0-MWE" firstAttribute="bottom" secondItem="mKG-EO-ThX" secondAttribute="bottom" constant="-16" id="La0-Xa-ftf"/>
                                     <constraint firstItem="1ea-NV-aVq" firstAttribute="leading" secondItem="Fo6-9u-FxE" secondAttribute="leading" id="gyo-by-vS3"/>
+                                    <constraint firstItem="Ebt-U0-MWE" firstAttribute="leading" secondItem="mKG-EO-ThX" secondAttribute="trailing" constant="8" id="jbR-x8-SVv"/>
                                     <constraint firstItem="mKG-EO-ThX" firstAttribute="leading" secondItem="Fo6-9u-FxE" secondAttribute="leading" constant="16" id="js6-NC-sbg"/>
                                     <constraint firstAttribute="bottom" secondItem="1ea-NV-aVq" secondAttribute="bottom" id="v9V-lo-g4O"/>
                                 </constraints>
@@ -1082,6 +1094,7 @@
                         <outlet property="headerView" destination="Fo6-9u-FxE" id="9DD-fF-WtX"/>
                         <outlet property="iconImage" destination="mKG-EO-ThX" id="Ryw-IV-3S5"/>
                         <outlet property="tableView" destination="F1F-TH-Vo3" id="iBr-xa-RGX"/>
+                        <outlet property="titleLabel" destination="Ebt-U0-MWE" id="jF2-yw-QxS"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="YBV-g4-jgP" userLabel="First Responder" sceneMemberID="firstResponder"/>

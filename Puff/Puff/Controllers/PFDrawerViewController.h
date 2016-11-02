@@ -17,4 +17,6 @@
 
 @interface PFDrawerViewController : UIViewController
 @property (weak, nonatomic) id<PFDrawerViewControllerDelegate> delegate;
+
+- (void)resetTitleLabel;
 @end
