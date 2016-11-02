@@ -10,6 +10,7 @@
 
 #import "PFLockViewController.h"
 #import "AppDelegate.h"
+#import "PFKeychainHelper.h"
 
 @interface PFAppLock(){
     @private
@@ -46,10 +47,18 @@
 }
 
 - (void)lock {
+    if (![[PFKeychainHelper sharedInstance] hasMasterPassword]) {
+        //Won't lock if doesn't have a master password.
+        return;
+    }
     self->locked = YES;
 }
 
 - (void)showLock {
+    if (![[PFKeychainHelper sharedInstance] hasMasterPassword]) {
+        //Won't lock if doesn't have a master password.
+        return;
+    }
     self->locked = YES;
     if (self->lockViewShowing) {
         return;

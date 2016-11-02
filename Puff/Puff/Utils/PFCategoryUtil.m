@@ -14,6 +14,7 @@
 #import "PFCategory.h"
 #import "PFTypeManager.h"
 #import "PFType.h"
+#import "PFKeychainHelper.h"
 
 @interface PFCategoryUtil ()
 @property (strong, nonatomic) NSArray *categories;
@@ -30,6 +31,8 @@
 - (void)initBuiltins {
     BOOL newInstall = [[NSUserDefaults standardUserDefaults] objectForKey:kPFNewInstall] == nil;
     if (newInstall) {
+        //New Install, delete keychain
+        [[PFKeychainHelper sharedInstance] cleanMasterPassword];
         //Save built in categories for new install only.
         self.typeId = 0;
         [self _copyFiles];
