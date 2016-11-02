@@ -21,6 +21,7 @@
 #import "MainAccountCell.h"
 #import "PFAddAccountViewController.h"
 #import "PFAccountManager.h"
+#import "PFCategoryManager.h"
 #import "PFAppLock.h"
 
 @interface MasterViewController () <PFDrawerViewControllerDelegate, UITableViewDelegate, UITableViewDataSource>
@@ -32,6 +33,8 @@
 @property (weak, nonatomic) IBOutlet UIView *toolbar;
 @property (weak, nonatomic) IBOutlet MDButton *addButton;
 @property (weak, nonatomic) IBOutlet UIView *rippleView;
+@property (weak, nonatomic) IBOutlet UIView *emptyView;
+@property (weak, nonatomic) IBOutlet UILabel *toolbarTitle;
 
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *rippleHeight;
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *rippleWidth;
@@ -141,7 +144,17 @@
         [self _loadInitCategory];
         return;
     }
+    
+    _toolbarTitle.text = [[PFCategoryManager sharedManager] fetchCategoryById:catId].name;
+    
     _data = [[PFAccountManager sharedManager] fetchAccountsByCategory:catId];
+    if (_data.count == 0) {
+        _emptyView.hidden = NO;
+        _tableView.hidden = YES;
+    } else {
+        _emptyView.hidden = YES;
+        _tableView.hidden = NO;
+    }
     [self.tableView reloadData];
 }
 
@@ -171,15 +184,22 @@
     _tableView.dataSource = self;
     
     [_tableView registerNib:[UINib nibWithNibName:@"MainAccountCell" bundle:[NSBundle bundleForClass:self.class]] forCellReuseIdentifier:kMainAccountCellReuseId];
+    
+    _tableView.hidden = NO;
+    _emptyView.hidden = YES;
 }
 
 - (void)_loadInitCategory {
     _data = [[PFAccountManager sharedManager] fetchRecentUsed:10];
     if (_data.count != 0) {
+        _emptyView.hidden = YES;
+        _tableView.hidden = NO;
         [self.tableView reloadData];
     } else {
-        //TODO: Show empty view
+        _emptyView.hidden = NO;
+        _tableView.hidden = YES;
     }
+    _toolbarTitle.text = NSLocalizedString(@"Recent", nil);
 }
 
 @end

@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		010001291DC9F48B0038AD85 /* PFStringUtil.m in Sources */ = {isa = PBXBuildFile; fileRef = 010001281DC9F48B0038AD85 /* PFStringUtil.m */; };
 		0106949C1DBCB87D00A15D4D /* PFCardView.m in Sources */ = {isa = PBXBuildFile; fileRef = 0106949B1DBCB87D00A15D4D /* PFCardView.m */; };
 		010CFB341DB4B7B600FEE5DE /* PFCategoryUtil.m in Sources */ = {isa = PBXBuildFile; fileRef = 010CFB331DB4B7B600FEE5DE /* PFCategoryUtil.m */; };
 		010CFB381DB4B99000FEE5DE /* PFType.m in Sources */ = {isa = PBXBuildFile; fileRef = 010CFB371DB4B99000FEE5DE /* PFType.m */; };
@@ -58,6 +59,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		010001271DC9F48B0038AD85 /* PFStringUtil.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PFStringUtil.h; path = Utils/PFStringUtil.h; sourceTree = "<group>"; };
+		010001281DC9F48B0038AD85 /* PFStringUtil.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PFStringUtil.m; path = Utils/PFStringUtil.m; sourceTree = "<group>"; };
 		0106949A1DBCB87D00A15D4D /* PFCardView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PFCardView.h; path = Views/PFCardView.h; sourceTree = "<group>"; };
 		0106949B1DBCB87D00A15D4D /* PFCardView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PFCardView.m; path = Views/PFCardView.m; sourceTree = "<group>"; };
 		010CFB311DB4B3A800FEE5DE /* Constants.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Constants.h; path = Config/Constants.h; sourceTree = "<group>"; };
@@ -244,6 +247,8 @@
 				01D26AF51DBB99F900A32064 /* PFKeychainHelper.m */,
 				017915241DBF617A006FA552 /* PFAppLock.h */,
 				017915251DBF617A006FA552 /* PFAppLock.m */,
+				010001271DC9F48B0038AD85 /* PFStringUtil.h */,
+				010001281DC9F48B0038AD85 /* PFStringUtil.m */,
 			);
 			name = Utils;
 			sourceTree = "<group>";
@@ -547,6 +552,7 @@
 				01D84F7A1D8FC87C00941545 /* PFBlowfish.m in Sources */,
 				01D3AF8F1DB3CA3600EE5CA1 /* PFCategoryManager.m in Sources */,
 				012C69B61DAF68F1005E7104 /* EXTADT.m in Sources */,
+				010001291DC9F48B0038AD85 /* PFStringUtil.m in Sources */,
 				01D3AF891DB3C99800EE5CA1 /* MasterViewController.m in Sources */,
 				01A8B9821DB0AE9E00D87FCF /* PFAccountManager.m in Sources */,
 				012C699B1DAF64D1005E7104 /* NSObject+Events.m in Sources */,

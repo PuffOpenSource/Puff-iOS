@@ -243,7 +243,6 @@ static const CGFloat toolBarHeight   = 180;
         typedCell.label.text = cat.name;
         typedCell.iconView.image = [PFResUtil imageForName:cat.icon];
     };
-    
 }
 - (void)_keyboardWillShow:(NSNotification*)notification {
     [self _closeSpinners];
@@ -404,6 +403,7 @@ static const CGFloat toolBarHeight   = 180;
 
 - (void)imagePickerControllerDidCancel:(UIImagePickerController *)picker {
     _icon = nil;
+    [picker dismissViewControllerAnimated:YES completion:nil];
 }
 
 #pragma mark - Getters & Setters
@@ -415,6 +415,12 @@ static const CGFloat toolBarHeight   = 180;
     
     PFCategory *cat = [[PFCategoryManager sharedManager] fetchCategoryById:type.category];
     self.category = cat;
+    
+    if (_icon.length != 0) {
+        return;
+    }
+    _icon = type.icon;
+    _iconImageView.image = [PFResUtil imageForName:type.icon];
 }
 
 - (void) setCategory:(PFCategory *)category {
