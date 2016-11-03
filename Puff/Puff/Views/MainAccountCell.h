@@ -11,7 +11,16 @@
 static NSString * const kMainAccountCellReuseId         = @"kMainAccountCellReuseId";
 
 @class PFAccount;
+@class MainAccountCell;
+
+@protocol MainAccountCellDelegate <NSObject>
+@required
+- (void)mainAccountCell:(MainAccountCell*)cell didTapOnViewButton:(PFAccount*) account;
+
+@end
+
 @interface MainAccountCell : UITableViewCell
+@property (weak, nonatomic) id<MainAccountCellDelegate> delegate;
 
 - (void)configWithAccount:(PFAccount*)account;
 

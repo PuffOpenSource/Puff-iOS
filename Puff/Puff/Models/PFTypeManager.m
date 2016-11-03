@@ -70,7 +70,7 @@
 
 - (PFType*)fetchTypeById:(int64_t)identifier {
     NSFetchRequest *req = [NSFetchRequest fetchRequestWithEntityName:kEntityNamePFType];
-    NSPredicate *filter = [NSPredicate predicateWithFormat:@"category == %llu", identifier];
+    NSPredicate *filter = [NSPredicate predicateWithFormat:@"identifier == %llu", identifier];
     [req setPredicate:filter];
     NSManagedObjectContext *ctx = [_dbManager context];
     NSError *err;

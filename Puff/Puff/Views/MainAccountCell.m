@@ -20,6 +20,7 @@
 @property (weak, nonatomic) IBOutlet UIButton *viewButton;
 @property (weak, nonatomic) IBOutlet UIButton *cpyButton;
 @property (weak, nonatomic) IBOutlet UIImageView *iconImage;
+@property (strong, nonatomic) PFAccount *account;
 
 @end
 
@@ -41,7 +42,8 @@
 - (void)configWithAccount:(PFAccount *)account {
     _nameLabel.text = account.name;
     _accountLabel.text = account.masked_account;
-    PFType *type = [[PFTypeManager sharedManager] fetchTypeById:account.type];
+    int64_t typeId = [@(account.type) longValue];
+    PFType *type = [[PFTypeManager sharedManager] fetchTypeById:typeId];
     _typeLabel.text = type.name;
     if (account.icon.length > 0) {
         UIImage *img = [PFResUtil imageForName:account.icon];
@@ -53,6 +55,15 @@
     } else {
         _iconImage.image = nil;
     }
+    _account = account;
 }
+
+#pragma mark - IBActions
+- (IBAction)didTapOnViewButton:(id)sender {
+    if (_delegate) {
+        [_delegate mainAccountCell:self didTapOnViewButton:_account];
+    }
+}
+
 
 @end

@@ -7,7 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
-
+#import <MaterialControls/MDTableViewCell.h>
 @class PFSpinner;
 @protocol PFSpinnerDelegate <NSObject>
 
@@ -30,11 +30,11 @@ typedef void(^PFAnimatedCallback)();
 
 @end
 
-@interface PFSpinnerCell : UITableViewCell
+@interface PFSpinnerCell : MDTableViewCell
 @property (strong, nonatomic) UIImageView* iconView;
-@property (strong, nonatomic) UILabel* label;
+@property (strong, nonatomic) UILabel* spinnerLabel;
 @end
 
-@interface PFSpinnerMenuCell : UITableViewCell
-@property (strong, nonatomic) UILabel *label;
+@interface PFSpinnerMenuCell : MDTableViewCell
+@property (strong, nonatomic) UILabel *menuLabel;
 @end

@@ -32,7 +32,6 @@
     self.layer.shadowColor = [UIColor grayColor].CGColor;
     self.layer.shadowOffset = CGSizeMake(0, self.elevation);
     self.layer.shadowOpacity = 0.8;
-//    self.layer.shadowRadius = self.elevation / 4;
     self.layer.cornerRadius = self.cornerRadius;
     
     self.layer.masksToBounds = NO;

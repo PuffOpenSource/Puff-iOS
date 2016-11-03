@@ -123,6 +123,7 @@ static const CGFloat toolBarHeight   = 180;
     
     //Encryption!
     account.account = _accountField.text;
+    account.masked_account = _accountField.text;
     account.hash_value = _passwordField.text;
     account.additional = _additionalField.text;
     account.category = _category.identifier;
@@ -233,14 +234,14 @@ static const CGFloat toolBarHeight   = 180;
     _typeConfigureBlock = ^(UITableViewCell* cell, NSIndexPath* indexPath, NSObject* dataItem) {
         PFType* typedItem = dataItem;
         PFSpinnerCell *typedCell = cell;
-        typedCell.label.text = typedItem.name;
+        typedCell.spinnerLabel.text = typedItem.name;
         typedCell.iconView.image = [PFResUtil imageForName:typedItem.icon];
     };
     
     _categoryConfigureBlock = ^(UITableViewCell* cell, NSIndexPath* indexPath, NSObject* dataItem) {
         PFCategory *cat = dataItem;
         PFSpinnerCell *typedCell = cell;
-        typedCell.label.text = cat.name;
+        typedCell.spinnerLabel.text = cat.name;
         typedCell.iconView.image = [PFResUtil imageForName:cat.icon];
     };
 }
@@ -364,15 +365,13 @@ static const CGFloat toolBarHeight   = 180;
 
 #pragma mark - PFSpinnerDelegate
 - (void)pfSpinner:(PFSpinner *)spinner didSelectItem:(id)item {
-    [self _closeSpinners];
     if (spinner == _typeSpinner) {
         self.type = item;
-        return;
     }
     if (spinner == _categorySpinner) {
         self.category = item;
-        return;
     }
+    [self _closeSpinners];
 }
 
 #pragma mark - UIImagePickerViewControllerDelegate
@@ -416,9 +415,6 @@ static const CGFloat toolBarHeight   = 180;
     PFCategory *cat = [[PFCategoryManager sharedManager] fetchCategoryById:type.category];
     self.category = cat;
     
-    if (_icon.length != 0) {
-        return;
-    }
     _icon = type.icon;
     _iconImageView.image = [PFResUtil imageForName:type.icon];
 }

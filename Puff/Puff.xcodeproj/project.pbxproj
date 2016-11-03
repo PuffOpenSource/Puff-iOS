@@ -55,6 +55,7 @@
 		01EB17981DB744EB00C71C4B /* PFQuickPasswordViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 01EB17971DB744EB00C71C4B /* PFQuickPasswordViewController.m */; };
 		01EB179B1DB74B6900C71C4B /* PFSettingsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 01EB179A1DB74B6900C71C4B /* PFSettingsViewController.m */; };
 		01EB179E1DB74B8100C71C4B /* PFPasswordGenViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 01EB179D1DB74B8100C71C4B /* PFPasswordGenViewController.m */; };
+		01F80A3D1DCB3D6C00463272 /* PFAccountDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 01F80A3C1DCB3D6C00463272 /* PFAccountDetailViewController.m */; };
 		7CC3455F2CC4E9B9128B81E8 /* Pods_Puff.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6B7D49088F66C933BBF2413A /* Pods_Puff.framework */; };
 /* End PBXBuildFile section */
 
@@ -155,6 +156,8 @@
 		01EB179A1DB74B6900C71C4B /* PFSettingsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PFSettingsViewController.m; path = Controllers/PFSettingsViewController.m; sourceTree = "<group>"; };
 		01EB179C1DB74B8100C71C4B /* PFPasswordGenViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PFPasswordGenViewController.h; path = Controllers/PFPasswordGenViewController.h; sourceTree = "<group>"; };
 		01EB179D1DB74B8100C71C4B /* PFPasswordGenViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PFPasswordGenViewController.m; path = Controllers/PFPasswordGenViewController.m; sourceTree = "<group>"; };
+		01F80A3B1DCB3D6C00463272 /* PFAccountDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PFAccountDetailViewController.h; path = Controllers/PFAccountDetailViewController.h; sourceTree = "<group>"; };
+		01F80A3C1DCB3D6C00463272 /* PFAccountDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PFAccountDetailViewController.m; path = Controllers/PFAccountDetailViewController.m; sourceTree = "<group>"; };
 		2667787EC9FB7FA21A1CE652 /* Pods-Puff.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Puff.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Puff/Pods-Puff.debug.xcconfig"; sourceTree = "<group>"; };
 		49ED3346F81226C2312BDA01 /* Pods-Puff.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Puff.release.xcconfig"; path = "../Pods/Target Support Files/Pods-Puff/Pods-Puff.release.xcconfig"; sourceTree = "<group>"; };
 		6B7D49088F66C933BBF2413A /* Pods_Puff.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Puff.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -272,6 +275,8 @@
 				01EB179D1DB74B8100C71C4B /* PFPasswordGenViewController.m */,
 				0179151F1DBF6135006FA552 /* PFLockViewController.h */,
 				017915201DBF6135006FA552 /* PFLockViewController.m */,
+				01F80A3B1DCB3D6C00463272 /* PFAccountDetailViewController.h */,
+				01F80A3C1DCB3D6C00463272 /* PFAccountDetailViewController.m */,
 			);
 			name = Controller;
 			sourceTree = "<group>";
@@ -550,6 +555,7 @@
 				012C69BB1DAF68F1005E7104 /* EXTScope.m in Sources */,
 				01D3AF861DB3C97B00EE5CA1 /* PFAccount.m in Sources */,
 				01D84F7A1D8FC87C00941545 /* PFBlowfish.m in Sources */,
+				01F80A3D1DCB3D6C00463272 /* PFAccountDetailViewController.m in Sources */,
 				01D3AF8F1DB3CA3600EE5CA1 /* PFCategoryManager.m in Sources */,
 				012C69B61DAF68F1005E7104 /* EXTADT.m in Sources */,
 				010001291DC9F48B0038AD85 /* PFStringUtil.m in Sources */,

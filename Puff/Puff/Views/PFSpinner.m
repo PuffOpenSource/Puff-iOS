@@ -25,6 +25,8 @@ static NSString * const kPFSpinnerMenuCellReuseId   = @"kPFSpinnerMenuCellReuseI
 static NSString * const kPFSpinnerCellReuseId       = @"kPFSpinnerCellReuseId";
 
 - (instancetype)initAsMenuWithData:(NSArray *)data andFrame:(CGRect)frame {
+    frame.size.height = 40 * data.count <= 200 ? 40 * data.count: 200;
+    frame.size.height += 16;
     self = [super initWithFrame:frame];
     if (self) {
         self.showMode = ShowModeMenu;
@@ -38,7 +40,7 @@ static NSString * const kPFSpinnerCellReuseId       = @"kPFSpinnerCellReuseId";
 }
 
 - (instancetype)initAsSpinnerWithData:(NSArray *)data andFrame:(CGRect)frame {
-    frame.size.height = 56 * data.count <= 200 ? : 200;
+    frame.size.height = 56 * data.count <= 200 ? 56 * data.count : 200;
     if (frame.size.height != 0) {
         frame.size.height += 16;
     }
@@ -136,7 +138,10 @@ static NSString * const kPFSpinnerCellReuseId       = @"kPFSpinnerCellReuseId";
             [self removeFromSuperview];
             self.frame = savedRect;
             self.clipsToBounds = NO;
-            cb();
+            if (cb) {
+                cb();
+            }
+
         }
     }];
 }
@@ -155,10 +160,10 @@ static NSString * const kPFSpinnerCellReuseId       = @"kPFSpinnerCellReuseId";
 
 - (void)initUI {
     _iconView = [[UIImageView alloc] initWithFrame:CGRectMake(16, 8, 40, 40)];
-    _label = [[UILabel alloc] initWithFrame:CGRectMake(64, 8, self.frame.size.width - 80, 40)];
+    _spinnerLabel = [[UILabel alloc] initWithFrame:CGRectMake(64, 8, self.frame.size.width - 80, 40)];
     
     [self.contentView addSubview:_iconView];
-    [self.contentView addSubview:_label];
+    [self.contentView addSubview:_spinnerLabel];
 }
 
 @end
@@ -166,7 +171,12 @@ static NSString * const kPFSpinnerCellReuseId       = @"kPFSpinnerCellReuseId";
 @implementation PFSpinnerMenuCell
 - (instancetype)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier {
     self = [super initWithStyle:style reuseIdentifier:reuseIdentifier];
-    self.backgroundColor = [UIColor greenColor];
+    [self initUI];
     return self;
+}
+- (void)initUI {
+    _menuLabel = [[UILabel alloc] initWithFrame:CGRectMake(8, 0, self.frame.size.width, 40)];
+    
+    [self.contentView addSubview:_menuLabel];
 }
 @end

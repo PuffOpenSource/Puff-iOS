@@ -20,11 +20,13 @@
 #include "Constants.h"
 #import "MainAccountCell.h"
 #import "PFAddAccountViewController.h"
+#import "PFAccountDetailViewController.h"
+#import "PFKeychainHelper.h"
 #import "PFAccountManager.h"
 #import "PFCategoryManager.h"
 #import "PFAppLock.h"
 
-@interface MasterViewController () <PFDrawerViewControllerDelegate, UITableViewDelegate, UITableViewDataSource>
+@interface MasterViewController () <PFDrawerViewControllerDelegate, UITableViewDelegate, UITableViewDataSource, MainAccountCellDelegate>
 
 @property (weak, nonatomic) AppDelegate *app;
 
@@ -83,13 +85,14 @@
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     MainAccountCell *ret = [tableView dequeueReusableCellWithIdentifier:kMainAccountCellReuseId];
     [ret configWithAccount:_data[indexPath.row]];
+    ret.delegate = self;
     return ret;
 }
 
 #pragma mark - UITableViewDataSource
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
     if (indexPath.section == 0 && ![[PFAppLock sharedLock] isLocked]) {
-        return 260;
+        return 210;
     }
     return 0;
 }
@@ -156,6 +159,19 @@
         _tableView.hidden = NO;
     }
     [self.tableView reloadData];
+}
+
+#pragma mark - PFMainAccountDelegate
+- (void)mainAccountCell:(MainAccountCell *)cell didTapOnViewButton:(PFAccount *)account {
+    //TODO: Animation!
+    [account decrypt:^(NSError * _Nullable error, PFAccount * _Nullable result) {
+        if (error) {
+            //TODO: Snackbar
+            return;
+        }
+        PFAccountDetailViewController *vc = [PFAccountDetailViewController viewControllerFromStoryboardWithAccount:result];
+        [self presentViewController:vc animated:YES completion:nil];
+    }];
 }
 
 #pragma mark - Segues
