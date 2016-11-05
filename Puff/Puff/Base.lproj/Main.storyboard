@@ -730,6 +730,11 @@
                         <outlet property="typeButton" destination="8eZ-RM-TtI" id="tem-ur-ICL"/>
                         <outlet property="typeImage" destination="Zb8-U1-ZVE" id="m9k-Gs-ZpS"/>
                         <outlet property="websiteField" destination="Kx4-iM-rcP" id="Hyo-Ld-l6g"/>
+                        <outletCollection property="textFields" destination="Y2f-gk-W0l" id="Ujq-2R-R5v"/>
+                        <outletCollection property="textFields" destination="oaV-Nc-xne" id="B5p-K4-Kt3"/>
+                        <outletCollection property="textFields" destination="2ho-na-6ks" id="MCH-c9-LDZ"/>
+                        <outletCollection property="textFields" destination="DyE-cZ-hoY" id="ftn-7E-6Y2"/>
+                        <outletCollection property="textFields" destination="Kx4-iM-rcP" id="Fux-JG-0n1"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="bz5-Kc-fRY" userLabel="First Responder" sceneMemberID="firstResponder"/>

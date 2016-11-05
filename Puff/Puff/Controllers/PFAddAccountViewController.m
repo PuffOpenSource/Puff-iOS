@@ -20,7 +20,7 @@
 #import "PFCategoryManager.h"
 #import "PFSpinner.h"
 
-@interface PFAddAccountViewController () <UIScrollViewDelegate, PFSpinnerDelegate, UIImagePickerControllerDelegate, UINavigationControllerDelegate>
+@interface PFAddAccountViewController () <UIScrollViewDelegate, PFSpinnerDelegate, UIImagePickerControllerDelegate, UINavigationControllerDelegate, MDTextFieldDelegate>
 @property (weak, nonatomic) IBOutlet UIView *headerView;
 @property (weak, nonatomic) IBOutlet UILabel *toolBarLabel;
 @property (weak, nonatomic) IBOutlet MDTextField *nameField;
@@ -38,6 +38,9 @@
 @property (weak, nonatomic) IBOutlet MDTextField *websiteField;
 @property (weak, nonatomic) IBOutlet UIImageView *iconImageView;
 @property (weak, nonatomic) IBOutlet MDButton *bottomSaveBtn;
+
+//Collection
+@property (strong, nonatomic) IBOutletCollection(MDTextField) NSArray *textFields;
 
 //Spinners
 @property (weak, nonatomic) IBOutlet UIImageView *typeImage;
@@ -174,6 +177,15 @@ static const CGFloat toolBarHeight   = 180;
     [self presentViewController:picker animated:YES completion:nil];
 }
 
+- (BOOL)textFieldShouldReturn:(MDTextField *)textField {
+    NSInteger index = [_textFields indexOfObject:textField];
+    [textField resignFirstResponder];
+    if (index < _textFields.count - 1) {
+        [[_textFields objectAtIndex:index + 1] becomeFirstResponder];
+    }
+    return NO;
+}
+
 #pragma mark - UIScrollViewDelegate
 
 - (void)scrollViewDidScroll:(UIScrollView *)scrollView {
@@ -244,6 +256,12 @@ static const CGFloat toolBarHeight   = 180;
         typedCell.spinnerLabel.text = cat.name;
         typedCell.iconView.image = [PFResUtil imageForName:cat.icon];
     };
+    
+    for (MDTextField *t in _textFields) {
+        t.returnKeyType = UIReturnKeyNext;
+        t.delegate = self;
+    }
+    ((MDTextField*)[_textFields lastObject]).returnKeyType = UIReturnKeyDone;
 }
 - (void)_keyboardWillShow:(NSNotification*)notification {
     [self _closeSpinners];
