@@ -211,7 +211,6 @@
     }
     
     unsigned short int size = sizeof(self->P) / sizeof(SInt32);
-    NSLog(@"%d", size); // this code just for the respect of C! I don't like NSArray :(
     
     // Reset the S and P
     for(int i = 0; i < 18; i++)

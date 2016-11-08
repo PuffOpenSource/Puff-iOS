@@ -8,6 +8,7 @@
 
 #import "PFAccountDetailViewController.h"
 
+#import <MobileCoreServices/UTCoreTypes.h>
 #import <MaterialControls/MDTextField.h>
 #import <MaterialControls/MDButton.h>
 
@@ -15,17 +16,21 @@
 #import "PFResUtil.h"
 #import "PFSpinner.h"
 
-@interface PFAccountDetailViewController () <PFSpinnerDelegate>
+@interface PFAccountDetailViewController () <PFSpinnerDelegate, UIGestureRecognizerDelegate>
 @property (weak, nonatomic) IBOutlet UIView *headerView;
 @property (weak, nonatomic) IBOutlet UIImageView *headerImageView;
 
 @property (strong, nonatomic) PFAccount *account;
+@property (weak, nonatomic) IBOutlet UIScrollView *scrollView;
 @property (weak, nonatomic) IBOutlet MDTextField *accountField;
 @property (weak, nonatomic) IBOutlet MDTextField *passwordField;
 @property (weak, nonatomic) IBOutlet MDTextField *additionalField;
 @property (weak, nonatomic) IBOutlet MDTextField *websiteField;
 @property (weak, nonatomic) IBOutlet UILabel *toolBarLabel;
+@property (weak, nonatomic) IBOutlet UIView *passwordTouchArea;
 
+@property (strong, nonatomic) UIMenuController *popMenu;
+@property (strong, nonatomic) NSArray *popItems;
 @property (strong, nonatomic) PFSpinner *menuSpinner;
 @property (strong, nonatomic) NSArray *menus;
 @property (strong, nonatomic) PFSpinnerCellConfigureBlock menuConfigBlock;
@@ -69,6 +74,12 @@
     _menuSpinner.spinnerDelegate = self;
     [_menuSpinner presentInView:self.view];
 }
+- (IBAction)didTapOnPassword:(id)sender {
+    UITapGestureRecognizer *tSender = sender;
+    CGRect menuRect = tSender.view.frame;
+    [_popMenu setTargetRect:CGRectMake(0, 0, menuRect.size.width, menuRect.size.height) inView:tSender.view];
+    [_popMenu setMenuVisible:YES animated:YES];
+}
 
 #pragma mark - PFSpinnerDelegate
 - (void)pfSpinner:(PFSpinner *)spinner didSelectItem:(id)item {
@@ -85,8 +96,29 @@
         PFSpinnerMenuCell *typedCell = cell;
         typedCell.menuLabel.text = dataItem;
     };
+    _popMenu = [[UIMenuController alloc] init];
+    _popItems = @[
+                  [[UIMenuItem alloc] initWithTitle:NSLocalizedString(@"Copy", nil) action:@selector(_didClickCopyMenu)]
+                  ];
+    _popMenu.menuItems = _popItems;
+    
+    [self becomeFirstResponder];
 }
 
+-(BOOL) canBecomeFirstResponder{
+    return YES;
+}
+
+- (void)_didClickCopyMenu {
+    UIPasteboard *board = [UIPasteboard generalPasteboard];
+    [board setValue:_account.hash_value forKey:(NSString*)kUTTypeText];
+}
+
+#pragma mark - UIGestureRecognizerDelegate
+
+- (BOOL)gestureRecognizer:(UIGestureRecognizer *)gestureRecognizer shouldRecognizeSimultaneouslyWithGestureRecognizer:(UIGestureRecognizer *)otherGestureRecognizer {
+    return YES;
+}
 
 /*
 #pragma mark - Navigation
