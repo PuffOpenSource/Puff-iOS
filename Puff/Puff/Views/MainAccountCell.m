@@ -8,6 +8,8 @@
 
 #import "MainAccountCell.h"
 
+#import <MobileCoreServices/UTCoreTypes.h>
+
 #import "PFAccount.h"
 #import "PFResUtil.h"
 #import "PFTypeManager.h"
@@ -65,5 +67,9 @@
     }
 }
 
+- (IBAction)didTapOnCopyButton:(id)sender {
+    UIPasteboard *board = [UIPasteboard generalPasteboard];
+    [board setValue:_account.hash_value forKey:(NSString*)kUTTypeText];
+}
 
 @end
