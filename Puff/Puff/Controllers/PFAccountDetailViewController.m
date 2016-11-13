@@ -12,6 +12,9 @@
 #import <MaterialControls/MDTextField.h>
 #import <MaterialControls/MDButton.h>
 
+#import "EXTScope.h"
+
+#import "PFAddAccountViewController.h"
 #import "PFAccount.h"
 #import "PFResUtil.h"
 #import "PFSpinner.h"
@@ -84,6 +87,8 @@
 #pragma mark - PFSpinnerDelegate
 - (void)pfSpinner:(PFSpinner *)spinner didSelectItem:(id)item {
     [_menuSpinner dismiss:nil];
+    PFAddAccountViewController *vc = [PFAddAccountViewController viewControllerFromStoryboard:_account];
+    [self presentViewController:vc animated:YES completion:nil];
 }
 
 #pragma mark - Misc

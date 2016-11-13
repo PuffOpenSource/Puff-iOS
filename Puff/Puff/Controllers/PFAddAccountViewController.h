@@ -8,6 +8,9 @@
 
 #import <UIKit/UIKit.h>
 
+@class PFAccount;
+
 @interface PFAddAccountViewController : UIViewController
 + (instancetype)viewControllerFromStoryboard;
++ (instancetype)viewControllerFromStoryboard:(PFAccount*)account;
 @end

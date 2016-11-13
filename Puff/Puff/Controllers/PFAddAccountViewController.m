@@ -20,6 +20,9 @@
 #import "PFCategoryManager.h"
 #import "PFSpinner.h"
 
+#define ADD_ACCOUNT_STR NSLocalizedString(@"Add Account", nil)
+#define EDIT_ACCOUNT_STR NSLocalizedString(@"Edit Account", nil)
+
 @interface PFAddAccountViewController () <UIScrollViewDelegate, PFSpinnerDelegate, UIImagePickerControllerDelegate, UINavigationControllerDelegate, MDTextFieldDelegate>
 @property (weak, nonatomic) IBOutlet UIView *headerView;
 @property (weak, nonatomic) IBOutlet UILabel *toolBarLabel;
@@ -55,15 +58,17 @@
 @property (strong, nonatomic) PFSpinner *categorySpinner;
 @property (strong, nonatomic) NSArray *categories;
 @property (strong, nonatomic) PFSpinnerCellConfigureBlock categoryConfigureBlock;
+@property (strong, nonatomic) NSString *toolBarTitle;
 
 @property (nonatomic, assign) CGFloat lastContentOffset;
 @property (nonatomic, assign) CGSize scrollViewContentSize;
 @property (assign, nonatomic) BOOL keyboardShown;
 
 //Data
-@property (strong, nonatomic) PFType *type;
+@property (strong, nonatomic) PFType *accountType;
 @property (strong, nonatomic) PFCategory *category;
 @property (strong, nonatomic) NSString *icon;
+@property (strong, nonatomic) PFAccount* account;
 @end
 
 @implementation PFAddAccountViewController 
@@ -74,6 +79,13 @@ static const CGFloat toolBarHeight   = 180;
 + (instancetype)viewControllerFromStoryboard {
     UIStoryboard *sb = [UIStoryboard storyboardWithName:@"Main" bundle:[NSBundle bundleForClass:self.class]];
     return [sb instantiateViewControllerWithIdentifier:@"AddAccountViewController"];
+}
+
++ (instancetype)viewControllerFromStoryboard:(PFAccount *)account {
+    UIStoryboard *sb = [UIStoryboard storyboardWithName:@"Main" bundle:[NSBundle bundleForClass:self.class]];
+    PFAddAccountViewController *ret = [sb instantiateViewControllerWithIdentifier:@"AddAccountViewController"];
+    ret.account = account;
+    return ret;
 }
 
 #pragma mark - Lifecycle
@@ -92,6 +104,19 @@ static const CGFloat toolBarHeight   = 180;
     [super viewWillAppear:animated];
     _types = [[PFTypeManager sharedManager] fetchAll];
     _categories = [[PFCategoryManager sharedManager] fetchAll];
+    if (_account) {
+        _nameField.text = _account.name;
+        _accountField.text = _account.account;
+        _passwordField.text = _account.hash_value;
+        _additionalField.text = _account.additional;
+        _websiteField.text = _account.website;
+        self.accountType = [[PFTypeManager sharedManager] fetchTypeById:_account.type];
+        self.category = [[PFCategoryManager sharedManager] fetchCategoryById:_account.category];
+        _toolBarTitle = EDIT_ACCOUNT_STR;
+    } else {
+        _toolBarTitle = ADD_ACCOUNT_STR;
+    }
+    _toolBarLabel.text = _toolBarTitle;
 }
 
 - (void)viewDidAppear:(BOOL)animated {
@@ -130,9 +155,9 @@ static const CGFloat toolBarHeight   = 180;
     account.hash_value = _passwordField.text;
     account.additional = _additionalField.text;
     account.category = _category.identifier;
-    account.type = _type.identifier;
+    account.type = _accountType.identifier;
     if (_icon.length == 0) {
-        _icon = _type.icon;
+        _icon = _accountType.icon;
     }
     account.icon = _icon;
     
@@ -227,9 +252,9 @@ static const CGFloat toolBarHeight   = 180;
     }
     _lastContentOffset = scrollView.contentOffset.y;
     if (_headerHeight.constant == actionBarHeight) {
-        _toolBarLabel.text = _nameField.text.length == 0 ? NSLocalizedString(@"Add Account", nil) : _nameField.text;
+        _toolBarLabel.text = _nameField.text.length == 0 ? _toolBarTitle : _nameField.text;
     } else if (_headerHeight.constant == toolBarHeight) {
-        _toolBarLabel.text = NSLocalizedString(@"Add Account", nil);
+        _toolBarLabel.text = _toolBarTitle;
     }
 }
 
@@ -310,7 +335,7 @@ static const CGFloat toolBarHeight   = 180;
         [PFResUtil shakeItBaby:_passwordField withCompletion:nil];
         return NO;
     }
-    if (_category == nil || _type == nil) {
+    if (_category == nil || _accountType == nil) {
         [self.view endEditing:YES];
         MDSnackbar *snackBar = [[MDSnackbar alloc] initWithText:NSLocalizedString(@"Please choose category and type.", nil) actionTitle:nil duration:3.0];
         [snackBar show];
@@ -384,7 +409,7 @@ static const CGFloat toolBarHeight   = 180;
 #pragma mark - PFSpinnerDelegate
 - (void)pfSpinner:(PFSpinner *)spinner didSelectItem:(id)item {
     if (spinner == _typeSpinner) {
-        self.type = item;
+        self.accountType = item;
     }
     if (spinner == _categorySpinner) {
         self.category = item;
@@ -425,10 +450,10 @@ static const CGFloat toolBarHeight   = 180;
 
 #pragma mark - Getters & Setters
 
-- (void)setType:(PFType *)type {
+- (void)setAccountType:(PFType *)type {
     _typeImage.image = [PFResUtil imageForName:type.icon];
     [_typeButton setTitle:type.name forState:UIControlStateNormal];
-    _type = type;
+    _accountType = type;
     
     PFCategory *cat = [[PFCategoryManager sharedManager] fetchCategoryById:type.category];
     self.category = cat;
@@ -437,7 +462,7 @@ static const CGFloat toolBarHeight   = 180;
     _iconImageView.image = [PFResUtil imageForName:type.icon];
 }
 
-- (void) setCategory:(PFCategory *)category {
+- (void)setCategory:(PFCategory *)category {
     _categoryImage.image = [PFResUtil imageForName:category.icon];
     
     [_categoryButton setTitle:category.name forState:UIControlStateNormal];
