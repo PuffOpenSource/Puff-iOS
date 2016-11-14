@@ -9,5 +9,5 @@
 #import <Foundation/Foundation.h>
 
 @interface PFStringUtil : NSObject
-
++ (NSString*)getMaskedEmail:(NSString*)email;
 @end
