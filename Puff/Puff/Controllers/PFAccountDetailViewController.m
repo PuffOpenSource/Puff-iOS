@@ -15,7 +15,7 @@
 #import "EXTScope.h"
 
 #import "PFAddAccountViewController.h"
-#import "PFAccount.h"
+#import "PFAccountManager.h"
 #import "PFResUtil.h"
 #import "PFSpinner.h"
 
@@ -87,13 +87,32 @@
 #pragma mark - PFSpinnerDelegate
 - (void)pfSpinner:(PFSpinner *)spinner didSelectItem:(id)item {
     [_menuSpinner dismiss:nil];
-    PFAddAccountViewController *vc = [PFAddAccountViewController viewControllerFromStoryboard:_account];
-    [self presentViewController:vc animated:YES completion:nil];
+    if ([item isEqualToString:NSLocalizedString(@"Edit", nil)]) {
+        //Edit
+        PFAddAccountViewController *vc = [PFAddAccountViewController viewControllerFromStoryboard:_account];
+        [self presentViewController:vc animated:YES completion:nil];
+    } else {
+        //Delete
+        @weakify(self)
+        UIAlertAction *actionOk = [UIAlertAction actionWithTitle:NSLocalizedString(@"Yes", nil) style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+            @strongify(self)
+            [[PFAccountManager sharedManager] deleteAccount:self.account];
+            [self dismissViewControllerAnimated:YES completion:nil];
+        }];
+        UIAlertAction *actionCancel = [UIAlertAction actionWithTitle:NSLocalizedString(@"Cancel", nil) style:UIAlertActionStyleCancel handler:^(UIAlertAction * _Nonnull action) {
+            
+        }];
+        UIAlertController *ac = [UIAlertController alertControllerWithTitle:NSLocalizedString(@"Confirm", nil) message:NSLocalizedString(@"Delete this account?", nil) preferredStyle:UIAlertControllerStyleActionSheet];
+        [ac addAction:actionOk];
+        [ac addAction:actionCancel];
+        [self presentViewController:ac animated:YES completion:nil];
+    }
+    
 }
 
 #pragma mark - Misc
 - (void)initUI {
-    _menus = @[NSLocalizedString(@"Edit", nil)];
+    _menus = @[NSLocalizedString(@"Edit", nil), NSLocalizedString(@"Delete", nil)];
     CGRect scrSize = [PFResUtil screenSize];
     CGRect frame = CGRectMake(scrSize.size.width - 160 - 8, 20 + 8, 160, 40);
     _menuSpinner = [[PFSpinner alloc] initAsMenuWithData:_menus andFrame:frame];

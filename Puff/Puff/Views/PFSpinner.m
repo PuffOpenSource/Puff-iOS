@@ -61,6 +61,9 @@ static NSString * const kPFSpinnerCellReuseId       = @"kPFSpinnerCellReuseId";
 
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
+    if (_showMode == ShowModeMenu) {
+        return 40;
+    }
     return 56;
 }
 

@@ -113,4 +113,26 @@
     
     return ret;
 }
+
+- (void)deleteAccount:(PFAccount *)account {
+    NSManagedObjectContext *ctx = [_dbManager context];
+    _PFAccount *toDel = [self _fetchRawAccount:account];
+    if (toDel == nil) {
+        return;
+    }
+    [ctx deleteObject:toDel];
+}
+
+- (_PFAccount*)_fetchRawAccount:(PFAccount*)account {
+    NSFetchRequest *req = [NSFetchRequest fetchRequestWithEntityName:kEntityNamePFAccount];
+    NSPredicate *filter = [NSPredicate predicateWithFormat:@"salt == %@", account.salt];
+    [req setPredicate: filter];
+    NSManagedObjectContext *ctx = [_dbManager context];
+    NSError *err;
+    NSAsynchronousFetchResult *result = [ctx executeRequest:req error:&err];
+    if (err) {
+        return nil;
+    }
+    return [[result finalResult] firstObject];
+}
 @end
