@@ -19,7 +19,7 @@
 #import "PFResUtil.h"
 #import "PFSpinner.h"
 
-@interface PFAccountDetailViewController () <PFSpinnerDelegate, UIGestureRecognizerDelegate>
+@interface PFAccountDetailViewController () <PFSpinnerDelegate, UIGestureRecognizerDelegate, PFEditAccountDelegate>
 @property (weak, nonatomic) IBOutlet UIView *headerView;
 @property (weak, nonatomic) IBOutlet UIImageView *headerImageView;
 
@@ -84,12 +84,18 @@
     [_popMenu setMenuVisible:YES animated:YES];
 }
 
+#pragma mark - PFEditAccountDelegate
+-(void)accountChanged:(PFAccount *)account {
+    self.account = account;
+}
+
 #pragma mark - PFSpinnerDelegate
 - (void)pfSpinner:(PFSpinner *)spinner didSelectItem:(id)item {
     [_menuSpinner dismiss:nil];
     if ([item isEqualToString:NSLocalizedString(@"Edit", nil)]) {
         //Edit
         PFAddAccountViewController *vc = [PFAddAccountViewController viewControllerFromStoryboard:_account];
+        vc.delegate = self;
         [self presentViewController:vc animated:YES completion:nil];
     } else {
         //Delete

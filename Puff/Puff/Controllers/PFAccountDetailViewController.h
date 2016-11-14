@@ -9,6 +9,7 @@
 #import <UIKit/UIKit.h>
 
 @class PFAccount;
+
 @interface PFAccountDetailViewController : UIViewController
 + (instancetype)viewControllerFromStoryboardWithAccount:(PFAccount*)account;
 @end

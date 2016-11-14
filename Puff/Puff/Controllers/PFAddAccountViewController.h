@@ -9,8 +9,14 @@
 #import <UIKit/UIKit.h>
 
 @class PFAccount;
+@protocol PFEditAccountDelegate <NSObject>
 
+@required
+- (void)accountChanged:(PFAccount*)account;
+
+@end
 @interface PFAddAccountViewController : UIViewController
+@property (weak, nonatomic) id<PFEditAccountDelegate> delegate;
 + (instancetype)viewControllerFromStoryboard;
 + (instancetype)viewControllerFromStoryboard:(PFAccount*)account;
 @end

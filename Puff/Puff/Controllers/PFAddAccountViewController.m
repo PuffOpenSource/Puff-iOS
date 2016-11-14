@@ -14,6 +14,7 @@
 
 #import <MobileCoreServices/MobileCoreServices.h>
 
+#import "PFAccountDetailViewController.h"
 #import "PFResUtil.h"
 #import "PFAccountManager.h"
 #import "PFTypeManager.h"
@@ -168,13 +169,17 @@ static const CGFloat toolBarHeight   = 180;
             return;
         }
         id err = [[PFAccountManager sharedManager] saveAccount:account];
-        if (err == nil) {
+        if (err == nil && _account != nil) {
             //TODO: Dismis indicator.
             [account decrypt:^(NSError * _Nullable error, PFAccount * _Nullable result) {
                 if (error) {
                     return;
                 }
+                [self.delegate accountChanged:result];
+                
+                [self dismissViewControllerAnimated:YES completion:nil];
             }];
+        } else {
             [self dismissViewControllerAnimated:YES completion:nil];
         }
     }];
