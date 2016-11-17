@@ -10,4 +10,5 @@
 
 @interface PFStringUtil : NSObject
 + (NSString*)getMaskedEmail:(NSString*)email;
++ (NSString*)getMaskedPhoneNumber:(NSString*)phone;
 @end
