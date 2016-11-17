@@ -126,12 +126,13 @@
         PFSpinnerMenuCell *typedCell = cell;
         typedCell.menuLabel.text = dataItem;
     };
-    _popMenu = [[UIMenuController alloc] init];
+    if (!_popMenu) {
+        _popMenu = [UIMenuController sharedMenuController];
+    }
     _popItems = @[
                   [[UIMenuItem alloc] initWithTitle:NSLocalizedString(@"Copy", nil) action:@selector(_didClickCopyMenu)]
                   ];
     _popMenu.menuItems = _popItems;
-    
     [self becomeFirstResponder];
 }
 

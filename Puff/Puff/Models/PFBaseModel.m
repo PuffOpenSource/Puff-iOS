@@ -10,6 +10,7 @@
 
 #import "Config.h"
 
+
 @implementation PFBaseModel
 -(NSManagedObject*)managedObjectWithEntity:(NSEntityDescription *)entity andContext:(NSManagedObjectContext *)context {
     NSException *e = [NSException exceptionWithName:@"BaseModelNotOverriden" reason:@"BaseModle function not overriden!" userInfo:nil];
@@ -22,6 +23,7 @@
     for (NSString *p in properties) {
         [self setValue:[rawObj valueForKey:p] forKey:p];
     }
+    _baseModel = rawObj;
 }
 
 //Return properties' names only
@@ -33,7 +35,11 @@
         objc_property_t p = props[i];
         @try {
             const char *pName = property_getName(p);
-            [ret addObject:[NSString stringWithCString:pName encoding:[NSString defaultCStringEncoding]]];
+            NSString *typedName = [NSString stringWithCString:pName encoding:[NSString defaultCStringEncoding]];
+            if ([typedName isEqualToString:@"baseModel"]) {
+                continue;
+            }
+            [ret addObject:typedName];
         } @catch (NSException *exception) {
             if (DEBUG) {
                 @throw exception;

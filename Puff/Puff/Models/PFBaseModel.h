@@ -12,6 +12,7 @@
 #import <objc/runtime.h>
 
 @interface PFBaseModel : NSObject
+@property (strong, nonatomic) NSManagedObject *baseModel;
 - (NSManagedObject*)managedObjectWithEntity:(NSEntityDescription*) entity andContext:(NSManagedObjectContext*)context;
 
 //Try to fetch properties with same name from rawObj then pop it to self

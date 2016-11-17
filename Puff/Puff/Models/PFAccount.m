@@ -12,6 +12,7 @@
 #import "PFBlowfish.h"
 #import "PFKeychainHelper.h"
 
+
 @implementation PFAccount
 
 - (PFAccount*)initWithDict:(NSDictionary*)dict {
@@ -25,14 +26,18 @@
 - (PFAccount*)initWithRaw:(_PFAccount*)raw {
     self = [super init];
     if (self) {
-        
+        self.baseModel = raw;
     }
     return self;
 }
 
 
 - (NSManagedObject*)managedObjectWithEntity:(NSEntityDescription *)entity andContext:(NSManagedObjectContext *)context {
-    _PFAccount *ret = [[_PFAccount alloc] initWithEntity:entity insertIntoManagedObjectContext:context];
+    _PFAccount *ret = self.baseModel;
+    if (!ret) {
+        ret = [[_PFAccount alloc] initWithEntity:entity insertIntoManagedObjectContext:context];
+        self.baseModel = ret;
+    }
     ret.account = _account;
     ret.account_salt = _account_salt;
     ret.masked_account = _masked_account;
@@ -47,6 +52,10 @@
     ret.type = _type;
     ret.website = _website;
     return ret;
+}
+
+- (_PFAccount*)getBaseModel {
+    return self.baseModel;
 }
 
 - (void)encrypt:(PFAccountEncryptCallback) callback {

@@ -9,6 +9,7 @@
 #import "PFBaseModel.h"
 
 @class PFAccount;
+@class _PFAccount;
 
 typedef void(^PFAccountEncryptCallback)( NSError * _Nullable error, PFAccount* _Nullable result);
 
@@ -30,6 +31,7 @@ typedef void(^PFAccountEncryptCallback)( NSError * _Nullable error, PFAccount* _
 @property (nullable, nonatomic, strong) NSString *website;
 
 - (PFAccount* _Nonnull)initWithDict:(NSDictionary* _Nonnull)dict;
+- (_PFAccount*)getBaseModel;
 - (void)encrypt:(PFAccountEncryptCallback) callback;
 - (void)decrypt:(PFAccountEncryptCallback) callback;
 @end

@@ -148,7 +148,11 @@ static const CGFloat toolBarHeight   = 180;
         return;
     }
     
-    PFAccount *account = [[PFAccount alloc] init];
+    PFAccount *account = _account;
+    if (!_account) {
+        account = [[PFAccount alloc] init];
+    }
+
     account.name = _nameField.text;
     
     //Encryption!
