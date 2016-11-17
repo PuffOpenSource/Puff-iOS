@@ -7,16 +7,18 @@
 //
 
 #import "PFSpinner.h"
+#import "PFResUtil.h"
 
 typedef NS_ENUM(NSUInteger) {
     ShowModeSpinner,
     ShowModeMenu,
 } ShowMode;
 
-@interface PFSpinner() <UITableViewDelegate, UITableViewDataSource>
+@interface PFSpinner() <UITableViewDelegate, UITableViewDataSource, UIGestureRecognizerDelegate>
 @property (assign, nonatomic) ShowMode showMode;
 @property (strong, nonatomic) NSArray *data;
 @property (strong, nonatomic) UITableView *tableView;
+@property (strong, nonatomic) UIView *wrapper;
 @end
 
 @implementation PFSpinner
@@ -27,8 +29,10 @@ static NSString * const kPFSpinnerCellReuseId       = @"kPFSpinnerCellReuseId";
 - (instancetype)initAsMenuWithData:(NSArray *)data andFrame:(CGRect)frame {
     frame.size.height = 40 * data.count <= 200 ? 40 * data.count: 200;
     frame.size.height += 16;
-    self = [super initWithFrame:frame];
+    CGRect scr = [PFResUtil screenSize];
+    self = [super initWithFrame:scr];
     if (self) {
+        _wrapper = [[UIView alloc] initWithFrame:frame];
         self.showMode = ShowModeMenu;
         [self _initUI];
         [_tableView registerClass:PFSpinnerMenuCell.class forCellReuseIdentifier:kPFSpinnerMenuCellReuseId];
@@ -44,8 +48,10 @@ static NSString * const kPFSpinnerCellReuseId       = @"kPFSpinnerCellReuseId";
     if (frame.size.height != 0) {
         frame.size.height += 16;
     }
-    self = [super initWithFrame:frame];
+    CGRect scr = [PFResUtil screenSize];
+    self = [super initWithFrame:scr];
     if (self) {
+        _wrapper = [[UIView alloc] initWithFrame:frame];
         self.showMode = ShowModeSpinner;
         [self _initUI];
         [_tableView registerClass:PFSpinnerCell.class forCellReuseIdentifier:kPFSpinnerCellReuseId];
@@ -92,38 +98,60 @@ static NSString * const kPFSpinnerCellReuseId       = @"kPFSpinnerCellReuseId";
     return ret;
 }
 
+#pragma mark UIGestureRecognizerDelegate methods
+
+- (BOOL)gestureRecognizer:(UIGestureRecognizer *)gestureRecognizer shouldReceiveTouch:(UITouch *)touch
+{
+    if ([touch.view isDescendantOfView:_wrapper]) {
+        return NO;
+    }
+    
+    return YES;
+}
+
 #pragma mark - Misc
 
 - (void) _initUI {
     
-    CGRect tableViewFrame = self.bounds;
+    [self addSubview:_wrapper];
+    _wrapper.backgroundColor = [UIColor clearColor];
+    _wrapper.userInteractionEnabled = YES;
+    UITapGestureRecognizer *rec = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(_didTapMask:)];
+    rec.delegate = self;
+    [self addGestureRecognizer:rec];
+    
+    CGRect tableViewFrame = self.wrapper.bounds;
     tableViewFrame.size.width -= 16;
     tableViewFrame.size.height -= 16;
     tableViewFrame.origin.x += 8;
     tableViewFrame.origin.y += 8;
     _tableView = [[UITableView alloc] initWithFrame:tableViewFrame];
     
-    self.layer.shadowColor = [UIColor lightGrayColor].CGColor;
-    self.layer.shadowOffset = CGSizeMake(0, 5);
-    self.layer.shadowOpacity = 0.8;
-    self.layer.shadowRadius = 10;
-    self.layer.masksToBounds = NO;
+    self.wrapper.layer.shadowColor = [UIColor lightGrayColor].CGColor;
+    self.wrapper.layer.shadowOffset = CGSizeMake(0, 5);
+    self.wrapper.layer.shadowOpacity = 0.8;
+    self.wrapper.layer.shadowRadius = 10;
+    self.wrapper.layer.masksToBounds = NO;
     
-    [self addSubview:_tableView];
+    [_wrapper addSubview:_tableView];
     _tableView.clipsToBounds = YES;
     _tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
 }
 
+- (void)_didTapMask:(id)sender {
+    [self dismiss: nil];
+}
+
 - (void)presentInView:(UIView*)view {
     
-    CGRect savedRect = self.frame;
-    self.frame = CGRectMake(self.frame.origin.x, self.frame.origin.y, self.frame.size.width, 0);
+    CGRect savedRect = self.wrapper.frame;
+    self.wrapper.frame = CGRectMake(self.wrapper.frame.origin.x, self.wrapper.frame.origin.y, self.wrapper.frame.size.width, 0);
     
-    self.clipsToBounds = YES;
+    self.wrapper.clipsToBounds = YES;
     [view addSubview:self];
     
     [UIView animateWithDuration:0.2 animations:^{
-        self.frame = savedRect;
+        self.wrapper.frame = savedRect;
     } completion:^(BOOL finished) {
         if (finished) {
             self.clipsToBounds = NO;
@@ -132,14 +160,14 @@ static NSString * const kPFSpinnerCellReuseId       = @"kPFSpinnerCellReuseId";
 }
 
 - (void)dismiss:(PFAnimatedCallback)cb {
-    CGRect savedRect = self.frame;
-    self.clipsToBounds = YES;
+    CGRect savedRect = self.wrapper.frame;
+    self.wrapper.clipsToBounds = YES;
     [UIView animateWithDuration:0.2 animations:^{
-        self.frame = CGRectMake(self.frame.origin.x , self.frame.origin.y, self.frame.size.width, 0);
+        self.wrapper.frame = CGRectMake(self.wrapper.frame.origin.x , self.wrapper.frame.origin.y, self.wrapper.frame.size.width, 0);
     } completion:^(BOOL finished) {
         if (finished) {
             [self removeFromSuperview];
-            self.frame = savedRect;
+            self.wrapper.frame = savedRect;
             self.clipsToBounds = NO;
             if (cb) {
                 cb();
