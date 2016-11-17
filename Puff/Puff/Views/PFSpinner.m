@@ -179,7 +179,8 @@ static NSString * const kPFSpinnerCellReuseId       = @"kPFSpinnerCellReuseId";
 }
 - (void)initUI {
     _menuLabel = [[UILabel alloc] initWithFrame:CGRectMake(8, 0, self.frame.size.width, 40)];
-    
+    self.contentView.backgroundColor = [UIColor colorWithRed:238 green:238 blue:238 alpha:0];
+    _menuLabel.backgroundColor = [UIColor clearColor];
     [self.contentView addSubview:_menuLabel];
 }
 @end

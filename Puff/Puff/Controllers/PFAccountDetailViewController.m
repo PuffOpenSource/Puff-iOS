@@ -141,7 +141,7 @@
 
 - (void)_didClickCopyMenu {
     UIPasteboard *board = [UIPasteboard generalPasteboard];
-    [board setValue:_account.hash_value forKey:(NSString*)kUTTypeText];
+    [board setValue:_account.hash_value forPasteboardType:(NSString*)kUTTypeText];
 }
 
 #pragma mark - UIGestureRecognizerDelegate

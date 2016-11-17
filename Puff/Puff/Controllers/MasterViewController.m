@@ -25,8 +25,9 @@
 #import "PFAccountManager.h"
 #import "PFCategoryManager.h"
 #import "PFAppLock.h"
+#import "PFSpinner.h"
 
-@interface MasterViewController () <PFDrawerViewControllerDelegate, UITableViewDelegate, UITableViewDataSource, MainAccountCellDelegate>
+@interface MasterViewController () <PFDrawerViewControllerDelegate, UITableViewDelegate, UITableViewDataSource, MainAccountCellDelegate, PFSpinnerDelegate>
 
 @property (weak, nonatomic) AppDelegate *app;
 
@@ -37,6 +38,10 @@
 @property (weak, nonatomic) IBOutlet UIView *rippleView;
 @property (weak, nonatomic) IBOutlet UIView *emptyView;
 @property (weak, nonatomic) IBOutlet UILabel *toolbarTitle;
+
+@property (strong, nonatomic) PFSpinner* menuSpinner;
+@property (strong, nonatomic) NSArray* menus;
+@property (strong, nonatomic) PFSpinnerCellConfigureBlock menuConfigBlock;
 
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *rippleHeight;
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *rippleWidth;
@@ -138,6 +143,9 @@
 
 - (IBAction)didClickMoreButton:(id)sender {
     //Pop menu
+    _menuSpinner.configureCallback = _menuConfigBlock;
+    _menuSpinner.spinnerDelegate = self;
+    [_menuSpinner presentInView:self.view];
 }
 
 #pragma mark - PFDrawerViewControllerDelegate
@@ -174,6 +182,10 @@
     }];
 }
 
+#pragma mark - PFSpinnerDelegate
+- (void)pfSpinner:(PFSpinner *)spinner didSelectItem:(id)item {
+    [_menuSpinner dismiss:nil];
+}
 #pragma mark - Segues
 
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
@@ -203,6 +215,16 @@
     
     _tableView.hidden = NO;
     _emptyView.hidden = YES;
+    
+    //Spinner
+    _menus = @[NSLocalizedString(@"Password Generator", nil), NSLocalizedString(@"Settings", nil)];
+    CGRect scrSize = [PFResUtil screenSize];
+    CGRect frame = CGRectMake(scrSize.size.width - 200 - 8, 20 + 8, 200, 40);
+    _menuSpinner = [[PFSpinner alloc] initAsMenuWithData:_menus andFrame:frame];
+    _menuConfigBlock = ^(UITableViewCell* cell, NSIndexPath *indexPath, NSObject *dataItem) {
+        PFSpinnerMenuCell *typedCell = cell;
+        typedCell.menuLabel.text = dataItem;
+    };
 }
 
 - (void)_loadInitCategory {
