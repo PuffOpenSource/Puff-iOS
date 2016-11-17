@@ -17,7 +17,11 @@
 }
 
 - (NSManagedObject*)managedObjectWithEntity:(NSEntityDescription *)entity andContext:(NSManagedObjectContext *)context {
-    _PFCategory *ret = [[_PFCategory alloc] initWithEntity:entity insertIntoManagedObjectContext:context];
+    _PFCategory *ret = self.baseModel;
+    if (!ret) {
+        ret = [[_PFCategory alloc] initWithEntity:entity insertIntoManagedObjectContext:context];
+        self.baseModel = ret;
+    }
     ret.name = _name;
     ret.type = _type;
     ret.identifier = _identifier;
