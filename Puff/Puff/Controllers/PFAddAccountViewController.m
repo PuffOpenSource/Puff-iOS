@@ -20,6 +20,7 @@
 #import "PFTypeManager.h"
 #import "PFCategoryManager.h"
 #import "PFSpinner.h"
+#import "PFStringUtil.h"
 
 #define ADD_ACCOUNT_STR NSLocalizedString(@"Add Account", nil)
 #define EDIT_ACCOUNT_STR NSLocalizedString(@"Edit Account", nil)
@@ -152,7 +153,11 @@ static const CGFloat toolBarHeight   = 180;
     
     //Encryption!
     account.account = _accountField.text;
-    account.masked_account = _accountField.text;
+    if ([PFStringUtil isEmail:_accountField.text]) {
+        account.masked_account = [PFStringUtil getMaskedEmail:_accountField.text];
+    } else {
+        account.masked_account = [PFStringUtil getMaskedPhoneNumber:_accountField.text];
+    }
     account.hash_value = _passwordField.text;
     account.additional = _additionalField.text;
     account.category = _category.identifier;
