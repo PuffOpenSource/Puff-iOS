@@ -28,7 +28,7 @@ static NSString * const kPFSpinnerCellReuseId       = @"kPFSpinnerCellReuseId";
 
 - (instancetype)initAsMenuWithData:(NSArray *)data andFrame:(CGRect)frame {
     frame.size.height = 40 * data.count <= 200 ? 40 * data.count: 200;
-    frame.size.height += 16;
+    frame.size.height += 30;
     CGRect scr = [PFResUtil screenSize];
     self = [super initWithFrame:scr];
     if (self) {
@@ -46,7 +46,7 @@ static NSString * const kPFSpinnerCellReuseId       = @"kPFSpinnerCellReuseId";
 - (instancetype)initAsSpinnerWithData:(NSArray *)data andFrame:(CGRect)frame {
     frame.size.height = 56 * data.count <= 200 ? 56 * data.count : 200;
     if (frame.size.height != 0) {
-        frame.size.height += 16;
+        frame.size.height += 30;
     }
     CGRect scr = [PFResUtil screenSize];
     self = [super initWithFrame:scr];
@@ -121,10 +121,10 @@ static NSString * const kPFSpinnerCellReuseId       = @"kPFSpinnerCellReuseId";
     [self addGestureRecognizer:rec];
     
     CGRect tableViewFrame = self.wrapper.bounds;
-    tableViewFrame.size.width -= 16;
-    tableViewFrame.size.height -= 16;
-    tableViewFrame.origin.x += 8;
-    tableViewFrame.origin.y += 8;
+    tableViewFrame.size.width -= 30;
+    tableViewFrame.size.height -= 30;
+    tableViewFrame.origin.x += 15;
+    tableViewFrame.origin.y += 15;
     _tableView = [[UITableView alloc] initWithFrame:tableViewFrame];
     
     self.wrapper.layer.shadowColor = [UIColor lightGrayColor].CGColor;
