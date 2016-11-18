@@ -94,7 +94,7 @@
         NSDate *d1 = obj1.last_access;
         NSDate *d2 = obj2.last_access;
         
-        return [d2 timeIntervalSince1970] - [d1 timeIntervalSince1970];
+        return [d1 timeIntervalSince1970] - [d2 timeIntervalSince1970];
     }];
     
     NSManagedObjectContext *ctx = [_dbManager context];
@@ -116,23 +116,10 @@
 
 - (void)deleteAccount:(PFAccount *)account {
     NSManagedObjectContext *ctx = [_dbManager context];
-    _PFAccount *toDel = [self _fetchRawAccount:account];
+    _PFAccount *toDel = [account getBaseModel];
     if (toDel == nil) {
         return;
     }
     [ctx deleteObject:toDel];
-}
-
-- (_PFAccount*)_fetchRawAccount:(PFAccount*)account {
-    NSFetchRequest *req = [NSFetchRequest fetchRequestWithEntityName:kEntityNamePFAccount];
-    NSPredicate *filter = [NSPredicate predicateWithFormat:@"salt == %@", account.salt];
-    [req setPredicate: filter];
-    NSManagedObjectContext *ctx = [_dbManager context];
-    NSError *err;
-    NSAsynchronousFetchResult *result = [ctx executeRequest:req error:&err];
-    if (err) {
-        return nil;
-    }
-    return [[result finalResult] firstObject];
 }
 @end
