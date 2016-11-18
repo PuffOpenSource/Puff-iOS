@@ -24,6 +24,7 @@
 @property (weak, nonatomic) IBOutlet UIImageView *headerImageView;
 
 @property (strong, nonatomic) PFAccount *account;
+@property (strong, nonatomic) NSDictionary *info;
 @property (weak, nonatomic) IBOutlet UIScrollView *scrollView;
 @property (weak, nonatomic) IBOutlet MDTextField *accountField;
 @property (weak, nonatomic) IBOutlet MDTextField *passwordField;
@@ -42,9 +43,10 @@
 
 @implementation PFAccountDetailViewController
 
-+ (instancetype)viewControllerFromStoryboardWithAccount:(PFAccount*)account {
++ (instancetype)viewControllerFromStoryboardWithAccount:(PFAccount*)account andInfo:(NSDictionary*)info {
     PFAccountDetailViewController *ret = [[UIStoryboard storyboardWithName:@"Main" bundle:[NSBundle bundleForClass:self.class] ] instantiateViewControllerWithIdentifier:@"PFAccountDetailViewController"];
     ret.account = account;
+    ret.info = info;
     return ret;
 }
 
@@ -55,9 +57,9 @@
 
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
-    _accountField.text = _account.account;
-    _passwordField.text = _account.hash_value;
-    _additionalField.text = _account.additional;
+    _accountField.text = [_info objectForKey:kResultAccount];
+    _passwordField.text = [_info objectForKey:kResultPassword];
+    _additionalField.text = [_info objectForKey:kResultAdditional];
     _websiteField.text = _account.website;
     _toolBarLabel.text = _account.name;
     _headerImageView.image = [PFResUtil imageForName:_account.icon];
@@ -85,8 +87,9 @@
 }
 
 #pragma mark - PFEditAccountDelegate
--(void)accountChanged:(PFAccount *)account {
-    self.account = account;
+-(void)accountChanged:(PFAccount *)result andInfo:(NSDictionary*)info{
+    self.account = result;
+    self.info = info;
 }
 
 #pragma mark - PFSpinnerDelegate
@@ -94,7 +97,7 @@
     [_menuSpinner dismiss:nil];
     if ([item isEqualToString:NSLocalizedString(@"Edit", nil)]) {
         //Edit
-        PFAddAccountViewController *vc = [PFAddAccountViewController viewControllerFromStoryboard:_account];
+        PFAddAccountViewController *vc = [PFAddAccountViewController viewControllerFromStoryboard:_account andInfo:_info];
         vc.delegate = self;
         [self presentViewController:vc animated:YES completion:nil];
     } else {

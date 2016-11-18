@@ -174,12 +174,12 @@
 #pragma mark - PFMainAccountDelegate
 - (void)mainAccountCell:(MainAccountCell *)cell didTapOnViewButton:(PFAccount *)account {
     //TODO: Animation!
-    [account decrypt:^(NSError * _Nullable error, PFAccount * _Nullable result) {
+    [account decrypt:^(NSError * _Nullable error, NSDictionary * _Nullable result) {
         if (error) {
             //TODO: Snackbar
             return;
         }
-        PFAccountDetailViewController *vc = [PFAccountDetailViewController viewControllerFromStoryboardWithAccount:result];
+        PFAccountDetailViewController *vc = [PFAccountDetailViewController viewControllerFromStoryboardWithAccount:account andInfo:result];
         [self presentViewController:vc animated:YES completion:nil];
     }];
 }

@@ -11,5 +11,5 @@
 @class PFAccount;
 
 @interface PFAccountDetailViewController : UIViewController
-+ (instancetype)viewControllerFromStoryboardWithAccount:(PFAccount*)account;
++ (instancetype)viewControllerFromStoryboardWithAccount:(PFAccount*)account andInfo:(NSDictionary*)info;
 @end

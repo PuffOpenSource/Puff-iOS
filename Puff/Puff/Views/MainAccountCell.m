@@ -10,6 +10,9 @@
 
 #import <MobileCoreServices/UTCoreTypes.h>
 
+#import "EXTScope.h"
+
+#import "Constants.h"
 #import "PFAccount.h"
 #import "PFResUtil.h"
 #import "PFTypeManager.h"
@@ -68,8 +71,17 @@
 }
 
 - (IBAction)didTapOnCopyButton:(id)sender {
-    UIPasteboard *board = [UIPasteboard generalPasteboard];
-    [board setValue:_account.hash_value forKey:(NSString*)kUTTypeText];
+    [_account decrypt:^(NSError * _Nullable error, NSDictionary * _Nullable result) {
+        UIPasteboard *board = [UIPasteboard generalPasteboard];
+        [board setString:[result objectForKey:kResultPassword]];
+    }];
+}
+- (IBAction)didTapOnPinButton:(id)sender {
+    [_account decrypt:^(NSError * _Nullable error, NSDictionary * _Nullable result) {
+        NSUserDefaults *ud = [[NSUserDefaults alloc] initWithSuiteName:kUserDefaultGroup];
+        [ud setObject:[result objectForKey:kResultAccount] forKey:kTodayAccount];
+        [ud synchronize];
+    }];
 }
 
 @end

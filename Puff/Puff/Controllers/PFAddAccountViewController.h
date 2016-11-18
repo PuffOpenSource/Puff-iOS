@@ -12,11 +12,11 @@
 @protocol PFEditAccountDelegate <NSObject>
 
 @required
-- (void)accountChanged:(PFAccount*)account;
+- (void)accountChanged:(PFAccount*)result andInfo:(NSDictionary*)info;
 
 @end
 @interface PFAddAccountViewController : UIViewController
 @property (weak, nonatomic) id<PFEditAccountDelegate> delegate;
 + (instancetype)viewControllerFromStoryboard;
-+ (instancetype)viewControllerFromStoryboard:(PFAccount*)account;
++ (instancetype)viewControllerFromStoryboard:(PFAccount*)account andInfo:(NSDictionary*)info;
 @end

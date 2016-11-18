@@ -71,6 +71,7 @@
 @property (strong, nonatomic) PFCategory *category;
 @property (strong, nonatomic) NSString *icon;
 @property (strong, nonatomic) PFAccount* account;
+@property (strong, nonatomic) NSDictionary* info;
 @end
 
 @implementation PFAddAccountViewController 
@@ -83,10 +84,11 @@ static const CGFloat toolBarHeight   = 180;
     return [sb instantiateViewControllerWithIdentifier:@"AddAccountViewController"];
 }
 
-+ (instancetype)viewControllerFromStoryboard:(PFAccount *)account {
++ (instancetype)viewControllerFromStoryboard:(PFAccount *)account andInfo:(NSDictionary*)info {
     UIStoryboard *sb = [UIStoryboard storyboardWithName:@"Main" bundle:[NSBundle bundleForClass:self.class]];
     PFAddAccountViewController *ret = [sb instantiateViewControllerWithIdentifier:@"AddAccountViewController"];
     ret.account = account;
+    ret.info = info;
     return ret;
 }
 
@@ -108,9 +110,9 @@ static const CGFloat toolBarHeight   = 180;
     _categories = [[PFCategoryManager sharedManager] fetchAll];
     if (_account) {
         _nameField.text = _account.name;
-        _accountField.text = _account.account;
-        _passwordField.text = _account.hash_value;
-        _additionalField.text = _account.additional;
+        _accountField.text = [_info objectForKey:kResultAccount];
+        _passwordField.text = [_info objectForKey:kResultPassword];
+        _additionalField.text = [_info objectForKey:kResultAdditional];
         _websiteField.text = _account.website;
         self.accountType = [[PFTypeManager sharedManager] fetchTypeById:_account.type];
         self.category = [[PFCategoryManager sharedManager] fetchCategoryById:_account.category];
@@ -180,12 +182,11 @@ static const CGFloat toolBarHeight   = 180;
         id err = [[PFAccountManager sharedManager] saveAccount:account];
         if (err == nil && _account != nil) {
             //TODO: Dismis indicator.
-            [account decrypt:^(NSError * _Nullable error, PFAccount * _Nullable result) {
+            [account decrypt:^(NSError * _Nullable error, NSDictionary * _Nullable result) {
                 if (error) {
                     return;
                 }
-                [self.delegate accountChanged:result];
-                
+                [self.delegate accountChanged:_account andInfo:result];
                 [self dismissViewControllerAnimated:YES completion:nil];
             }];
         } else {

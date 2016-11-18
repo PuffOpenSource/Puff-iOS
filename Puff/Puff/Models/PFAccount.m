@@ -61,7 +61,7 @@
 - (void)encrypt:(PFAccountEncryptCallback) callback {
     [self _asyncEncrypt:callback];
 }
-- (void)decrypt:(PFAccountEncryptCallback) callback {
+- (void)decrypt:(PFAccountDecryptCallback) callback {
     [self _asyncDecrypt:callback];
 }
 
@@ -105,36 +105,38 @@
     });
 }
 
-- (void)_asyncDecrypt:(PFAccountEncryptCallback) callback {
-    NSString *password = [[PFKeychainHelper sharedInstance] getMasterPassword];
+- (void)_asyncDecrypt:(PFAccountDecryptCallback) callback {
+    NSString *masterPassword = [[PFKeychainHelper sharedInstance] getMasterPassword];
     dispatch_queue_t queue = dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0);
     dispatch_async(queue, ^{
         NSError *err = nil;
+        NSString * account, *password, *additional;
         @try {
             PFBlowfish *fish = [[PFBlowfish alloc] init];
-            fish.Key = password;
+            fish.Key = masterPassword;
             fish.IV = @"";
             [fish prepare];
-            _account = [[fish decrypt:_account withMode:modeEBC withPadding:paddingRFC] stringByReplacingOccurrencesOfString:_account_salt withString:@""];
+            account = [[fish decrypt:_account withMode:modeEBC withPadding:paddingRFC] stringByReplacingOccurrencesOfString:_account_salt withString:@""];
             
             fish = [[PFBlowfish alloc] init];
-            fish.Key = password;
+            fish.Key = masterPassword;
             fish.IV = @"";
             [fish prepare];
-            _hash_value = [[fish decrypt:_hash_value withMode:modeEBC withPadding:paddingRFC] stringByReplacingOccurrencesOfString:_salt withString:@""];
+            password = [[fish decrypt:_hash_value withMode:modeEBC withPadding:paddingRFC] stringByReplacingOccurrencesOfString:_salt withString:@""];
             
+            additional = @"";
             if (_additional.length > 0) {
                 fish = [[PFBlowfish alloc] init];
-                fish.Key = password;
+                fish.Key = masterPassword;
                 fish.IV = @"";
                 [fish prepare];
-                _additional = [[fish decrypt:_additional withMode:modeEBC withPadding:paddingRFC] stringByReplacingOccurrencesOfString:_additional_salt withString:@""];
+                additional = [[fish decrypt:_additional withMode:modeEBC withPadding:paddingRFC] stringByReplacingOccurrencesOfString:_additional_salt withString:@""];
             }
         } @catch (NSException *exception) {
             err = [NSError errorWithDomain:PFAccountErrorDomain code:-1 userInfo:@{@"exception":exception}];
         } @finally {
             dispatch_async(dispatch_get_main_queue(), ^{
-                callback(nil, self);
+                callback(nil, @{kResultAccount: account, kResultPassword:password, kResultAdditional:additional});
             });
         }
     });

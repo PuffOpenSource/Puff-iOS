@@ -4,7 +4,6 @@
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
-        <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11524"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -15,7 +14,7 @@
             <rect key="frame" x="0.0" y="0.0" width="375" height="255"/>
             <autoresizingMask key="autoresizingMask"/>
             <tableViewCellContentView key="contentView" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="HWy-Zc-HnQ" id="zkh-r8-Rfs">
-                <rect key="frame" x="0.0" y="0.0" width="375" height="254.5"/>
+                <rect key="frame" x="0.0" y="0.0" width="375" height="254"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="0pe-v9-li8" customClass="PFCardView">
@@ -58,6 +57,9 @@
                                 <state key="normal" title="Pin">
                                     <color key="titleColor" red="0.082352941176470587" green="0.58431372549019611" blue="0.53333333333333333" alpha="1" colorSpace="calibratedRGB"/>
                                 </state>
+                                <connections>
+                                    <action selector="didTapOnPinButton:" destination="HWy-Zc-HnQ" eventType="touchUpInside" id="V0b-FX-zjb"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lMC-Ve-edu">
                                 <rect key="frame" x="149.5" y="151" width="60" height="30"/>

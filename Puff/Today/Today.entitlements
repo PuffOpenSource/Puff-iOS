@@ -8,7 +8,6 @@
 	</array>
 	<key>keychain-access-groups</key>
 	<array>
-		<string>$(AppIdentifierPrefix)bob.sun.leela</string>
 		<string>$(AppIdentifierPrefix)bob.sun.leela.today</string>
 	</array>
 </dict>

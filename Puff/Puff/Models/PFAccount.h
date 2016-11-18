@@ -11,7 +11,12 @@
 @class PFAccount;
 @class _PFAccount;
 
+static NSString * const kResultAccount              = @"kResultAccount";
+static NSString * const kResultPassword             = @"kResultPassword";
+static NSString * const kResultAdditional           = @"kResultAdditional";
+
 typedef void(^PFAccountEncryptCallback)( NSError * _Nullable error, PFAccount* _Nullable result);
+typedef void(^PFAccountDecryptCallback)(NSError * _Nullable error, NSDictionary* _Nullable result);
 
 #define PFAccountErrorDomain    @"bob.sun.leela"
 
@@ -33,5 +38,5 @@ typedef void(^PFAccountEncryptCallback)( NSError * _Nullable error, PFAccount* _
 - (PFAccount* _Nonnull)initWithDict:(NSDictionary* _Nonnull)dict;
 - (_PFAccount*)getBaseModel;
 - (void)encrypt:(PFAccountEncryptCallback) callback;
-- (void)decrypt:(PFAccountEncryptCallback) callback;
+- (void)decrypt:(PFAccountDecryptCallback) callback;
 @end
