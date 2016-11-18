@@ -21,6 +21,8 @@
 #import "MainAccountCell.h"
 #import "PFAddAccountViewController.h"
 #import "PFAccountDetailViewController.h"
+#import "PFPasswordGenViewController.h"
+#import "PFSettingsViewController.h"
 #import "PFKeychainHelper.h"
 #import "PFAccountManager.h"
 #import "PFCategoryManager.h"
@@ -185,6 +187,23 @@
 #pragma mark - PFSpinnerDelegate
 - (void)pfSpinner:(PFSpinner *)spinner didSelectItem:(id)item {
     [_menuSpinner dismiss:nil];
+    NSUInteger idx = [_menus indexOfObject:item];
+    UIViewController *vc;
+    switch (idx) {
+        case 0:
+            vc = [PFPasswordGenViewController viewControllerFromStoryboard];
+            break;
+        case 1:
+            vc = [PFSettingsViewController viewControllerFromStoryboard];
+            break;
+        default:
+            vc = nil;
+            break;
+    }
+    if (!vc) {
+        return;
+    }
+    [self presentViewController:vc animated:YES completion:nil];
 }
 #pragma mark - Segues
 
@@ -219,7 +238,7 @@
     //Spinner
     _menus = @[NSLocalizedString(@"Password Generator", nil), NSLocalizedString(@"Settings", nil)];
     CGRect scrSize = [PFResUtil screenSize];
-    CGRect frame = CGRectMake(scrSize.size.width - 200 - 8, 20 + 8, 200, 40);
+    CGRect frame = CGRectMake(scrSize.size.width - 200, 20, 200, 40);
     _menuSpinner = [[PFSpinner alloc] initAsMenuWithData:_menus andFrame:frame];
     _menuConfigBlock = ^(UITableViewCell* cell, NSIndexPath *indexPath, NSObject *dataItem) {
         PFSpinnerMenuCell *typedCell = cell;
