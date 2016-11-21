@@ -80,6 +80,8 @@
     [_account decrypt:^(NSError * _Nullable error, NSDictionary * _Nullable result) {
         NSUserDefaults *ud = [[NSUserDefaults alloc] initWithSuiteName:kUserDefaultGroup];
         [ud setObject:[result objectForKey:kResultAccount] forKey:kTodayAccount];
+        [ud setObject:[result objectForKey:kResultPassword] forKey:kTodayPassword];
+        [ud setObject:[result objectForKey:kResultAdditional] forKey:kTodayAdditional];
         [ud synchronize];
     }];
 }
