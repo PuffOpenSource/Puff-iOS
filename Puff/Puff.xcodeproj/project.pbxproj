@@ -113,6 +113,7 @@
 		017C96D11DDEEC7A0030272F /* PFStringUtil.h in Sources */ = {isa = PBXBuildFile; fileRef = 010001271DC9F48B0038AD85 /* PFStringUtil.h */; };
 		017C96D21DDEEC7A0030272F /* PFStringUtil.m in Sources */ = {isa = PBXBuildFile; fileRef = 010001281DC9F48B0038AD85 /* PFStringUtil.m */; };
 		017C96D31DDEF25A0030272F /* Constants.h in Sources */ = {isa = PBXBuildFile; fileRef = 010CFB311DB4B3A800FEE5DE /* Constants.h */; };
+		01910F661DE2D37E0019E541 /* PFPasswordGenerator.m in Sources */ = {isa = PBXBuildFile; fileRef = 01910F651DE2D37E0019E541 /* PFPasswordGenerator.m */; };
 		01D3AF891DB3C99800EE5CA1 /* MasterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 01D3AF881DB3C99800EE5CA1 /* MasterViewController.m */; };
 		44075CED77D58170C20A4992 /* Pods_Puff.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6B7D49088F66C933BBF2413A /* Pods_Puff.framework */; };
 		89E2CCAF769F204ABA3660E7 /* Pods_PuffExtensionKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4A8ACECC80B15E78B49B8CD2 /* Pods_PuffExtensionKit.framework */; };
@@ -251,6 +252,8 @@
 		017C967A1DDEE7A50030272F /* Pods_Puff.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Pods_Puff.framework; path = "../../../Library/Developer/Xcode/DerivedData/Puff-dxzalaqjdzugdieivqpjgsfzklcs/Build/Products/Debug-iphonesimulator/Pods_Puff.framework"; sourceTree = "<group>"; };
 		017C967D1DDEE7D80030272F /* MaterialControls.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MaterialControls.framework; path = "../../../Library/Developer/Xcode/DerivedData/Puff-dxzalaqjdzugdieivqpjgsfzklcs/Build/Products/Debug-iphonesimulator/MaterialControls/MaterialControls.framework"; sourceTree = "<group>"; };
 		017C967E1DDEE7D80030272F /* UITableView_FDTemplateLayoutCell.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UITableView_FDTemplateLayoutCell.framework; path = "../../../Library/Developer/Xcode/DerivedData/Puff-dxzalaqjdzugdieivqpjgsfzklcs/Build/Products/Debug-iphonesimulator/UITableView+FDTemplateLayoutCell/UITableView_FDTemplateLayoutCell.framework"; sourceTree = "<group>"; };
+		01910F641DE2D37E0019E541 /* PFPasswordGenerator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PFPasswordGenerator.h; path = Utils/PFPasswordGenerator.h; sourceTree = "<group>"; };
+		01910F651DE2D37E0019E541 /* PFPasswordGenerator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PFPasswordGenerator.m; path = Utils/PFPasswordGenerator.m; sourceTree = "<group>"; };
 		01A8B97D1DB0AE8D00D87FCF /* PFDBManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PFDBManager.h; path = Models/PFDBManager.h; sourceTree = "<group>"; };
 		01A8B97E1DB0AE8D00D87FCF /* PFDBManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PFDBManager.m; path = Models/PFDBManager.m; sourceTree = "<group>"; };
 		01A8B9801DB0AE9E00D87FCF /* PFAccountManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PFAccountManager.h; path = Models/PFAccountManager.h; sourceTree = "<group>"; };
@@ -424,6 +427,8 @@
 				017915251DBF617A006FA552 /* PFAppLock.m */,
 				010001271DC9F48B0038AD85 /* PFStringUtil.h */,
 				010001281DC9F48B0038AD85 /* PFStringUtil.m */,
+				01910F641DE2D37E0019E541 /* PFPasswordGenerator.h */,
+				01910F651DE2D37E0019E541 /* PFPasswordGenerator.m */,
 			);
 			name = Utils;
 			sourceTree = "<group>";
@@ -934,6 +939,7 @@
 				017C96A11DDEEC7A0030272F /* EXTCoroutine.h in Sources */,
 				017C96A21DDEEC7A0030272F /* EXTKeyPathCoding.h in Sources */,
 				017C96A31DDEEC7A0030272F /* EXTNil.h in Sources */,
+				01910F661DE2D37E0019E541 /* PFPasswordGenerator.m in Sources */,
 				017C96A41DDEEC7A0030272F /* EXTNil.m in Sources */,
 				017C96A51DDEEC7A0030272F /* extobjc.h in Sources */,
 				017C96A61DDEEC7A0030272F /* extobjc_Prefix.pch in Sources */,
