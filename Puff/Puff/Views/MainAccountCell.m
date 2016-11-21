@@ -84,6 +84,9 @@
         [ud setObject:[result objectForKey:kResultPassword] forKey:kTodayPassword];
         [ud setObject:[result objectForKey:kResultAdditional] forKey:kTodayAdditional];
         [ud synchronize];
+        if (_delegate) {
+            [_delegate mainAccountCell:self didPinedAccount:_account];
+        }
     }];
 }
 

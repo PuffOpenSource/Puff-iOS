@@ -114,6 +114,7 @@
 		017C96D21DDEEC7A0030272F /* PFStringUtil.m in Sources */ = {isa = PBXBuildFile; fileRef = 010001281DC9F48B0038AD85 /* PFStringUtil.m */; };
 		017C96D31DDEF25A0030272F /* Constants.h in Sources */ = {isa = PBXBuildFile; fileRef = 010CFB311DB4B3A800FEE5DE /* Constants.h */; };
 		01910F661DE2D37E0019E541 /* PFPasswordGenerator.m in Sources */ = {isa = PBXBuildFile; fileRef = 01910F651DE2D37E0019E541 /* PFPasswordGenerator.m */; };
+		01910F671DE2FE5E0019E541 /* Assets.xcassets in Sources */ = {isa = PBXBuildFile; fileRef = 010CFB391DB4B9B500FEE5DE /* Assets.xcassets */; };
 		01D3AF891DB3C99800EE5CA1 /* MasterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 01D3AF881DB3C99800EE5CA1 /* MasterViewController.m */; };
 		44075CED77D58170C20A4992 /* Pods_Puff.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6B7D49088F66C933BBF2413A /* Pods_Puff.framework */; };
 		89E2CCAF769F204ABA3660E7 /* Pods_PuffExtensionKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4A8ACECC80B15E78B49B8CD2 /* Pods_PuffExtensionKit.framework */; };
@@ -998,6 +999,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				01910F671DE2FE5E0019E541 /* Assets.xcassets in Sources */,
 				017C95F51DDEE2F70030272F /* TodayViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

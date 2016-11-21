@@ -16,6 +16,7 @@ static NSString * const kMainAccountCellReuseId         = @"kMainAccountCellReus
 @protocol MainAccountCellDelegate <NSObject>
 @required
 - (void)mainAccountCell:(MainAccountCell*)cell didTapOnViewButton:(PFAccount*) account;
+- (void)mainAccountCell:(MainAccountCell*)cell didPinedAccount:(PFAccount*)account;
 
 @end
 

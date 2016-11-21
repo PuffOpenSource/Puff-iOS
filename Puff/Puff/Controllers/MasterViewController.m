@@ -12,6 +12,7 @@
 #import "AppDelegate.h"
 
 #import <MaterialControls/MDButton.h>
+#import <MaterialControls/MDSnackbar.h>
 #import <MMDrawerController/UIViewController+MMDrawerController.h>
 
 #import "PFBlowfish.h"
@@ -182,6 +183,11 @@
         PFAccountDetailViewController *vc = [PFAccountDetailViewController viewControllerFromStoryboardWithAccount:account andInfo:result];
         [self presentViewController:vc animated:YES completion:nil];
     }];
+}
+
+- (void)mainAccountCell:(MainAccountCell *)cell didPinedAccount:(PFAccount *)account {
+    MDSnackbar *snack = [[MDSnackbar alloc] initWithText:NSLocalizedString(@"Pinned to Today Widget.", nil) actionTitle:@""];
+    [snack show];
 }
 
 #pragma mark - PFSpinnerDelegate
