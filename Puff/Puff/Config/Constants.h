@@ -31,6 +31,7 @@ static NSString * const     kPFNewInstall                   = @"kPFNewInstall";
 
 //String Constants
 static NSString * const kUserDefaultGroup       =   @"group.bob.sun.leela";
+static NSString * const kTodayNewData           = @"bob.sun.leela.today.newdata";
 static NSString * const kTodayAccount           =   @"bob.sun.leela.today.accout";
 static NSString * const kTodayPassword           =   @"bob.sun.leela.today.password";
 static NSString * const kTodayAdditional           =   @"bob.sun.leela.today.additional";

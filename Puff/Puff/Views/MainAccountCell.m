@@ -79,6 +79,7 @@
 - (IBAction)didTapOnPinButton:(id)sender {
     [_account decrypt:^(NSError * _Nullable error, NSDictionary * _Nullable result) {
         NSUserDefaults *ud = [[NSUserDefaults alloc] initWithSuiteName:kUserDefaultGroup];
+        [ud setBool:YES forKey:kTodayNewData];
         [ud setObject:[result objectForKey:kResultAccount] forKey:kTodayAccount];
         [ud setObject:[result objectForKey:kResultPassword] forKey:kTodayPassword];
         [ud setObject:[result objectForKey:kResultAdditional] forKey:kTodayAdditional];
