@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="11542" systemVersion="16B2555" minimumToolsVersion="Automatic" sourceLanguage="Objective-C" userDefinedModelVersionIdentifier="">
-    <entity name="PFAccount" representedClassName="_PFAccount" codeGenerationType="class">
+    <entity name="PFAccount" representedClassName="_PFAccount">
         <attribute name="account" optional="YES" attributeType="String">
             <userInfo/>
         </attribute>
@@ -18,13 +18,13 @@
         <attribute name="website" optional="YES" attributeType="String" syncable="YES"/>
         <userInfo/>
     </entity>
-    <entity name="PFCategory" representedClassName="_PFCategory" syncable="YES" codeGenerationType="class">
+    <entity name="PFCategory" representedClassName="_PFCategory" syncable="YES">
         <attribute name="icon" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="identifier" optional="YES" attributeType="Integer 64" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
         <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="type" optional="YES" attributeType="Integer 64" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
     </entity>
-    <entity name="PFType" representedClassName="_PFType" syncable="YES" codeGenerationType="class">
+    <entity name="PFType" representedClassName="_PFType" syncable="YES">
         <attribute name="category" optional="YES" attributeType="Integer 64" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
         <attribute name="icon" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="identifier" optional="YES" attributeType="Integer 64" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>

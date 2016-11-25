@@ -7,6 +7,18 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0101A9011DE80A9E009F5F90 /* _PFAccount+CoreDataClass.m in Sources */ = {isa = PBXBuildFile; fileRef = 0101A8F61DE80A9E009F5F90 /* _PFAccount+CoreDataClass.m */; };
+		0101A9021DE80A9E009F5F90 /* _PFAccount+CoreDataClass.m in Sources */ = {isa = PBXBuildFile; fileRef = 0101A8F61DE80A9E009F5F90 /* _PFAccount+CoreDataClass.m */; };
+		0101A9031DE80A9E009F5F90 /* _PFAccount+CoreDataProperties.m in Sources */ = {isa = PBXBuildFile; fileRef = 0101A8F81DE80A9E009F5F90 /* _PFAccount+CoreDataProperties.m */; };
+		0101A9041DE80A9E009F5F90 /* _PFAccount+CoreDataProperties.m in Sources */ = {isa = PBXBuildFile; fileRef = 0101A8F81DE80A9E009F5F90 /* _PFAccount+CoreDataProperties.m */; };
+		0101A9051DE80A9E009F5F90 /* _PFCategory+CoreDataClass.m in Sources */ = {isa = PBXBuildFile; fileRef = 0101A8FA1DE80A9E009F5F90 /* _PFCategory+CoreDataClass.m */; };
+		0101A9061DE80A9E009F5F90 /* _PFCategory+CoreDataClass.m in Sources */ = {isa = PBXBuildFile; fileRef = 0101A8FA1DE80A9E009F5F90 /* _PFCategory+CoreDataClass.m */; };
+		0101A9071DE80A9E009F5F90 /* _PFCategory+CoreDataProperties.m in Sources */ = {isa = PBXBuildFile; fileRef = 0101A8FC1DE80A9E009F5F90 /* _PFCategory+CoreDataProperties.m */; };
+		0101A9081DE80A9E009F5F90 /* _PFCategory+CoreDataProperties.m in Sources */ = {isa = PBXBuildFile; fileRef = 0101A8FC1DE80A9E009F5F90 /* _PFCategory+CoreDataProperties.m */; };
+		0101A9091DE80A9E009F5F90 /* _PFType+CoreDataClass.m in Sources */ = {isa = PBXBuildFile; fileRef = 0101A8FE1DE80A9E009F5F90 /* _PFType+CoreDataClass.m */; };
+		0101A90A1DE80A9E009F5F90 /* _PFType+CoreDataClass.m in Sources */ = {isa = PBXBuildFile; fileRef = 0101A8FE1DE80A9E009F5F90 /* _PFType+CoreDataClass.m */; };
+		0101A90B1DE80A9E009F5F90 /* _PFType+CoreDataProperties.m in Sources */ = {isa = PBXBuildFile; fileRef = 0101A9001DE80A9E009F5F90 /* _PFType+CoreDataProperties.m */; };
+		0101A90C1DE80A9E009F5F90 /* _PFType+CoreDataProperties.m in Sources */ = {isa = PBXBuildFile; fileRef = 0101A9001DE80A9E009F5F90 /* _PFType+CoreDataProperties.m */; };
 		010CFB3A1DB4B9B500FEE5DE /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 010CFB391DB4B9B500FEE5DE /* Assets.xcassets */; };
 		010CFC2C1DB4C03A00FEE5DE /* cats in Resources */ = {isa = PBXBuildFile; fileRef = 010CFC2B1DB4C03A00FEE5DE /* cats */; };
 		011536F11D8932CC00C98268 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 011536F01D8932CC00C98268 /* main.m */; };
@@ -173,6 +185,18 @@
 /* Begin PBXFileReference section */
 		010001271DC9F48B0038AD85 /* PFStringUtil.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PFStringUtil.h; path = Utils/PFStringUtil.h; sourceTree = "<group>"; };
 		010001281DC9F48B0038AD85 /* PFStringUtil.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PFStringUtil.m; path = Utils/PFStringUtil.m; sourceTree = "<group>"; };
+		0101A8F51DE80A9E009F5F90 /* _PFAccount+CoreDataClass.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "_PFAccount+CoreDataClass.h"; path = "Models/Private/_PFAccount+CoreDataClass.h"; sourceTree = "<group>"; };
+		0101A8F61DE80A9E009F5F90 /* _PFAccount+CoreDataClass.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "_PFAccount+CoreDataClass.m"; path = "Models/Private/_PFAccount+CoreDataClass.m"; sourceTree = "<group>"; };
+		0101A8F71DE80A9E009F5F90 /* _PFAccount+CoreDataProperties.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "_PFAccount+CoreDataProperties.h"; path = "Models/Private/_PFAccount+CoreDataProperties.h"; sourceTree = "<group>"; };
+		0101A8F81DE80A9E009F5F90 /* _PFAccount+CoreDataProperties.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "_PFAccount+CoreDataProperties.m"; path = "Models/Private/_PFAccount+CoreDataProperties.m"; sourceTree = "<group>"; };
+		0101A8F91DE80A9E009F5F90 /* _PFCategory+CoreDataClass.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "_PFCategory+CoreDataClass.h"; path = "Models/Private/_PFCategory+CoreDataClass.h"; sourceTree = "<group>"; };
+		0101A8FA1DE80A9E009F5F90 /* _PFCategory+CoreDataClass.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "_PFCategory+CoreDataClass.m"; path = "Models/Private/_PFCategory+CoreDataClass.m"; sourceTree = "<group>"; };
+		0101A8FB1DE80A9E009F5F90 /* _PFCategory+CoreDataProperties.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "_PFCategory+CoreDataProperties.h"; path = "Models/Private/_PFCategory+CoreDataProperties.h"; sourceTree = "<group>"; };
+		0101A8FC1DE80A9E009F5F90 /* _PFCategory+CoreDataProperties.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "_PFCategory+CoreDataProperties.m"; path = "Models/Private/_PFCategory+CoreDataProperties.m"; sourceTree = "<group>"; };
+		0101A8FD1DE80A9E009F5F90 /* _PFType+CoreDataClass.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "_PFType+CoreDataClass.h"; path = "Models/Private/_PFType+CoreDataClass.h"; sourceTree = "<group>"; };
+		0101A8FE1DE80A9E009F5F90 /* _PFType+CoreDataClass.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "_PFType+CoreDataClass.m"; path = "Models/Private/_PFType+CoreDataClass.m"; sourceTree = "<group>"; };
+		0101A8FF1DE80A9E009F5F90 /* _PFType+CoreDataProperties.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "_PFType+CoreDataProperties.h"; path = "Models/Private/_PFType+CoreDataProperties.h"; sourceTree = "<group>"; };
+		0101A9001DE80A9E009F5F90 /* _PFType+CoreDataProperties.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "_PFType+CoreDataProperties.m"; path = "Models/Private/_PFType+CoreDataProperties.m"; sourceTree = "<group>"; };
 		0106949A1DBCB87D00A15D4D /* PFCardView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PFCardView.h; path = Views/PFCardView.h; sourceTree = "<group>"; };
 		0106949B1DBCB87D00A15D4D /* PFCardView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PFCardView.m; path = Views/PFCardView.m; sourceTree = "<group>"; };
 		010CFB311DB4B3A800FEE5DE /* Constants.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Constants.h; path = Config/Constants.h; sourceTree = "<group>"; };
@@ -344,6 +368,25 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		0101A8C41DE808D0009F5F90 /* Private */ = {
+			isa = PBXGroup;
+			children = (
+				0101A8F51DE80A9E009F5F90 /* _PFAccount+CoreDataClass.h */,
+				0101A8F61DE80A9E009F5F90 /* _PFAccount+CoreDataClass.m */,
+				0101A8F71DE80A9E009F5F90 /* _PFAccount+CoreDataProperties.h */,
+				0101A8F81DE80A9E009F5F90 /* _PFAccount+CoreDataProperties.m */,
+				0101A8F91DE80A9E009F5F90 /* _PFCategory+CoreDataClass.h */,
+				0101A8FA1DE80A9E009F5F90 /* _PFCategory+CoreDataClass.m */,
+				0101A8FB1DE80A9E009F5F90 /* _PFCategory+CoreDataProperties.h */,
+				0101A8FC1DE80A9E009F5F90 /* _PFCategory+CoreDataProperties.m */,
+				0101A8FD1DE80A9E009F5F90 /* _PFType+CoreDataClass.h */,
+				0101A8FE1DE80A9E009F5F90 /* _PFType+CoreDataClass.m */,
+				0101A8FF1DE80A9E009F5F90 /* _PFType+CoreDataProperties.h */,
+				0101A9001DE80A9E009F5F90 /* _PFType+CoreDataProperties.m */,
+			);
+			name = Private;
+			sourceTree = "<group>";
+		};
 		011536E31D8932CC00C98268 = {
 			isa = PBXGroup;
 			children = (
@@ -543,6 +586,7 @@
 		01A8B97C1DB0AE4300D87FCF /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				0101A8C41DE808D0009F5F90 /* Private */,
 				011536F51D8932CC00C98268 /* Puff.xcdatamodeld */,
 				01A8B97D1DB0AE8D00D87FCF /* PFDBManager.h */,
 				01A8B97E1DB0AE8D00D87FCF /* PFDBManager.m */,
@@ -911,8 +955,10 @@
 				017C96831DDEEC7A0030272F /* Config.h in Sources */,
 				017C96851DDEEC7A0030272F /* PFDrawerCell.h in Sources */,
 				017C96861DDEEC7A0030272F /* PFDrawerCell.m in Sources */,
+				0101A9031DE80A9E009F5F90 /* _PFAccount+CoreDataProperties.m in Sources */,
 				017C96871DDEEC7A0030272F /* MainAccountCell.h in Sources */,
 				017C96881DDEEC7A0030272F /* MainAccountCell.m in Sources */,
+				0101A9051DE80A9E009F5F90 /* _PFCategory+CoreDataClass.m in Sources */,
 				017C96891DDEEC7A0030272F /* PFCardView.h in Sources */,
 				017C968A1DDEEC7A0030272F /* PFCardView.m in Sources */,
 				017C968B1DDEEC7A0030272F /* PFSpinner.h in Sources */,
@@ -932,6 +978,7 @@
 				017C96991DDEEC7A0030272F /* PFCategoryManager.h in Sources */,
 				017C969A1DDEEC7A0030272F /* PFCategoryManager.m in Sources */,
 				017C969B1DDEEC7A0030272F /* PFTypeManager.h in Sources */,
+				0101A9071DE80A9E009F5F90 /* _PFCategory+CoreDataProperties.m in Sources */,
 				017C969C1DDEEC7A0030272F /* PFTypeManager.m in Sources */,
 				017C969D1DDEEC7A0030272F /* EXTADT.h in Sources */,
 				017C969E1DDEEC7A0030272F /* EXTADT.m in Sources */,
@@ -944,12 +991,14 @@
 				017C96A41DDEEC7A0030272F /* EXTNil.m in Sources */,
 				017C96A51DDEEC7A0030272F /* extobjc.h in Sources */,
 				017C96A61DDEEC7A0030272F /* extobjc_Prefix.pch in Sources */,
+				0101A9091DE80A9E009F5F90 /* _PFType+CoreDataClass.m in Sources */,
 				017C96A71DDEEC7A0030272F /* EXTRuntimeExtensions.h in Sources */,
 				017C96A81DDEEC7A0030272F /* EXTRuntimeExtensions.m in Sources */,
 				017C96A91DDEEC7A0030272F /* EXTSafeCategory.h in Sources */,
 				017C96AA1DDEEC7A0030272F /* EXTSafeCategory.m in Sources */,
 				017C96AB1DDEEC7A0030272F /* EXTScope.h in Sources */,
 				017C96AC1DDEEC7A0030272F /* EXTScope.m in Sources */,
+				0101A9011DE80A9E009F5F90 /* _PFAccount+CoreDataClass.m in Sources */,
 				017C96AD1DDEEC7A0030272F /* EXTSelectorChecking.h in Sources */,
 				017C96AE1DDEEC7A0030272F /* EXTSelectorChecking.m in Sources */,
 				017C96AF1DDEEC7A0030272F /* EXTSynthesize.h in Sources */,
@@ -968,6 +1017,7 @@
 				017C96BC1DDEEC7A0030272F /* PFSetMasterPasswordViewController.m in Sources */,
 				017C96BD1DDEEC7A0030272F /* PFQuickPasswordViewController.h in Sources */,
 				017C96BE1DDEEC7A0030272F /* PFQuickPasswordViewController.m in Sources */,
+				0101A90B1DE80A9E009F5F90 /* _PFType+CoreDataProperties.m in Sources */,
 				017C96BF1DDEEC7A0030272F /* PFSettingsViewController.h in Sources */,
 				017C96C01DDEEC7A0030272F /* PFSettingsViewController.m in Sources */,
 				017C96C11DDEEC7A0030272F /* PFPasswordGenViewController.h in Sources */,
@@ -1009,6 +1059,12 @@
 			buildActionMask = 2147483647;
 			files = (
 				017C960A1DDEE3C20030272F /* ActionViewController.m in Sources */,
+				0101A90A1DE80A9E009F5F90 /* _PFType+CoreDataClass.m in Sources */,
+				0101A9081DE80A9E009F5F90 /* _PFCategory+CoreDataProperties.m in Sources */,
+				0101A9061DE80A9E009F5F90 /* _PFCategory+CoreDataClass.m in Sources */,
+				0101A90C1DE80A9E009F5F90 /* _PFType+CoreDataProperties.m in Sources */,
+				0101A9021DE80A9E009F5F90 /* _PFAccount+CoreDataClass.m in Sources */,
+				0101A9041DE80A9E009F5F90 /* _PFAccount+CoreDataProperties.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

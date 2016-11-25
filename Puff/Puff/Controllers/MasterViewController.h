@@ -8,7 +8,6 @@
 
 #import <UIKit/UIKit.h>
 #import <CoreData/CoreData.h>
-#import "Puff+CoreDataModel.h"
 #import "_PFAccount+CoreDataClass.h"
 
 //#import <MMDrawerController/MMDrawerController.h>
