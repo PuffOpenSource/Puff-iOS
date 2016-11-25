@@ -8,6 +8,11 @@
 
 #import <UIKit/UIKit.h>
 
+@class PFAccount;
 @interface ActionViewController : UIViewController
 
+@end
+
+@interface PFExtAccoutnCell : UITableViewCell
+- (void)configWithAccount:(PFAccount*)act;
 @end

@@ -9,9 +9,9 @@
 #import <Foundation/Foundation.h>
 #import <CoreData/CoreData.h>
 
-static NSString *  const coreDataDBName              =       @"Puff";
+static NSString *  const coreDataDBName              =       @"Puff.sqlite";
 
 @interface PFDBManager : NSObject
+@property (strong, readonly) NSManagedObjectContext *context;
 + (instancetype)sharedManager;
-- (NSManagedObjectContext*) context;
 @end

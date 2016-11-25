@@ -9,7 +9,6 @@
 #import "PFDBManager.h"
 
 @interface PFDBManager()
-@property (strong) NSPersistentContainer* persistentContainer;
 @end
 
 @implementation PFDBManager
@@ -26,18 +25,18 @@
 - (instancetype)init {
     self = [super init];
     if (self) {
-        _persistentContainer = [[NSPersistentContainer alloc] initWithName:coreDataDBName];
-        [_persistentContainer loadPersistentStoresWithCompletionHandler:^(NSPersistentStoreDescription * _Nonnull desc, NSError * _Nullable err) {
-            if (err) {
-                
-            }
-        }];
+        NSURL *containerURL = [[NSFileManager defaultManager] containerURLForSecurityApplicationGroupIdentifier:@"group.bob.sun.leela"];
+        containerURL = [containerURL URLByAppendingPathComponent:coreDataDBName];
+        
+        NSManagedObjectModel *model = [[NSManagedObjectModel alloc] initWithContentsOfURL: [[NSBundle bundleWithIdentifier:@"bob.sun.leela.PuffExtensionKit"] URLForResource:@"Puff" withExtension:@"momd"]];
+        
+        NSPersistentStoreCoordinator *coordinator = [[NSPersistentStoreCoordinator alloc] initWithManagedObjectModel:model];
+        [coordinator addPersistentStoreWithType:NSSQLiteStoreType configuration:nil URL:containerURL options:nil error:nil];
+        
+        _context = [[NSManagedObjectContext alloc] initWithConcurrencyType:NSMainQueueConcurrencyType];
+        _context.persistentStoreCoordinator = coordinator;
     }
     return self;
-}
-
-- (NSManagedObjectContext*) context {
-    return _persistentContainer.viewContext;
 }
 
 @end

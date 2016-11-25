@@ -10,13 +10,15 @@
 #import <MobileCoreServices/MobileCoreServices.h>
 #import <LocalAuthentication/LocalAuthentication.h>
 
-//
-//#import "PFAccountManager.h"
 
-@interface ActionViewController ()
+#import "PFAccountManager.h"
 
-@property(strong,nonatomic) IBOutlet UIImageView *imageView;
-//@property(strong, nonatomic) NSArray<PFAccount*> *accounts;
+static NSString * const kPFExtActCellReuseId        =   @"kPFExtActCellReuseId";
+
+@interface ActionViewController () <UITableViewDelegate, UITableViewDataSource>
+
+@property (weak, nonatomic) IBOutlet UITableView *tableView;
+@property(strong, nonatomic) NSArray<PFAccount*> *accounts;
 @end
 
 @implementation ActionViewController
@@ -26,38 +28,11 @@
     
     
     
-//    _accounts = [[PFAccountManager sharedManager] fetchAll];
+    _accounts = [[PFAccountManager sharedManager] fetchAll];
+    
+    NSLog(@"Fetched accounts count %lu", (unsigned long)_accounts.count);
     
     [self _authorizeWithTouchId];
-    
-    // Get the item[s] we're handling from the extension context.
-    
-    // For example, look for an image and place it into an image view.
-    // Replace this with something appropriate for the type[s] your extension supports.
-    BOOL imageFound = NO;
-    for (NSExtensionItem *item in self.extensionContext.inputItems) {
-        for (NSItemProvider *itemProvider in item.attachments) {
-            if ([itemProvider hasItemConformingToTypeIdentifier:(NSString *)kUTTypeImage]) {
-                // This is an image. We'll load it, then place it in our image view.
-                __weak UIImageView *imageView = self.imageView;
-                [itemProvider loadItemForTypeIdentifier:(NSString *)kUTTypeImage options:nil completionHandler:^(UIImage *image, NSError *error) {
-                    if(image) {
-                        [[NSOperationQueue mainQueue] addOperationWithBlock:^{
-                            [imageView setImage:image];
-                        }];
-                    }
-                }];
-                
-                imageFound = YES;
-                break;
-            }
-        }
-        
-        if (imageFound) {
-            // We only handle one image, so stop looking for more.
-            break;
-        }
-    }
 }
 
 - (void)didReceiveMemoryWarning {
@@ -71,13 +46,30 @@
     [self.extensionContext completeRequestReturningItems:self.extensionContext.inputItems completionHandler:nil];
 }
 
+#pragma mark UITableViewDataSource
+- (UITableViewCell*)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
+    PFAccount *act = [_accounts objectAtIndex:indexPath.row];
+    PFExtAccoutnCell *ret = [tableView dequeueReusableCellWithIdentifier:kPFExtActCellReuseId forIndexPath:indexPath];
+    [ret configWithAccount:act];
+    return ret;
+}
+
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
+    return _accounts.count;
+}
+
+#pragma mark - UITableViewDelegate
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
+    return 60;
+}
+
 - (void)_authorizeWithTouchId {
     LAContext *ctx = [[LAContext alloc] init];
     if ([self _hasTouchID]) {
         [ctx evaluatePolicy:LAPolicyDeviceOwnerAuthenticationWithBiometrics localizedReason:NSLocalizedString(@"Unlock with Touch ID", nil) reply:^(BOOL success, NSError * _Nullable error) {
             dispatch_async(dispatch_get_main_queue(), ^{
                 if (success) {
-                    
+                    [self.tableView reloadData];
                 }
                 if (error) {
                     if (error.code == LAErrorUserFallback) {
@@ -95,6 +87,23 @@
     LAContext *ctx = [[LAContext alloc] init];
     NSError *err;
     return [ctx canEvaluatePolicy:LAPolicyDeviceOwnerAuthenticationWithBiometrics error:&err];
+}
+
+@end
+
+@interface PFExtAccoutnCell()
+@property (weak, nonatomic) IBOutlet UILabel *nameLabel;
+
+@end
+
+@implementation PFExtAccoutnCell
+
+- (void)awakeFromNib {
+    [super awakeFromNib];
+}
+
+- (void)configWithAccount:(PFAccount*)act {
+    self.nameLabel.text = act.masked_account;
 }
 
 @end
