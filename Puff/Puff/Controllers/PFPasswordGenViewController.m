@@ -7,14 +7,22 @@
 //
 
 #import "PFPasswordGenViewController.h"
+
+#import <MaterialControls/MDTextField.h>
+
 #import "PFResUtil.h"
 
 @interface PFPasswordGenViewController () <UIScrollViewDelegate>
+
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *scrollViewButtom;
+@property (strong, nonatomic) IBOutletCollection(NSLayoutConstraint) NSArray<NSLayoutConstraint*> *viewCenters;
+
 @property (weak, nonatomic) IBOutlet UIPageControl *pageControl;
 @property (weak, nonatomic) IBOutlet UIScrollView *scrollview;
 @property (weak, nonatomic) IBOutlet UIButton *closeButton;
 @property (weak, nonatomic) IBOutlet UIButton *prevButton;
 @property (weak, nonatomic) IBOutlet UIButton *nextButton;
+@property (weak, nonatomic) IBOutlet MDTextField *lengthField;
 
 @property (assign, nonatomic) NSInteger currentPage;
 
@@ -33,6 +41,11 @@
     _currentPage = 0;
     _pageControl.numberOfPages = 3;
     _pageControl.currentPage = _currentPage;
+    
+    
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(_keyboardWillShow:) name:UIKeyboardWillShowNotification object:nil];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(_keyboardWillHide:) name:UIKeyboardWillHideNotification object:nil];
+    
 }
 
 - (void)didReceiveMemoryWarning {
@@ -50,10 +63,12 @@
 
 #pragma mark - IBActions
 - (IBAction)didTapOnClose:(id)sender {
+    [self setEditing:NO];
     [self dismissViewControllerAnimated:YES completion:nil];
 }
 
 - (IBAction)didTapOnPrev:(id)sender {
+    [self setEditing:NO];
     if (_currentPage == 0) {
         [PFResUtil shakeItBaby:sender withCompletion:nil];
         return;
@@ -66,6 +81,7 @@
     
 }
 - (IBAction)didTapOnNext:(id)sender {
+    [self setEditing:NO];
     if (_currentPage == 2) {
         [PFResUtil shakeItBaby:sender withCompletion:nil];
         return;
@@ -74,8 +90,25 @@
     _pageControl.currentPage = _currentPage;
     CGFloat width = _scrollview.frame.size.width;
     CGFloat height = _scrollview.frame.size.height;
-    
     [_scrollview scrollRectToVisible:CGRectMake(width * _currentPage, 0, width, height) animated:YES];
+}
+
+#pragma mark - Keyboard
+- (void)_keyboardWillShow:(NSNotification*)notification {
+    NSDictionary *info = [notification userInfo];
+    CGSize kbSize = [[info objectForKey:UIKeyboardFrameEndUserInfoKey] CGRectValue].size;
+    _viewCenters[_currentPage].constant -= kbSize.height;
+    [UIView animateWithDuration:0.5 animations:^{
+        [self.view layoutIfNeeded];
+    }];
+}
+- (void)_keyboardWillHide:(NSNotification*)notification {
+    NSDictionary *info = [notification userInfo];
+    CGSize kbSize = [[info objectForKey:UIKeyboardFrameEndUserInfoKey] CGRectValue].size;
+    _viewCenters[_currentPage].constant = 0;
+    [UIView animateWithDuration:0.5 animations:^{
+        [self.view layoutIfNeeded];
+    }];
 }
 
 /*

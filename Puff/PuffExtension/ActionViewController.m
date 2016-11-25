@@ -8,17 +8,27 @@
 
 #import "ActionViewController.h"
 #import <MobileCoreServices/MobileCoreServices.h>
+#import <LocalAuthentication/LocalAuthentication.h>
+
+//
+//#import "PFAccountManager.h"
 
 @interface ActionViewController ()
 
 @property(strong,nonatomic) IBOutlet UIImageView *imageView;
-
+//@property(strong, nonatomic) NSArray<PFAccount*> *accounts;
 @end
 
 @implementation ActionViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    
+    
+    
+//    _accounts = [[PFAccountManager sharedManager] fetchAll];
+    
+    [self _authorizeWithTouchId];
     
     // Get the item[s] we're handling from the extension context.
     
@@ -59,6 +69,32 @@
     // Return any edited content to the host app.
     // This template doesn't do anything, so we just echo the passed in items.
     [self.extensionContext completeRequestReturningItems:self.extensionContext.inputItems completionHandler:nil];
+}
+
+- (void)_authorizeWithTouchId {
+    LAContext *ctx = [[LAContext alloc] init];
+    if ([self _hasTouchID]) {
+        [ctx evaluatePolicy:LAPolicyDeviceOwnerAuthenticationWithBiometrics localizedReason:NSLocalizedString(@"Unlock with Touch ID", nil) reply:^(BOOL success, NSError * _Nullable error) {
+            dispatch_async(dispatch_get_main_queue(), ^{
+                if (success) {
+                    
+                }
+                if (error) {
+                    if (error.code == LAErrorUserFallback) {
+                        
+                    } else {
+                        
+                    }
+                }
+            });
+        }];
+    }
+}
+
+- (BOOL)_hasTouchID {
+    LAContext *ctx = [[LAContext alloc] init];
+    NSError *err;
+    return [ctx canEvaluatePolicy:LAPolicyDeviceOwnerAuthenticationWithBiometrics error:&err];
 }
 
 @end
