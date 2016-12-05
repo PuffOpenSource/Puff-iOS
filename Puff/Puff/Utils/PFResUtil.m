@@ -10,13 +10,11 @@
 
 @implementation PFResUtil
 + (NSString*)imagePathForName:(NSString*)name {
-    NSString *libPath = [NSSearchPathForDirectoriesInDomains(
-                                                             NSLibraryDirectory, NSUserDomainMask, YES) objectAtIndex:0];
-    libPath = [libPath stringByAppendingString:@"/cats"];
-    return [libPath stringByAppendingString:name];
+    NSURL *libURL = [[[NSFileManager defaultManager] containerURLForSecurityApplicationGroupIdentifier:@"group.bob.sun.leela"] URLByAppendingPathComponent:@"cats" isDirectory:NO];
+    return [[libURL URLByAppendingPathComponent:name] absoluteString];
 }
 + (UIImage*)imageForName:(NSString*)name {
-    NSData *data = [NSData dataWithContentsOfURL:[NSURL fileURLWithPath: [self imagePathForName: name] isDirectory:NO]];
+    NSData *data = [NSData dataWithContentsOfURL:[NSURL URLWithString: [self imagePathForName: name]]];
     UIImage *img = [UIImage imageWithData:data];
     return img;
 }
@@ -25,9 +23,14 @@
 + (NSString*)saveImage:(UIImage*)image {
     NSString *path = [[[NSUUID UUID] UUIDString] stringByAppendingString:@".png"];
     path = [@"/" stringByAppendingString:path];
-    NSString *libPath = [NSSearchPathForDirectoriesInDomains(NSLibraryDirectory, NSUserDomainMask, YES) objectAtIndex:0];
-    libPath = [libPath stringByAppendingString:@"/cats"];
-    [UIImagePNGRepresentation(image) writeToFile:[libPath stringByAppendingString:path] atomically:YES];
+
+    
+    NSURL *libURL = [[[[NSFileManager defaultManager] containerURLForSecurityApplicationGroupIdentifier:@"group.bob.sun.leela"]
+                      URLByAppendingPathComponent:@"cats" isDirectory:YES]
+                     URLByAppendingPathComponent:path];
+    
+    [UIImagePNGRepresentation(image) writeToURL:libURL atomically:YES];
+
     return path;
 }
 

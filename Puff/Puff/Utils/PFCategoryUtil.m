@@ -114,9 +114,10 @@
     NSURL *typeFolderUrl = nil;
     
     for (int i = 0; i < self.catNames.count; i++) {
-        typeFolderUrl = [NSURL fileURLWithPath:
-                                                 [_libPath stringByAppendingString:self.catNames[i]]
-                                   isDirectory: YES];
+//        typeFolderUrl = [NSURL fileURLWithPath:
+//                                                 [_libPath stringByAppendingString:self.catNames[i]]
+//                                   isDirectory: YES];
+        typeFolderUrl = [[NSURL URLWithString:_libPath] URLByAppendingPathComponent:self.catNames[i] isDirectory:YES];
         
         [self _loopFolderAddType:typeFolderUrl andCategoryId:[self.catIds[i] longLongValue]];
     }
@@ -145,7 +146,7 @@
 }
 
 - (void) _initNames {
-    self.catNames = @[@"/cat_cards", @"/cat_computers", @"/cat_device", @"/cat_entry", @"/cat_mail", @"/cat_social", @"/cat_website"];
+    self.catNames = @[@"cat_cards", @"cat_computers", @"cat_device", @"cat_entry", @"cat_mail", @"cat_social", @"cat_website"];
     self.catIds = @[@(catIdCards), @(catIdComputers), @(catIdDevices), @(catIdEntry), @(catIdMail), @(catIdSocial), @(catIdWebsite)];
     
 }
@@ -156,10 +157,11 @@
     libPath = [libPath stringByAppendingString:@"/cats"];
     NSError *err;
     NSString *resPath = [[NSBundle bundleForClass:self.class] pathForResource:kAssetsFolder ofType:nil];
-    
+    NSURL *resURL = [NSURL fileURLWithPath:resPath isDirectory:YES];
+    NSURL *libURL = [[[NSFileManager defaultManager] containerURLForSecurityApplicationGroupIdentifier:@"group.bob.sun.leela"] URLByAppendingPathComponent:@"cats" isDirectory:YES];
     NSFileManager *fm = [NSFileManager defaultManager];
-    [fm copyItemAtPath:resPath toPath:libPath error:&err];
-    _libPath = libPath;
+    [fm copyItemAtURL:resURL toURL:libURL error:&err];
+    _libPath = [libURL absoluteString];
 }
 
 @end
