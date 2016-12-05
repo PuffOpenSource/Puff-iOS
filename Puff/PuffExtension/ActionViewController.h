@@ -13,6 +13,15 @@
 
 @end
 
-@interface PFExtAccoutnCell : UITableViewCell
-- (void)configWithAccount:(PFAccount*)act;
+@protocol PFExtAccountCellDelegate <NSObject>
+
+@required
+- (void)didClickOnPin:(NSInteger)idx;
+- (void)didClickOnCopy:(NSInteger)idx;
+
+@end
+
+@interface PFExtAccountCell : UITableViewCell
+@property (weak, nonatomic) id<PFExtAccountCellDelegate> delegate;
+- (void)configWithAccount:(PFAccount*)act andIndex:(NSInteger)index;
 @end

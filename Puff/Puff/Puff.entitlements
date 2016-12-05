@@ -10,6 +10,7 @@
 	<array>
 		<string>$(AppIdentifierPrefix)bob.sun.leela</string>
 		<string>$(AppIdentifierPrefix)bob.sun.leela.today</string>
+		<string>$(AppIdentifierPrefix)bob.sun.leela.PuffExtension</string>
 	</array>
 </dict>
 </plist>

@@ -6,13 +6,14 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11524"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Image-->
+        <!--Action View Controller-->
         <scene sceneID="7MM-of-jgj">
             <objects>
-                <viewController title="Image" id="ObA-dk-sSI" customClass="ActionViewController" sceneMemberID="viewController">
+                <viewController id="ObA-dk-sSI" customClass="ActionViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="qkL-Od-lgU"/>
                         <viewControllerLayoutGuide type="bottom" id="n38-gi-rB5"/>
@@ -37,23 +38,65 @@
                                 <rect key="frame" x="0.0" y="64" width="320" height="464"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="kPFExtActCellReuseId" id="BVb-pw-d9t" customClass="PFExtAccoutnCell">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="kPFExtActCellReuseId" id="BVb-pw-d9t" customClass="PFExtAccountCell">
                                         <rect key="frame" x="0.0" y="28" width="320" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="BVb-pw-d9t" id="DRb-uO-Edo">
                                             <rect key="frame" x="0.0" y="0.0" width="320" height="43"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="D0o-3P-88m">
-                                                    <rect key="frame" x="0.0" y="11" width="312" height="21"/>
-                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="OCO-IH-Ffh">
+                                                    <rect key="frame" x="16" y="8.5" width="25" height="25"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" constant="25" id="88h-W1-t0v"/>
+                                                        <constraint firstAttribute="height" constant="25" id="JFF-6e-1FE"/>
+                                                    </constraints>
+                                                </imageView>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="D0o-3P-88m">
+                                                    <rect key="frame" x="49" y="11" width="197" height="21"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
+                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="90E-A5-CS8">
+                                                    <rect key="frame" x="285" y="9.5" width="25" height="25"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" constant="25" id="ER9-Q5-MWM"/>
+                                                        <constraint firstAttribute="height" constant="25" id="tEu-TM-Ohu"/>
+                                                    </constraints>
+                                                    <state key="normal" image="ic-copy"/>
+                                                    <connections>
+                                                        <action selector="didTapOnCopy:" destination="BVb-pw-d9t" eventType="touchUpInside" id="Y65-cx-bvx"/>
+                                                    </connections>
+                                                </button>
+                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hrQ-zI-1XQ">
+                                                    <rect key="frame" x="246" y="9.5" width="25" height="25"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="25" id="Fbe-cj-9GB"/>
+                                                        <constraint firstAttribute="width" constant="25" id="K4F-xg-mbK"/>
+                                                    </constraints>
+                                                    <state key="normal" image="ic-pin"/>
+                                                    <connections>
+                                                        <action selector="didTapOnPin:" destination="BVb-pw-d9t" eventType="touchUpInside" id="tPP-aM-pSF"/>
+                                                    </connections>
+                                                </button>
                                             </subviews>
+                                            <constraints>
+                                                <constraint firstItem="90E-A5-CS8" firstAttribute="leading" secondItem="hrQ-zI-1XQ" secondAttribute="trailing" constant="14" id="1lH-2c-1QN"/>
+                                                <constraint firstItem="hrQ-zI-1XQ" firstAttribute="leading" secondItem="D0o-3P-88m" secondAttribute="trailing" id="BDc-kd-DGE"/>
+                                                <constraint firstItem="hrQ-zI-1XQ" firstAttribute="centerY" secondItem="90E-A5-CS8" secondAttribute="centerY" id="FD6-MZ-lcB"/>
+                                                <constraint firstItem="OCO-IH-Ffh" firstAttribute="leading" secondItem="DRb-uO-Edo" secondAttribute="leadingMargin" constant="8" id="Kqj-08-Bi1"/>
+                                                <constraint firstItem="OCO-IH-Ffh" firstAttribute="centerY" secondItem="DRb-uO-Edo" secondAttribute="centerY" id="ZQ2-Ci-duK"/>
+                                                <constraint firstItem="D0o-3P-88m" firstAttribute="leading" secondItem="OCO-IH-Ffh" secondAttribute="trailing" constant="8" id="bIU-UJ-Sgh"/>
+                                                <constraint firstAttribute="trailingMargin" secondItem="90E-A5-CS8" secondAttribute="trailing" constant="2" id="f1b-Ga-amq"/>
+                                                <constraint firstItem="D0o-3P-88m" firstAttribute="centerY" secondItem="DRb-uO-Edo" secondAttribute="centerY" id="qMD-Ry-CXH"/>
+                                                <constraint firstItem="90E-A5-CS8" firstAttribute="centerY" secondItem="DRb-uO-Edo" secondAttribute="centerY" id="ubR-ni-QJg"/>
+                                            </constraints>
                                         </tableViewCellContentView>
                                         <connections>
+                                            <outlet property="btnCopy" destination="90E-A5-CS8" id="sq9-N4-Brn"/>
+                                            <outlet property="btnPin" destination="hrQ-zI-1XQ" id="Vhr-ol-8Xu"/>
+                                            <outlet property="icon" destination="OCO-IH-Ffh" id="5PQ-fD-ml8"/>
                                             <outlet property="nameLabel" destination="D0o-3P-88m" id="E5e-w7-j83"/>
                                         </connections>
                                     </tableViewCell>
@@ -84,7 +127,11 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="X47-rx-isc" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-275.19999999999999" y="48.575712143928037"/>
+            <point key="canvasLocation" x="-334.39999999999998" y="3.5982008995502253"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="ic-copy" width="25" height="25"/>
+        <image name="ic-pin" width="25" height="25"/>
+    </resources>
 </document>
