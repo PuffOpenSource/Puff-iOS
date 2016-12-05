@@ -8,6 +8,7 @@
 
 #import "PFPasswordGenViewController.h"
 
+#import <Foundation/NSNumberFormatter.h>
 #import <MaterialControls/MDTextField.h>
 #import <BFPaperCheckbox/BFPaperCheckbox.h>
 
@@ -38,7 +39,7 @@ typedef NS_ENUM(NSInteger){
 
 @property (strong, nonatomic) IBOutletCollection(MDTextField) NSArray *tFields;
 
-
+@property (assign, nonatomic) NSInteger length;
 @property (assign, nonatomic) NSInteger currentPage;
 @property (assign, nonatomic) PasswordType passwordType;
 @property (assign, nonatomic) BOOL keyboardShown;
@@ -111,6 +112,9 @@ typedef NS_ENUM(NSInteger){
 }
 - (IBAction)didTapOnNext:(id)sender {
     [self.view endEditing:YES];
+    if (![self _validateCurrentInput]) {
+        return;
+    }
     if (_currentPage == 2) {
         [PFResUtil shakeItBaby:sender withCompletion:nil];
         return;
@@ -177,6 +181,27 @@ typedef NS_ENUM(NSInteger){
     _keyboardShown = NO;
 }
 
+#pragma mark - Misc
+- (BOOL)_validateCurrentInput {
+    BOOL ret = YES;
+    switch (_currentPage) {
+        case 0: {
+            NSNumberFormatter *f = [[NSNumberFormatter alloc] init];
+            f.numberStyle = NSNumberFormatterDecimalStyle;
+            _length = [[f numberFromString:_lengthField.text] integerValue];
+            ret = _length >= 4;
+            if (!ret) {
+                [PFResUtil shakeItBaby:_lengthField withCompletion:nil];
+            }
+            break;
+        }
+        case 1:
+            break;
+        default:
+            break;
+    }
+    return ret;
+}
 /*
 #pragma mark - Navigation
 
