@@ -9,13 +9,21 @@
 #import "PFPasswordGenViewController.h"
 
 #import <MaterialControls/MDTextField.h>
+#import <BFPaperCheckbox/BFPaperCheckbox.h>
 
 #import "PFResUtil.h"
 
-@interface PFPasswordGenViewController () <UIScrollViewDelegate>
+typedef NS_ENUM(NSInteger){
+    PTNumber = 80,
+    PTSecure,
+    PTSecure2,
+} PasswordType;
+
+@interface PFPasswordGenViewController () <UIScrollViewDelegate, BFPaperCheckboxDelegate>
 
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *scrollViewButtom;
 @property (strong, nonatomic) IBOutletCollection(NSLayoutConstraint) NSArray<NSLayoutConstraint*> *viewCenters;
+@property (strong, nonatomic) IBOutletCollection(NSLayoutConstraint) NSArray *viewBottoms;
 
 @property (weak, nonatomic) IBOutlet UIPageControl *pageControl;
 @property (weak, nonatomic) IBOutlet UIScrollView *scrollview;
@@ -23,8 +31,17 @@
 @property (weak, nonatomic) IBOutlet UIButton *prevButton;
 @property (weak, nonatomic) IBOutlet UIButton *nextButton;
 @property (weak, nonatomic) IBOutlet MDTextField *lengthField;
+@property (weak, nonatomic) IBOutlet BFPaperCheckbox *cbNumber;
+@property (weak, nonatomic) IBOutlet BFPaperCheckbox *cbSecure;
+@property (weak, nonatomic) IBOutlet BFPaperCheckbox *cbSecure2;
+@property (strong, nonatomic) IBOutletCollection(BFPaperCheckbox) NSArray *checkBoxes;
+
+@property (strong, nonatomic) IBOutletCollection(MDTextField) NSArray *tFields;
+
 
 @property (assign, nonatomic) NSInteger currentPage;
+@property (assign, nonatomic) PasswordType passwordType;
+@property (assign, nonatomic) BOOL keyboardShown;
 
 @end
 
@@ -42,10 +59,22 @@
     _pageControl.numberOfPages = 3;
     _pageControl.currentPage = _currentPage;
     
+    _lengthField.keyboardType = UIKeyboardTypeNumberPad;
+    _lengthField.returnKeyType = UIReturnKeyDone;
     
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(_keyboardWillShow:) name:UIKeyboardWillShowNotification object:nil];
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(_keyboardWillHide:) name:UIKeyboardWillHideNotification object:nil];
     
+    _cbSecure.delegate = self;
+    _cbNumber.delegate = self;
+    _cbSecure2.delegate = self;
+    
+    [_cbSecure checkAnimated:YES];
+    
+    for (MDTextField *tf in _tFields) {
+        tf.hidden = YES;
+    }
+    _keyboardShown = NO;
 }
 
 - (void)didReceiveMemoryWarning {
@@ -63,12 +92,12 @@
 
 #pragma mark - IBActions
 - (IBAction)didTapOnClose:(id)sender {
-    [self setEditing:NO];
+    [self.view endEditing:YES];
     [self dismissViewControllerAnimated:YES completion:nil];
 }
 
 - (IBAction)didTapOnPrev:(id)sender {
-    [self setEditing:NO];
+    [self.view endEditing:YES];
     if (_currentPage == 0) {
         [PFResUtil shakeItBaby:sender withCompletion:nil];
         return;
@@ -81,7 +110,7 @@
     
 }
 - (IBAction)didTapOnNext:(id)sender {
-    [self setEditing:NO];
+    [self.view endEditing:YES];
     if (_currentPage == 2) {
         [PFResUtil shakeItBaby:sender withCompletion:nil];
         return;
@@ -92,23 +121,60 @@
     CGFloat height = _scrollview.frame.size.height;
     [_scrollview scrollRectToVisible:CGRectMake(width * _currentPage, 0, width, height) animated:YES];
 }
+- (IBAction)didTapOnDone:(id)sender {
+    
+}
+
+#pragma mark - Checkbox
+
+- (void)paperCheckboxChangedState:(BFPaperCheckbox *)checkbox {
+    if (!checkbox.isChecked) {
+        return;
+    }
+    [self.view endEditing:YES];
+    _passwordType = checkbox.tag;
+    for (MDTextField *tf in _tFields) {
+        tf.hidden = _passwordType != PTSecure2;
+    }
+    for (BFPaperCheckbox *cb in _checkBoxes) {
+        if (cb != checkbox) {
+            [cb uncheckAnimated:YES];
+            cb.userInteractionEnabled = YES;
+        }
+    }
+    checkbox.userInteractionEnabled = !checkbox.isChecked;
+}
 
 #pragma mark - Keyboard
 - (void)_keyboardWillShow:(NSNotification*)notification {
+    if (_keyboardShown) {
+        return;
+    }
     NSDictionary *info = [notification userInfo];
     CGSize kbSize = [[info objectForKey:UIKeyboardFrameEndUserInfoKey] CGRectValue].size;
     _viewCenters[_currentPage].constant -= kbSize.height;
+    for (NSLayoutConstraint *constraint in _viewBottoms) {
+        constraint.constant += kbSize.height;
+    }
     [UIView animateWithDuration:0.5 animations:^{
         [self.view layoutIfNeeded];
     }];
+    _keyboardShown = YES;
 }
 - (void)_keyboardWillHide:(NSNotification*)notification {
+    if (!_keyboardShown) {
+        return;
+    }
     NSDictionary *info = [notification userInfo];
     CGSize kbSize = [[info objectForKey:UIKeyboardFrameEndUserInfoKey] CGRectValue].size;
-    _viewCenters[_currentPage].constant = 0;
+    _viewCenters[_currentPage].constant += kbSize.height;
+    for (NSLayoutConstraint *constraint in _viewBottoms) {
+        constraint.constant -= kbSize.height;
+    }
     [UIView animateWithDuration:0.5 animations:^{
         [self.view layoutIfNeeded];
     }];
+    _keyboardShown = NO;
 }
 
 /*

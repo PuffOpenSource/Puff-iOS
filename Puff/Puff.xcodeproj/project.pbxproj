@@ -56,6 +56,7 @@
 		011537051D8932CC00C98268 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 011537031D8932CC00C98268 /* LaunchScreen.storyboard */; };
 		0115370E1D8932DA00C98268 /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0115370D1D8932DA00C98268 /* Security.framework */; };
 		01368F0C1DC89CA800055522 /* MobileCoreServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 01368F0B1DC89CA800055522 /* MobileCoreServices.framework */; };
+		0150E7091DF51F9B00C0ADF0 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 010CFB391DB4B9B500FEE5DE /* Assets.xcassets */; };
 		0164612F1DC1E66B0083D129 /* LocalAuthentication.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0164612E1DC1E66B0083D129 /* LocalAuthentication.framework */; };
 		017517551DB8B8C80067A586 /* MainAccountCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 017517541DB8B8C80067A586 /* MainAccountCell.xib */; };
 		017915231DBF614B006FA552 /* PFLockViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 017915221DBF614B006FA552 /* PFLockViewController.xib */; };
@@ -892,6 +893,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				0101A9371DE8116D009F5F90 /* Puff.xcdatamodeld in Resources */,
+				0150E7091DF51F9B00C0ADF0 /* Assets.xcassets in Resources */,
 				017C960D1DDEE3C20030272F /* MainInterface.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

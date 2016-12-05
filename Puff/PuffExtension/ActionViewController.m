@@ -10,7 +10,6 @@
 #import <MobileCoreServices/MobileCoreServices.h>
 #import <LocalAuthentication/LocalAuthentication.h>
 
-
 #import "PFAccountManager.h"
 
 static NSString * const kPFExtActCellReuseId        =   @"kPFExtActCellReuseId";
@@ -26,11 +25,7 @@ static NSString * const kPFExtActCellReuseId        =   @"kPFExtActCellReuseId";
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    
-    
     _accounts = [[PFAccountManager sharedManager] fetchAll];
-    
-    NSLog(@"Fetched accounts count %lu", (unsigned long)_accounts.count);
     
     [self _authorizeWithTouchId];
 }
@@ -63,6 +58,15 @@ static NSString * const kPFExtActCellReuseId        =   @"kPFExtActCellReuseId";
     return 60;
 }
 
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+    //Default action is copy password. Click pin button to pin
+    PFAccount *selected = [_accounts objectAtIndex:indexPath.row];
+    [selected decrypt:^(NSError * _Nullable error, NSDictionary * _Nullable result) {
+        
+    }];
+}
+
+#pragma Authorize
 - (void)_authorizeWithTouchId {
     LAContext *ctx = [[LAContext alloc] init];
     if ([self _hasTouchID]) {

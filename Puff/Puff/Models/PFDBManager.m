@@ -8,7 +8,7 @@
 
 #import "PFDBManager.h"
 
-@interface PFDBManager()
+@interface PFDBManager();
 @end
 
 @implementation PFDBManager
