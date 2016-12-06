@@ -122,6 +122,7 @@ typedef NS_ENUM(NSInteger){
 
 - (IBAction)didTapOnPrev:(id)sender {
     [self.view endEditing:YES];
+    [_nextButton setImage:[UIImage imageNamed:@"ic-next"] forState:UIControlStateNormal];
     if (_currentPage == 0) {
         [PFResUtil shakeItBaby:sender withCompletion:nil];
         return;
@@ -140,9 +141,12 @@ typedef NS_ENUM(NSInteger){
     }
     if (_currentPage == 1) {
         _resultLabel.text = [self _generatePassword];
+        [_nextButton setImage:[UIImage imageNamed:@"ic-check-mark"] forState:UIControlStateNormal];
     }
     if (_currentPage == 2) {
-        [PFResUtil shakeItBaby:sender withCompletion:nil];
+        UIPasteboard *board = [UIPasteboard generalPasteboard];
+        [board setString:_resultLabel.text];
+        [self dismissViewControllerAnimated:YES completion:nil];
         return;
     }
     _currentPage += 1;
@@ -162,6 +166,24 @@ typedef NS_ENUM(NSInteger){
     UIPasteboard *board = [UIPasteboard generalPasteboard];
     [board setString:_resultLabel.text];
     [self dismissViewControllerAnimated:YES completion:nil];
+}
+- (IBAction)checkNumbersOnly:(id)sender {
+    if ([_cbNumber isChecked]) {
+        return;
+    }
+    [_cbNumber checkAnimated:YES];
+}
+- (IBAction)checkSecure:(id)sender {
+    if ([_cbSecure isChecked]) {
+        return;
+    }
+    [_cbSecure checkAnimated:YES];
+}
+- (IBAction)checkSecure2:(id)sender {
+    if ([_cbSecure2 isChecked]) {
+        return;
+    }
+    [_cbSecure2 checkAnimated:YES];
 }
 
 #pragma mark - Checkbox

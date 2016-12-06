@@ -1252,11 +1252,15 @@
                                                                     </userDefinedRuntimeAttribute>
                                                                 </userDefinedRuntimeAttributes>
                                                             </view>
-                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Numbers Only" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eBb-24-nE5">
+                                                            <label opaque="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Numbers Only" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eBb-24-nE5">
                                                                 <rect key="frame" x="54" y="231.5" width="250" height="30"/>
+                                                                <gestureRecognizers/>
                                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                                 <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                                 <nil key="highlightedColor"/>
+                                                                <connections>
+                                                                    <outletCollection property="gestureRecognizers" destination="TKG-Ow-Xat" appends="YES" id="rXP-Gz-AHx"/>
+                                                                </connections>
                                                             </label>
                                                             <view clipsSubviews="YES" tag="81" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="zaJ-SM-QQd" customClass="BFPaperCheckbox">
                                                                 <rect key="frame" x="16" y="269" width="30" height="30"/>
@@ -1278,11 +1282,15 @@
                                                                     </userDefinedRuntimeAttribute>
                                                                 </userDefinedRuntimeAttributes>
                                                             </view>
-                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Secure Password" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jLZ-On-Uyv">
+                                                            <label opaque="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Secure Password" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jLZ-On-Uyv">
                                                                 <rect key="frame" x="54" y="269" width="250" height="30"/>
+                                                                <gestureRecognizers/>
                                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                                 <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                                 <nil key="highlightedColor"/>
+                                                                <connections>
+                                                                    <outletCollection property="gestureRecognizers" destination="ySX-Tj-KGc" appends="YES" id="PPN-5v-sRa"/>
+                                                                </connections>
                                                             </label>
                                                             <view clipsSubviews="YES" tag="82" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="bQf-It-GDm" customClass="BFPaperCheckbox">
                                                                 <rect key="frame" x="16" y="307" width="30" height="30"/>
@@ -1305,11 +1313,15 @@
                                                                     </userDefinedRuntimeAttribute>
                                                                 </userDefinedRuntimeAttributes>
                                                             </view>
-                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Secure and Easy to Remember" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5ca-iz-ojK">
+                                                            <label opaque="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Secure and Easy to Remember" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5ca-iz-ojK">
                                                                 <rect key="frame" x="54" y="307" width="250" height="30"/>
+                                                                <gestureRecognizers/>
                                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                                 <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                                 <nil key="highlightedColor"/>
+                                                                <connections>
+                                                                    <outletCollection property="gestureRecognizers" destination="FRf-ue-XJQ" appends="YES" id="gxe-EW-io3"/>
+                                                                </connections>
                                                             </label>
                                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="h2D-bt-4ph" customClass="MDTextField">
                                                                 <rect key="frame" x="16" y="353" width="288" height="50"/>
@@ -1608,6 +1620,21 @@
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="DRP-xJ-KZs" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <tapGestureRecognizer id="TKG-Ow-Xat">
+                    <connections>
+                        <action selector="checkNumbersOnly:" destination="AAY-OI-M16" id="KC8-mJ-KIs"/>
+                    </connections>
+                </tapGestureRecognizer>
+                <tapGestureRecognizer id="ySX-Tj-KGc">
+                    <connections>
+                        <action selector="checkSecure:" destination="AAY-OI-M16" id="Bs2-eO-xkO"/>
+                    </connections>
+                </tapGestureRecognizer>
+                <tapGestureRecognizer id="FRf-ue-XJQ">
+                    <connections>
+                        <action selector="checkSecure2:" destination="AAY-OI-M16" id="S9o-iK-84S"/>
+                    </connections>
+                </tapGestureRecognizer>
             </objects>
             <point key="canvasLocation" x="4091.25" y="1461.9718309859154"/>
         </scene>
