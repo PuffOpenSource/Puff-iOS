@@ -21,7 +21,7 @@ typedef NS_ENUM(NSInteger){
     PTSecure2,
 } PasswordType;
 
-@interface PFPasswordGenViewController () <UIScrollViewDelegate, BFPaperCheckboxDelegate>
+@interface PFPasswordGenViewController () <UIScrollViewDelegate, BFPaperCheckboxDelegate, MDTextFieldDelegate>
 
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *scrollViewButtom;
 @property (strong, nonatomic) IBOutletCollection(NSLayoutConstraint) NSArray<NSLayoutConstraint*> *viewCenters;
@@ -37,6 +37,7 @@ typedef NS_ENUM(NSInteger){
 @property (weak, nonatomic) IBOutlet BFPaperCheckbox *cbSecure;
 @property (weak, nonatomic) IBOutlet BFPaperCheckbox *cbSecure2;
 @property (strong, nonatomic) IBOutletCollection(BFPaperCheckbox) NSArray *checkBoxes;
+@property (weak, nonatomic) IBOutlet UILabel *resultLabel;
 
 @property (strong, nonatomic) IBOutletCollection(MDTextField) NSArray *tFields;
 
@@ -68,6 +69,7 @@ typedef NS_ENUM(NSInteger){
     
     _lengthField.keyboardType = UIKeyboardTypeNumberPad;
     _lengthField.returnKeyType = UIReturnKeyDone;
+    _lengthField.text = @"8";
     
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(_keyboardWillShow:) name:UIKeyboardWillShowNotification object:nil];
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(_keyboardWillHide:) name:UIKeyboardWillHideNotification object:nil];
@@ -80,7 +82,10 @@ typedef NS_ENUM(NSInteger){
     
     for (MDTextField *tf in _tFields) {
         tf.hidden = YES;
+        tf.delegate = self;
+        tf.returnKeyType = UIReturnKeyNext;
     }
+    ((MDTextField*)[_tFields lastObject]).returnKeyType = UIReturnKeyDone;
     _keyboardShown = NO;
 }
 
@@ -95,6 +100,18 @@ typedef NS_ENUM(NSInteger){
     float fractionalPage = scrollView.contentOffset.x / pageWidth;
     NSInteger page = lround(fractionalPage);
     self.pageControl.currentPage = page;
+}
+
+#pragma mark - UITextFieldDelegate
+- (BOOL)textFieldShouldReturn:(MDTextField *)textField {
+    if (_currentPage == 1) {
+        NSInteger index = [_tFields indexOfObject:textField];
+        [textField resignFirstResponder];
+        if (index < _tFields.count - 1) {
+            [[_tFields objectAtIndex:index + 1] becomeFirstResponder];
+        }
+    }
+    return NO;
 }
 
 #pragma mark - IBActions
@@ -121,10 +138,10 @@ typedef NS_ENUM(NSInteger){
     if (![self _validateCurrentInput]) {
         return;
     }
+    if (_currentPage == 1) {
+        _resultLabel.text = [self _generatePassword];
+    }
     if (_currentPage == 2) {
-        //Generate password and close.
-        NSString *result = [self _generatePassword];
-        NSLog(@"Generated password %@", result);
         [PFResUtil shakeItBaby:sender withCompletion:nil];
         return;
     }
@@ -136,6 +153,15 @@ typedef NS_ENUM(NSInteger){
 }
 - (IBAction)didTapOnDone:(id)sender {
     
+}
+
+- (IBAction)didTapOnReGen:(id)sender {
+    _resultLabel.text = [self _generatePassword];
+}
+- (IBAction)didTapOnCopyClose:(id)sender {
+    UIPasteboard *board = [UIPasteboard generalPasteboard];
+    [board setString:_resultLabel.text];
+    [self dismissViewControllerAnimated:YES completion:nil];
 }
 
 #pragma mark - Checkbox
