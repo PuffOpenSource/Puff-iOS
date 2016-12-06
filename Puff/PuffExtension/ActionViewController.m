@@ -63,9 +63,9 @@ static NSString * const kPFExtActCellReuseId        =   @"kPFExtActCellReuseId";
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     //Default action is copy password. Click pin button to pin
     PFAccount *selected = [_accounts objectAtIndex:indexPath.row];
-    [selected decrypt:^(NSError * _Nullable error, NSDictionary * _Nullable result) {
-        
-    }];
+//    [selected decrypt:^(NSError * _Nullable error, NSDictionary * _Nullable result) {
+//        
+//    }];
 }
 
 #pragma Authorize
@@ -98,16 +98,16 @@ static NSString * const kPFExtActCellReuseId        =   @"kPFExtActCellReuseId";
 #pragma mark - CellDelegate
 - (void)didClickOnPin:(NSInteger)idx {
     PFAccount *act = [_accounts objectAtIndex:idx];
-    [act decrypt:^(NSError * _Nullable error, NSDictionary * _Nullable result) {
-        return;
-    }];
+//    [act decrypt:^(NSError * _Nullable error, NSDictionary * _Nullable result) {
+//        return;
+//    }];
 }
 
 - (void)didClickOnCopy:(NSInteger)idx {
     PFAccount *act = [_accounts objectAtIndex:idx];
-    [act decrypt:^(NSError * _Nullable error, NSDictionary * _Nullable result) {
-        return;
-    }];
+//    [act decrypt:^(NSError * _Nullable error, NSDictionary * _Nullable result) {
+//        return;
+//    }];
 }
 
 @end
