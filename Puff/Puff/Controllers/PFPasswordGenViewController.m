@@ -141,7 +141,7 @@ typedef NS_ENUM(NSInteger){
     }
     if (_currentPage == 1) {
         _resultLabel.text = [self _generatePassword];
-        [_nextButton setImage:[UIImage imageNamed:@"ic-check-mark"] forState:UIControlStateNormal];
+        [_nextButton setImage:[UIImage imageNamed:@"ic-check-mark-gray"] forState:UIControlStateNormal];
     }
     if (_currentPage == 2) {
         UIPasteboard *board = [UIPasteboard generalPasteboard];

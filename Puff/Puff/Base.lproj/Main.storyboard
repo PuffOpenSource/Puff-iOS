@@ -2005,8 +2005,17 @@
                                     <constraint firstAttribute="bottom" secondItem="1ea-NV-aVq" secondAttribute="bottom" id="v9V-lo-g4O"/>
                                 </constraints>
                             </view>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Categories" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KO4-WW-5N1">
+                                <rect key="frame" x="8" y="200" width="304" height="25"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="25" id="dYD-KK-22z"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="F1F-TH-Vo3">
-                                <rect key="frame" x="0.0" y="200" width="320" height="368"/>
+                                <rect key="frame" x="0.0" y="225" width="320" height="343"/>
                                 <color key="backgroundColor" red="0.93333333330000001" green="0.93333333330000001" blue="0.93333333330000001" alpha="1" colorSpace="calibratedRGB"/>
                                 <color key="separatorColor" red="0.93333333330000001" green="0.93333333330000001" blue="0.93333333330000001" alpha="1" colorSpace="calibratedRGB"/>
                                 <color key="sectionIndexBackgroundColor" red="0.93333333330000001" green="0.93333333330000001" blue="0.93333333330000001" alpha="1" colorSpace="calibratedRGB"/>
@@ -2056,12 +2065,15 @@
                         <color key="backgroundColor" red="0.93333333333333335" green="0.93333333333333335" blue="0.93333333333333335" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
                             <constraint firstItem="F1F-TH-Vo3" firstAttribute="leading" secondItem="1bQ-lY-FfR" secondAttribute="leading" id="DDl-VB-QmN"/>
-                            <constraint firstItem="F1F-TH-Vo3" firstAttribute="top" secondItem="Fo6-9u-FxE" secondAttribute="bottom" id="JDU-4d-2PG"/>
+                            <constraint firstItem="KO4-WW-5N1" firstAttribute="leading" secondItem="1bQ-lY-FfR" secondAttribute="leading" constant="8" id="O0u-rf-MuV"/>
+                            <constraint firstAttribute="trailing" secondItem="KO4-WW-5N1" secondAttribute="trailing" constant="8" id="Qc7-WW-ftp"/>
                             <constraint firstAttribute="trailing" secondItem="F1F-TH-Vo3" secondAttribute="trailing" id="Te8-sv-4No"/>
                             <constraint firstItem="Fo6-9u-FxE" firstAttribute="top" secondItem="kUu-ig-I2d" secondAttribute="bottom" id="Xep-oL-AaJ"/>
                             <constraint firstAttribute="trailing" secondItem="Fo6-9u-FxE" secondAttribute="trailing" id="dk3-T1-ywf"/>
                             <constraint firstItem="GOJ-dp-fD3" firstAttribute="top" secondItem="F1F-TH-Vo3" secondAttribute="bottom" id="kEG-r2-V83"/>
                             <constraint firstItem="Fo6-9u-FxE" firstAttribute="leading" secondItem="1bQ-lY-FfR" secondAttribute="leading" id="nz1-5h-4he"/>
+                            <constraint firstItem="F1F-TH-Vo3" firstAttribute="top" secondItem="KO4-WW-5N1" secondAttribute="bottom" id="sgw-db-IR6"/>
+                            <constraint firstItem="KO4-WW-5N1" firstAttribute="top" secondItem="Fo6-9u-FxE" secondAttribute="bottom" id="x7q-xa-Muh"/>
                         </constraints>
                     </view>
                     <nil key="simulatedStatusBarMetrics"/>
