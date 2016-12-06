@@ -66,6 +66,7 @@
     [keyChainQuery setObject:[NSKeyedArchiver archivedDataWithRootObject:[pwd dataUsingEncoding:NSUTF8StringEncoding]]
                       forKey:(__bridge_transfer id)kSecValueData];
 
+    
     OSStatus err = SecItemAdd((__bridge_retained CFDictionaryRef)keyChainQuery, nil);
     return err == errSecSuccess;
 }
@@ -81,7 +82,7 @@
     [searchDictionary setObject:encodeInditifier forKey:(__bridge_transfer id)kSecAttrAccount];
     [searchDictionary setObject:(__bridge_transfer id)kSecAttrAccessibleAfterFirstUnlock
                          forKey:(__bridge_transfer id)kSecAttrAccessible];
-    
+//    [searchDictionary setObject:[keyChainAccessGroup dataUsingEncoding:NSUTF8StringEncoding] forKey:(__bridge_transfer id)kSecAttrAccessGroup];
     //[searchDictionary setObject:serviceName forKey:(__bridge id)kSecAttrService];
     
     return searchDictionary;

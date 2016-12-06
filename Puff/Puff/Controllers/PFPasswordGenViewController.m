@@ -13,6 +13,7 @@
 #import <BFPaperCheckbox/BFPaperCheckbox.h>
 
 #import "PFResUtil.h"
+#import "PFPasswordGenerator.h"
 
 typedef NS_ENUM(NSInteger){
     PTNumber = 80,
@@ -116,6 +117,9 @@ typedef NS_ENUM(NSInteger){
         return;
     }
     if (_currentPage == 2) {
+        //Generate password and close.
+        NSString *result = [self _generatePassword];
+        NSLog(@"Generated password %@", result);
         [PFResUtil shakeItBaby:sender withCompletion:nil];
         return;
     }
@@ -201,6 +205,26 @@ typedef NS_ENUM(NSInteger){
             break;
     }
     return ret;
+}
+
+- (NSString*)_generatePassword {
+    switch (_passwordType) {
+        case PTNumber:
+            return [PFPasswordGenerator genNumberWithLength:_length];
+        case PTSecure:
+            return [PFPasswordGenerator genPasswordWithLength:_length];
+        case PTSecure2:{
+            NSMutableArray *words = [@[] mutableCopy];
+            for (MDTextField *mdTF in _tFields) {
+                if (mdTF.text.length > 0) {
+                    [words addObject:mdTF.text];
+                }
+            }
+            return [PFPasswordGenerator genPasswordWithLength:_length andWords:words];
+        }
+        default:
+            return @"";
+    }
 }
 /*
 #pragma mark - Navigation

@@ -29,6 +29,12 @@ static NSString * const allChars = @"abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQ
     for (NSString *w in words) {
         [ret appendString:[self _maskedString:w]];
     }
+    if (ret.length < length) {
+        //Not long enough
+        [ret appendString:[self genPasswordWithLength:length - ret.length]];
+    } else if (ret.length > length) {
+        ret = [ret substringToIndex:length];
+    }
     return ret;
 }
 

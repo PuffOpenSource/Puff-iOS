@@ -9,7 +9,7 @@
 #import <Foundation/Foundation.h>
 
 static NSString * const keyChainStoreKey        =   @"masterpwd";
-static NSString * const keyChainAccessGroup     =   @"group.bob.sun.leela";
+static NSString * const keyChainAccessGroup     =   @"bob.sun.leela";
 
 @interface PFKeychainHelper : NSObject
 + (instancetype)sharedInstance;
