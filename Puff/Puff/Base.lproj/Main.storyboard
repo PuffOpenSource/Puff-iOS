@@ -1048,6 +1048,9 @@
                                                 <state key="normal" title="Enable Touch ID">
                                                     <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 </state>
+                                                <connections>
+                                                    <action selector="didTapOnTouchId:" destination="XtP-l8-IMe" eventType="touchUpInside" id="m7r-Ma-MTB"/>
+                                                </connections>
                                             </button>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ujX-PB-h6W" customClass="BFPaperCheckbox">
                                                 <rect key="frame" x="272" y="85" width="40" height="40"/>
@@ -1070,14 +1073,18 @@
                                                     </userDefinedRuntimeAttribute>
                                                 </userDefinedRuntimeAttributes>
                                             </view>
-                                            <button clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="71h-DY-CLU">
+                                            <button clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" lineBreakMode="tailTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="71h-DY-CLU">
                                                 <rect key="frame" x="8" y="133" width="272" height="40"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="40" id="OYI-8S-Vwf"/>
                                                 </constraints>
-                                                <state key="normal" title="Change Master Password">
+                                                <fontDescription key="fontDescription" type="system" pointSize="18"/>
+                                                <state key="normal" title="Clear Widget Info after Copy">
                                                     <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 </state>
+                                                <connections>
+                                                    <action selector="didTapOnClear:" destination="XtP-l8-IMe" eventType="touchUpInside" id="PAW-ws-B0J"/>
+                                                </connections>
                                             </button>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="PIn-oF-zZw" customClass="BFPaperCheckbox">
                                                 <rect key="frame" x="272" y="133" width="40" height="40"/>
@@ -1214,6 +1221,10 @@
                             <constraint firstItem="6aa-wD-QpA" firstAttribute="leading" secondItem="eVs-rU-2vk" secondAttribute="leading" id="bde-gL-vF3"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="cbClear" destination="PIn-oF-zZw" id="vbM-3D-aSH"/>
+                        <outlet property="cbTouchId" destination="ujX-PB-h6W" id="pz1-OF-1uN"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="vIg-Rw-Zgl" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

@@ -13,6 +13,7 @@
 #import "PFResUtil.h"
 #import "PFAppLock.h"
 #import "PFKeychainHelper.h"
+#import "PFSettings.h"
 
 @interface PFLockViewController ()
 @property (weak, nonatomic) IBOutlet UIView *lockView;
@@ -36,11 +37,11 @@
     _lockPasswordField.layer.cornerRadius = 20;
     _lockView.layer.needsDisplayOnBoundsChange = YES;
     _lockView.frame = self.view.frame;
-    _btnTouchId.hidden = ![self _hasTouchID];
 }
 
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
+    _btnTouchId.hidden = ![self _hasTouchID] || ![[PFSettings sharedInstance] touchIDEnabled];
 }
 
 - (void)viewDidAppear:(BOOL)animated {

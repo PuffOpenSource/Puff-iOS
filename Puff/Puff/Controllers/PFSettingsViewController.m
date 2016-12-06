@@ -8,8 +8,15 @@
 
 #import "PFSettingsViewController.h"
 
-@interface PFSettingsViewController ()
+#import <BFPaperCheckbox/BFPaperCheckbox.h>
 
+#import "PFSettings.h"
+
+@interface PFSettingsViewController () <BFPaperCheckboxDelegate>
+@property (weak, nonatomic) IBOutlet BFPaperCheckbox *cbTouchId;
+@property (weak, nonatomic) IBOutlet BFPaperCheckbox *cbClear;
+
+@property (assign, nonatomic) BOOL changed;
 @end
 
 @implementation PFSettingsViewController
@@ -22,7 +29,26 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    // Do any additional setup after loading the view.
+    [self initUI];
+    _changed = NO;
+}
+
+- (void)initUI {
+    
+    PFSettings *settings = [PFSettings sharedInstance];
+    if ([settings touchIDEnabled]) {
+        [_cbTouchId checkAnimated:NO];
+    } else {
+        [_cbTouchId uncheckAnimated:NO];
+    }
+    if ([settings clearInfo]) {
+        [_cbClear checkAnimated:NO];
+    } else {
+        [_cbClear uncheckAnimated:NO];
+    }
+    
+    _cbTouchId.delegate = self;
+    _cbClear.delegate = self;
 }
 
 - (void)didReceiveMemoryWarning {
@@ -32,9 +58,36 @@
 
 #pragma mark - IBActions
 - (IBAction)didClickOnBack:(id)sender {
+    //Save
+    PFSettings *settings = [PFSettings sharedInstance];
+    [settings setClearInfo:_cbClear.isChecked];
+    [settings setTouchIDEnabled:_cbTouchId.isChecked];
+    [settings save];
+    
     [self dismissViewControllerAnimated:YES completion:nil];
 }
+- (IBAction)didTapOnTouchId:(id)sender {
+    _changed = YES;
+    if (_cbTouchId.isChecked) {
+        [_cbTouchId uncheckAnimated:YES];
+    } else {
+        [_cbTouchId checkAnimated:YES];
+    }
+}
 
+- (IBAction)didTapOnClear:(id)sender {
+    _changed = YES;
+    if (_cbClear.isChecked) {
+        [_cbClear uncheckAnimated:YES];
+    } else {
+        [_cbClear checkAnimated:YES];
+    }
+}
+
+#pragma mark - Checkbox Delegate
+- (void)paperCheckboxChangedState:(BFPaperCheckbox *)checkbox {
+    _changed = YES;
+}
 
 /*
 #pragma mark - Navigation

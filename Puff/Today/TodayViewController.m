@@ -12,6 +12,7 @@
 
 #include "Constants.h"
 #import "PFResUtil.h"
+#import "PFSettings.h"
 
 #define txtNoAccountInfo                NSLocalizedString(@"No Account Infomation", nil)
 #define txtAccountName                  NSLocalizedString(@"Click button to copy information", nil)
@@ -28,6 +29,7 @@
 @property (strong, nonatomic) NSString * password;
 @property (strong, nonatomic) NSString * additional;
 @property (strong, nonatomic) NSString * icon;
+@property (assign, nonatomic) BOOL needClear;
 @end
 
 @implementation TodayViewController
@@ -60,8 +62,15 @@
     _additional = [_store objectForKey:kTodayAdditional];
     _icon = [_store objectForKey:kTodayIcon];
     
-    if ([_store boolForKey:kTodayNewData]) {
+    _needClear = [[PFSettings sharedInstance] clearInfo];
+    
+    if (_account.length == 0 && _password.length == 0 && _additional.length == 0) {
+        _hintLabel.text = txtNoAccountInfo;
+    } else {
         _hintLabel.text = txtAccountName;
+    }
+    
+    if ([_store boolForKey:kTodayNewData]) {
         if (_icon.length > 0) {
             _iconImage.image = [PFResUtil imageForName:_icon];
         } else {
@@ -73,10 +82,6 @@
     } else {
         completionHandler(NCUpdateResultNoData);
     }
-    if (_account.length == 0 && _password.length == 0 && _additional.length == 0) {
-        _hintLabel.text = txtNoAccountInfo;
-    }
-    
 }
 - (IBAction)didTapOnAccount:(id)sender {
     UIPasteboard *board = [UIPasteboard generalPasteboard];
@@ -85,9 +90,10 @@
         return;
     }
     [board setString:_account];
-    //Clean up user default as well.
-    [_store setObject:@"" forKey:kTodayAccount];
-    [_store synchronize];
+    if (_needClear) {
+        [_store setObject:@"" forKey:kTodayAccount];
+        [_store synchronize];
+    }
 }
 - (IBAction)didTapOnPassword:(id)sender {
     UIPasteboard *board = [UIPasteboard generalPasteboard];
@@ -96,9 +102,10 @@
         return;
     }
     [board setString:_password];
-    //Clean up user default as well.
-    [_store setObject:@"" forKey:kTodayPassword];
-    [_store synchronize];
+    if (_needClear) {
+        [_store setObject:@"" forKey:kTodayPassword];
+        [_store synchronize];
+    }
 }
 
 - (IBAction)didTapOnAdditional:(id)sender {
@@ -108,9 +115,10 @@
         return;
     }
     [board setString:_additional];
-    //Clean up user default as well.
-    [_store setObject:@"" forKey:kTodayAdditional];
-    [_store synchronize];
+    if (_needClear) {
+        [_store setObject:@"" forKey:kTodayAdditional];
+        [_store synchronize];
+    }
 }
 
 @end

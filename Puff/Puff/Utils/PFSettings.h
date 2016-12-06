@@ -10,4 +10,10 @@
 
 @interface PFSettings : NSObject
 + (instancetype)sharedInstance;
+
+- (void)save;
+- (BOOL)touchIDEnabled;
+- (void)setTouchIDEnabled:(BOOL)enabled;
+- (BOOL)clearInfo;
+- (void)setClearInfo:(BOOL)clearInfo;
 @end

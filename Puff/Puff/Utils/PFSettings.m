@@ -34,17 +34,21 @@ static NSString * const kClearInfo          = @"kClearInfo";
 }
 
 - (BOOL)touchIDEnabled {
-    return YES;
+    return [_store boolForKey:kTouchIDEnabled];
 }
 - (void)setTouchIDEnabled:(BOOL)enabled {
-    
+    [_store setBool:enabled forKey:kTouchIDEnabled];
 }
 
 - (BOOL)clearInfo {
-    return YES;
+    return [_store boolForKey:kClearInfo];
 }
-- (void)setClearInfo:(BOOL)clearInfo {
-    
+- (void)setClearInfo:(BOOL)enabled {
+    [_store setBool:enabled forKey:kClearInfo];
+}
+
+- (void)save {
+    [_store synchronize];
 }
 
 - (void)initDefaults {
