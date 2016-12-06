@@ -23,6 +23,7 @@
 #import "PFCategoryManager.h"
 #import "PFKeychainHelper.h"
 #import "PFAppLock.h"
+#import "PFSettings.h"
 
 @interface AppDelegate ()
 @property (strong, nonatomic) MasterViewController *mainViewController;
@@ -34,7 +35,8 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     
-    [[[PFCategoryUtil alloc] init] initBuiltins];;
+    [[[PFCategoryUtil alloc] init] initBuiltins];
+    [PFSettings sharedInstance];
     
     _appLock = [PFAppLock sharedLock];
     

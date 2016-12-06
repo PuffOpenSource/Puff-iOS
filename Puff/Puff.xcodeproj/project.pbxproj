@@ -150,6 +150,7 @@
 		01910F661DE2D37E0019E541 /* PFPasswordGenerator.m in Sources */ = {isa = PBXBuildFile; fileRef = 01910F651DE2D37E0019E541 /* PFPasswordGenerator.m */; };
 		01910F671DE2FE5E0019E541 /* Assets.xcassets in Sources */ = {isa = PBXBuildFile; fileRef = 010CFB391DB4B9B500FEE5DE /* Assets.xcassets */; };
 		01C332681DF6A4EA00F5C493 /* PuffExtensionKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 017C961B1DDEE5600030272F /* PuffExtensionKit.framework */; };
+		01C3326B1DF6B66200F5C493 /* PFSettings.m in Sources */ = {isa = PBXBuildFile; fileRef = 01C3326A1DF6B66200F5C493 /* PFSettings.m */; };
 		01D3AF891DB3C99800EE5CA1 /* MasterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 01D3AF881DB3C99800EE5CA1 /* MasterViewController.m */; };
 		44075CED77D58170C20A4992 /* Pods_Puff.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6B7D49088F66C933BBF2413A /* Pods_Puff.framework */; };
 		89E2CCAF769F204ABA3660E7 /* Pods_PuffExtensionKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4A8ACECC80B15E78B49B8CD2 /* Pods_PuffExtensionKit.framework */; };
@@ -309,6 +310,8 @@
 		01A8B9861DB0BEC100D87FCF /* PFBaseModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PFBaseModel.h; path = Models/PFBaseModel.h; sourceTree = "<group>"; };
 		01A8B9871DB0BEC100D87FCF /* PFBaseModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PFBaseModel.m; path = Models/PFBaseModel.m; sourceTree = "<group>"; };
 		01A8B9B01DB0E1CC00D87FCF /* Config.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = Config.h; path = Config/Config.h; sourceTree = "<group>"; };
+		01C332691DF6B66200F5C493 /* PFSettings.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PFSettings.h; path = Utils/PFSettings.h; sourceTree = "<group>"; };
+		01C3326A1DF6B66200F5C493 /* PFSettings.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PFSettings.m; path = Utils/PFSettings.m; sourceTree = "<group>"; };
 		01D26AF41DBB99F900A32064 /* PFKeychainHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PFKeychainHelper.h; path = Utils/PFKeychainHelper.h; sourceTree = "<group>"; };
 		01D26AF51DBB99F900A32064 /* PFKeychainHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PFKeychainHelper.m; path = Utils/PFKeychainHelper.m; sourceTree = "<group>"; };
 		01D26AF71DBBA84B00A32064 /* Puff.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Puff.entitlements; sourceTree = "<group>"; };
@@ -497,6 +500,8 @@
 				010001281DC9F48B0038AD85 /* PFStringUtil.m */,
 				01910F641DE2D37E0019E541 /* PFPasswordGenerator.h */,
 				01910F651DE2D37E0019E541 /* PFPasswordGenerator.m */,
+				01C332691DF6B66200F5C493 /* PFSettings.h */,
+				01C3326A1DF6B66200F5C493 /* PFSettings.m */,
 			);
 			name = Utils;
 			sourceTree = "<group>";
@@ -997,6 +1002,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				017C96831DDEEC7A0030272F /* Config.h in Sources */,
+				01C3326B1DF6B66200F5C493 /* PFSettings.m in Sources */,
 				017C96851DDEEC7A0030272F /* PFDrawerCell.h in Sources */,
 				017C96861DDEEC7A0030272F /* PFDrawerCell.m in Sources */,
 				0101A91E1DE80B9D009F5F90 /* _PFAccount+CoreDataProperties.m in Sources */,
