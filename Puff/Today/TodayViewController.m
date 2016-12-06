@@ -11,21 +11,37 @@
 #import <NotificationCenter/NotificationCenter.h>
 
 #include "Constants.h"
+#import "PFResUtil.h"
+
+#define txtNoAccountInfo                NSLocalizedString(@"No Account Infomation", nil)
+#define txtAccountName                  NSLocalizedString(@"Click button to copy information", nil)
 
 @interface TodayViewController () <NCWidgetProviding>
+@property (weak, nonatomic) IBOutlet UIButton *btnAccount;
+@property (weak, nonatomic) IBOutlet UIButton *btnPassword;
+@property (weak, nonatomic) IBOutlet UIButton *btnAdditional;
+@property (weak, nonatomic) IBOutlet UIView *btnWrapper;
+@property (weak, nonatomic) IBOutlet UILabel *hintLabel;
+@property (weak, nonatomic) IBOutlet UIImageView *iconImage;
 @property (strong, nonatomic) NSUserDefaults *store;
 @property (strong, nonatomic) NSString * account;
 @property (strong, nonatomic) NSString * password;
 @property (strong, nonatomic) NSString * additional;
+@property (strong, nonatomic) NSString * icon;
 @end
 
 @implementation TodayViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    self.extensionContext.widgetLargestAvailableDisplayMode = NCWidgetDisplayModeCompact;
     // Do any additional setup after loading the view from its nib.
     _store = [[NSUserDefaults alloc] initWithSuiteName:kUserDefaultGroup];
 }
+
+//- (void)widgetActiveDisplayMwodeDidChange:(NCWidgetDisplayMode)activeDisplayMode withMaximumSize:(CGSize)maxSize {
+//    self.preferredContentSize = CGSizeMake(0, 50);
+//}
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
@@ -42,13 +58,23 @@
     _account = [_store objectForKey:kTodayAccount];
     _password = [_store objectForKey:kTodayPassword];
     _additional = [_store objectForKey:kTodayAdditional];
+    _icon = [_store objectForKey:kTodayIcon];
     
     if ([_store boolForKey:kTodayNewData]) {
+        _hintLabel.text = txtAccountName;
+        if (_icon.length > 0) {
+            _iconImage.image = [PFResUtil imageForName:_icon];
+        } else {
+            _iconImage.image = [UIImage imageNamed:@"icon-puff"];
+        }
         [_store setBool:NO forKey:kTodayNewData];
         [_store synchronize];
         completionHandler(NCUpdateResultNewData);
     } else {
         completionHandler(NCUpdateResultNoData);
+    }
+    if (_account.length == 0 && _password.length == 0 && _additional.length == 0) {
+        _hintLabel.text = txtNoAccountInfo;
     }
     
 }
@@ -61,6 +87,7 @@
     [board setString:_account];
     //Clean up user default as well.
     [_store setObject:@"" forKey:kTodayAccount];
+    [_store synchronize];
 }
 - (IBAction)didTapOnPassword:(id)sender {
     UIPasteboard *board = [UIPasteboard generalPasteboard];
@@ -71,6 +98,7 @@
     [board setString:_password];
     //Clean up user default as well.
     [_store setObject:@"" forKey:kTodayPassword];
+    [_store synchronize];
 }
 
 - (IBAction)didTapOnAdditional:(id)sender {
@@ -82,6 +110,7 @@
     [board setString:_additional];
     //Clean up user default as well.
     [_store setObject:@"" forKey:kTodayAdditional];
+    [_store synchronize];
 }
 
 @end
