@@ -57,6 +57,11 @@ typedef NS_ENUM(NSInteger){
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    
+    _closeButton.layer.cornerRadius = 25;
+    _prevButton.layer.cornerRadius = 25;
+    _nextButton.layer.cornerRadius = 25;
+    
     _currentPage = 0;
     _pageControl.numberOfPages = 3;
     _pageControl.currentPage = _currentPage;

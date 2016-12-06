@@ -1414,35 +1414,38 @@
                                     <constraint firstAttribute="width" constant="39" id="gcK-EE-xak"/>
                                 </constraints>
                             </pageControl>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="OMq-4I-kOd">
-                                <rect key="frame" x="894" y="66" width="30" height="30"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="OMq-4I-kOd">
+                                <rect key="frame" x="890" y="36" width="50" height="50"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="30" id="Eqa-fX-17y"/>
-                                    <constraint firstAttribute="height" constant="30" id="nvo-gx-aen"/>
+                                    <constraint firstAttribute="width" constant="50" id="Eqa-fX-17y"/>
+                                    <constraint firstAttribute="height" constant="50" id="nvo-gx-aen"/>
                                 </constraints>
-                                <state key="normal" title="X"/>
+                                <state key="normal" image="ic-close"/>
                                 <connections>
                                     <action selector="didTapOnClose:" destination="AAY-OI-M16" eventType="touchUpInside" id="Z39-L5-FSJ"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="NZ2-qe-r1U">
-                                <rect key="frame" x="36" y="522" width="30" height="30"/>
+                            <button opaque="NO" alpha="0.75" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="NZ2-qe-r1U">
+                                <rect key="frame" x="20" y="502" width="50" height="50"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="30" id="ZTQ-Ah-wO3"/>
-                                    <constraint firstAttribute="width" constant="30" id="cj9-dd-SzH"/>
+                                    <constraint firstAttribute="height" constant="50" id="ZTQ-Ah-wO3"/>
+                                    <constraint firstAttribute="width" constant="50" id="cj9-dd-SzH"/>
                                 </constraints>
-                                <state key="normal" title="&lt;"/>
+                                <state key="normal" image="ic-prev"/>
                                 <connections>
                                     <action selector="didTapOnPrev:" destination="AAY-OI-M16" eventType="touchUpInside" id="4my-V6-MsF"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Xg4-mM-DaN">
-                                <rect key="frame" x="894" y="522" width="30" height="30"/>
+                            <button opaque="NO" alpha="0.75" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Xg4-mM-DaN">
+                                <rect key="frame" x="890" y="502" width="50" height="50"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="30" id="Hb9-Um-JUO"/>
-                                    <constraint firstAttribute="height" constant="30" id="erT-19-yIC"/>
+                                    <constraint firstAttribute="width" constant="50" id="Hb9-Um-JUO"/>
+                                    <constraint firstAttribute="height" constant="50" id="erT-19-yIC"/>
                                 </constraints>
-                                <state key="normal" title="&gt;"/>
+                                <state key="normal" image="ic-next"/>
                                 <connections>
                                     <action selector="didTapOnNext:" destination="AAY-OI-M16" eventType="touchUpInside" id="hPY-NO-UHB"/>
                                 </connections>
@@ -1450,14 +1453,14 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="OMq-4I-kOd" firstAttribute="top" secondItem="C2E-EQ-EoH" secondAttribute="bottom" constant="46" id="40z-Ld-lYs"/>
+                            <constraint firstItem="OMq-4I-kOd" firstAttribute="top" secondItem="C2E-EQ-EoH" secondAttribute="bottom" constant="16" id="40z-Ld-lYs"/>
                             <constraint firstItem="Xdy-xL-gQx" firstAttribute="top" secondItem="i66-7x-Ndx" secondAttribute="bottom" id="9et-ll-ZYq"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="OMq-4I-kOd" secondAttribute="trailing" constant="16" id="ENk-Gg-8GJ"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="OMq-4I-kOd" secondAttribute="trailing" id="ENk-Gg-8GJ"/>
                             <constraint firstAttribute="trailing" secondItem="i66-7x-Ndx" secondAttribute="trailing" id="EPQ-uY-AdK"/>
-                            <constraint firstItem="NZ2-qe-r1U" firstAttribute="leading" secondItem="tVO-8y-1gv" secondAttribute="leadingMargin" constant="16" id="EPT-9N-8Bj"/>
+                            <constraint firstItem="NZ2-qe-r1U" firstAttribute="leading" secondItem="tVO-8y-1gv" secondAttribute="leadingMargin" id="EPT-9N-8Bj"/>
                             <constraint firstItem="Xdy-xL-gQx" firstAttribute="top" secondItem="NZ2-qe-r1U" secondAttribute="bottom" constant="16" id="EX0-AH-aFM"/>
                             <constraint firstItem="Xdy-xL-gQx" firstAttribute="top" secondItem="Xg4-mM-DaN" secondAttribute="bottom" constant="16" id="KNt-I7-2nz"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="Xg4-mM-DaN" secondAttribute="trailing" constant="16" id="Opd-cn-PgM"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="Xg4-mM-DaN" secondAttribute="trailing" id="Opd-cn-PgM"/>
                             <constraint firstItem="i66-7x-Ndx" firstAttribute="leading" secondItem="tVO-8y-1gv" secondAttribute="leading" id="SXf-v5-vaD"/>
                             <constraint firstAttribute="trailing" secondItem="GjU-wU-wvp" secondAttribute="trailing" id="Ub0-w6-Q1B"/>
                             <constraint firstItem="i66-7x-Ndx" firstAttribute="top" secondItem="C2E-EQ-EoH" secondAttribute="bottom" id="W3B-z9-o92"/>
@@ -1885,7 +1888,7 @@
                                                     </constraints>
                                                 </imageView>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3h6-fr-CVV">
-                                                    <rect key="frame" x="60" y="15" width="242" height="20.5"/>
+                                                    <rect key="frame" x="60" y="15" width="242" height="21"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
@@ -1942,12 +1945,15 @@
         <image name="ic-add-image" width="48" height="48"/>
         <image name="ic-back" width="48" height="48"/>
         <image name="ic-check-mark" width="50" height="50"/>
+        <image name="ic-close" width="25" height="25"/>
         <image name="ic-dice" width="128" height="128"/>
         <image name="ic-dropdown-arrow" width="48" height="48"/>
         <image name="ic-empty" width="48" height="48"/>
-        <image name="ic-gen-password" width="128" height="128"/>
+        <image name="ic-gen-password" width="50" height="50"/>
         <image name="ic-menu" width="48" height="48"/>
         <image name="ic-more" width="48" height="48"/>
+        <image name="ic-next" width="25" height="25"/>
+        <image name="ic-prev" width="25" height="25"/>
         <image name="icon-puff" width="128" height="128"/>
     </resources>
 </document>
