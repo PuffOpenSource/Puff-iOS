@@ -13,6 +13,7 @@
 #import "PFSettings.h"
 #import "PFSetMasterPasswordViewController.h"
 #import "PFAppLock.h"
+#import "PFAboutViewController.h"
 
 @interface PFSettingsViewController () <BFPaperCheckboxDelegate>
 @property (weak, nonatomic) IBOutlet BFPaperCheckbox *cbTouchId;
@@ -95,6 +96,10 @@
         vc.showMode = showModeEdit;
         [self.navigationController pushViewController:vc animated:YES];
     }];
+}
+- (IBAction)didTapOnAbout:(id)sender {
+    PFAboutViewController *vc = [PFAboutViewController viewControllerFromStoryboard];
+    [self.navigationController pushViewController:vc animated:YES];
 }
 
 #pragma mark - Checkbox Delegate
