@@ -15,7 +15,7 @@
 #import "PFAppLock.h"
 #import "PFResUtil.h"
 
-@interface PFSetMasterPasswordViewController ()
+@interface PFSetMasterPasswordViewController () <MDTextFieldDelegate>
 @property (weak, nonatomic) IBOutlet MDTextField *passwordField;
 @property (weak, nonatomic) IBOutlet MDTextField *confirmField;
 @property (weak, nonatomic) IBOutlet MDButton *backButton;
@@ -46,6 +46,10 @@ static CGFloat headerHeight         = 160;
         _backButton.hidden = NO;
     }
     
+    _passwordField.delegate = self;
+    _confirmField.delegate = self;
+    _passwordField.returnKeyType = UIReturnKeyNext;
+    _confirmField.returnKeyType = UIReturnKeyDone;
 }
 
 - (void)didReceiveMemoryWarning {
@@ -75,6 +79,16 @@ static CGFloat headerHeight         = 160;
 
 - (void)touchesBegan:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event {
     [self.view endEditing:YES];
+}
+
+#pragma mark - MDTextFieldDelegate
+- (BOOL)textFieldShouldReturn:(MDTextField *)textField {
+    if (_passwordField.isFirstResponder) {
+        [_confirmField becomeFirstResponder];
+    } else {
+        [self.view endEditing:YES];
+    }
+    return NO;
 }
 
 #pragma mark - Keyboard
