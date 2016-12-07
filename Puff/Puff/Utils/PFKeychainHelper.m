@@ -88,4 +88,9 @@
     return searchDictionary;
 }
 
+- (BOOL)updateMasterPassword:(NSString*)newPass {
+    [self cleanMasterPassword];
+    return [self setMasterPassword:newPass];
+}
+
 @end

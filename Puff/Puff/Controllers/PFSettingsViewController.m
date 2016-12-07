@@ -11,6 +11,8 @@
 #import <BFPaperCheckbox/BFPaperCheckbox.h>
 
 #import "PFSettings.h"
+#import "PFSetMasterPasswordViewController.h"
+#import "PFAppLock.h"
 
 @interface PFSettingsViewController () <BFPaperCheckboxDelegate>
 @property (weak, nonatomic) IBOutlet BFPaperCheckbox *cbTouchId;
@@ -21,8 +23,8 @@
 
 @implementation PFSettingsViewController
 
-+ (instancetype)viewControllerFromStoryboard {
-    PFSettingsViewController *ret;
++ (UINavigationController*)navigationControllerFromStoryboard {
+    UINavigationController *ret;
     ret = [[UIStoryboard storyboardWithName:@"Main" bundle:[NSBundle bundleForClass:self.class]] instantiateViewControllerWithIdentifier:@"SettingsViewController"];
     return ret;
 }
@@ -82,6 +84,17 @@
     } else {
         [_cbClear checkAnimated:YES];
     }
+}
+
+- (IBAction)didTapOnChangeMaster:(id)sender {
+    [[PFAppLock sharedLock] verify:^(BOOL verified) {
+        if (!verified) {
+            return;
+        }
+        PFSetMasterPasswordViewController *vc = [PFSetMasterPasswordViewController viewControllerFromStoryBoard];
+        vc.showMode = showModeEdit;
+        [self.navigationController pushViewController:vc animated:YES];
+    }];
 }
 
 #pragma mark - Checkbox Delegate

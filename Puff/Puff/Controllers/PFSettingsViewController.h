@@ -9,5 +9,5 @@
 #import <UIKit/UIKit.h>
 
 @interface PFSettingsViewController : UIViewController
-+ (instancetype)viewControllerFromStoryboard;
++ (UINavigationController*)navigationControllerFromStoryboard;
 @end

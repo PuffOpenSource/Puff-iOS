@@ -30,10 +30,10 @@ static uint64_t const       typeQuick                       = 0x5022;
 static NSString * const     kPFNewInstall                   = @"kPFNewInstall";
 
 //String Constants
-static NSString * const kUserDefaultGroup       =   @"group.bob.sun.leela";
-static NSString * const kTodayNewData           = @"bob.sun.leela.today.newdata";
-static NSString * const kTodayAccount           =   @"bob.sun.leela.today.accout";
-static NSString * const kTodayPassword          =   @"bob.sun.leela.today.password";
-static NSString * const kTodayAdditional        =   @"bob.sun.leela.today.additional";
-static NSString * const kTodayIcon              =   @"bob.sun.leela.today.icon";
+static NSString * const kUserDefaultGroup       =   @"group.sun.bob.leela";
+static NSString * const kTodayNewData           =   @"sun.bob.leela.today.newdata";
+static NSString * const kTodayAccount           =   @"sun.bob.leela.today.accout";
+static NSString * const kTodayPassword          =   @"sun.bob.leela.today.password";
+static NSString * const kTodayAdditional        =   @"sun.bob.leela.today.additional";
+static NSString * const kTodayIcon              =   @"sun.bob.leela.today.icon";
 #endif /* Constants_h */

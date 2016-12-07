@@ -10,7 +10,7 @@
 
 @implementation PFResUtil
 + (NSString*)imagePathForName:(NSString*)name {
-    NSURL *libURL = [[[NSFileManager defaultManager] containerURLForSecurityApplicationGroupIdentifier:@"group.bob.sun.leela"] URLByAppendingPathComponent:@"cats" isDirectory:NO];
+    NSURL *libURL = [[[NSFileManager defaultManager] containerURLForSecurityApplicationGroupIdentifier:@"group.sun.bob.leela"] URLByAppendingPathComponent:@"cats" isDirectory:NO];
     return [[libURL URLByAppendingPathComponent:name] absoluteString];
 }
 + (UIImage*)imageForName:(NSString*)name {
@@ -25,7 +25,7 @@
     path = [@"/" stringByAppendingString:path];
 
     
-    NSURL *libURL = [[[[NSFileManager defaultManager] containerURLForSecurityApplicationGroupIdentifier:@"group.bob.sun.leela"]
+    NSURL *libURL = [[[[NSFileManager defaultManager] containerURLForSecurityApplicationGroupIdentifier:@"group.sun.bob.leela"]
                       URLByAppendingPathComponent:@"cats" isDirectory:YES]
                      URLByAppendingPathComponent:path];
     

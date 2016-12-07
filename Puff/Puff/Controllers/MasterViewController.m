@@ -200,7 +200,7 @@
             vc = [PFPasswordGenViewController viewControllerFromStoryboard];
             break;
         case 1:
-            vc = [PFSettingsViewController viewControllerFromStoryboard];
+            vc = [PFSettingsViewController navigationControllerFromStoryboard];
             break;
         default:
             vc = nil;

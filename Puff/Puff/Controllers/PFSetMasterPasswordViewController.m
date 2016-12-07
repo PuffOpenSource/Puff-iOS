@@ -69,6 +69,10 @@ static CGFloat headerHeight         = 160;
     return;
 }
 
+- (IBAction)didTapOnBack:(id)sender {
+    [self.navigationController popViewControllerAnimated:YES];
+}
+
 - (void)touchesBegan:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event {
     [self.view endEditing:YES];
 }

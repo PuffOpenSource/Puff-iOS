@@ -9,7 +9,7 @@
 #import <Foundation/Foundation.h>
 
 static NSString * const keyChainStoreKey        =   @"masterpwd";
-static NSString * const keyChainAccessGroup     =   @"bob.sun.leela";
+static NSString * const keyChainAccessGroup     =   @"sun.bob.leela";
 
 @interface PFKeychainHelper : NSObject
 + (instancetype)sharedInstance;
@@ -19,4 +19,5 @@ static NSString * const keyChainAccessGroup     =   @"bob.sun.leela";
 - (BOOL)setMasterPassword:(NSString*)pwd;
 - (void)cleanMasterPassword;
 - (NSString*)getMasterPassword;
+- (BOOL)updateMasterPassword:(NSString*)newPass;
 @end

@@ -18,7 +18,7 @@ static NSString * const kResultAdditional           = @"kResultAdditional";
 typedef void(^PFAccountEncryptCallback)( NSError * _Nullable error, PFAccount* _Nullable result);
 typedef void(^PFAccountDecryptCallback)(NSError * _Nullable error, NSDictionary* _Nullable result);
 
-#define PFAccountErrorDomain    @"bob.sun.leela"
+#define PFAccountErrorDomain    @"sun.bob.leela"
 
 @interface PFAccount : PFBaseModel
 @property (nullable, nonatomic, strong) NSString *account;

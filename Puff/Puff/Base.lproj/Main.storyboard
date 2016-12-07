@@ -793,6 +793,7 @@
                                                 </userDefinedRuntimeAttributes>
                                                 <connections>
                                                     <action selector="didClickMenuButton:" destination="YyR-ky-baK" eventType="touchUpInside" id="GOb-O1-JJa"/>
+                                                    <action selector="didTapOnBack:" destination="pni-xu-aoV" eventType="touchUpInside" id="Rnt-Yb-6ls"/>
                                                 </connections>
                                             </button>
                                         </subviews>
@@ -952,7 +953,7 @@
         <!--Settings View Controller-->
         <scene sceneID="ZZr-VW-p32">
             <objects>
-                <viewController storyboardIdentifier="SettingsViewController" id="XtP-l8-IMe" customClass="PFSettingsViewController" sceneMemberID="viewController">
+                <viewController id="XtP-l8-IMe" customClass="PFSettingsViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="vRG-JG-FHn"/>
                         <viewControllerLayoutGuide type="bottom" id="1XN-yP-e5M"/>
@@ -1042,6 +1043,9 @@
                                                 <state key="normal" title="Change Master Password">
                                                     <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 </state>
+                                                <connections>
+                                                    <action selector="didTapOnChangeMaster:" destination="XtP-l8-IMe" eventType="touchUpInside" id="RDz-7U-dXn"/>
+                                                </connections>
                                             </button>
                                             <button clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vOH-GJ-iV6">
                                                 <rect key="frame" x="8" y="85" width="272" height="40"/>
@@ -1221,6 +1225,7 @@
                             <constraint firstItem="6aa-wD-QpA" firstAttribute="leading" secondItem="eVs-rU-2vk" secondAttribute="leading" id="bde-gL-vF3"/>
                         </constraints>
                     </view>
+                    <navigationItem key="navigationItem" id="rbi-3A-Ksc"/>
                     <connections>
                         <outlet property="cbClear" destination="PIn-oF-zZw" id="vbM-3D-aSH"/>
                         <outlet property="cbTouchId" destination="ujX-PB-h6W" id="pz1-OF-1uN"/>
@@ -1228,7 +1233,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="vIg-Rw-Zgl" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2651.25" y="1477.8169014084508"/>
+            <point key="canvasLocation" x="3648.75" y="1477.8169014084508"/>
         </scene>
         <!--Password Gen View Controller-->
         <scene sceneID="rg3-MT-pu1">
@@ -1732,7 +1737,7 @@
                     </connections>
                 </tapGestureRecognizer>
             </objects>
-            <point key="canvasLocation" x="4091.25" y="1461.9718309859154"/>
+            <point key="canvasLocation" x="5088.75" y="1461.9718309859154"/>
         </scene>
         <!--Account Detail View Controller-->
         <scene sceneID="sml-Nd-P2T">
@@ -2183,6 +2188,26 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="YBV-g4-jgP" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="887" y="690"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="1lE-rV-oJj">
+            <objects>
+                <navigationController storyboardIdentifier="SettingsViewController" automaticallyAdjustsScrollViewInsets="NO" navigationBarHidden="YES" id="XFI-2y-Sav" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <nil key="simulatedTopBarMetrics"/>
+                    <nil key="simulatedBottomBarMetrics"/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="IB5-GF-4y1">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="XtP-l8-IMe" kind="relationship" relationship="rootViewController" id="t8G-uB-FBh"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Uph-Lk-hRR" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2651.25" y="1477.8169014084508"/>
         </scene>
     </scenes>
     <resources>

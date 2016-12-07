@@ -4,11 +4,11 @@
 <dict>
 	<key>com.apple.security.application-groups</key>
 	<array>
-		<string>group.bob.sun.leela</string>
+		<string>group.sun.bob.leela</string>
 	</array>
 	<key>keychain-access-groups</key>
 	<array>
-		<string>$(AppIdentifierPrefix)bob.sun.leela.today</string>
+		<string>$(AppIdentifierPrefix)sun.bob.leela.today</string>
 	</array>
 </dict>
 </plist>

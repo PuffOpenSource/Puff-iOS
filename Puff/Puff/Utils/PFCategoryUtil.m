@@ -158,7 +158,7 @@
     NSError *err;
     NSString *resPath = [[NSBundle bundleForClass:self.class] pathForResource:kAssetsFolder ofType:nil];
     NSURL *resURL = [NSURL fileURLWithPath:resPath isDirectory:YES];
-    NSURL *libURL = [[[NSFileManager defaultManager] containerURLForSecurityApplicationGroupIdentifier:@"group.bob.sun.leela"] URLByAppendingPathComponent:@"cats" isDirectory:YES];
+    NSURL *libURL = [[[NSFileManager defaultManager] containerURLForSecurityApplicationGroupIdentifier:@"group.sun.bob.leela"] URLByAppendingPathComponent:@"cats" isDirectory:YES];
     NSFileManager *fm = [NSFileManager defaultManager];
     [fm copyItemAtURL:resURL toURL:libURL error:&err];
     _libPath = [libURL absoluteString];

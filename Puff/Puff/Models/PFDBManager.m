@@ -25,10 +25,10 @@
 - (instancetype)init {
     self = [super init];
     if (self) {
-        NSURL *containerURL = [[NSFileManager defaultManager] containerURLForSecurityApplicationGroupIdentifier:@"group.bob.sun.leela"];
+        NSURL *containerURL = [[NSFileManager defaultManager] containerURLForSecurityApplicationGroupIdentifier:@"group.sun.bob.leela"];
         containerURL = [containerURL URLByAppendingPathComponent:coreDataDBName];
         
-        NSManagedObjectModel *model = [[NSManagedObjectModel alloc] initWithContentsOfURL: [[NSBundle bundleWithIdentifier:@"bob.sun.leela.PuffExtensionKit"] URLForResource:@"Puff" withExtension:@"momd"]];
+        NSManagedObjectModel *model = [[NSManagedObjectModel alloc] initWithContentsOfURL: [[NSBundle bundleWithIdentifier:@"sun.bob.leela.PuffExtensionKit"] URLForResource:@"Puff" withExtension:@"momd"]];
         
         NSPersistentStoreCoordinator *coordinator = [[NSPersistentStoreCoordinator alloc] initWithManagedObjectModel:model];
         [coordinator addPersistentStoreWithType:NSSQLiteStoreType configuration:nil URL:containerURL options:nil error:nil];
