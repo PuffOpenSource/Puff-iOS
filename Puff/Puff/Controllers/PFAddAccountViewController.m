@@ -302,6 +302,9 @@ static const CGFloat toolBarHeight   = 180;
         t.delegate = self;
     }
     ((MDTextField*)[_textFields lastObject]).returnKeyType = UIReturnKeyDone;
+    
+    _accountField.keyboardType = UIKeyboardTypeAlphabet;
+    _additionalField.keyboardType = UIKeyboardTypeAlphabet;
 }
 - (void)_keyboardWillShow:(NSNotification*)notification {
     [self _closeSpinners];
