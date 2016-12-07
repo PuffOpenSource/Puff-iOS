@@ -62,6 +62,12 @@
     _additional = [_store objectForKey:kTodayAdditional];
     _icon = [_store objectForKey:kTodayIcon];
     
+    if (_icon.length > 0) {
+        _iconImage.image = [PFResUtil imageForName:_icon];
+    } else {
+        _iconImage.image = [UIImage imageNamed:@"icon-puff"];
+    }
+    
     _needClear = [[PFSettings sharedInstance] clearInfo];
     
     if (_account.length == 0 && _password.length == 0 && _additional.length == 0) {
@@ -71,11 +77,6 @@
     }
     
     if ([_store boolForKey:kTodayNewData]) {
-        if (_icon.length > 0) {
-            _iconImage.image = [PFResUtil imageForName:_icon];
-        } else {
-            _iconImage.image = [UIImage imageNamed:@"icon-puff"];
-        }
         [_store setBool:NO forKey:kTodayNewData];
         [_store synchronize];
         completionHandler(NCUpdateResultNewData);
