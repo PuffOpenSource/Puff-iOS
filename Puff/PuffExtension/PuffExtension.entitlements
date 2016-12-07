@@ -12,7 +12,7 @@
 	</array>
 	<key>keychain-access-groups</key>
 	<array>
-		<string>$(AppIdentifierPrefix)sun.bob.leela.PuffExtension</string>
+		<string>$(AppIdentifierPrefix)sun.bob.leela</string>
 	</array>
 </dict>
 </plist>

@@ -25,14 +25,14 @@
     
     NSString *padded = [self pad:plain];
     int len = [padded length];
-    NSData *dPadded = [padded dataUsingEncoding:NSASCIIStringEncoding];
+    NSData *dPadded = [padded dataUsingEncoding:NSUTF8StringEncoding];
     unsigned char * cPadded = (unsigned char *)dPadded.bytes;
     unsigned char cIV[8];
     unsigned char cBlock[self->blockSize];
     memset(&cBlock[0], 0, self->blockSize);
     memset(&cIV[0], 0, 8);
     
-    NSData *dIV = [self->IV dataUsingEncoding:NSASCIIStringEncoding];
+    NSData *dIV = [self->IV dataUsingEncoding:NSUTF8StringEncoding];
     memcpy(&cIV[0], dIV.bytes, 8);
     
     for(int i = 0; i < len; i += self->blockSize) {

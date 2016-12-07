@@ -82,7 +82,9 @@
     [searchDictionary setObject:encodeInditifier forKey:(__bridge_transfer id)kSecAttrAccount];
     [searchDictionary setObject:(__bridge_transfer id)kSecAttrAccessibleAfterFirstUnlock
                          forKey:(__bridge_transfer id)kSecAttrAccessible];
-//    [searchDictionary setObject:[keyChainAccessGroup dataUsingEncoding:NSUTF8StringEncoding] forKey:(__bridge_transfer id)kSecAttrAccessGroup];
+//    NSString *prefix = [[NSBundle mainBundle] objectForInfoDictionaryKey:@"AppIdentifierPrefix"];
+//    NSString *group = [prefix stringByAppendingString:keyChainAccessGroup];
+//    [searchDictionary setObject:[group dataUsingEncoding:NSUTF8StringEncoding] forKey:(__bridge_transfer id)kSecAttrAccessGroup];
     //[searchDictionary setObject:serviceName forKey:(__bridge id)kSecAttrService];
     
     return searchDictionary;

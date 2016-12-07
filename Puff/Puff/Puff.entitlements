@@ -9,8 +9,6 @@
 	<key>keychain-access-groups</key>
 	<array>
 		<string>$(AppIdentifierPrefix)sun.bob.leela</string>
-		<string>$(AppIdentifierPrefix)sun.bob.leela.today</string>
-		<string>$(AppIdentifierPrefix)sun.bob.leela.PuffExtension</string>
 	</array>
 </dict>
 </plist>
