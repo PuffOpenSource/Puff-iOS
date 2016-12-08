@@ -16,6 +16,7 @@
 #import "PFAccount.h"
 #import "PFResUtil.h"
 #import "PFTypeManager.h"
+#import "PFAccountAccess.h"
 
 @interface MainAccountCell ()
 @property (weak, nonatomic) IBOutlet UILabel *nameLabel;
@@ -72,19 +73,12 @@
 
 - (IBAction)didTapOnCopyButton:(id)sender {
     [_account decrypt:^(NSError * _Nullable error, NSDictionary * _Nullable result) {
-        UIPasteboard *board = [UIPasteboard generalPasteboard];
-        [board setString:[result objectForKey:kResultPassword]];
+        [PFAccountAccess copyToClipBoard:result];
     }];
 }
 - (IBAction)didTapOnPinButton:(id)sender {
     [_account decrypt:^(NSError * _Nullable error, NSDictionary * _Nullable result) {
-        NSUserDefaults *ud = [[NSUserDefaults alloc] initWithSuiteName:kUserDefaultGroup];
-        [ud setBool:YES forKey:kTodayNewData];
-        [ud setObject:[result objectForKey:kResultAccount] forKey:kTodayAccount];
-        [ud setObject:[result objectForKey:kResultPassword] forKey:kTodayPassword];
-        [ud setObject:[result objectForKey:kResultAdditional] forKey:kTodayAdditional];
-        [ud setObject:self.account.icon forKey:kTodayIcon];
-        [ud synchronize];
+        [PFAccountAccess pinToday:result withIcon:self.account.icon];
         if (_delegate) {
             [_delegate mainAccountCell:self didPinedAccount:_account];
         }

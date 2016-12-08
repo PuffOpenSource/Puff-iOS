@@ -11,7 +11,10 @@
 #import <LocalAuthentication/LocalAuthentication.h>
 
 #import "PFAccountManager.h"
+#import "PFAuthorizeDialog.h"
+#import "PFSettings.h"
 #import "PFResUtil.h"
+#import "PFAccountAccess.h"
 
 static NSString * const kPFExtActCellReuseId        =   @"kPFExtActCellReuseId";
 
@@ -19,6 +22,7 @@ static NSString * const kPFExtActCellReuseId        =   @"kPFExtActCellReuseId";
 
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
 @property(strong, nonatomic) NSArray<PFAccount*> *accounts;
+@property (assign, nonatomic) BOOL unlocked;
 @end
 
 @implementation ActionViewController
@@ -27,8 +31,12 @@ static NSString * const kPFExtActCellReuseId        =   @"kPFExtActCellReuseId";
     [super viewDidLoad];
     
     _accounts = [[PFAccountManager sharedManager] fetchAll];
-    
-    [self _authorizeWithTouchId];
+    _unlocked = NO;
+    if ([[PFSettings sharedInstance] touchIDEnabled]) {
+        [self _authorizeWithTouchId];
+    } else {
+        [self _authorizeWithPassword];
+    }
 }
 
 - (void)didReceiveMemoryWarning {
@@ -52,7 +60,7 @@ static NSString * const kPFExtActCellReuseId        =   @"kPFExtActCellReuseId";
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    return _accounts.count;
+    return _unlocked ? _accounts.count : 0;
 }
 
 #pragma mark - UITableViewDelegate
@@ -63,9 +71,9 @@ static NSString * const kPFExtActCellReuseId        =   @"kPFExtActCellReuseId";
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     //Default action is copy password. Click pin button to pin
     PFAccount *selected = [_accounts objectAtIndex:indexPath.row];
-//    [selected decrypt:^(NSError * _Nullable error, NSDictionary * _Nullable result) {
-//        
-//    }];
+    [selected decrypt:^(NSError * _Nullable error, NSDictionary * _Nullable result) {
+        
+    }];
 }
 
 #pragma Authorize
@@ -75,18 +83,22 @@ static NSString * const kPFExtActCellReuseId        =   @"kPFExtActCellReuseId";
         [ctx evaluatePolicy:LAPolicyDeviceOwnerAuthenticationWithBiometrics localizedReason:NSLocalizedString(@"Unlock with Touch ID", nil) reply:^(BOOL success, NSError * _Nullable error) {
             dispatch_async(dispatch_get_main_queue(), ^{
                 if (success) {
+                    _unlocked = YES;
                     [self.tableView reloadData];
                 }
                 if (error) {
-                    if (error.code == LAErrorUserFallback) {
-                        
-                    } else {
-                        
-                    }
+                    [self _authorizeWithPassword];
                 }
             });
         }];
     }
+}
+
+- (void)_authorizeWithPassword {
+    [[PFAuthorizeDialog sharedInstance] authorize:self callback:^(BOOL verified) {
+        _unlocked = verified;
+        [self.tableView reloadData];
+    }];
 }
 
 - (BOOL)_hasTouchID {
@@ -98,16 +110,16 @@ static NSString * const kPFExtActCellReuseId        =   @"kPFExtActCellReuseId";
 #pragma mark - CellDelegate
 - (void)didClickOnPin:(NSInteger)idx {
     PFAccount *act = [_accounts objectAtIndex:idx];
-//    [act decrypt:^(NSError * _Nullable error, NSDictionary * _Nullable result) {
-//        return;
-//    }];
+    [act decrypt:^(NSError * _Nullable error, NSDictionary * _Nullable result) {
+        [PFAccountAccess pinToday:result withIcon:act.icon];
+    }];
 }
 
 - (void)didClickOnCopy:(NSInteger)idx {
     PFAccount *act = [_accounts objectAtIndex:idx];
-//    [act decrypt:^(NSError * _Nullable error, NSDictionary * _Nullable result) {
-//        return;
-//    }];
+    [act decrypt:^(NSError * _Nullable error, NSDictionary * _Nullable result) {
+        [PFAccountAccess copyToClipBoard:result];
+    }];
 }
 
 @end

@@ -149,8 +149,10 @@
 		017C96D31DDEF25A0030272F /* Constants.h in Sources */ = {isa = PBXBuildFile; fileRef = 010CFB311DB4B3A800FEE5DE /* Constants.h */; };
 		01910F661DE2D37E0019E541 /* PFPasswordGenerator.m in Sources */ = {isa = PBXBuildFile; fileRef = 01910F651DE2D37E0019E541 /* PFPasswordGenerator.m */; };
 		01910F671DE2FE5E0019E541 /* Assets.xcassets in Sources */ = {isa = PBXBuildFile; fileRef = 010CFB391DB4B9B500FEE5DE /* Assets.xcassets */; };
-		01B2B1A91DF92D49009801E7 /* PFAuthorizeDialog.m in Sources */ = {isa = PBXBuildFile; fileRef = 01B2B1A81DF92D49009801E7 /* PFAuthorizeDialog.m */; };
 		01B2B1AA1DF92FA8009801E7 /* PFAuthorizeDialog.h in Headers */ = {isa = PBXBuildFile; fileRef = 01B2B1A71DF92D49009801E7 /* PFAuthorizeDialog.h */; };
+		01B2B1AB1DF961CD009801E7 /* PFAuthorizeDialog.m in Sources */ = {isa = PBXBuildFile; fileRef = 01B2B1A81DF92D49009801E7 /* PFAuthorizeDialog.m */; };
+		01B2B1AE1DF96339009801E7 /* PFAccountAccess.h in Headers */ = {isa = PBXBuildFile; fileRef = 01B2B1AC1DF96339009801E7 /* PFAccountAccess.h */; };
+		01B2B1AF1DF96339009801E7 /* PFAccountAccess.m in Sources */ = {isa = PBXBuildFile; fileRef = 01B2B1AD1DF96339009801E7 /* PFAccountAccess.m */; };
 		01C332681DF6A4EA00F5C493 /* PuffExtensionKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 017C961B1DDEE5600030272F /* PuffExtensionKit.framework */; };
 		01C3326B1DF6B66200F5C493 /* PFSettings.m in Sources */ = {isa = PBXBuildFile; fileRef = 01C3326A1DF6B66200F5C493 /* PFSettings.m */; };
 		01C3326C1DF6C05F00F5C493 /* PFSettings.m in Sources */ = {isa = PBXBuildFile; fileRef = 01C3326A1DF6B66200F5C493 /* PFSettings.m */; };
@@ -316,6 +318,8 @@
 		01A8B9B01DB0E1CC00D87FCF /* Config.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = Config.h; path = Config/Config.h; sourceTree = "<group>"; };
 		01B2B1A71DF92D49009801E7 /* PFAuthorizeDialog.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PFAuthorizeDialog.h; path = Utils/PFAuthorizeDialog.h; sourceTree = "<group>"; };
 		01B2B1A81DF92D49009801E7 /* PFAuthorizeDialog.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PFAuthorizeDialog.m; path = Utils/PFAuthorizeDialog.m; sourceTree = "<group>"; };
+		01B2B1AC1DF96339009801E7 /* PFAccountAccess.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PFAccountAccess.h; sourceTree = "<group>"; };
+		01B2B1AD1DF96339009801E7 /* PFAccountAccess.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PFAccountAccess.m; sourceTree = "<group>"; };
 		01C332691DF6B66200F5C493 /* PFSettings.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PFSettings.h; path = Utils/PFSettings.h; sourceTree = "<group>"; };
 		01C3326A1DF6B66200F5C493 /* PFSettings.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PFSettings.m; path = Utils/PFSettings.m; sourceTree = "<group>"; };
 		01CD7C6A1DF8192500BF989B /* PFAboutViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PFAboutViewController.h; path = Controllers/PFAboutViewController.h; sourceTree = "<group>"; };
@@ -512,6 +516,8 @@
 				01C3326A1DF6B66200F5C493 /* PFSettings.m */,
 				01B2B1A71DF92D49009801E7 /* PFAuthorizeDialog.h */,
 				01B2B1A81DF92D49009801E7 /* PFAuthorizeDialog.m */,
+				01B2B1AC1DF96339009801E7 /* PFAccountAccess.h */,
+				01B2B1AD1DF96339009801E7 /* PFAccountAccess.m */,
 			);
 			name = Utils;
 			sourceTree = "<group>";
@@ -714,6 +720,7 @@
 				0101A92B1DE80BE5009F5F90 /* PFType.h in Headers */,
 				01B2B1AA1DF92FA8009801E7 /* PFAuthorizeDialog.h in Headers */,
 				0101A9311DE80C07009F5F90 /* PFBlowfish.h in Headers */,
+				01B2B1AE1DF96339009801E7 /* PFAccountAccess.h in Headers */,
 				0101A92D1DE80BE9009F5F90 /* PFCategoryManager.h in Headers */,
 				0101A91C1DE80B7E009F5F90 /* _PFType+CoreDataProperties.h in Headers */,
 				0101A9131DE80B62009F5F90 /* _PFAccount+CoreDataProperties.h in Headers */,
@@ -1032,7 +1039,6 @@
 				017C96911DDEEC7A0030272F /* PFBaseModel.h in Sources */,
 				017C96931DDEEC7A0030272F /* PFAccount.h in Sources */,
 				017C96951DDEEC7A0030272F /* PFCategory.h in Sources */,
-				01B2B1A91DF92D49009801E7 /* PFAuthorizeDialog.m in Sources */,
 				017C96971DDEEC7A0030272F /* PFType.h in Sources */,
 				017C96991DDEEC7A0030272F /* PFCategoryManager.h in Sources */,
 				017C969B1DDEEC7A0030272F /* PFTypeManager.h in Sources */,
@@ -1122,6 +1128,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				01B2B1AB1DF961CD009801E7 /* PFAuthorizeDialog.m in Sources */,
 				01C3326C1DF6C05F00F5C493 /* PFSettings.m in Sources */,
 				0150E70B1DF5696100C0ADF0 /* PFResUtil.m in Sources */,
 				0101A93B1DE816BA009F5F90 /* PFBaseModel.m in Sources */,
@@ -1139,6 +1146,7 @@
 				0101A93E1DE816C6009F5F90 /* PFCategoryManager.m in Sources */,
 				0101A9401DE816CD009F5F90 /* PFTypeManager.m in Sources */,
 				0101A93D1DE816C3009F5F90 /* PFCategory.m in Sources */,
+				01B2B1AF1DF96339009801E7 /* PFAccountAccess.m in Sources */,
 				0101A9411DE816D5009F5F90 /* PFKeychainHelper.m in Sources */,
 				0101A9421DE816DE009F5F90 /* PFBlowfish.m in Sources */,
 			);
