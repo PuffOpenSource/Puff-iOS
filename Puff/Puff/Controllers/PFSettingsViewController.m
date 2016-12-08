@@ -9,11 +9,13 @@
 #import "PFSettingsViewController.h"
 
 #import <BFPaperCheckbox/BFPaperCheckbox.h>
+#import <MaterialControls/MDSnackbar.h>
 
 #import "PFSettings.h"
 #import "PFSetMasterPasswordViewController.h"
 #import "PFAppLock.h"
 #import "PFAboutViewController.h"
+#import "PFAuthorizeDialog.h"
 
 @interface PFSettingsViewController () <BFPaperCheckboxDelegate>
 @property (weak, nonatomic) IBOutlet BFPaperCheckbox *cbTouchId;
@@ -88,8 +90,9 @@
 }
 
 - (IBAction)didTapOnChangeMaster:(id)sender {
-    [[PFAppLock sharedLock] verify:^(BOOL verified) {
+    [[PFAuthorizeDialog sharedInstance] authorize:self callback:^(BOOL verified) {
         if (!verified) {
+            [[[MDSnackbar alloc] initWithText:NSLocalizedString(@"Master password didn't match", nil) actionTitle:@"" duration:1] show];
             return;
         }
         PFSetMasterPasswordViewController *vc = [PFSetMasterPasswordViewController viewControllerFromStoryBoard];

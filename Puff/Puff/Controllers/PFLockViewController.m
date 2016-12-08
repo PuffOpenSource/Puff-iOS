@@ -98,10 +98,10 @@
 - (BOOL)_authorize {
     NSString *password = _lockPasswordField.text;
     if (password.length == 0) {
-        return false;
+        return NO;
     }
     if (![[PFKeychainHelper sharedInstance] checkPassword:password]) {
-        return false;
+        return NO;
     }
     return YES;
 }
