@@ -158,6 +158,10 @@
 		01C3326C1DF6C05F00F5C493 /* PFSettings.m in Sources */ = {isa = PBXBuildFile; fileRef = 01C3326A1DF6B66200F5C493 /* PFSettings.m */; };
 		01CD7C6C1DF8192500BF989B /* PFAboutViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 01CD7C6B1DF8192500BF989B /* PFAboutViewController.m */; };
 		01D3AF891DB3C99800EE5CA1 /* MasterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 01D3AF881DB3C99800EE5CA1 /* MasterViewController.m */; };
+		01F6708D1DFA89EC00903202 /* Intro.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 01F6708C1DFA89EC00903202 /* Intro.storyboard */; };
+		01F670901DFA8A6D00903202 /* PFAddCategoryViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 01F6708F1DFA8A6D00903202 /* PFAddCategoryViewController.m */; };
+		01F670931DFA8A8F00903202 /* PFAddTypeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 01F670921DFA8A8F00903202 /* PFAddTypeViewController.m */; };
+		01F670961DFA8BF700903202 /* PFChangePasswordRunner.m in Sources */ = {isa = PBXBuildFile; fileRef = 01F670951DFA8BF700903202 /* PFChangePasswordRunner.m */; };
 		44075CED77D58170C20A4992 /* Pods_Puff.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6B7D49088F66C933BBF2413A /* Pods_Puff.framework */; };
 		89E2CCAF769F204ABA3660E7 /* Pods_PuffExtensionKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4A8ACECC80B15E78B49B8CD2 /* Pods_PuffExtensionKit.framework */; };
 /* End PBXBuildFile section */
@@ -351,6 +355,13 @@
 		01EB179A1DB74B6900C71C4B /* PFSettingsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PFSettingsViewController.m; path = Controllers/PFSettingsViewController.m; sourceTree = "<group>"; };
 		01EB179C1DB74B8100C71C4B /* PFPasswordGenViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PFPasswordGenViewController.h; path = Controllers/PFPasswordGenViewController.h; sourceTree = "<group>"; };
 		01EB179D1DB74B8100C71C4B /* PFPasswordGenViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PFPasswordGenViewController.m; path = Controllers/PFPasswordGenViewController.m; sourceTree = "<group>"; };
+		01F6708C1DFA89EC00903202 /* Intro.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = Intro.storyboard; path = Views/Intro.storyboard; sourceTree = "<group>"; };
+		01F6708E1DFA8A6D00903202 /* PFAddCategoryViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PFAddCategoryViewController.h; path = Controllers/PFAddCategoryViewController.h; sourceTree = "<group>"; };
+		01F6708F1DFA8A6D00903202 /* PFAddCategoryViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PFAddCategoryViewController.m; path = Controllers/PFAddCategoryViewController.m; sourceTree = "<group>"; };
+		01F670911DFA8A8F00903202 /* PFAddTypeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PFAddTypeViewController.h; path = Controllers/PFAddTypeViewController.h; sourceTree = "<group>"; };
+		01F670921DFA8A8F00903202 /* PFAddTypeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PFAddTypeViewController.m; path = Controllers/PFAddTypeViewController.m; sourceTree = "<group>"; };
+		01F670941DFA8BF700903202 /* PFChangePasswordRunner.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PFChangePasswordRunner.h; path = Utils/PFChangePasswordRunner.h; sourceTree = "<group>"; };
+		01F670951DFA8BF700903202 /* PFChangePasswordRunner.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PFChangePasswordRunner.m; path = Utils/PFChangePasswordRunner.m; sourceTree = "<group>"; };
 		01F80A3B1DCB3D6C00463272 /* PFAccountDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PFAccountDetailViewController.h; path = Controllers/PFAccountDetailViewController.h; sourceTree = "<group>"; };
 		01F80A3C1DCB3D6C00463272 /* PFAccountDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PFAccountDetailViewController.m; path = Controllers/PFAccountDetailViewController.m; sourceTree = "<group>"; };
 		2667787EC9FB7FA21A1CE652 /* Pods-Puff.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Puff.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Puff/Pods-Puff.debug.xcconfig"; sourceTree = "<group>"; };
@@ -545,6 +556,12 @@
 				01F80A3C1DCB3D6C00463272 /* PFAccountDetailViewController.m */,
 				01CD7C6A1DF8192500BF989B /* PFAboutViewController.h */,
 				01CD7C6B1DF8192500BF989B /* PFAboutViewController.m */,
+				01F6708E1DFA8A6D00903202 /* PFAddCategoryViewController.h */,
+				01F6708F1DFA8A6D00903202 /* PFAddCategoryViewController.m */,
+				01F670911DFA8A8F00903202 /* PFAddTypeViewController.h */,
+				01F670921DFA8A8F00903202 /* PFAddTypeViewController.m */,
+				01F670941DFA8BF700903202 /* PFChangePasswordRunner.h */,
+				01F670951DFA8BF700903202 /* PFChangePasswordRunner.m */,
 			);
 			name = Controller;
 			sourceTree = "<group>";
@@ -670,6 +687,7 @@
 				017915221DBF614B006FA552 /* PFLockViewController.xib */,
 				015EEA9E1DC232EC00F207AE /* PFSpinner.h */,
 				015EEA9F1DC232EC00F207AE /* PFSpinner.m */,
+				01F6708C1DFA89EC00903202 /* Intro.storyboard */,
 			);
 			name = Views;
 			sourceTree = "<group>";
@@ -906,6 +924,7 @@
 				011537001D8932CC00C98268 /* Main.storyboard in Resources */,
 				017915231DBF614B006FA552 /* PFLockViewController.xib in Resources */,
 				010CFC2C1DB4C03A00FEE5DE /* cats in Resources */,
+				01F6708D1DFA89EC00903202 /* Intro.storyboard in Resources */,
 				017517551DB8B8C80067A586 /* MainAccountCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -1034,6 +1053,7 @@
 				017C968A1DDEEC7A0030272F /* PFCardView.m in Sources */,
 				017C968B1DDEEC7A0030272F /* PFSpinner.h in Sources */,
 				017C968C1DDEEC7A0030272F /* PFSpinner.m in Sources */,
+				01F670961DFA8BF700903202 /* PFChangePasswordRunner.m in Sources */,
 				017C968D1DDEEC7A0030272F /* PFDBManager.h in Sources */,
 				017C968F1DDEEC7A0030272F /* PFAccountManager.h in Sources */,
 				017C96911DDEEC7A0030272F /* PFBaseModel.h in Sources */,
@@ -1079,11 +1099,13 @@
 				017C96BB1DDEEC7A0030272F /* PFSetMasterPasswordViewController.h in Sources */,
 				017C96BC1DDEEC7A0030272F /* PFSetMasterPasswordViewController.m in Sources */,
 				017C96BD1DDEEC7A0030272F /* PFQuickPasswordViewController.h in Sources */,
+				01F670901DFA8A6D00903202 /* PFAddCategoryViewController.m in Sources */,
 				017C96BE1DDEEC7A0030272F /* PFQuickPasswordViewController.m in Sources */,
 				0101A9221DE80B9D009F5F90 /* _PFType+CoreDataProperties.m in Sources */,
 				017C96BF1DDEEC7A0030272F /* PFSettingsViewController.h in Sources */,
 				017C96C01DDEEC7A0030272F /* PFSettingsViewController.m in Sources */,
 				017C96C11DDEEC7A0030272F /* PFPasswordGenViewController.h in Sources */,
+				01F670931DFA8A8F00903202 /* PFAddTypeViewController.m in Sources */,
 				017C96C21DDEEC7A0030272F /* PFPasswordGenViewController.m in Sources */,
 				017C96C31DDEEC7A0030272F /* PFLockViewController.h in Sources */,
 				017C96C41DDEEC7A0030272F /* PFLockViewController.m in Sources */,

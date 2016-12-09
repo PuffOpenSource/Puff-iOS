@@ -30,6 +30,8 @@
 #import "PFAppLock.h"
 #import "PFSpinner.h"
 
+#import "PFAddCategoryViewController.h"
+
 @interface MasterViewController () <PFDrawerViewControllerDelegate, UITableViewDelegate, UITableViewDataSource, MainAccountCellDelegate, PFSpinnerDelegate>
 
 @property (weak, nonatomic) AppDelegate *app;
@@ -192,24 +194,29 @@
 
 #pragma mark - PFSpinnerDelegate
 - (void)pfSpinner:(PFSpinner *)spinner didSelectItem:(id)item {
-    [_menuSpinner dismiss:nil];
-    NSUInteger idx = [_menus indexOfObject:item];
-    UIViewController *vc;
-    switch (idx) {
-        case 0:
-            vc = [PFPasswordGenViewController viewControllerFromStoryboard];
-            break;
-        case 1:
-            vc = [PFSettingsViewController navigationControllerFromStoryboard];
-            break;
-        default:
-            vc = nil;
-            break;
-    }
-    if (!vc) {
-        return;
-    }
-    [self presentViewController:vc animated:YES completion:nil];
+    [_menuSpinner dismiss:^(){
+        NSUInteger idx = [_menus indexOfObject:item];
+        UIViewController *vc;
+        switch (idx) {
+            case 0:
+                vc = [PFPasswordGenViewController viewControllerFromStoryboard];
+                break;
+            case 1:
+                vc = [PFSettingsViewController navigationControllerFromStoryboard];
+                break;
+            case 2:
+                vc = [PFAddCategoryViewController viewControllerFromStoryboard];
+                [(PFAddCategoryViewController*)vc presentIn:self];
+                return;
+            default:
+                vc = nil;
+                break;
+        }
+        if (!vc) {
+            return;
+        }
+        [self presentViewController:vc animated:YES completion:nil];
+    }];
 }
 #pragma mark - Segues
 
@@ -242,7 +249,7 @@
     _emptyView.hidden = YES;
     
     //Spinner
-    _menus = @[NSLocalizedString(@"Password Generator", nil), NSLocalizedString(@"Settings", nil)];
+    _menus = @[NSLocalizedString(@"Password Generator", nil), NSLocalizedString(@"Settings", nil), @"Debug"];
     CGRect scrSize = [PFResUtil screenSize];
     CGRect frame = CGRectMake(scrSize.size.width - 200, 20, 200, 40);
     _menuSpinner = [[PFSpinner alloc] initAsMenuWithData:_menus andFrame:frame];

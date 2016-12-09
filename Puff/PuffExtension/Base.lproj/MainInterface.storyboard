@@ -209,7 +209,7 @@
     </scenes>
     <resources>
         <image name="ic-copy" width="25" height="25"/>
-        <image name="ic-empty" width="85" height="85"/>
+        <image name="ic-empty" width="170" height="170"/>
         <image name="ic-lock" width="85" height="85"/>
         <image name="ic-pin" width="25" height="25"/>
         <image name="icon-puff" width="128" height="128"/>

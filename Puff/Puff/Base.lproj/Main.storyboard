@@ -12,7 +12,7 @@
         <!--Master View Controller-->
         <scene sceneID="z2V-Xl-EfL">
             <objects>
-                <viewController storyboardIdentifier="MasterViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="YyR-ky-baK" customClass="MasterViewController" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="MasterViewController" definesPresentationContext="YES" useStoryboardIdentifierAsRestorationIdentifier="YES" id="YyR-ky-baK" customClass="MasterViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="cCS-rn-hT1"/>
                         <viewControllerLayoutGuide type="bottom" id="zdo-q6-vBW"/>
@@ -121,17 +121,17 @@
                                 <rect key="frame" x="40" y="86" width="295" height="581"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                             </tableView>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="qxK-E1-A8g">
-                                <rect key="frame" x="40" y="102" width="295" height="565"/>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="qxK-E1-A8g" customClass="PFCardView">
+                                <rect key="frame" x="40" y="102" width="295" height="545"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Click add button to add an account!" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ijQ-ig-Qs3">
-                                        <rect key="frame" x="10" y="208.5" width="275" height="48"/>
+                                        <rect key="frame" x="10" y="198.5" width="275" height="48"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                         <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ic-empty" translatesAutoresizingMaskIntoConstraints="NO" id="rjn-kh-T8n">
-                                        <rect key="frame" x="97.5" y="282.5" width="100" height="100"/>
+                                        <rect key="frame" x="97.5" y="272.5" width="100" height="100"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="100" id="2LP-V4-8lZ"/>
                                             <constraint firstAttribute="width" constant="100" id="Epo-Zo-v1c"/>
@@ -180,7 +180,7 @@
                         <constraints>
                             <constraint firstAttribute="trailingMargin" secondItem="U6o-RM-6Ik" secondAttribute="trailing" id="2QY-q6-Xem"/>
                             <constraint firstAttribute="trailingMargin" secondItem="h9q-uc-uQj" secondAttribute="trailing" id="7ng-ai-PB6"/>
-                            <constraint firstItem="qxK-E1-A8g" firstAttribute="bottom" secondItem="Q4X-Fz-Lpf" secondAttribute="bottom" id="8WI-GK-bCC"/>
+                            <constraint firstItem="qxK-E1-A8g" firstAttribute="bottom" secondItem="Q4X-Fz-Lpf" secondAttribute="bottom" constant="-20" id="8WI-GK-bCC"/>
                             <constraint firstItem="Q4X-Fz-Lpf" firstAttribute="leading" secondItem="Nb9-eC-BgF" secondAttribute="leading" constant="40" id="BDB-wV-Anb"/>
                             <constraint firstItem="qxK-E1-A8g" firstAttribute="leading" secondItem="Q4X-Fz-Lpf" secondAttribute="leading" id="IcR-6C-Fqt"/>
                             <constraint firstItem="qxK-E1-A8g" firstAttribute="top" secondItem="Q4X-Fz-Lpf" secondAttribute="top" constant="16" id="LgJ-sr-vzX"/>
@@ -2011,6 +2011,70 @@ Puff uses Blowfish algorithm to encrypt your account information.</string>
             </objects>
             <point key="canvasLocation" x="2383" y="2366"/>
         </scene>
+        <!--Add Type View Controller-->
+        <scene sceneID="1lK-oU-aA7">
+            <objects>
+                <viewController id="xrx-Gx-aUW" customClass="PFAddTypeViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="Gnv-Zt-O2H"/>
+                        <viewControllerLayoutGuide type="bottom" id="gah-3r-nl3"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="qjf-ye-goH">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="jYb-NT-ESu" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1914" y="3078"/>
+        </scene>
+        <!--Add Category View Controller-->
+        <scene sceneID="lfN-8g-ixY">
+            <objects>
+                <viewController storyboardIdentifier="PFAddCategoryViewController" modalPresentationStyle="currentContext" id="6Lg-VH-dIs" customClass="PFAddCategoryViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="xMM-sB-N7V"/>
+                        <viewControllerLayoutGuide type="bottom" id="x10-iH-ZO8"/>
+                    </layoutGuides>
+                    <view key="view" alpha="0.69999999999999996" contentMode="scaleToFill" id="aWJ-7C-mam">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="3GX-Mh-r4B" customClass="PFCardView">
+                                <rect key="frame" x="47" y="133" width="280" height="400"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="400" id="6qO-fX-Awd"/>
+                                    <constraint firstAttribute="width" constant="280" id="Gyu-4Z-I4B"/>
+                                </constraints>
+                            </view>
+                        </subviews>
+                        <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                        <gestureRecognizers/>
+                        <constraints>
+                            <constraint firstItem="3GX-Mh-r4B" firstAttribute="centerX" secondItem="aWJ-7C-mam" secondAttribute="centerX" id="f9P-bv-h4Q"/>
+                            <constraint firstItem="3GX-Mh-r4B" firstAttribute="centerY" secondItem="aWJ-7C-mam" secondAttribute="centerY" id="yds-Ia-sXR"/>
+                        </constraints>
+                        <connections>
+                            <outletCollection property="gestureRecognizers" destination="heo-Da-X4M" appends="YES" id="Zhw-Uk-DrV"/>
+                        </connections>
+                    </view>
+                    <connections>
+                        <outlet property="container" destination="3GX-Mh-r4B" id="mg5-Fr-FJ0"/>
+                        <outlet property="contentHeight" destination="6qO-fX-Awd" id="h0n-Ma-D3X"/>
+                        <outlet property="contentWidth" destination="Gyu-4Z-I4B" id="Esf-hy-19f"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dbG-Dy-7O9" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <tapGestureRecognizer id="heo-Da-X4M">
+                    <connections>
+                        <action selector="didTapOnEmpty:" destination="6Lg-VH-dIs" id="7Da-KU-com"/>
+                    </connections>
+                </tapGestureRecognizer>
+            </objects>
+            <point key="canvasLocation" x="2652" y="3078"/>
+        </scene>
         <!--Account Detail View Controller-->
         <scene sceneID="sml-Nd-P2T">
             <objects>
@@ -2491,8 +2555,8 @@ Puff uses Blowfish algorithm to encrypt your account information.</string>
         <image name="ic-close" width="25" height="25"/>
         <image name="ic-dice" width="128" height="128"/>
         <image name="ic-dropdown-arrow" width="48" height="48"/>
-        <image name="ic-empty" width="48" height="48"/>
-        <image name="ic-gen-password" width="50" height="50"/>
+        <image name="ic-empty" width="170" height="170"/>
+        <image name="ic-gen-password" width="170" height="170"/>
         <image name="ic-github" width="50" height="50"/>
         <image name="ic-icons8" width="50" height="50"/>
         <image name="ic-mail" width="50" height="50"/>
