@@ -8,6 +8,7 @@
 
 #import "PFAboutViewController.h"
 
+
 @interface PFAboutViewController ()
 
 @end
@@ -33,6 +34,22 @@
 #pragma mark - IBActions
 - (IBAction)didTapOnBack:(id)sender {
     [self.navigationController popViewControllerAnimated:YES];
+}
+- (IBAction)didTapOnContactUs:(id)sender {
+    NSURL *url = [NSURL URLWithString:@"mailto:bob.sun@outlook.ie"];
+    [[UIApplication sharedApplication] openURL:url];
+}
+- (IBAction)didTapOnVisit:(id)sender {
+    NSURL *url = [NSURL URLWithString:@"https://github.com/PuffOpenSource/"];
+    [[UIApplication sharedApplication] openURL:url];
+}
+- (IBAction)didTapOnGithub:(id)sender {
+    NSURL *url = [NSURL URLWithString:@"https://github.com/PuffOpenSource/Puff-iOS"];
+    [[UIApplication sharedApplication] openURL:url];
+}
+- (IBAction)didTapOnIcons8:(id)sender {
+    NSURL *url = [NSURL URLWithString:@"https://icons8.com/"];
+    [[UIApplication sharedApplication] openURL:url];
 }
 
 /*
