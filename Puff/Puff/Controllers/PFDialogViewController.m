@@ -6,11 +6,11 @@
 //  Copyright © 2016 bob.sun. All rights reserved.
 //
 
-#import "PFAddCategoryViewController.h"
+#import "PFDialogViewController.h"
 
 #import "PFCardView.h"
 
-@interface PFAddCategoryViewController ()
+@interface PFDialogViewController ()
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *contentHeight;
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *contentWidth;
 @property (weak, nonatomic) IBOutlet PFCardView *container;
@@ -19,15 +19,17 @@
 
 static CGFloat const    fullHeight          =       400;
 static CGFloat const    fullWidth           =       280;
-@implementation PFAddCategoryViewController
+@implementation PFDialogViewController
 
 + (instancetype)viewControllerFromStoryboard {
-    PFAddCategoryViewController *ret;
+    PFDialogViewController *ret;
     ret = [[UIStoryboard storyboardWithName:@"Main" bundle:[NSBundle bundleForClass:self.class]] instantiateViewControllerWithIdentifier:@"PFAddCategoryViewController"];
     return ret;
 }
 
 - (void)presentIn:(UIViewController*)vc {
+    self.transitioningDelegate = vc.transitioningDelegate;
+    self.modalPresentationStyle = UIModalPresentationCustom;
     [vc presentViewController:self animated:NO completion:nil];
 }
 

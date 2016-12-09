@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-@interface PFAddCategoryViewController : UIViewController
+@interface PFDialogViewController : UIViewController
 + (instancetype)viewControllerFromStoryboard;
 - (void)presentIn:(UIViewController*)vc;
 @end
