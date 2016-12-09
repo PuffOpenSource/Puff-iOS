@@ -21,6 +21,9 @@ static NSString * const kPFExtActCellReuseId        =   @"kPFExtActCellReuseId";
 @interface ActionViewController () <UITableViewDelegate, UITableViewDataSource, PFExtAccountCellDelegate>
 
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
+@property (weak, nonatomic) IBOutlet UIView *emptyView;
+@property (weak, nonatomic) IBOutlet UIView *lockView;
+
 @property(strong, nonatomic) NSArray<PFAccount*> *accounts;
 @property (assign, nonatomic) BOOL unlocked;
 @end
@@ -31,6 +34,11 @@ static NSString * const kPFExtActCellReuseId        =   @"kPFExtActCellReuseId";
     [super viewDidLoad];
     
     _accounts = [[PFAccountManager sharedManager] fetchAll];
+    if (_accounts.count == 0) {
+        _emptyView.hidden = NO;
+    } else {
+        _emptyView.hidden = YES;
+    }
     _unlocked = NO;
     if ([[PFSettings sharedInstance] touchIDEnabled]) {
         [self _authorizeWithTouchId];
@@ -76,7 +84,16 @@ static NSString * const kPFExtActCellReuseId        =   @"kPFExtActCellReuseId";
     }];
 }
 
-#pragma Authorize
+#pragma mark - IBActions
+- (IBAction)didTapOnLock:(id)sender {
+    if ([[PFSettings sharedInstance] touchIDEnabled]) {
+        [self _authorizeWithTouchId];
+    } else {
+        [self _authorizeWithPassword];
+    }
+}
+
+#pragma mark - Authorize
 - (void)_authorizeWithTouchId {
     LAContext *ctx = [[LAContext alloc] init];
     if ([self _hasTouchID]) {
@@ -84,9 +101,11 @@ static NSString * const kPFExtActCellReuseId        =   @"kPFExtActCellReuseId";
             dispatch_async(dispatch_get_main_queue(), ^{
                 if (success) {
                     _unlocked = YES;
+                    self.lockView.hidden = YES;
                     [self.tableView reloadData];
                 }
                 if (error) {
+                    self.lockView.hidden = NO;
                     [self _authorizeWithPassword];
                 }
             });
@@ -97,6 +116,7 @@ static NSString * const kPFExtActCellReuseId        =   @"kPFExtActCellReuseId";
 - (void)_authorizeWithPassword {
     [[PFAuthorizeDialog sharedInstance] authorize:self callback:^(BOOL verified) {
         _unlocked = verified;
+        self.lockView.hidden = _unlocked;
         [self.tableView reloadData];
     }];
 }
