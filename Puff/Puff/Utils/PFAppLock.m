@@ -16,6 +16,7 @@
     @private
     BOOL locked;
     BOOL lockViewShowing;
+    BOOL pauseLocking;
 }
 
 @property(strong, nonatomic) PFLockViewController *lockView;
@@ -37,6 +38,7 @@
     if (self) {
         self -> locked = YES;
         self -> lockViewShowing = NO;
+        self -> pauseLocking = NO;
         self.lockView = [PFLockViewController viewController];
     }
     return self;
@@ -57,6 +59,11 @@
 - (void)showLock {
     if (![[PFKeychainHelper sharedInstance] hasMasterPassword]) {
         //Won't lock if doesn't have a master password.
+        return;
+    }
+    if (self -> pauseLocking) {
+        //Won't lock for some exceptions.
+        self -> pauseLocking = NO;
         return;
     }
     self->locked = YES;
@@ -84,6 +91,10 @@
     }
     [_lockView dismissLockView];
     self->lockViewShowing = NO;
+}
+
+- (void)pauseLocking {
+    self -> pauseLocking = YES;
 }
 
 @end

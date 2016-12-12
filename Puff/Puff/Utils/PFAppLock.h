@@ -19,4 +19,5 @@ static NSString * const kAppLocked          = @"kAppLocked";
 - (BOOL)isLocked;
 - (void)showLock;
 - (void)unlockAndDismiss;
+- (void)pauseLocking;
 @end

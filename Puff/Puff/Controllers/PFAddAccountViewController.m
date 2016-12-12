@@ -21,6 +21,8 @@
 #import "PFCategoryManager.h"
 #import "PFSpinner.h"
 #import "PFStringUtil.h"
+#import "PFAppLock.h"
+#import "Constants.h"
 
 #define ADD_ACCOUNT_STR NSLocalizedString(@"Add Account", nil)
 #define EDIT_ACCOUNT_STR NSLocalizedString(@"Edit Account", nil)
@@ -214,6 +216,13 @@ static const CGFloat toolBarHeight   = 180;
     
     picker.delegate = self;
     [self.view endEditing:YES];
+    
+    //For the first time poping image chooser, should pause locking.
+    NSUserDefaults *ud = [NSUserDefaults standardUserDefaults];
+    if ([ud objectForKey:kPFImageChooserPoped] == nil) {
+        [[PFAppLock sharedLock] pauseLocking];
+        [ud setBool:YES forKey:kPFImageChooserPoped];
+    }
     [self presentViewController:picker animated:YES completion:nil];
 }
 

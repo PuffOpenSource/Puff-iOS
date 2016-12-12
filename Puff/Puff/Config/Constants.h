@@ -27,7 +27,9 @@ static uint64_t const       catIdWebsite                    = 8;
 static uint64_t const       typeMaster                      = 0x5020;//The account type in db
 static uint64_t const       typeQuick                       = 0x5022;
 
+//User default key
 static NSString * const     kPFNewInstall                   = @"kPFNewInstall";
+static NSString * const     kPFImageChooserPoped            = @"kPFImageChooserPoped";
 
 //String Constants
 static NSString * const kUserDefaultGroup       =   @"group.sun.bob.leela";
