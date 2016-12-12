@@ -53,13 +53,6 @@
     // Dispose of any resources that can be recreated.
 }
 
-- (void)prepareToShow {
-    _lockPasswordField.layer.cornerRadius = 20;
-    _lockView.layer.needsDisplayOnBoundsChange = YES;
-    _lockView.frame = self.view.frame;
-    _btnTouchId.hidden = ![self _hasTouchID] || ![[PFSettings sharedInstance] touchIDEnabled];
-}
-
 #pragma mark - IBActions
 - (IBAction)didClickedKeyboardAction:(id)sender {
     _shouldValidate = YES;
@@ -73,7 +66,6 @@
 
 #pragma mark - UI
 - (void)showLockView {
-    [self prepareToShow];
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(_keyboardDidHide) name:UIKeyboardWillHideNotification object:nil];
     _lockView.bounds = [PFResUtil screenSize];
     _lockView.layer.cornerRadius = 0;
@@ -92,7 +84,6 @@
     }
     
     [[NSNotificationCenter defaultCenter] removeObserver:self name:UIKeyboardDidHideNotification object:nil];
-    [self.view removeFromSuperview];
     [self dismissViewControllerAnimated:YES completion:nil];
     
 }
