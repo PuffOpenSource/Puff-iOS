@@ -30,7 +30,7 @@
 #import "PFAppLock.h"
 #import "PFSpinner.h"
 
-#import "PFAddCategoryViewController.h"
+#import "PFDialogViewController.h"
 
 @interface MasterViewController () <PFDrawerViewControllerDelegate, UITableViewDelegate, UITableViewDataSource, MainAccountCellDelegate, PFSpinnerDelegate>
 
@@ -130,13 +130,11 @@
         _rippleView.bounds = CGRectMake(0, 0, fullSize, fullSize);
     } completion:^(BOOL finished) {
         if (finished) {
-            _rippleView.backgroundColor = [UIColor clearColor];
-            _rippleView.frame = CGRectMake(_addButton.frame.origin.x, _addButton.frame.origin.y, 56, 56);
-            [_rippleView.layer removeAnimationForKey:@"cornerRadius"];
-            
-            //TODO (Bob): Jump to new view controller here.
-            
-            [self presentViewController: [PFAddAccountViewController viewControllerFromStoryboard]animated:NO completion:nil];
+            [self presentViewController: [PFAddAccountViewController viewControllerFromStoryboard]animated:NO completion:^() {
+                _rippleView.backgroundColor = [UIColor clearColor];
+                _rippleView.frame = CGRectMake(_addButton.frame.origin.x, _addButton.frame.origin.y, 56, 56);
+                [_rippleView.layer removeAnimationForKey:@"cornerRadius"];
+            }];
         }
     }];
 }
@@ -205,8 +203,8 @@
                 vc = [PFSettingsViewController navigationControllerFromStoryboard];
                 break;
             case 2:
-                vc = [PFAddCategoryViewController viewControllerFromStoryboard];
-                [(PFAddCategoryViewController*)vc presentIn:self];
+                vc = [PFDialogViewController viewControllerFromStoryboard];
+                [(PFDialogViewController*)vc presentIn:self];
                 return;
             default:
                 vc = nil;

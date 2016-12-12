@@ -12,7 +12,7 @@
         <!--Master View Controller-->
         <scene sceneID="z2V-Xl-EfL">
             <objects>
-                <viewController storyboardIdentifier="MasterViewController" definesPresentationContext="YES" useStoryboardIdentifierAsRestorationIdentifier="YES" id="YyR-ky-baK" customClass="MasterViewController" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="MasterViewController" definesPresentationContext="YES" providesPresentationContextTransitionStyle="YES" useStoryboardIdentifierAsRestorationIdentifier="YES" id="YyR-ky-baK" customClass="MasterViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="cCS-rn-hT1"/>
                         <viewControllerLayoutGuide type="bottom" id="zdo-q6-vBW"/>
@@ -2029,18 +2029,22 @@ Puff uses Blowfish algorithm to encrypt your account information.</string>
             </objects>
             <point key="canvasLocation" x="1914" y="3078"/>
         </scene>
-        <!--Add Category View Controller-->
+        <!--Dialog View Controller-->
         <scene sceneID="lfN-8g-ixY">
             <objects>
-                <viewController storyboardIdentifier="PFAddCategoryViewController" modalPresentationStyle="currentContext" id="6Lg-VH-dIs" customClass="PFAddCategoryViewController" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="PFAddCategoryViewController" modalPresentationStyle="currentContext" id="6Lg-VH-dIs" customClass="PFDialogViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="xMM-sB-N7V"/>
                         <viewControllerLayoutGuide type="bottom" id="x10-iH-ZO8"/>
                     </layoutGuides>
-                    <view key="view" alpha="0.69999999999999996" contentMode="scaleToFill" id="aWJ-7C-mam">
+                    <view key="view" contentMode="scaleToFill" id="aWJ-7C-mam">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
+                            <view alpha="0.80000000000000004" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="MTF-C6-VA2">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                                <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                            </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="3GX-Mh-r4B" customClass="PFCardView">
                                 <rect key="frame" x="47" y="133" width="280" height="400"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -2050,10 +2054,14 @@ Puff uses Blowfish algorithm to encrypt your account information.</string>
                                 </constraints>
                             </view>
                         </subviews>
-                        <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                         <gestureRecognizers/>
                         <constraints>
+                            <constraint firstItem="MTF-C6-VA2" firstAttribute="top" secondItem="xMM-sB-N7V" secondAttribute="bottom" constant="-20" id="0zT-up-IlY"/>
                             <constraint firstItem="3GX-Mh-r4B" firstAttribute="centerX" secondItem="aWJ-7C-mam" secondAttribute="centerX" id="f9P-bv-h4Q"/>
+                            <constraint firstAttribute="trailing" secondItem="MTF-C6-VA2" secondAttribute="trailing" id="fCD-MY-g3B"/>
+                            <constraint firstItem="MTF-C6-VA2" firstAttribute="leading" secondItem="aWJ-7C-mam" secondAttribute="leading" id="ifn-HK-TUi"/>
+                            <constraint firstItem="x10-iH-ZO8" firstAttribute="top" secondItem="MTF-C6-VA2" secondAttribute="bottom" id="rhm-YC-9wo"/>
                             <constraint firstItem="3GX-Mh-r4B" firstAttribute="centerY" secondItem="aWJ-7C-mam" secondAttribute="centerY" id="yds-Ia-sXR"/>
                         </constraints>
                         <connections>
