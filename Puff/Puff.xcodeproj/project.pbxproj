@@ -60,6 +60,7 @@
 		0150E70A1DF5693C00C0ADF0 /* PFResUtil.h in Headers */ = {isa = PBXBuildFile; fileRef = 01EB17891DB717DF00C71C4B /* PFResUtil.h */; };
 		0150E70B1DF5696100C0ADF0 /* PFResUtil.m in Sources */ = {isa = PBXBuildFile; fileRef = 01EB178A1DB717DF00C71C4B /* PFResUtil.m */; };
 		0164612F1DC1E66B0083D129 /* LocalAuthentication.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0164612E1DC1E66B0083D129 /* LocalAuthentication.framework */; };
+		01680F761DFE56F80076681C /* PFCardShowTrainsition.m in Sources */ = {isa = PBXBuildFile; fileRef = 01680F751DFE56F80076681C /* PFCardShowTrainsition.m */; };
 		017517551DB8B8C80067A586 /* MainAccountCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 017517541DB8B8C80067A586 /* MainAccountCell.xib */; };
 		017915231DBF614B006FA552 /* PFLockViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 017915221DBF614B006FA552 /* PFLockViewController.xib */; };
 		017C95F11DDEE2F70030272F /* NotificationCenter.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 017C95F01DDEE2F70030272F /* NotificationCenter.framework */; };
@@ -283,6 +284,8 @@
 		015EEA9E1DC232EC00F207AE /* PFSpinner.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PFSpinner.h; path = Views/PFSpinner.h; sourceTree = "<group>"; };
 		015EEA9F1DC232EC00F207AE /* PFSpinner.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PFSpinner.m; path = Views/PFSpinner.m; sourceTree = "<group>"; };
 		0164612E1DC1E66B0083D129 /* LocalAuthentication.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = LocalAuthentication.framework; path = System/Library/Frameworks/LocalAuthentication.framework; sourceTree = SDKROOT; };
+		01680F741DFE56F80076681C /* PFCardShowTrainsition.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PFCardShowTrainsition.h; path = Animations/PFCardShowTrainsition.h; sourceTree = "<group>"; };
+		01680F751DFE56F80076681C /* PFCardShowTrainsition.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PFCardShowTrainsition.m; path = Animations/PFCardShowTrainsition.m; sourceTree = "<group>"; };
 		017517541DB8B8C80067A586 /* MainAccountCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = MainAccountCell.xib; path = Views/MainAccountCell.xib; sourceTree = "<group>"; };
 		017517561DB8B8E40067A586 /* MainAccountCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MainAccountCell.h; path = Views/MainAccountCell.h; sourceTree = "<group>"; };
 		017517571DB8B8E40067A586 /* MainAccountCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MainAccountCell.m; path = Views/MainAccountCell.m; sourceTree = "<group>"; };
@@ -464,6 +467,7 @@
 		011536EE1D8932CC00C98268 /* Puff */ = {
 			isa = PBXGroup;
 			children = (
+				01680F731DFE56CF0076681C /* Animations */,
 				01D26AF71DBBA84B00A32064 /* Puff.entitlements */,
 				01A8B9AF1DB0E08600D87FCF /* Config */,
 				01A8B9851DB0AED600D87FCF /* Resources */,
@@ -612,6 +616,15 @@
 				012C69B51DAF68F1005E7104 /* NSMethodSignature+EXT.m */,
 			);
 			path = extobjc;
+			sourceTree = "<group>";
+		};
+		01680F731DFE56CF0076681C /* Animations */ = {
+			isa = PBXGroup;
+			children = (
+				01680F741DFE56F80076681C /* PFCardShowTrainsition.h */,
+				01680F751DFE56F80076681C /* PFCardShowTrainsition.m */,
+			);
+			name = Animations;
 			sourceTree = "<group>";
 		};
 		017C95F21DDEE2F70030272F /* Today */ = {
@@ -1107,6 +1120,7 @@
 				017C96C11DDEEC7A0030272F /* PFPasswordGenViewController.h in Sources */,
 				01F670931DFA8A8F00903202 /* PFAddTypeViewController.m in Sources */,
 				017C96C21DDEEC7A0030272F /* PFPasswordGenViewController.m in Sources */,
+				01680F761DFE56F80076681C /* PFCardShowTrainsition.m in Sources */,
 				017C96C31DDEEC7A0030272F /* PFLockViewController.h in Sources */,
 				017C96C41DDEEC7A0030272F /* PFLockViewController.m in Sources */,
 				017C96C51DDEEC7A0030272F /* PFAccountDetailViewController.h in Sources */,

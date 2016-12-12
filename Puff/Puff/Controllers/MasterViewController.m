@@ -29,10 +29,11 @@
 #import "PFCategoryManager.h"
 #import "PFAppLock.h"
 #import "PFSpinner.h"
+#import "PFCardShowTrainsition.h"
 
 #import "PFDialogViewController.h"
 
-@interface MasterViewController () <PFDrawerViewControllerDelegate, UITableViewDelegate, UITableViewDataSource, MainAccountCellDelegate, PFSpinnerDelegate>
+@interface MasterViewController () <PFDrawerViewControllerDelegate, UITableViewDelegate, UITableViewDataSource, MainAccountCellDelegate, PFSpinnerDelegate, UIViewControllerTransitioningDelegate>
 
 @property (weak, nonatomic) AppDelegate *app;
 
@@ -53,6 +54,8 @@
 
 
 @property (strong, nonatomic) NSArray<PFAccount*> *data;
+
+@property (weak, nonatomic) MainAccountCell *clickedCell;
 
 @end
 
@@ -180,7 +183,10 @@
             //TODO: Snackbar
             return;
         }
+        
+        _clickedCell = cell;
         PFAccountDetailViewController *vc = [PFAccountDetailViewController viewControllerFromStoryboardWithAccount:account andInfo:result];
+        vc.transitioningDelegate = self;
         [self presentViewController:vc animated:YES completion:nil];
     }];
 }
@@ -216,6 +222,25 @@
         [self presentViewController:vc animated:YES completion:nil];
     }];
 }
+
+#pragma mark - AnimationDelegate
+
+- (id<UIViewControllerAnimatedTransitioning>)animationControllerForPresentedController:(UIViewController *)presented presentingController:(UIViewController *)presenting sourceController:(UIViewController *)source {
+    PFCardShowTrainsition *ret = [[PFCardShowTrainsition alloc] init];
+    NSIndexPath *path = [_tableView indexPathForCell:_clickedCell];
+    CGRect scrSize = [PFResUtil screenSize];
+    CGRect frame = CGRectMake(16, 210 * path.row + 84 + 16, scrSize.size.width - 32, 210);
+    ret.originFrame = frame;
+    ret.keyEleOriginFrame = CGRectMake(16, 40, 90, 90);
+    ret.keyEleDestFrame = CGRectMake(16, 16, scrSize.size.width - 32, 200 - 32);
+    ret.keyElementShot = [PFResUtil imageForName:[_data objectAtIndex:path.row].icon];
+    return ret;
+}
+
+- (id<UIViewControllerAnimatedTransitioning>)animationControllerForDismissedController:(UIViewController *)dismissed {
+    return nil;
+}
+
 #pragma mark - Segues
 
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
