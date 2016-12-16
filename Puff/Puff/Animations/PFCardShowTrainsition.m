@@ -16,13 +16,12 @@
 - (instancetype)init {
     self = [super init];
     self.originFrame = CGRectZero;
-    self.keyEleOriginFrame = CGRectZero;
     self.keyEleDestFrame = [PFResUtil screenSize];
     return self;
 }
 
 -(NSTimeInterval)transitionDuration:(id<UIViewControllerContextTransitioning>)transitionContext {
-    return 1;
+    return 0.8;
 }
 
 - (void)animateTransition:(id<UIViewControllerContextTransitioning>)transitionContext {
@@ -33,13 +32,14 @@
     card.elevation = 10;
     card.cornerRadius = 5;
     card.backgroundColor = [UIColor whiteColor];
-    //TODO: Transform key element frame.
-    UIView *wrapper = [[UIView alloc] initWithFrame:CGRectMake(0, 0, [PFResUtil screenSize].size.width, 200)];
-    wrapper.backgroundColor = [PFResUtil pfGreen];
-    wrapper.alpha = 0.8;
-    wrapper.clipsToBounds = YES;
-    UIImageView *shot = [[UIImageView alloc] initWithFrame:_keyEleOriginFrame];
+    //Transform key element frame.
+    UIView *wrapper = [[UIView alloc] initWithFrame:CGRectInset(card.bounds, 16, 16)];
+    wrapper.backgroundColor = [UIColor colorWithRed:0.87 green:0.91 blue:0.83 alpha:0.8];
+    wrapper.alpha = 1;
+    UIImageView *shot = [[UIImageView alloc] initWithFrame:wrapper.bounds];
     shot.contentMode = UIViewContentModeScaleAspectFill;
+    shot.alpha = 0.8;
+    shot.clipsToBounds = YES;
     [wrapper addSubview:shot];
     
     [card addSubview:wrapper];
@@ -48,7 +48,9 @@
     [containerView addSubview:toVC.view];
     [containerView addSubview:card];
     toVC.view.hidden = YES;
-    CGRect half = CGRectMake(0, 0, toVC.view.frame.size.width, toVC.view.frame.size.height / 2.0);
+    CGRect half = CGRectMake(([PFResUtil screenSize].size.width - _originFrame.size.width) / 2,
+                             0,
+                             _originFrame.size.width + 30, _originFrame.size.height + 30);
     
     NSTimeInterval duration = [self transitionDuration:transitionContext];
     
@@ -56,11 +58,16 @@
                                    delay:0
                                  options:UIViewKeyframeAnimationOptionCalculationModeLinear | UIViewKeyframeAnimationOptionLayoutSubviews
                               animations:^{
-                                  [UIView addKeyframeWithRelativeStartTime:0 relativeDuration:2/3.0 animations:^{
-                                      shot.frame = _keyEleDestFrame;
+                                  
+                                  [UIView addKeyframeWithRelativeStartTime:0.0 relativeDuration:1/3.0 animations:^{
                                       card.frame = half;
+                                      wrapper.frame = card.bounds;
+                                      shot.frame = wrapper.bounds;
                                   }];
-                                  [UIView addKeyframeWithRelativeStartTime:1/3.0 relativeDuration:1/3.0 animations:^{
+                                  
+                                  [UIView addKeyframeWithRelativeStartTime:1/3.0 relativeDuration:2/3.0 animations:^{
+                                      shot.frame = _keyEleDestFrame;
+                                      wrapper.frame = CGRectMake(0, 0, [PFResUtil screenSize].size.width, 200);
                                       card.frame = toVC.view.frame;
                                   }];
                               } completion:^(BOOL finished) {

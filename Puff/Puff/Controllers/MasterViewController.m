@@ -229,9 +229,14 @@
     PFCardShowTrainsition *ret = [[PFCardShowTrainsition alloc] init];
     NSIndexPath *path = [_tableView indexPathForCell:_clickedCell];
     CGRect scrSize = [PFResUtil screenSize];
-    CGRect frame = CGRectMake(16, 210 * path.row + 84 + 16, scrSize.size.width - 32, 210);
+    
+//    CGRect frame = CGRectMake(40, _clickedCell.frame.origin.y, scrSize.size.width - 80, 210);
+    CGRect frame = _clickedCell.frame;
+    frame = CGRectOffset(frame, _tableView.frame.origin.x - _tableView.contentOffset.x, _tableView.frame.origin.y - _tableView.contentOffset.y);
+    frame.size.width = 90 + 32;
+    frame.size.height = 90 + 40 + 16;
+    
     ret.originFrame = frame;
-    ret.keyEleOriginFrame = CGRectMake(16, 40, 90, 90);
     ret.keyEleDestFrame = CGRectMake(16, 16, scrSize.size.width - 32, 200 - 32);
     ret.keyElementShot = [PFResUtil imageForName:[_data objectAtIndex:path.row].icon];
     return ret;
@@ -272,7 +277,7 @@
     _emptyView.hidden = YES;
     
     //Spinner
-    _menus = @[NSLocalizedString(@"Password Generator", nil), NSLocalizedString(@"Settings", nil), @"Debug"];
+    _menus = @[NSLocalizedString(@"Password Generator", nil), NSLocalizedString(@"Settings", nil)];
     CGRect scrSize = [PFResUtil screenSize];
     CGRect frame = CGRectMake(scrSize.size.width - 200, 20, 200, 40);
     _menuSpinner = [[PFSpinner alloc] initAsMenuWithData:_menus andFrame:frame];

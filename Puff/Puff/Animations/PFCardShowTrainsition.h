@@ -12,7 +12,6 @@
 
 @interface PFCardShowTrainsition : NSObject <UIViewControllerAnimatedTransitioning>
 @property (assign, nonatomic) CGRect originFrame;
-@property (assign, nonatomic) CGRect keyEleOriginFrame;
 @property (assign, nonatomic) CGRect keyEleDestFrame;
 
 @property (strong, nonatomic) UIImage *keyElementShot;
