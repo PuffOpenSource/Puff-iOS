@@ -39,6 +39,20 @@
     self.extensionContext.widgetLargestAvailableDisplayMode = NCWidgetDisplayModeCompact;
     // Do any additional setup after loading the view from its nib.
     _store = [[NSUserDefaults alloc] initWithSuiteName:kUserDefaultGroup];
+    
+    UIColor *borderColor = [UIColor grayColor];
+    
+    _btnAccount.layer.cornerRadius = 5;
+    _btnAccount.layer.borderColor = borderColor.CGColor;
+    _btnAccount.layer.borderWidth = 1;
+    
+    _btnPassword.layer.cornerRadius = 5;
+    _btnPassword.layer.borderColor = borderColor.CGColor;
+    _btnPassword.layer.borderWidth = 1;
+    
+    _btnAdditional.layer.cornerRadius = 5;
+    _btnAdditional.layer.borderColor = borderColor.CGColor;
+    _btnAdditional.layer.borderWidth = 1;
 }
 
 //- (void)widgetActiveDisplayMwodeDidChange:(NCWidgetDisplayMode)activeDisplayMode withMaximumSize:(CGSize)maxSize {

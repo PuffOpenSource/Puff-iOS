@@ -240,7 +240,7 @@
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="8fi-T4-Wpv">
                                                 <rect key="frame" x="8" y="6" width="327" height="50"/>
                                                 <subviews>
-                                                    <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ic-dropdown-arrow" translatesAutoresizingMaskIntoConstraints="NO" id="Zb8-U1-ZVE">
+                                                    <imageView contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ic-dropdown-arrow" translatesAutoresizingMaskIntoConstraints="NO" id="Zb8-U1-ZVE">
                                                         <rect key="frame" x="8" y="8" width="34" height="34"/>
                                                         <gestureRecognizers/>
                                                         <constraints>
@@ -276,7 +276,7 @@
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Yin-j0-JqF">
                                                 <rect key="frame" x="8" y="72" width="327" height="50"/>
                                                 <subviews>
-                                                    <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ic-dropdown-arrow" translatesAutoresizingMaskIntoConstraints="NO" id="TCd-TT-oN8">
+                                                    <imageView contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ic-dropdown-arrow" translatesAutoresizingMaskIntoConstraints="NO" id="TCd-TT-oN8">
                                                         <rect key="frame" x="8" y="8" width="34" height="34"/>
                                                         <gestureRecognizers/>
                                                         <constraints>
