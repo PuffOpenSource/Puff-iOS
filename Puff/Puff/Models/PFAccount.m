@@ -64,7 +64,6 @@
 - (void)decrypt:(PFAccountDecryptCallback) callback {
     [self _asyncDecrypt:callback];
 }
-
 - (void)_asyncEncrypt:(PFAccountEncryptCallback) callback {
     NSString *password = [[PFKeychainHelper sharedInstance] getMasterPassword];
     _account_salt = [[NSUUID UUID] UUIDString];
@@ -140,5 +139,64 @@
             });
         }
     });
+}
+
+- (void)reEncrypt:(NSString*)newPass {
+    NSString *oldPass = [[PFKeychainHelper sharedInstance] getMasterPassword];
+    PFBlowfish *fish = [[PFBlowfish alloc] init];
+    NSError *err = nil;
+    NSString * account, *password, *additional;
+    
+    @try {
+        fish.Key = oldPass;
+        fish.IV = @"";
+        [fish prepare];
+        account = [[fish decrypt:_account withMode:modeEBC withPadding:paddingRFC] stringByReplacingOccurrencesOfString:_account_salt withString:@""];
+        
+        fish = [[PFBlowfish alloc] init];
+        fish.Key = oldPass;
+        fish.IV = @"";
+        [fish prepare];
+        password = [[fish decrypt:_hash_value withMode:modeEBC withPadding:paddingRFC] stringByReplacingOccurrencesOfString:_salt withString:@""];
+        
+        additional = @"";
+        if (_additional.length > 0) {
+            fish = [[PFBlowfish alloc] init];
+            fish.Key = oldPass;
+            fish.IV = @"";
+            [fish prepare];
+            additional = [[fish decrypt:_additional withMode:modeEBC withPadding:paddingRFC] stringByReplacingOccurrencesOfString:_additional_salt withString:@""];
+        }
+    } @catch (NSException *exception) {
+        err = [NSError errorWithDomain:PFAccountErrorDomain code:-1 userInfo:@{@"exception":exception}];
+    }
+    if (err) {
+        NSLog(@"Rehash failed.");
+        return;
+    }
+    
+    @try {
+        PFBlowfish *fish = [[PFBlowfish alloc] init];
+        fish.Key = newPass;
+        fish.IV = @"";
+        [fish prepare];
+        _account = [fish encrypt:[account stringByAppendingString:_account_salt] withMode:modeEBC withPadding:paddingRFC];
+        
+        fish = [[PFBlowfish alloc] init];
+        fish.Key = newPass;
+        fish.IV = @"";
+        [fish prepare];
+        _hash_value = [fish encrypt:[password stringByAppendingString:_salt] withMode:modeEBC withPadding:paddingRFC];
+        
+        if (_additional.length > 0) {
+            fish = [[PFBlowfish alloc] init];
+            fish.Key = newPass;
+            fish.IV = @"";
+            [fish prepare];
+            _additional = [fish encrypt:[additional stringByAppendingString:_additional_salt] withMode:modeEBC withPadding:paddingRFC];
+        }
+    } @catch (NSException *exception) {
+        err = [NSError errorWithDomain:PFAccountErrorDomain code:-1 userInfo:@{@"exception":exception}];
+    }
 }
 @end

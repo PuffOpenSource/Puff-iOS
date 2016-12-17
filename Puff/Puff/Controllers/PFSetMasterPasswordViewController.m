@@ -14,6 +14,7 @@
 #import "PFKeychainHelper.h"
 #import "PFAppLock.h"
 #import "PFResUtil.h"
+#import "PFPasswordChanger.h"
 
 @interface PFSetMasterPasswordViewController () <MDTextFieldDelegate>
 @property (weak, nonatomic) IBOutlet MDTextField *passwordField;
@@ -60,16 +61,26 @@ static CGFloat headerHeight         = 160;
 #pragma mark - IBActions
 
 - (IBAction)didClickFab:(id)sender {
-    if ([self validateField]) {
+    if (![self validateField]) {
+        [PFResUtil shakeItBaby:_passwordField withCompletion:^{
+            [_passwordField becomeFirstResponder];
+        }];
+        return;
+    }
+    if (self.showMode == showModeSet) {
         PFKeychainHelper *kcHelper = [PFKeychainHelper sharedInstance];
         [kcHelper setMasterPassword:_passwordField.text];
         [[PFAppLock sharedLock] unlock];
-        [self dismissViewControllerAnimated:YES completion:nil];
-        return;
+    } else  {
+        PFKeychainHelper *kcHelper = [PFKeychainHelper sharedInstance];
+        
+        [PFPasswordChanger changePwdTo:_passwordField.text];
+        
+        [kcHelper updateMasterPassword:_passwordField.text];
+        [[PFAppLock sharedLock] unlock];
     }
-    [PFResUtil shakeItBaby:_passwordField withCompletion:^{
-        [_passwordField becomeFirstResponder];
-    }];
+    
+    [self dismissViewControllerAnimated:YES completion:nil];
     return;
 }
 

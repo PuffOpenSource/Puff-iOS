@@ -150,6 +150,7 @@
 		017C96D31DDEF25A0030272F /* Constants.h in Sources */ = {isa = PBXBuildFile; fileRef = 010CFB311DB4B3A800FEE5DE /* Constants.h */; };
 		01910F661DE2D37E0019E541 /* PFPasswordGenerator.m in Sources */ = {isa = PBXBuildFile; fileRef = 01910F651DE2D37E0019E541 /* PFPasswordGenerator.m */; };
 		01910F671DE2FE5E0019E541 /* Assets.xcassets in Sources */ = {isa = PBXBuildFile; fileRef = 010CFB391DB4B9B500FEE5DE /* Assets.xcassets */; };
+		01A005E41E05680B007F484F /* PFPasswordChanger.m in Sources */ = {isa = PBXBuildFile; fileRef = 01A005E31E05680B007F484F /* PFPasswordChanger.m */; };
 		01B2B1AA1DF92FA8009801E7 /* PFAuthorizeDialog.h in Headers */ = {isa = PBXBuildFile; fileRef = 01B2B1A71DF92D49009801E7 /* PFAuthorizeDialog.h */; };
 		01B2B1AB1DF961CD009801E7 /* PFAuthorizeDialog.m in Sources */ = {isa = PBXBuildFile; fileRef = 01B2B1A81DF92D49009801E7 /* PFAuthorizeDialog.m */; };
 		01B2B1AE1DF96339009801E7 /* PFAccountAccess.h in Headers */ = {isa = PBXBuildFile; fileRef = 01B2B1AC1DF96339009801E7 /* PFAccountAccess.h */; };
@@ -316,6 +317,8 @@
 		017C967E1DDEE7D80030272F /* UITableView_FDTemplateLayoutCell.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UITableView_FDTemplateLayoutCell.framework; path = "../../../Library/Developer/Xcode/DerivedData/Puff-dxzalaqjdzugdieivqpjgsfzklcs/Build/Products/Debug-iphonesimulator/UITableView+FDTemplateLayoutCell/UITableView_FDTemplateLayoutCell.framework"; sourceTree = "<group>"; };
 		01910F641DE2D37E0019E541 /* PFPasswordGenerator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PFPasswordGenerator.h; path = Utils/PFPasswordGenerator.h; sourceTree = "<group>"; };
 		01910F651DE2D37E0019E541 /* PFPasswordGenerator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PFPasswordGenerator.m; path = Utils/PFPasswordGenerator.m; sourceTree = "<group>"; };
+		01A005E21E05680B007F484F /* PFPasswordChanger.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PFPasswordChanger.h; path = Utils/PFPasswordChanger.h; sourceTree = "<group>"; };
+		01A005E31E05680B007F484F /* PFPasswordChanger.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PFPasswordChanger.m; path = Utils/PFPasswordChanger.m; sourceTree = "<group>"; };
 		01A8B97D1DB0AE8D00D87FCF /* PFDBManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PFDBManager.h; path = Models/PFDBManager.h; sourceTree = "<group>"; };
 		01A8B97E1DB0AE8D00D87FCF /* PFDBManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PFDBManager.m; path = Models/PFDBManager.m; sourceTree = "<group>"; };
 		01A8B9801DB0AE9E00D87FCF /* PFAccountManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PFAccountManager.h; path = Models/PFAccountManager.h; sourceTree = "<group>"; };
@@ -533,6 +536,8 @@
 				01B2B1A81DF92D49009801E7 /* PFAuthorizeDialog.m */,
 				01B2B1AC1DF96339009801E7 /* PFAccountAccess.h */,
 				01B2B1AD1DF96339009801E7 /* PFAccountAccess.m */,
+				01A005E21E05680B007F484F /* PFPasswordChanger.h */,
+				01A005E31E05680B007F484F /* PFPasswordChanger.m */,
 			);
 			name = Utils;
 			sourceTree = "<group>";
@@ -1115,6 +1120,7 @@
 				01F670901DFA8A6D00903202 /* PFDialogViewController.m in Sources */,
 				017C96BE1DDEEC7A0030272F /* PFQuickPasswordViewController.m in Sources */,
 				0101A9221DE80B9D009F5F90 /* _PFType+CoreDataProperties.m in Sources */,
+				01A005E41E05680B007F484F /* PFPasswordChanger.m in Sources */,
 				017C96BF1DDEEC7A0030272F /* PFSettingsViewController.h in Sources */,
 				017C96C01DDEEC7A0030272F /* PFSettingsViewController.m in Sources */,
 				017C96C11DDEEC7A0030272F /* PFPasswordGenViewController.h in Sources */,

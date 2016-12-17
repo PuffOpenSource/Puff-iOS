@@ -39,4 +39,5 @@ typedef void(^PFAccountDecryptCallback)(NSError * _Nullable error, NSDictionary*
 - (_PFAccount*)getBaseModel;
 - (void)encrypt:(PFAccountEncryptCallback) callback;
 - (void)decrypt:(PFAccountDecryptCallback) callback;
+- (void)reEncrypt:(NSString*)newPass;
 @end
