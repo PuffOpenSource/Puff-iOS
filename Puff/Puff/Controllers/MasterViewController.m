@@ -230,7 +230,6 @@
     NSIndexPath *path = [_tableView indexPathForCell:_clickedCell];
     CGRect scrSize = [PFResUtil screenSize];
     
-//    CGRect frame = CGRectMake(40, _clickedCell.frame.origin.y, scrSize.size.width - 80, 210);
     CGRect frame = _clickedCell.frame;
     frame = CGRectOffset(frame, _tableView.frame.origin.x - _tableView.contentOffset.x, _tableView.frame.origin.y - _tableView.contentOffset.y);
     frame.size.width = 90 + 32;

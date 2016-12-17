@@ -222,6 +222,7 @@ static const CGFloat toolBarHeight   = 180;
     if ([ud objectForKey:kPFImageChooserPoped] == nil) {
         [[PFAppLock sharedLock] pauseLocking];
         [ud setBool:YES forKey:kPFImageChooserPoped];
+        [ud synchronize];
     }
     [self presentViewController:picker animated:YES completion:nil];
 }

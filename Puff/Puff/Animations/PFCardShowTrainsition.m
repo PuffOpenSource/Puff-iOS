@@ -21,7 +21,7 @@
 }
 
 -(NSTimeInterval)transitionDuration:(id<UIViewControllerContextTransitioning>)transitionContext {
-    return 0.8;
+    return 0.5;
 }
 
 - (void)animateTransition:(id<UIViewControllerContextTransitioning>)transitionContext {
@@ -59,13 +59,13 @@
                                  options:UIViewKeyframeAnimationOptionCalculationModeLinear | UIViewKeyframeAnimationOptionLayoutSubviews
                               animations:^{
                                   
-                                  [UIView addKeyframeWithRelativeStartTime:0.0 relativeDuration:1/3.0 animations:^{
+                                  [UIView addKeyframeWithRelativeStartTime:0.0 relativeDuration:2/3.0 animations:^{
                                       card.frame = half;
                                       wrapper.frame = card.bounds;
                                       shot.frame = wrapper.bounds;
                                   }];
                                   
-                                  [UIView addKeyframeWithRelativeStartTime:1/3.0 relativeDuration:2/3.0 animations:^{
+                                  [UIView addKeyframeWithRelativeStartTime:2/3.0 relativeDuration:1/3.0 animations:^{
                                       shot.frame = _keyEleDestFrame;
                                       wrapper.frame = CGRectMake(0, 0, [PFResUtil screenSize].size.width, 200);
                                       card.frame = toVC.view.frame;
