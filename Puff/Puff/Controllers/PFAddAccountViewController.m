@@ -388,7 +388,14 @@ static const CGFloat toolBarHeight   = 180;
         }];
     }
     [self.view endEditing:YES];
-    UIView *typedSender = sender;
+    UIView *typedSender;
+    if ([sender isKindOfClass:UIView.class]) {
+        typedSender = sender;
+    } else if ([sender isKindOfClass:UITapGestureRecognizer.class]) {
+        typedSender = ((UITapGestureRecognizer*)sender).view;
+    } else {
+        return;
+    }
     CGPoint pos = [typedSender convertPoint:typedSender.frame.origin toView:nil];
     CGRect spinnerRect = CGRectMake(32 ,pos.y, typedSender.superview.frame.size.width - 32, 0);
     _typeSpinner = [[PFSpinner alloc] initAsSpinnerWithData:_types andFrame:spinnerRect];
@@ -410,7 +417,14 @@ static const CGFloat toolBarHeight   = 180;
         }];
     }
     [self.view endEditing:YES];
-    UIView *typedSender = sender;
+    UIView *typedSender;
+    if ([sender isKindOfClass:UIView.class]) {
+        typedSender = sender;
+    } else if ([sender isKindOfClass:UITapGestureRecognizer.class]) {
+        typedSender = ((UITapGestureRecognizer*)sender).view;
+    } else {
+        return;
+    }
     CGPoint pos = [typedSender convertPoint:typedSender.frame.origin toView:nil];
     CGRect spinnerRect = CGRectMake(32 ,pos.y, typedSender.superview.frame.size.width - 32, 0);
     _categorySpinner = [[PFSpinner alloc] initAsSpinnerWithData:_categories andFrame:spinnerRect];
