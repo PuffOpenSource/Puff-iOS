@@ -10,5 +10,5 @@
 
 @interface PFDialogViewController : UIViewController
 + (instancetype)viewControllerFromStoryboard;
-- (void)presentIn:(UIViewController*)vc;
+- (void)present:(UIView*)view inParent:(UIViewController*)vc;
 @end

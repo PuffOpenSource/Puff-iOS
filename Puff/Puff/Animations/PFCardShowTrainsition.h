@@ -15,4 +15,6 @@
 @property (assign, nonatomic) CGRect keyEleDestFrame;
 
 @property (strong, nonatomic) UIImage *keyElementShot;
+
+@property (strong, nonatomic) UIImage *viewShot;
 @end

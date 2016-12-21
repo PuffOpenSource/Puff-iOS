@@ -22,6 +22,7 @@
 
 -(NSTimeInterval)transitionDuration:(id<UIViewControllerContextTransitioning>)transitionContext {
     return 0.5;
+//    return 4;
 }
 
 - (void)animateTransition:(id<UIViewControllerContextTransitioning>)transitionContext {
@@ -36,9 +37,16 @@
     UIView *wrapper = [[UIView alloc] initWithFrame:CGRectInset(card.bounds, 16, 16)];
     wrapper.backgroundColor = [UIColor colorWithRed:0.87 green:0.91 blue:0.83 alpha:0.8];
     wrapper.alpha = 1;
-    UIImageView *shot = [[UIImageView alloc] initWithFrame:wrapper.bounds];
+    
+    UIImageView *background = [[UIImageView alloc] initWithFrame:wrapper.bounds];
+    background.image = self.viewShot;
+    background.contentMode = UIViewContentModeScaleAspectFill;
+    background.clipsToBounds = YES;
+    [wrapper addSubview:background];
+    
+    UIImageView *shot = [[UIImageView alloc] initWithFrame:CGRectMake(16, 40, 90, 90)];
     shot.contentMode = UIViewContentModeScaleAspectFill;
-    shot.alpha = 0.8;
+    shot.alpha = 1;
     shot.clipsToBounds = YES;
     [wrapper addSubview:shot];
     
@@ -62,18 +70,25 @@
                                   [UIView addKeyframeWithRelativeStartTime:0.0 relativeDuration:2/3.0 animations:^{
                                       card.frame = half;
                                       wrapper.frame = card.bounds;
+                                      background.frame = wrapper.bounds;
+                                      background.alpha = 0;
                                       shot.frame = wrapper.bounds;
                                   }];
                                   
                                   [UIView addKeyframeWithRelativeStartTime:2/3.0 relativeDuration:1/3.0 animations:^{
                                       shot.frame = _keyEleDestFrame;
                                       wrapper.frame = CGRectMake(0, 0, [PFResUtil screenSize].size.width, 200);
+                                      background.frame = wrapper.bounds;
                                       card.frame = toVC.view.frame;
+                                  }];
+                                  [UIView addKeyframeWithRelativeStartTime:2/3.0 relativeDuration:1/3.0 animations:^{
+                                      shot.alpha = 0.8;
                                   }];
                               } completion:^(BOOL finished) {
                                   if (finished) {
                                       toVC.view.hidden = NO;
                                       [shot removeFromSuperview];
+                                      [background removeFromSuperview];
                                       [wrapper removeFromSuperview];
                                       [card removeFromSuperview];
                                       [transitionContext completeTransition:YES];

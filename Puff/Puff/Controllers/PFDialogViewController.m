@@ -14,6 +14,8 @@
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *contentHeight;
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *contentWidth;
 @property (weak, nonatomic) IBOutlet PFCardView *container;
+
+@property (weak, nonatomic) UIView *content;
 @end
 
 
@@ -23,13 +25,15 @@ static CGFloat const    fullWidth           =       280;
 
 + (instancetype)viewControllerFromStoryboard {
     PFDialogViewController *ret;
-    ret = [[UIStoryboard storyboardWithName:@"Main" bundle:[NSBundle bundleForClass:self.class]] instantiateViewControllerWithIdentifier:@"PFAddCategoryViewController"];
+    ret = [[UIStoryboard storyboardWithName:@"Main" bundle:[NSBundle bundleForClass:self.class]] instantiateViewControllerWithIdentifier:@"PFDialogViewController"];
     return ret;
 }
 
-- (void)presentIn:(UIViewController*)vc {
+- (void)present:(UIView*)view inParent:(UIViewController*)vc {
     self.transitioningDelegate = vc.transitioningDelegate;
     self.modalPresentationStyle = UIModalPresentationCustom;
+    self.content = view;
+    [self.container addSubview:view];
     [vc presentViewController:self animated:NO completion:nil];
 }
 

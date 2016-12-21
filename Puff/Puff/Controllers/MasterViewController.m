@@ -210,7 +210,7 @@
                 break;
             case 2:
                 vc = [PFDialogViewController viewControllerFromStoryboard];
-                [(PFDialogViewController*)vc presentIn:self];
+                [((PFDialogViewController*)vc) present:nil inParent:self];
                 return;
             default:
                 vc = nil;
@@ -232,12 +232,17 @@
     
     CGRect frame = _clickedCell.frame;
     frame = CGRectOffset(frame, _tableView.frame.origin.x - _tableView.contentOffset.x, _tableView.frame.origin.y - _tableView.contentOffset.y);
-    frame.size.width = 90 + 32;
-    frame.size.height = 90 + 40 + 16;
+//    frame.size.width = 90 + 32;
+//    frame.size.height = 90 + 40 + 16;
     
     ret.originFrame = frame;
     ret.keyEleDestFrame = CGRectMake(16, 16, scrSize.size.width - 32, 200 - 32);
     ret.keyElementShot = [PFResUtil imageForName:[_data objectAtIndex:path.row].icon];
+    
+    UIGraphicsBeginImageContext(frame.size);
+    [_clickedCell.contentView.layer renderInContext:UIGraphicsGetCurrentContext()];
+    ret.viewShot = UIGraphicsGetImageFromCurrentImageContext();
+    UIGraphicsEndImageContext();
     return ret;
 }
 
@@ -276,7 +281,7 @@
     _emptyView.hidden = YES;
     
     //Spinner
-    _menus = @[NSLocalizedString(@"Password Generator", nil), NSLocalizedString(@"Settings", nil)];
+    _menus = @[NSLocalizedString(@"Password Generator", nil), NSLocalizedString(@"Settings", nil), @"Debug"];
     CGRect scrSize = [PFResUtil screenSize];
     CGRect frame = CGRectMake(scrSize.size.width - 200, 20, 200, 40);
     _menuSpinner = [[PFSpinner alloc] initAsMenuWithData:_menus andFrame:frame];
