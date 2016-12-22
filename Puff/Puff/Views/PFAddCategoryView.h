@@ -1,13 +1,13 @@
 //
-//  PFAddType.h
+//  PFAddCategoryView.h
 //  Puff
 //
-//  Created by bob.sun on 21/12/2016.
+//  Created by bob.sun on 22/12/2016.
 //  Copyright © 2016 bob.sun. All rights reserved.
 //
 
 #import <UIKit/UIKit.h>
 
-@interface PFAddTypeView : UIView
+@interface PFAddCategoryView : UIView
 + (void)presentInDialogViewController:(id) owner;
 @end

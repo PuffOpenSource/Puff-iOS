@@ -32,6 +32,8 @@
 #import "PFCardShowTrainsition.h"
 
 #import "PFDialogViewController.h"
+#import "PFAddTypeView.h"
+#import "PFAddCategoryView.h"
 
 @interface MasterViewController () <PFDrawerViewControllerDelegate, UITableViewDelegate, UITableViewDataSource, MainAccountCellDelegate, PFSpinnerDelegate, UIViewControllerTransitioningDelegate>
 
@@ -206,12 +208,14 @@
                 vc = [PFPasswordGenViewController viewControllerFromStoryboard];
                 break;
             case 1:
+                [PFAddTypeView presentInDialogViewController:self];
+                return;
+            case 2:
+                [PFAddCategoryView presentInDialogViewController:self];
+                return;
+            case 3:
                 vc = [PFSettingsViewController navigationControllerFromStoryboard];
                 break;
-            case 2:
-                vc = [PFDialogViewController viewControllerFromStoryboard];
-                [((PFDialogViewController*)vc) present:nil inParent:self];
-                return;
             default:
                 vc = nil;
                 break;
@@ -281,7 +285,7 @@
     _emptyView.hidden = YES;
     
     //Spinner
-    _menus = @[NSLocalizedString(@"Password Generator", nil), NSLocalizedString(@"Settings", nil), @"Debug"];
+    _menus = @[NSLocalizedString(@"Password Generator", nil), NSLocalizedString(@"New Type", nil), NSLocalizedString(@"New Category", nil), NSLocalizedString(@"Settings", nil),];
     CGRect scrSize = [PFResUtil screenSize];
     CGRect frame = CGRectMake(scrSize.size.width - 200, 20, 200, 40);
     _menuSpinner = [[PFSpinner alloc] initAsMenuWithData:_menus andFrame:frame];

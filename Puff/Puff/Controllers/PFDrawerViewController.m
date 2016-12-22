@@ -11,6 +11,8 @@
 #import <MMDrawerController/UIViewController+MMDrawerController.h>
 #import "PFDrawerCell.h"
 #import "PFCategoryManager.h"
+#import "NSObject+Events.h"
+#import "Constants.h"
 
 @interface PFDrawerViewController () <UITableViewDelegate, UITableViewDataSource>
 @property (weak, nonatomic) IBOutlet UIView *headerView;
@@ -26,6 +28,7 @@
     [super viewDidLoad];
     _iconImage.layer.cornerRadius = 50;
     _titleLabel.text = @"Puff";
+    [self subscribe:kUserCategoryChanged selector:@selector(_categoryChanged)];
 }
 
 - (void)viewWillAppear:(BOOL)animated {
@@ -74,6 +77,10 @@
 #pragma mark - Misc
 - (void)resetTitleLabel {
     _titleLabel.text = @"Puff";
+}
+
+- (void)_categoryChanged {
+    [self.tableView reloadData];
 }
 /*
 #pragma mark - Navigation

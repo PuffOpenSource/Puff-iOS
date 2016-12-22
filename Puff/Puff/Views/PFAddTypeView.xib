@@ -15,7 +15,7 @@
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Add account type" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nua-J0-UxS">
-                    <rect key="frame" x="16" y="8" width="171" height="21"/>
+                    <rect key="frame" x="16" y="16" width="171" height="21"/>
                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                     <color key="textColor" red="0.35686274509999999" green="0.35686274509999999" blue="0.35686274509999999" alpha="1" colorSpace="calibratedRGB"/>
                     <nil key="highlightedColor"/>
@@ -128,7 +128,7 @@
                 <constraint firstItem="hMz-xa-NyO" firstAttribute="centerY" secondItem="iN0-l3-epB" secondAttribute="centerY" constant="80" id="ScK-NY-GOB"/>
                 <constraint firstItem="mZ0-QC-6VB" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="16" id="Sk4-ap-m17"/>
                 <constraint firstItem="wQt-o6-oEx" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="16" id="TQj-52-28d"/>
-                <constraint firstItem="nua-J0-UxS" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="8" id="bLy-hX-Czz"/>
+                <constraint firstItem="nua-J0-UxS" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="16" id="bLy-hX-Czz"/>
                 <constraint firstAttribute="trailing" secondItem="pps-gJ-0R7" secondAttribute="trailing" constant="16" id="cso-Aa-qYV"/>
                 <constraint firstItem="hMz-xa-NyO" firstAttribute="top" secondItem="vty-n3-h1M" secondAttribute="bottom" constant="5" id="hOF-5Z-J1e"/>
                 <constraint firstItem="vty-n3-h1M" firstAttribute="top" secondItem="wQt-o6-oEx" secondAttribute="bottom" constant="5" id="kjo-uW-xdN"/>

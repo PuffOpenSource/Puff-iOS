@@ -153,6 +153,8 @@
 		01910F661DE2D37E0019E541 /* PFPasswordGenerator.m in Sources */ = {isa = PBXBuildFile; fileRef = 01910F651DE2D37E0019E541 /* PFPasswordGenerator.m */; };
 		01910F671DE2FE5E0019E541 /* Assets.xcassets in Sources */ = {isa = PBXBuildFile; fileRef = 010CFB391DB4B9B500FEE5DE /* Assets.xcassets */; };
 		01A005E41E05680B007F484F /* PFPasswordChanger.m in Sources */ = {isa = PBXBuildFile; fileRef = 01A005E31E05680B007F484F /* PFPasswordChanger.m */; };
+		01ABDF201E0BC34E00C1273A /* PFAddCategoryView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 01ABDF1F1E0BC34E00C1273A /* PFAddCategoryView.xib */; };
+		01ABDF231E0BC37000C1273A /* PFAddCategoryView.m in Sources */ = {isa = PBXBuildFile; fileRef = 01ABDF221E0BC37000C1273A /* PFAddCategoryView.m */; };
 		01B2B1AA1DF92FA8009801E7 /* PFAuthorizeDialog.h in Headers */ = {isa = PBXBuildFile; fileRef = 01B2B1A71DF92D49009801E7 /* PFAuthorizeDialog.h */; };
 		01B2B1AB1DF961CD009801E7 /* PFAuthorizeDialog.m in Sources */ = {isa = PBXBuildFile; fileRef = 01B2B1A81DF92D49009801E7 /* PFAuthorizeDialog.m */; };
 		01B2B1AE1DF96339009801E7 /* PFAccountAccess.h in Headers */ = {isa = PBXBuildFile; fileRef = 01B2B1AC1DF96339009801E7 /* PFAccountAccess.h */; };
@@ -331,6 +333,9 @@
 		01A8B9861DB0BEC100D87FCF /* PFBaseModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PFBaseModel.h; path = Models/PFBaseModel.h; sourceTree = "<group>"; };
 		01A8B9871DB0BEC100D87FCF /* PFBaseModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PFBaseModel.m; path = Models/PFBaseModel.m; sourceTree = "<group>"; };
 		01A8B9B01DB0E1CC00D87FCF /* Config.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = Config.h; path = Config/Config.h; sourceTree = "<group>"; };
+		01ABDF1F1E0BC34E00C1273A /* PFAddCategoryView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = PFAddCategoryView.xib; path = Views/PFAddCategoryView.xib; sourceTree = "<group>"; };
+		01ABDF211E0BC37000C1273A /* PFAddCategoryView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PFAddCategoryView.h; path = Views/PFAddCategoryView.h; sourceTree = "<group>"; };
+		01ABDF221E0BC37000C1273A /* PFAddCategoryView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PFAddCategoryView.m; path = Views/PFAddCategoryView.m; sourceTree = "<group>"; };
 		01B2B1A71DF92D49009801E7 /* PFAuthorizeDialog.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PFAuthorizeDialog.h; path = Utils/PFAuthorizeDialog.h; sourceTree = "<group>"; };
 		01B2B1A81DF92D49009801E7 /* PFAuthorizeDialog.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PFAuthorizeDialog.m; path = Utils/PFAuthorizeDialog.m; sourceTree = "<group>"; };
 		01B2B1AC1DF96339009801E7 /* PFAccountAccess.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PFAccountAccess.h; sourceTree = "<group>"; };
@@ -714,6 +719,9 @@
 				0147C2511E0A70950013B1F2 /* PFAddTypeView.h */,
 				0147C2521E0A70950013B1F2 /* PFAddTypeView.m */,
 				0147C2541E0A70B90013B1F2 /* PFAddTypeView.xib */,
+				01ABDF1F1E0BC34E00C1273A /* PFAddCategoryView.xib */,
+				01ABDF211E0BC37000C1273A /* PFAddCategoryView.h */,
+				01ABDF221E0BC37000C1273A /* PFAddCategoryView.m */,
 			);
 			name = Views;
 			sourceTree = "<group>";
@@ -946,6 +954,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				011537051D8932CC00C98268 /* LaunchScreen.storyboard in Resources */,
+				01ABDF201E0BC34E00C1273A /* PFAddCategoryView.xib in Resources */,
 				010CFB3A1DB4B9B500FEE5DE /* Assets.xcassets in Resources */,
 				011537001D8932CC00C98268 /* Main.storyboard in Resources */,
 				017915231DBF614B006FA552 /* PFLockViewController.xib in Resources */,
@@ -1092,6 +1101,7 @@
 				0101A9201DE80B9D009F5F90 /* _PFCategory+CoreDataProperties.m in Sources */,
 				017C969D1DDEEC7A0030272F /* EXTADT.h in Sources */,
 				017C969E1DDEEC7A0030272F /* EXTADT.m in Sources */,
+				01ABDF231E0BC37000C1273A /* PFAddCategoryView.m in Sources */,
 				017C969F1DDEEC7A0030272F /* EXTConcreteProtocol.h in Sources */,
 				017C96A01DDEEC7A0030272F /* EXTConcreteProtocol.m in Sources */,
 				017C96A11DDEEC7A0030272F /* EXTCoroutine.h in Sources */,

@@ -24,9 +24,6 @@ static uint64_t const       catIdEntry                      = 7;
 static uint64_t const       catIdWebsite                    = 8;
 
 
-static uint64_t const       typeMaster                      = 0x5020;//The account type in db
-static uint64_t const       typeQuick                       = 0x5022;
-
 //User default key
 static NSString * const     kPFNewInstall                   = @"kPFNewInstall";
 static NSString * const     kPFImageChooserPoped            = @"kPFImageChooserPoped";
@@ -38,4 +35,7 @@ static NSString * const kTodayAccount           =   @"sun.bob.leela.today.accout
 static NSString * const kTodayPassword          =   @"sun.bob.leela.today.password";
 static NSString * const kTodayAdditional        =   @"sun.bob.leela.today.additional";
 static NSString * const kTodayIcon              =   @"sun.bob.leela.today.icon";
+
+//Events
+static NSString * const kUserCategoryChanged    =   @"kUserCategoryChanged";
 #endif /* Constants_h */

@@ -1,12 +1,12 @@
 //
-//  PFAddType.m
+//  PFAddCategoryView.m
 //  Puff
 //
-//  Created by bob.sun on 21/12/2016.
+//  Created by bob.sun on 22/12/2016.
 //  Copyright © 2016 bob.sun. All rights reserved.
 //
 
-#import "PFAddTypeView.h"
+#import "PFAddCategoryView.h"
 
 #import <MobileCoreServices/UTCoreTypes.h>
 #import <MaterialControls/MDTextField.h>
@@ -18,32 +18,28 @@
 #import "PFAppLock.h"
 #import "Constants.h"
 #import "PFSpinner.h"
+#import "NSObject+Events.h"
 
-@interface PFAddTypeView() <UIImagePickerControllerDelegate, UINavigationControllerDelegate, MDTextFieldDelegate, PFSpinnerDelegate>
+@interface PFAddCategoryView() <UIImagePickerControllerDelegate, UINavigationControllerDelegate, MDTextFieldDelegate>
 @property (weak, nonatomic) id<PFDialogViewDelegate> delegate;
 @property (strong, nonatomic) NSString * icon;
 @property (weak, nonatomic) IBOutlet MDTextField *nameTextField;
 @property (weak, nonatomic) IBOutlet UIImageView *iconImageView;
-@property (weak, nonatomic) IBOutlet UIView *categoryContainer;
 
-@property (assign, nonatomic) uint64_t categoryId;
-@property (strong, nonatomic) PFSpinner *categorySpinner;
-@property (strong, nonatomic) NSArray *categories;
 @end
 
-@implementation PFAddTypeView
+@implementation PFAddCategoryView
 
 + (instancetype)loadViewFromNib:(id)owner{
-    PFAddTypeView *ret;
-    ret = [[[NSBundle bundleForClass:self.class] loadNibNamed:@"PFAddTypeView" owner:owner options:nil] firstObject];
+    PFAddCategoryView *ret;
+    ret = [[[NSBundle bundleForClass:self.class] loadNibNamed:@"PFAddCategoryView" owner:owner options:nil] firstObject];
     return ret;
 }
 
 + (void)presentInDialogViewController:(id) owner {
     PFDialogViewController *dialog = [PFDialogViewController viewControllerFromStoryboard];
-    PFAddTypeView *me = [self loadViewFromNib:owner];
+    PFAddCategoryView *me = [self loadViewFromNib:owner];
     me.delegate = (id<PFDialogViewDelegate>)dialog;
-    me.categories = [[PFCategoryManager sharedManager] fetchAll];
     [dialog present:me inParent:owner];
 }
 
@@ -56,10 +52,6 @@
 - (BOOL)_validateFields {
     if (_nameTextField.text.length == 0) {
         [PFResUtil shakeItBaby:_nameTextField withCompletion:nil];
-        return NO;
-    }
-    if (_categoryId == 0) {
-        [PFResUtil shakeItBaby:_categoryContainer withCompletion:nil];
         return NO;
     }
     if (_icon == 0) {
@@ -76,19 +68,23 @@
     if (![self _validateFields]) {
         return;
     }
-    uint64_t typeId = [[PFTypeManager sharedManager] fetchAll].count;
-    typeId += 1;
-    while ([[PFTypeManager sharedManager] fetchTypeById:typeId] != nil) {
+    
+    uint64_t categoryId = [[PFCategoryManager sharedManager] fetchAll].count;
+    categoryId += 1;
+    while ([[PFCategoryManager sharedManager] fetchCategoryById:categoryId] != nil) {
         //Find an available typeId.
-        typeId += 1;
+        categoryId += 1;
     }
-    PFType *toAdd = [[PFType alloc] init];
+
+    PFCategory *toAdd = [[PFCategory alloc] init];
     toAdd.name = _nameTextField.text;
     toAdd.icon = _icon;
-    toAdd.category = _categoryId;
-    toAdd.identifier = typeId;
+    toAdd.type = catTypeCustom;
+    toAdd.identifier = categoryId;
     
-    [[PFTypeManager sharedManager] saveType:toAdd];
+    [[PFCategoryManager sharedManager] saveCategory:toAdd];
+    
+    [self publish:kUserCategoryChanged];
     
     if (self.delegate) {
         [self.delegate close];
@@ -116,20 +112,6 @@
     }
     [self.delegate showViewController:picker];
 }
-- (IBAction)didTapOnCategory:(id)sender {
-    if (!_categorySpinner) {
-        _categorySpinner = [[PFSpinner alloc] initAsSpinnerWithData:_categories andFrame:_categoryContainer.frame];
-        _categorySpinner.spinnerDelegate = self;
-        _categorySpinner.configureCallback = ^(UITableViewCell* cell, NSIndexPath* indexPath, NSObject* dataItem) {
-            PFCategory *cat = dataItem;
-            PFSpinnerCell *typedCell = cell;
-            typedCell.spinnerLabel.text = cat.name;
-            typedCell.iconView.image = [PFResUtil imageForName:cat.icon];
-        };
-    }
-    [_categorySpinner presentInView:self];
-}
-
 #pragma mark - UIImagePickerControllerDelegate
 - (void)imagePickerControllerDidCancel:(UIImagePickerController *)picker {
     _icon = nil;
@@ -164,11 +146,4 @@
     [self endEditing:YES];
     return NO;
 }
-
-#pragma mark - PFSpinnerDelegate
-- (void)pfSpinner:(PFSpinner *)spinner didSelectItem:(id)item {
-    [spinner dismiss:nil];
-    _categoryId = ((PFCategory*)item).identifier;
-}
-
 @end
