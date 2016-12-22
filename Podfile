@@ -13,7 +13,6 @@ target 'Puff' do
 end
 
 target 'PuffExtensionKit' do
-  pod 'UITableView+FDTemplateLayoutCell', '~> 1.4'
   pod 'MMDrawerController', '~> 0.5.7'
   pod 'BFPaperCheckbox'
   pod 'Masonry'
