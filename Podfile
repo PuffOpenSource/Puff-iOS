@@ -16,6 +16,7 @@ target 'PuffExtensionKit' do
   pod 'UITableView+FDTemplateLayoutCell', '~> 1.4'
   pod 'MMDrawerController', '~> 0.5.7'
   pod 'BFPaperCheckbox'
-  # pod 'MaterialControls', :path => "#{POD_DEV_ROOT}/Material-Controls-For-iOS"
+  pod 'Masonry'
+
   pod 'MaterialControls', :git => "https://github.com/PuffOpenSource/Material-Controls-For-iOS.git", :branch => 'master'
 end

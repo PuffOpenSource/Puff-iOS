@@ -79,7 +79,7 @@
     if (_icon.length > 0) {
         _iconImage.image = [PFResUtil imageForName:_icon];
     } else {
-        _iconImage.image = [UIImage imageNamed:@"icon-empty-small"];
+        _iconImage.image = [UIImage imageNamed:@"ic-empty-small"];
     }
     
     _needClear = [[PFSettings sharedInstance] clearInfo];
