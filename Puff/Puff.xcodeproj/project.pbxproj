@@ -56,6 +56,8 @@
 		011537051D8932CC00C98268 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 011537031D8932CC00C98268 /* LaunchScreen.storyboard */; };
 		0115370E1D8932DA00C98268 /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0115370D1D8932DA00C98268 /* Security.framework */; };
 		01368F0C1DC89CA800055522 /* MobileCoreServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 01368F0B1DC89CA800055522 /* MobileCoreServices.framework */; };
+		0147C2531E0A70950013B1F2 /* PFAddTypeView.m in Sources */ = {isa = PBXBuildFile; fileRef = 0147C2521E0A70950013B1F2 /* PFAddTypeView.m */; };
+		0147C2551E0A70B90013B1F2 /* PFAddTypeView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0147C2541E0A70B90013B1F2 /* PFAddTypeView.xib */; };
 		0150E7091DF51F9B00C0ADF0 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 010CFB391DB4B9B500FEE5DE /* Assets.xcassets */; };
 		0150E70A1DF5693C00C0ADF0 /* PFResUtil.h in Headers */ = {isa = PBXBuildFile; fileRef = 01EB17891DB717DF00C71C4B /* PFResUtil.h */; };
 		0150E70B1DF5696100C0ADF0 /* PFResUtil.m in Sources */ = {isa = PBXBuildFile; fileRef = 01EB178A1DB717DF00C71C4B /* PFResUtil.m */; };
@@ -282,6 +284,9 @@
 		013DC3951DB5F2FF00AB8F50 /* PFDrawerViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PFDrawerViewController.m; path = Controllers/PFDrawerViewController.m; sourceTree = "<group>"; };
 		013DC3971DB5F44000AB8F50 /* PFDrawerCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PFDrawerCell.h; path = Views/PFDrawerCell.h; sourceTree = "<group>"; };
 		013DC3981DB5F44000AB8F50 /* PFDrawerCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PFDrawerCell.m; path = Views/PFDrawerCell.m; sourceTree = "<group>"; };
+		0147C2511E0A70950013B1F2 /* PFAddTypeView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PFAddTypeView.h; path = Views/PFAddTypeView.h; sourceTree = "<group>"; };
+		0147C2521E0A70950013B1F2 /* PFAddTypeView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PFAddTypeView.m; path = Views/PFAddTypeView.m; sourceTree = "<group>"; };
+		0147C2541E0A70B90013B1F2 /* PFAddTypeView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = PFAddTypeView.xib; path = Views/PFAddTypeView.xib; sourceTree = "<group>"; };
 		015EEA9E1DC232EC00F207AE /* PFSpinner.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PFSpinner.h; path = Views/PFSpinner.h; sourceTree = "<group>"; };
 		015EEA9F1DC232EC00F207AE /* PFSpinner.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PFSpinner.m; path = Views/PFSpinner.m; sourceTree = "<group>"; };
 		0164612E1DC1E66B0083D129 /* LocalAuthentication.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = LocalAuthentication.framework; path = System/Library/Frameworks/LocalAuthentication.framework; sourceTree = SDKROOT; };
@@ -706,6 +711,9 @@
 				015EEA9E1DC232EC00F207AE /* PFSpinner.h */,
 				015EEA9F1DC232EC00F207AE /* PFSpinner.m */,
 				01F6708C1DFA89EC00903202 /* Intro.storyboard */,
+				0147C2511E0A70950013B1F2 /* PFAddTypeView.h */,
+				0147C2521E0A70950013B1F2 /* PFAddTypeView.m */,
+				0147C2541E0A70B90013B1F2 /* PFAddTypeView.xib */,
 			);
 			name = Views;
 			sourceTree = "<group>";
@@ -943,6 +951,7 @@
 				017915231DBF614B006FA552 /* PFLockViewController.xib in Resources */,
 				010CFC2C1DB4C03A00FEE5DE /* cats in Resources */,
 				01F6708D1DFA89EC00903202 /* Intro.storyboard in Resources */,
+				0147C2551E0A70B90013B1F2 /* PFAddTypeView.xib in Resources */,
 				017517551DB8B8C80067A586 /* MainAccountCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -1137,6 +1146,7 @@
 				017C96CB1DDEEC7A0030272F /* PFResUtil.h in Sources */,
 				017C96CC1DDEEC7A0030272F /* PFResUtil.m in Sources */,
 				017C96CD1DDEEC7A0030272F /* PFKeychainHelper.h in Sources */,
+				0147C2531E0A70950013B1F2 /* PFAddTypeView.m in Sources */,
 				017C96CF1DDEEC7A0030272F /* PFAppLock.h in Sources */,
 				017C96D01DDEEC7A0030272F /* PFAppLock.m in Sources */,
 				017C96D11DDEEC7A0030272F /* PFStringUtil.h in Sources */,

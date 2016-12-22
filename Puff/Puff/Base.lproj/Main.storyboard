@@ -125,13 +125,13 @@
                                 <rect key="frame" x="40" y="102" width="295" height="545"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Click add button to add an account!" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ijQ-ig-Qs3">
-                                        <rect key="frame" x="10" y="198.5" width="275" height="48"/>
+                                        <rect key="frame" x="10" y="199" width="275" height="48"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                         <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ic-empty" translatesAutoresizingMaskIntoConstraints="NO" id="rjn-kh-T8n">
-                                        <rect key="frame" x="97.5" y="272.5" width="100" height="100"/>
+                                        <rect key="frame" x="98" y="273" width="100" height="100"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="100" id="2LP-V4-8lZ"/>
                                             <constraint firstAttribute="width" constant="100" id="Epo-Zo-v1c"/>
@@ -508,7 +508,7 @@
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <imageView contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ic-add-image" translatesAutoresizingMaskIntoConstraints="NO" id="G3F-Zo-3dw">
-                                                <rect key="frame" x="107.5" y="37" width="128" height="128"/>
+                                                <rect key="frame" x="108" y="37" width="128" height="128"/>
                                                 <gestureRecognizers/>
                                                 <constraints>
                                                     <constraint firstAttribute="width" constant="128" id="Ozp-IC-GDW"/>
@@ -1644,7 +1644,7 @@ Puff uses Blowfish algorithm to encrypt your account information.</string>
                                                                 </userDefinedRuntimeAttributes>
                                                             </view>
                                                             <label opaque="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Numbers Only" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eBb-24-nE5">
-                                                                <rect key="frame" x="64" y="231.5" width="240" height="40"/>
+                                                                <rect key="frame" x="64" y="231" width="240" height="40"/>
                                                                 <gestureRecognizers/>
                                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                                 <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -2068,7 +2068,7 @@ Puff uses Blowfish algorithm to encrypt your account information.</string>
                                 </connections>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="3GX-Mh-r4B" customClass="PFCardView">
-                                <rect key="frame" x="47" y="133" width="280" height="400"/>
+                                <rect key="frame" x="48" y="134" width="280" height="400"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="400" id="6qO-fX-Awd"/>

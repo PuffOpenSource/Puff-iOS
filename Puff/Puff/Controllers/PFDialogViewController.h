@@ -8,6 +8,14 @@
 
 #import <UIKit/UIKit.h>
 
+@protocol PFDialogViewDelegate <NSObject>
+
+@required
+- (void)close;
+- (void)showViewController:(UIViewController*)vc;
+
+@end
+
 @interface PFDialogViewController : UIViewController
 + (instancetype)viewControllerFromStoryboard;
 - (void)present:(UIView*)view inParent:(UIViewController*)vc;

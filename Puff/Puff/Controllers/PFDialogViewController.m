@@ -9,17 +9,18 @@
 #import "PFDialogViewController.h"
 
 #import "PFCardView.h"
+#import <Masonry/Masonry.h>
 
-@interface PFDialogViewController ()
+@interface PFDialogViewController () <PFDialogViewDelegate>
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *contentHeight;
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *contentWidth;
 @property (weak, nonatomic) IBOutlet PFCardView *container;
 
-@property (weak, nonatomic) UIView *content;
+@property (strong, nonatomic) UIView *content;
 @end
 
 
-static CGFloat const    fullHeight          =       400;
+static CGFloat const    fullHeight          =       380;
 static CGFloat const    fullWidth           =       280;
 @implementation PFDialogViewController
 
@@ -33,7 +34,6 @@ static CGFloat const    fullWidth           =       280;
     self.transitioningDelegate = vc.transitioningDelegate;
     self.modalPresentationStyle = UIModalPresentationCustom;
     self.content = view;
-    [self.container addSubview:view];
     [vc presentViewController:self animated:NO completion:nil];
 }
 
@@ -41,14 +41,28 @@ static CGFloat const    fullWidth           =       280;
     [super viewDidLoad];
     _contentHeight.constant = 50;
     _contentWidth.constant = 50;
+    [self.container addSubview:self.content];
+    [self.content mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.edges.equalTo(self.container);
+    }];
+    
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(keyboardWillShow:) name:UIKeyboardWillShowNotification object:nil];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(keyboardWillHide:) name:UIKeyboardWillHideNotification object:nil];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(keyboardDidHide:) name:UIKeyboardDidHideNotification object:nil];
+    
 }
 
 - (void)viewDidAppear:(BOOL)animated {
     [super viewDidAppear:animated];
     _contentWidth.constant = fullWidth;
     _contentHeight.constant = fullHeight;
+    self.content.hidden = YES;
     [UIView animateWithDuration:0.3 animations:^{
         [self.view layoutIfNeeded];
+    } completion:^(BOOL finished) {
+        if (finished) {
+            self.content.hidden = NO;
+        }
     }];
 }
 
@@ -59,6 +73,7 @@ static CGFloat const    fullWidth           =       280;
 
 #pragma mark - IBActions
 - (IBAction)didTapOnEmpty:(id)sender {
+    self.content.hidden = YES;
     _contentHeight.constant = 50;
     _contentWidth.constant = 50;
     [UIView animateWithDuration:0.3 animations:^{
@@ -70,6 +85,28 @@ static CGFloat const    fullWidth           =       280;
     }];
 }
 
+#pragma mark - Keyboards
+
+- (void)keyboardWillShow:(NSNotification*) notification {
+    
+}
+
+- (void)keyboardWillHide:(NSNotification*) notification {
+    
+}
+
+- (void)keyboardDidHide:(NSNotification*) notification {
+    
+}
+
+#pragma mark - delegate
+- (void)close {
+    [self didTapOnEmpty:nil];
+}
+
+- (void)showViewController:(UIViewController *)vc {
+    [self presentViewController:vc animated:YES completion:nil];
+}
 
 /*
 #pragma mark - Navigation
