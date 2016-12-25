@@ -16,6 +16,6 @@ target 'PuffExtensionKit' do
   pod 'MMDrawerController', '~> 0.5.7'
   pod 'BFPaperCheckbox'
   pod 'Masonry'
-
+  pod 'FCModel'
   pod 'MaterialControls', :git => "https://github.com/PuffOpenSource/Material-Controls-For-iOS.git", :branch => 'master'
 end

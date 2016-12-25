@@ -15,9 +15,5 @@
 
 @interface MasterViewController : UIViewController
 
-@property (strong, nonatomic) NSFetchedResultsController<_PFAccount *> *fetchedResultsController;
-@property (strong, nonatomic) NSManagedObjectContext *managedObjectContext;
-
-
 @end
 

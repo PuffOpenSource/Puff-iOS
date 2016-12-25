@@ -15,6 +15,7 @@
 #import <MobileCoreServices/MobileCoreServices.h>
 
 #import "PFAccountDetailViewController.h"
+#import "PFPasswordGenViewController.h"
 #import "PFResUtil.h"
 #import "PFAccountManager.h"
 #import "PFTypeManager.h"
@@ -225,6 +226,11 @@ static const CGFloat toolBarHeight   = 180;
         [ud synchronize];
     }
     [self presentViewController:picker animated:YES completion:nil];
+}
+
+- (IBAction)didClickOnPasswordGen:(id)sender {
+    PFPasswordGenViewController *vc = [PFPasswordGenViewController viewControllerFromStoryboard];
+    [self presentViewController:vc animated:YES completion:nil];
 }
 
 - (BOOL)textFieldShouldReturn:(MDTextField *)textField {

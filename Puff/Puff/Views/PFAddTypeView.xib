@@ -94,7 +94,7 @@
                     <nil key="highlightedColor"/>
                 </label>
                 <imageView contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ic-add-image" translatesAutoresizingMaskIntoConstraints="NO" id="hMz-xa-NyO">
-                    <rect key="frame" x="61.5" y="211" width="80" height="80"/>
+                    <rect key="frame" x="62" y="211" width="80" height="80"/>
                     <gestureRecognizers/>
                     <constraints>
                         <constraint firstAttribute="width" constant="80" id="HL5-V3-563"/>

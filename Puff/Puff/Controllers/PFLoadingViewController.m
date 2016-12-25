@@ -1,18 +1,18 @@
 //
-//  PFAddTypeViewController.m
+//  PFLoadingViewController.m
 //  Puff
 //
-//  Created by bob.sun on 09/12/2016.
+//  Created by bob.sun on 23/12/2016.
 //  Copyright © 2016 bob.sun. All rights reserved.
 //
 
-#import "PFAddTypeViewController.h"
+#import "PFLoadingViewController.h"
 
-@interface PFAddTypeViewController ()
+@interface PFLoadingViewController ()
 
 @end
 
-@implementation PFAddTypeViewController
+@implementation PFLoadingViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];

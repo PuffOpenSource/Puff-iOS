@@ -55,6 +55,8 @@
 		011537001D8932CC00C98268 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 011536FE1D8932CC00C98268 /* Main.storyboard */; };
 		011537051D8932CC00C98268 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 011537031D8932CC00C98268 /* LaunchScreen.storyboard */; };
 		0115370E1D8932DA00C98268 /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0115370D1D8932DA00C98268 /* Security.framework */; };
+		012D5B5D1E0CF06800C2344E /* PFLoadingView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 012D5B5C1E0CF06800C2344E /* PFLoadingView.xib */; };
+		012D5B601E0CF08800C2344E /* PFLoadingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 012D5B5F1E0CF08800C2344E /* PFLoadingViewController.m */; };
 		01368F0C1DC89CA800055522 /* MobileCoreServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 01368F0B1DC89CA800055522 /* MobileCoreServices.framework */; };
 		0147C2531E0A70950013B1F2 /* PFAddTypeView.m in Sources */ = {isa = PBXBuildFile; fileRef = 0147C2521E0A70950013B1F2 /* PFAddTypeView.m */; };
 		0147C2551E0A70B90013B1F2 /* PFAddTypeView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0147C2541E0A70B90013B1F2 /* PFAddTypeView.xib */; };
@@ -78,7 +80,6 @@
 		017C96761DDEE6380030272F /* PuffExtensionKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 017C961B1DDEE5600030272F /* PuffExtensionKit.framework */; };
 		017C967C1DDEE7D70030272F /* MMDrawerController.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 017C96781DDEE78C0030272F /* MMDrawerController.framework */; };
 		017C967F1DDEE7D80030272F /* MaterialControls.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 017C967D1DDEE7D80030272F /* MaterialControls.framework */; };
-		017C96801DDEE7D80030272F /* UITableView_FDTemplateLayoutCell.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 017C967E1DDEE7D80030272F /* UITableView_FDTemplateLayoutCell.framework */; };
 		017C96811DDEEAC80030272F /* Puff.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 011536F51D8932CC00C98268 /* Puff.xcdatamodeld */; };
 		017C96831DDEEC7A0030272F /* Config.h in Sources */ = {isa = PBXBuildFile; fileRef = 01A8B9B01DB0E1CC00D87FCF /* Config.h */; };
 		017C96851DDEEC7A0030272F /* PFDrawerCell.h in Sources */ = {isa = PBXBuildFile; fileRef = 013DC3971DB5F44000AB8F50 /* PFDrawerCell.h */; };
@@ -166,7 +167,6 @@
 		01D3AF891DB3C99800EE5CA1 /* MasterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 01D3AF881DB3C99800EE5CA1 /* MasterViewController.m */; };
 		01F6708D1DFA89EC00903202 /* Intro.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 01F6708C1DFA89EC00903202 /* Intro.storyboard */; };
 		01F670901DFA8A6D00903202 /* PFDialogViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 01F6708F1DFA8A6D00903202 /* PFDialogViewController.m */; };
-		01F670931DFA8A8F00903202 /* PFAddTypeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 01F670921DFA8A8F00903202 /* PFAddTypeViewController.m */; };
 		01F670961DFA8BF700903202 /* PFChangePasswordRunner.m in Sources */ = {isa = PBXBuildFile; fileRef = 01F670951DFA8BF700903202 /* PFChangePasswordRunner.m */; };
 		44075CED77D58170C20A4992 /* Pods_Puff.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6B7D49088F66C933BBF2413A /* Pods_Puff.framework */; };
 		89E2CCAF769F204ABA3660E7 /* Pods_PuffExtensionKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4A8ACECC80B15E78B49B8CD2 /* Pods_PuffExtensionKit.framework */; };
@@ -281,6 +281,9 @@
 		012C69B31DAF68F1005E7104 /* NSInvocation+EXT.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSInvocation+EXT.m"; sourceTree = "<group>"; };
 		012C69B41DAF68F1005E7104 /* NSMethodSignature+EXT.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSMethodSignature+EXT.h"; sourceTree = "<group>"; };
 		012C69B51DAF68F1005E7104 /* NSMethodSignature+EXT.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSMethodSignature+EXT.m"; sourceTree = "<group>"; };
+		012D5B5C1E0CF06800C2344E /* PFLoadingView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = PFLoadingView.xib; path = Views/PFLoadingView.xib; sourceTree = "<group>"; };
+		012D5B5E1E0CF08800C2344E /* PFLoadingViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PFLoadingViewController.h; path = Controllers/PFLoadingViewController.h; sourceTree = "<group>"; };
+		012D5B5F1E0CF08800C2344E /* PFLoadingViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PFLoadingViewController.m; path = Controllers/PFLoadingViewController.m; sourceTree = "<group>"; };
 		01368F0B1DC89CA800055522 /* MobileCoreServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MobileCoreServices.framework; path = System/Library/Frameworks/MobileCoreServices.framework; sourceTree = SDKROOT; };
 		013DC3941DB5F2FF00AB8F50 /* PFDrawerViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PFDrawerViewController.h; path = Controllers/PFDrawerViewController.h; sourceTree = "<group>"; };
 		013DC3951DB5F2FF00AB8F50 /* PFDrawerViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PFDrawerViewController.m; path = Controllers/PFDrawerViewController.m; sourceTree = "<group>"; };
@@ -374,8 +377,6 @@
 		01F6708C1DFA89EC00903202 /* Intro.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = Intro.storyboard; path = Views/Intro.storyboard; sourceTree = "<group>"; };
 		01F6708E1DFA8A6D00903202 /* PFDialogViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PFDialogViewController.h; path = Controllers/PFDialogViewController.h; sourceTree = "<group>"; };
 		01F6708F1DFA8A6D00903202 /* PFDialogViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PFDialogViewController.m; path = Controllers/PFDialogViewController.m; sourceTree = "<group>"; };
-		01F670911DFA8A8F00903202 /* PFAddTypeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PFAddTypeViewController.h; path = Controllers/PFAddTypeViewController.h; sourceTree = "<group>"; };
-		01F670921DFA8A8F00903202 /* PFAddTypeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PFAddTypeViewController.m; path = Controllers/PFAddTypeViewController.m; sourceTree = "<group>"; };
 		01F670941DFA8BF700903202 /* PFChangePasswordRunner.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PFChangePasswordRunner.h; path = Utils/PFChangePasswordRunner.h; sourceTree = "<group>"; };
 		01F670951DFA8BF700903202 /* PFChangePasswordRunner.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PFChangePasswordRunner.m; path = Utils/PFChangePasswordRunner.m; sourceTree = "<group>"; };
 		01F80A3B1DCB3D6C00463272 /* PFAccountDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PFAccountDetailViewController.h; path = Controllers/PFAccountDetailViewController.h; sourceTree = "<group>"; };
@@ -425,7 +426,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				017C967F1DDEE7D80030272F /* MaterialControls.framework in Frameworks */,
-				017C96801DDEE7D80030272F /* UITableView_FDTemplateLayoutCell.framework in Frameworks */,
 				017C967C1DDEE7D70030272F /* MMDrawerController.framework in Frameworks */,
 				89E2CCAF769F204ABA3660E7 /* Pods_PuffExtensionKit.framework in Frameworks */,
 			);
@@ -577,10 +577,10 @@
 				01CD7C6B1DF8192500BF989B /* PFAboutViewController.m */,
 				01F6708E1DFA8A6D00903202 /* PFDialogViewController.h */,
 				01F6708F1DFA8A6D00903202 /* PFDialogViewController.m */,
-				01F670911DFA8A8F00903202 /* PFAddTypeViewController.h */,
-				01F670921DFA8A8F00903202 /* PFAddTypeViewController.m */,
 				01F670941DFA8BF700903202 /* PFChangePasswordRunner.h */,
 				01F670951DFA8BF700903202 /* PFChangePasswordRunner.m */,
+				012D5B5E1E0CF08800C2344E /* PFLoadingViewController.h */,
+				012D5B5F1E0CF08800C2344E /* PFLoadingViewController.m */,
 			);
 			name = Controller;
 			sourceTree = "<group>";
@@ -722,6 +722,7 @@
 				01ABDF1F1E0BC34E00C1273A /* PFAddCategoryView.xib */,
 				01ABDF211E0BC37000C1273A /* PFAddCategoryView.h */,
 				01ABDF221E0BC37000C1273A /* PFAddCategoryView.m */,
+				012D5B5C1E0CF06800C2344E /* PFLoadingView.xib */,
 			);
 			name = Views;
 			sourceTree = "<group>";
@@ -956,6 +957,7 @@
 				011537051D8932CC00C98268 /* LaunchScreen.storyboard in Resources */,
 				01ABDF201E0BC34E00C1273A /* PFAddCategoryView.xib in Resources */,
 				010CFB3A1DB4B9B500FEE5DE /* Assets.xcassets in Resources */,
+				012D5B5D1E0CF06800C2344E /* PFLoadingView.xib in Resources */,
 				011537001D8932CC00C98268 /* Main.storyboard in Resources */,
 				017915231DBF614B006FA552 /* PFLockViewController.xib in Resources */,
 				010CFC2C1DB4C03A00FEE5DE /* cats in Resources */,
@@ -1134,6 +1136,7 @@
 				017C96B91DDEEC7A0030272F /* PFAddAccountViewController.h in Sources */,
 				017C96BA1DDEEC7A0030272F /* PFAddAccountViewController.m in Sources */,
 				017C96BB1DDEEC7A0030272F /* PFSetMasterPasswordViewController.h in Sources */,
+				012D5B601E0CF08800C2344E /* PFLoadingViewController.m in Sources */,
 				017C96BC1DDEEC7A0030272F /* PFSetMasterPasswordViewController.m in Sources */,
 				017C96BD1DDEEC7A0030272F /* PFQuickPasswordViewController.h in Sources */,
 				01F670901DFA8A6D00903202 /* PFDialogViewController.m in Sources */,
@@ -1143,7 +1146,6 @@
 				017C96BF1DDEEC7A0030272F /* PFSettingsViewController.h in Sources */,
 				017C96C01DDEEC7A0030272F /* PFSettingsViewController.m in Sources */,
 				017C96C11DDEEC7A0030272F /* PFPasswordGenViewController.h in Sources */,
-				01F670931DFA8A8F00903202 /* PFAddTypeViewController.m in Sources */,
 				017C96C21DDEEC7A0030272F /* PFPasswordGenViewController.m in Sources */,
 				01680F761DFE56F80076681C /* PFCardShowTrainsition.m in Sources */,
 				017C96C31DDEEC7A0030272F /* PFLockViewController.h in Sources */,
