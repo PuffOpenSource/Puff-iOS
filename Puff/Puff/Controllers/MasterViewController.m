@@ -54,8 +54,8 @@
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *rippleHeight;
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *rippleWidth;
 
-
 @property (strong, nonatomic) NSArray<PFAccount*> *data;
+@property (assign, nonatomic) uint64_t catId;
 
 @property (weak, nonatomic) MainAccountCell *clickedCell;
 
@@ -75,7 +75,7 @@
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
     _app = (AppDelegate*)[UIApplication sharedApplication].delegate;
-    [self _loadInitCategory];
+    [self loadAccountsInCategory:_catId];
 }
 
 - (void)viewWillDisappear:(BOOL)animated {
@@ -113,6 +113,20 @@
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+    [tableView deselectRowAtIndexPath:indexPath animated:NO];
+    if (indexPath.section != 0) {
+        return;
+    }
+    PFAccount *account = [_data objectAtIndex:indexPath.row];
+    [account decrypt:^(NSError * _Nullable error, NSDictionary * _Nullable result) {
+        if (error) {
+            return;
+        }
+        _clickedCell = [tableView cellForRowAtIndexPath:indexPath];
+        PFAccountDetailViewController *vc = [PFAccountDetailViewController viewControllerFromStoryboardWithAccount:account andInfo:result];
+        vc.transitioningDelegate = self;
+        [self presentViewController:vc animated:YES completion:nil];
+    }];
     
 }
 
@@ -159,6 +173,7 @@
 #pragma mark - PFDrawerViewControllerDelegate
 
 - (void)loadAccountsInCategory:(uint64_t)catId {
+    _catId = catId;
     if (catId == catIdRecent) {
         [self _loadInitCategory];
         return;
@@ -179,7 +194,6 @@
 
 #pragma mark - PFMainAccountDelegate
 - (void)mainAccountCell:(MainAccountCell *)cell didTapOnViewButton:(PFAccount *)account {
-    //TODO: Animation!
     [account decrypt:^(NSError * _Nullable error, NSDictionary * _Nullable result) {
         if (error) {
             //TODO: Snackbar
@@ -293,6 +307,8 @@
         PFSpinnerMenuCell *typedCell = cell;
         typedCell.menuLabel.text = dataItem;
     };
+    
+    _catId = catIdRecent;
 }
 
 - (void)_loadInitCategory {
