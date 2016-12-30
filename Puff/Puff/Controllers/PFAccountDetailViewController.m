@@ -72,6 +72,8 @@
 
 #pragma mark - IBActions
 - (IBAction)didTapOnBackButton:(id)sender {
+    //Save to update timestamp.
+    [[PFAccountManager sharedManager] saveAccount:_account];
     [self dismissViewControllerAnimated:YES completion:nil];
 }
 - (IBAction)didTapOnMoreButton:(id)sender {

@@ -36,6 +36,7 @@
 }
 
 - (NSError*)saveAccount:(PFAccount *)account {
+    account.last_access = [NSDate date];
     NSManagedObjectContext *ctx = [_dbManager context];
     NSEntityDescription *entity = [NSEntityDescription entityForName:kEntityNamePFAccount inManagedObjectContext:ctx];
     [account managedObjectWithEntity:entity andContext:ctx];
@@ -90,11 +91,9 @@
 - (NSArray*)fetchRecentUsed:(NSInteger)limit {
     NSFetchRequest *req = [NSFetchRequest fetchRequestWithEntityName:kEntityNamePFAccount];
 
-    NSSortDescriptor *sortDes = [[NSSortDescriptor alloc] initWithKey: @"last_access" ascending:NO comparator:^NSComparisonResult(_PFAccount* obj1, _PFAccount* obj2) {
-        NSDate *d1 = obj1.last_access;
-        NSDate *d2 = obj2.last_access;
+    NSSortDescriptor *sortDes = [[NSSortDescriptor alloc] initWithKey: @"last_access" ascending:NO comparator:^NSComparisonResult(NSDate* obj1, NSDate* obj2) {
         
-        return [d1 timeIntervalSince1970] - [d2 timeIntervalSince1970];
+        return [obj1 timeIntervalSince1970] - [obj2 timeIntervalSince1970];
     }];
     
     NSManagedObjectContext *ctx = [_dbManager context];
