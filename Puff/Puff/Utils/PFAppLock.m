@@ -71,10 +71,11 @@
         return;
     }
     UIWindow *win = [UIApplication sharedApplication].keyWindow;
-    UIViewController *vc = win.rootViewController.presentedViewController;
-    if (vc == nil) {
-        vc = win.rootViewController;
-    }
+//    UIViewController *vc = win.rootViewController.presentedViewController;
+//    if (vc == nil) {
+//        vc = win.rootViewController;
+//    }
+    [_lockView viewWillAppear:NO];
     [win addSubview:_lockView.view];
 //    [vc presentViewController:_lockView animated:NO completion:nil];
     [_lockView showLockView];
