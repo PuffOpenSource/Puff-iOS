@@ -10,11 +10,13 @@
 #import <MobileCoreServices/MobileCoreServices.h>
 #import <LocalAuthentication/LocalAuthentication.h>
 
+
 #import "PFAccountManager.h"
 #import "PFAuthorizeDialog.h"
 #import "PFSettings.h"
 #import "PFResUtil.h"
 #import "PFAccountAccess.h"
+#import "PFLoadingView.h"
 
 static NSString * const kPFExtActCellReuseId        =   @"kPFExtActCellReuseId";
 
@@ -77,10 +79,13 @@ static NSString * const kPFExtActCellReuseId        =   @"kPFExtActCellReuseId";
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+    [tableView deselectRowAtIndexPath:indexPath animated:NO];
     //Default action is copy password. Click pin button to pin
     PFAccount *selected = [_accounts objectAtIndex:indexPath.row];
+    [PFLoadingView showIn:self];
     [selected decrypt:^(NSError * _Nullable error, NSDictionary * _Nullable result) {
-        
+        [PFLoadingView dismiss];
+        [PFAccountAccess copyToClipBoard:result];
     }];
 }
 
@@ -130,14 +135,18 @@ static NSString * const kPFExtActCellReuseId        =   @"kPFExtActCellReuseId";
 #pragma mark - CellDelegate
 - (void)didClickOnPin:(NSInteger)idx {
     PFAccount *act = [_accounts objectAtIndex:idx];
+    [PFLoadingView showIn:self];
     [act decrypt:^(NSError * _Nullable error, NSDictionary * _Nullable result) {
+        [PFLoadingView dismiss];
         [PFAccountAccess pinToday:result withIcon:act.icon];
     }];
 }
 
 - (void)didClickOnCopy:(NSInteger)idx {
     PFAccount *act = [_accounts objectAtIndex:idx];
+    [PFLoadingView showIn:self];
     [act decrypt:^(NSError * _Nullable error, NSDictionary * _Nullable result) {
+        [PFLoadingView dismiss];
         [PFAccountAccess copyToClipBoard:result];
     }];
 }

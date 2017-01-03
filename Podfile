@@ -12,10 +12,11 @@ target 'Puff' do
   # Pods for Puff
 end
 
-target 'PuffExtensionKit' do
+target 'PFFoundation' do
   pod 'MMDrawerController', '~> 0.5.7'
   pod 'BFPaperCheckbox'
   pod 'Masonry'
   pod 'FCModel'
   pod 'MaterialControls', :git => "https://github.com/PuffOpenSource/Material-Controls-For-iOS.git", :branch => 'master'
 end
+

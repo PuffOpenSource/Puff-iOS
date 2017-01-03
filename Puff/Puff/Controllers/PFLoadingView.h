@@ -8,6 +8,9 @@
 
 #import <UIKit/UIKit.h>
 
-@interface PFLoadingViewController : UIViewController
+@interface PFLoadingView : UIView
++ (void)showIn:(UIViewController*)vc;
++ (void)dismiss;
 
++ (void)updateLabel:(NSString*)update;
 @end

@@ -56,7 +56,6 @@
 		011537051D8932CC00C98268 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 011537031D8932CC00C98268 /* LaunchScreen.storyboard */; };
 		0115370E1D8932DA00C98268 /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0115370D1D8932DA00C98268 /* Security.framework */; };
 		012D5B5D1E0CF06800C2344E /* PFLoadingView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 012D5B5C1E0CF06800C2344E /* PFLoadingView.xib */; };
-		012D5B601E0CF08800C2344E /* PFLoadingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 012D5B5F1E0CF08800C2344E /* PFLoadingViewController.m */; };
 		01368F0C1DC89CA800055522 /* MobileCoreServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 01368F0B1DC89CA800055522 /* MobileCoreServices.framework */; };
 		0147C2531E0A70950013B1F2 /* PFAddTypeView.m in Sources */ = {isa = PBXBuildFile; fileRef = 0147C2521E0A70950013B1F2 /* PFAddTypeView.m */; };
 		0147C2551E0A70B90013B1F2 /* PFAddTypeView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0147C2541E0A70B90013B1F2 /* PFAddTypeView.xib */; };
@@ -66,6 +65,10 @@
 		0164612F1DC1E66B0083D129 /* LocalAuthentication.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0164612E1DC1E66B0083D129 /* LocalAuthentication.framework */; };
 		01680F761DFE56F80076681C /* PFCardShowTrainsition.m in Sources */ = {isa = PBXBuildFile; fileRef = 01680F751DFE56F80076681C /* PFCardShowTrainsition.m */; };
 		017517551DB8B8C80067A586 /* MainAccountCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 017517541DB8B8C80067A586 /* MainAccountCell.xib */; };
+		017641C01E1B72780048595D /* MaterialControls.framework in Sources */ = {isa = PBXBuildFile; fileRef = 017C967D1DDEE7D80030272F /* MaterialControls.framework */; };
+		017641C71E1B7BF30048595D /* PFLoadingView.h in Headers */ = {isa = PBXBuildFile; fileRef = 012D5B5E1E0CF08800C2344E /* PFLoadingView.h */; };
+		017641C81E1B7BF50048595D /* PFLoadingView.m in Sources */ = {isa = PBXBuildFile; fileRef = 012D5B5F1E0CF08800C2344E /* PFLoadingView.m */; };
+		017641C91E1B7E750048595D /* PFLoadingView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 012D5B5C1E0CF06800C2344E /* PFLoadingView.xib */; };
 		017915231DBF614B006FA552 /* PFLockViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 017915221DBF614B006FA552 /* PFLockViewController.xib */; };
 		017C95F11DDEE2F70030272F /* NotificationCenter.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 017C95F01DDEE2F70030272F /* NotificationCenter.framework */; };
 		017C95F51DDEE2F70030272F /* TodayViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 017C95F41DDEE2F70030272F /* TodayViewController.m */; };
@@ -75,9 +78,9 @@
 		017C960D1DDEE3C20030272F /* MainInterface.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 017C960B1DDEE3C20030272F /* MainInterface.storyboard */; };
 		017C96111DDEE3C20030272F /* PuffExtension.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = 017C96061DDEE3C20030272F /* PuffExtension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		017C961F1DDEE5600030272F /* PuffExtensionKit.h in Headers */ = {isa = PBXBuildFile; fileRef = 017C961D1DDEE5600030272F /* PuffExtensionKit.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		017C96221DDEE5600030272F /* PuffExtensionKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 017C961B1DDEE5600030272F /* PuffExtensionKit.framework */; };
-		017C96231DDEE5600030272F /* PuffExtensionKit.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 017C961B1DDEE5600030272F /* PuffExtensionKit.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		017C96761DDEE6380030272F /* PuffExtensionKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 017C961B1DDEE5600030272F /* PuffExtensionKit.framework */; };
+		017C96221DDEE5600030272F /* PFFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 017C961B1DDEE5600030272F /* PFFoundation.framework */; };
+		017C96231DDEE5600030272F /* PFFoundation.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 017C961B1DDEE5600030272F /* PFFoundation.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		017C96761DDEE6380030272F /* PFFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 017C961B1DDEE5600030272F /* PFFoundation.framework */; };
 		017C967C1DDEE7D70030272F /* MMDrawerController.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 017C96781DDEE78C0030272F /* MMDrawerController.framework */; };
 		017C967F1DDEE7D80030272F /* MaterialControls.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 017C967D1DDEE7D80030272F /* MaterialControls.framework */; };
 		017C96811DDEEAC80030272F /* Puff.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 011536F51D8932CC00C98268 /* Puff.xcdatamodeld */; };
@@ -160,7 +163,7 @@
 		01B2B1AB1DF961CD009801E7 /* PFAuthorizeDialog.m in Sources */ = {isa = PBXBuildFile; fileRef = 01B2B1A81DF92D49009801E7 /* PFAuthorizeDialog.m */; };
 		01B2B1AE1DF96339009801E7 /* PFAccountAccess.h in Headers */ = {isa = PBXBuildFile; fileRef = 01B2B1AC1DF96339009801E7 /* PFAccountAccess.h */; };
 		01B2B1AF1DF96339009801E7 /* PFAccountAccess.m in Sources */ = {isa = PBXBuildFile; fileRef = 01B2B1AD1DF96339009801E7 /* PFAccountAccess.m */; };
-		01C332681DF6A4EA00F5C493 /* PuffExtensionKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 017C961B1DDEE5600030272F /* PuffExtensionKit.framework */; };
+		01C332681DF6A4EA00F5C493 /* PFFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 017C961B1DDEE5600030272F /* PFFoundation.framework */; };
 		01C3326B1DF6B66200F5C493 /* PFSettings.m in Sources */ = {isa = PBXBuildFile; fileRef = 01C3326A1DF6B66200F5C493 /* PFSettings.m */; };
 		01C3326C1DF6C05F00F5C493 /* PFSettings.m in Sources */ = {isa = PBXBuildFile; fileRef = 01C3326A1DF6B66200F5C493 /* PFSettings.m */; };
 		01CD7C6C1DF8192500BF989B /* PFAboutViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 01CD7C6B1DF8192500BF989B /* PFAboutViewController.m */; };
@@ -170,6 +173,7 @@
 		01F670961DFA8BF700903202 /* PFChangePasswordRunner.m in Sources */ = {isa = PBXBuildFile; fileRef = 01F670951DFA8BF700903202 /* PFChangePasswordRunner.m */; };
 		44075CED77D58170C20A4992 /* Pods_Puff.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6B7D49088F66C933BBF2413A /* Pods_Puff.framework */; };
 		89E2CCAF769F204ABA3660E7 /* Pods_PuffExtensionKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4A8ACECC80B15E78B49B8CD2 /* Pods_PuffExtensionKit.framework */; };
+		930E881294B8DE3BB31A7853 /* Pods_PFFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F0489F548E38A2B417A6AC9E /* Pods_PFFoundation.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -215,7 +219,7 @@
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
-				017C96231DDEE5600030272F /* PuffExtensionKit.framework in Embed Frameworks */,
+				017C96231DDEE5600030272F /* PFFoundation.framework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -282,8 +286,8 @@
 		012C69B41DAF68F1005E7104 /* NSMethodSignature+EXT.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSMethodSignature+EXT.h"; sourceTree = "<group>"; };
 		012C69B51DAF68F1005E7104 /* NSMethodSignature+EXT.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSMethodSignature+EXT.m"; sourceTree = "<group>"; };
 		012D5B5C1E0CF06800C2344E /* PFLoadingView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = PFLoadingView.xib; path = Views/PFLoadingView.xib; sourceTree = "<group>"; };
-		012D5B5E1E0CF08800C2344E /* PFLoadingViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PFLoadingViewController.h; path = Controllers/PFLoadingViewController.h; sourceTree = "<group>"; };
-		012D5B5F1E0CF08800C2344E /* PFLoadingViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PFLoadingViewController.m; path = Controllers/PFLoadingViewController.m; sourceTree = "<group>"; };
+		012D5B5E1E0CF08800C2344E /* PFLoadingView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PFLoadingView.h; path = Controllers/PFLoadingView.h; sourceTree = "<group>"; };
+		012D5B5F1E0CF08800C2344E /* PFLoadingView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PFLoadingView.m; path = Controllers/PFLoadingView.m; sourceTree = "<group>"; };
 		01368F0B1DC89CA800055522 /* MobileCoreServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MobileCoreServices.framework; path = System/Library/Frameworks/MobileCoreServices.framework; sourceTree = SDKROOT; };
 		013DC3941DB5F2FF00AB8F50 /* PFDrawerViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PFDrawerViewController.h; path = Controllers/PFDrawerViewController.h; sourceTree = "<group>"; };
 		013DC3951DB5F2FF00AB8F50 /* PFDrawerViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PFDrawerViewController.m; path = Controllers/PFDrawerViewController.m; sourceTree = "<group>"; };
@@ -318,7 +322,7 @@
 		017C960C1DDEE3C20030272F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/MainInterface.storyboard; sourceTree = "<group>"; };
 		017C960E1DDEE3C20030272F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		017C96151DDEE4DD0030272F /* PuffExtension.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = PuffExtension.entitlements; sourceTree = "<group>"; };
-		017C961B1DDEE5600030272F /* PuffExtensionKit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = PuffExtensionKit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		017C961B1DDEE5600030272F /* PFFoundation.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = PFFoundation.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		017C961D1DDEE5600030272F /* PuffExtensionKit.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PuffExtensionKit.h; sourceTree = "<group>"; };
 		017C961E1DDEE5600030272F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		017C96781DDEE78C0030272F /* MMDrawerController.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MMDrawerController.framework; path = "../../../Library/Developer/Xcode/DerivedData/Puff-dxzalaqjdzugdieivqpjgsfzklcs/Build/Products/Debug-iphonesimulator/MMDrawerController/MMDrawerController.framework"; sourceTree = "<group>"; };
@@ -382,13 +386,17 @@
 		01F80A3B1DCB3D6C00463272 /* PFAccountDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PFAccountDetailViewController.h; path = Controllers/PFAccountDetailViewController.h; sourceTree = "<group>"; };
 		01F80A3C1DCB3D6C00463272 /* PFAccountDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PFAccountDetailViewController.m; path = Controllers/PFAccountDetailViewController.m; sourceTree = "<group>"; };
 		2667787EC9FB7FA21A1CE652 /* Pods-Puff.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Puff.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Puff/Pods-Puff.debug.xcconfig"; sourceTree = "<group>"; };
+		34D0D530B05CD7FE8AD39CA9 /* Pods-PFFoundation.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PFFoundation.release.xcconfig"; path = "../Pods/Target Support Files/Pods-PFFoundation/Pods-PFFoundation.release.xcconfig"; sourceTree = "<group>"; };
 		49ED3346F81226C2312BDA01 /* Pods-Puff.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Puff.release.xcconfig"; path = "../Pods/Target Support Files/Pods-Puff/Pods-Puff.release.xcconfig"; sourceTree = "<group>"; };
 		4A8ACECC80B15E78B49B8CD2 /* Pods_PuffExtensionKit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_PuffExtensionKit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		6B7D49088F66C933BBF2413A /* Pods_Puff.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Puff.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		7C81BFCC9B311FE3D995CB34 /* Pods-PFFoundation.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PFFoundation.debug.xcconfig"; path = "../Pods/Target Support Files/Pods-PFFoundation/Pods-PFFoundation.debug.xcconfig"; sourceTree = "<group>"; };
 		7FAD55A8FEF271AA3903499B /* Pods-Puff.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Puff.release.xcconfig"; path = "Pods/Target Support Files/Pods-Puff/Pods-Puff.release.xcconfig"; sourceTree = "<group>"; };
 		820B20218AC52C7E98579DA8 /* Pods-Puff.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Puff.debug.xcconfig"; path = "../Pods/Target Support Files/Pods-Puff/Pods-Puff.debug.xcconfig"; sourceTree = "<group>"; };
 		B01FFA4B067106F9C924E74A /* Pods-PuffExtensionKit.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PuffExtensionKit.release.xcconfig"; path = "../Pods/Target Support Files/Pods-PuffExtensionKit/Pods-PuffExtensionKit.release.xcconfig"; sourceTree = "<group>"; };
 		D1150BD4FE4FFEF3BDDA37EE /* Pods-PuffExtensionKit.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PuffExtensionKit.debug.xcconfig"; path = "../Pods/Target Support Files/Pods-PuffExtensionKit/Pods-PuffExtensionKit.debug.xcconfig"; sourceTree = "<group>"; };
+		F0489F548E38A2B417A6AC9E /* Pods_PFFoundation.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_PFFoundation.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		F9338E4F04E531CF78D2D295 /* Pods_PuffExtension.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_PuffExtension.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -400,7 +408,7 @@
 				0164612F1DC1E66B0083D129 /* LocalAuthentication.framework in Frameworks */,
 				0115370E1D8932DA00C98268 /* Security.framework in Frameworks */,
 				44075CED77D58170C20A4992 /* Pods_Puff.framework in Frameworks */,
-				017C96221DDEE5600030272F /* PuffExtensionKit.framework in Frameworks */,
+				017C96221DDEE5600030272F /* PFFoundation.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -408,7 +416,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				01C332681DF6A4EA00F5C493 /* PuffExtensionKit.framework in Frameworks */,
+				01C332681DF6A4EA00F5C493 /* PFFoundation.framework in Frameworks */,
 				017C95F11DDEE2F70030272F /* NotificationCenter.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -417,7 +425,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				017C96761DDEE6380030272F /* PuffExtensionKit.framework in Frameworks */,
+				017C96761DDEE6380030272F /* PFFoundation.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -428,6 +436,7 @@
 				017C967F1DDEE7D80030272F /* MaterialControls.framework in Frameworks */,
 				017C967C1DDEE7D70030272F /* MMDrawerController.framework in Frameworks */,
 				89E2CCAF769F204ABA3660E7 /* Pods_PuffExtensionKit.framework in Frameworks */,
+				930E881294B8DE3BB31A7853 /* Pods_PFFoundation.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -472,7 +481,7 @@
 				011536EC1D8932CC00C98268 /* Puff.app */,
 				017C95EF1DDEE2F70030272F /* Today.appex */,
 				017C96061DDEE3C20030272F /* PuffExtension.appex */,
-				017C961B1DDEE5600030272F /* PuffExtensionKit.framework */,
+				017C961B1DDEE5600030272F /* PFFoundation.framework */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -519,6 +528,8 @@
 				6B7D49088F66C933BBF2413A /* Pods_Puff.framework */,
 				017C95F01DDEE2F70030272F /* NotificationCenter.framework */,
 				4A8ACECC80B15E78B49B8CD2 /* Pods_PuffExtensionKit.framework */,
+				F9338E4F04E531CF78D2D295 /* Pods_PuffExtension.framework */,
+				F0489F548E38A2B417A6AC9E /* Pods_PFFoundation.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -579,8 +590,6 @@
 				01F6708F1DFA8A6D00903202 /* PFDialogViewController.m */,
 				01F670941DFA8BF700903202 /* PFChangePasswordRunner.h */,
 				01F670951DFA8BF700903202 /* PFChangePasswordRunner.m */,
-				012D5B5E1E0CF08800C2344E /* PFLoadingViewController.h */,
-				012D5B5F1E0CF08800C2344E /* PFLoadingViewController.m */,
 			);
 			name = Controller;
 			sourceTree = "<group>";
@@ -723,6 +732,8 @@
 				01ABDF211E0BC37000C1273A /* PFAddCategoryView.h */,
 				01ABDF221E0BC37000C1273A /* PFAddCategoryView.m */,
 				012D5B5C1E0CF06800C2344E /* PFLoadingView.xib */,
+				012D5B5E1E0CF08800C2344E /* PFLoadingView.h */,
+				012D5B5F1E0CF08800C2344E /* PFLoadingView.m */,
 			);
 			name = Views;
 			sourceTree = "<group>";
@@ -754,6 +765,8 @@
 				49ED3346F81226C2312BDA01 /* Pods-Puff.release.xcconfig */,
 				D1150BD4FE4FFEF3BDDA37EE /* Pods-PuffExtensionKit.debug.xcconfig */,
 				B01FFA4B067106F9C924E74A /* Pods-PuffExtensionKit.release.xcconfig */,
+				7C81BFCC9B311FE3D995CB34 /* Pods-PFFoundation.debug.xcconfig */,
+				34D0D530B05CD7FE8AD39CA9 /* Pods-PFFoundation.release.xcconfig */,
 			);
 			name = Pods;
 			sourceTree = "<group>";
@@ -776,6 +789,7 @@
 				01B2B1AE1DF96339009801E7 /* PFAccountAccess.h in Headers */,
 				0101A92D1DE80BE9009F5F90 /* PFCategoryManager.h in Headers */,
 				0101A91C1DE80B7E009F5F90 /* _PFType+CoreDataProperties.h in Headers */,
+				017641C71E1B7BF30048595D /* PFLoadingView.h in Headers */,
 				0101A9131DE80B62009F5F90 /* _PFAccount+CoreDataProperties.h in Headers */,
 				0101A9331DE80C0E009F5F90 /* PFKeychainHelper.h in Headers */,
 				017C961F1DDEE5600030272F /* PuffExtensionKit.h in Headers */,
@@ -850,9 +864,9 @@
 			productReference = 017C96061DDEE3C20030272F /* PuffExtension.appex */;
 			productType = "com.apple.product-type.app-extension";
 		};
-		017C961A1DDEE5600030272F /* PuffExtensionKit */ = {
+		017C961A1DDEE5600030272F /* PFFoundation */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 017C96241DDEE5600030272F /* Build configuration list for PBXNativeTarget "PuffExtensionKit" */;
+			buildConfigurationList = 017C96241DDEE5600030272F /* Build configuration list for PBXNativeTarget "PFFoundation" */;
 			buildPhases = (
 				FDBE33B034F752383CCC818B /* [CP] Check Pods Manifest.lock */,
 				017C96161DDEE5600030272F /* Sources */,
@@ -865,9 +879,9 @@
 			);
 			dependencies = (
 			);
-			name = PuffExtensionKit;
+			name = PFFoundation;
 			productName = PuffExtensionKit;
-			productReference = 017C961B1DDEE5600030272F /* PuffExtensionKit.framework */;
+			productReference = 017C961B1DDEE5600030272F /* PFFoundation.framework */;
 			productType = "com.apple.product-type.framework";
 		};
 /* End PBXNativeTarget section */
@@ -944,7 +958,7 @@
 				011536EB1D8932CC00C98268 /* Puff */,
 				017C95EE1DDEE2F70030272F /* Today */,
 				017C96051DDEE3C20030272F /* PuffExtension */,
-				017C961A1DDEE5600030272F /* PuffExtensionKit */,
+				017C961A1DDEE5600030272F /* PFFoundation */,
 			);
 		};
 /* End PBXProject section */
@@ -989,6 +1003,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				017641C91E1B7E750048595D /* PFLoadingView.xib in Resources */,
 				0101A9431DE8208F009F5F90 /* Puff.xcdatamodeld in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -1053,7 +1068,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/../Pods/Target Support Files/Pods-PuffExtensionKit/Pods-PuffExtensionKit-resources.sh\"\n";
+			shellScript = "\"${SRCROOT}/../Pods/Target Support Files/Pods-PFFoundation/Pods-PFFoundation-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		FDBE33B034F752383CCC818B /* [CP] Check Pods Manifest.lock */ = {
@@ -1136,7 +1151,6 @@
 				017C96B91DDEEC7A0030272F /* PFAddAccountViewController.h in Sources */,
 				017C96BA1DDEEC7A0030272F /* PFAddAccountViewController.m in Sources */,
 				017C96BB1DDEEC7A0030272F /* PFSetMasterPasswordViewController.h in Sources */,
-				012D5B601E0CF08800C2344E /* PFLoadingViewController.m in Sources */,
 				017C96BC1DDEEC7A0030272F /* PFSetMasterPasswordViewController.m in Sources */,
 				017C96BD1DDEEC7A0030272F /* PFQuickPasswordViewController.h in Sources */,
 				01F670901DFA8A6D00903202 /* PFDialogViewController.m in Sources */,
@@ -1183,6 +1197,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				017641C01E1B72780048595D /* MaterialControls.framework in Sources */,
 				0101A9361DE80C8D009F5F90 /* Puff.xcdatamodeld in Sources */,
 				017C960A1DDEE3C20030272F /* ActionViewController.m in Sources */,
 			);
@@ -1205,6 +1220,7 @@
 				0101A9391DE816AD009F5F90 /* PFAccountManager.m in Sources */,
 				0101A9121DE80B5F009F5F90 /* _PFAccount+CoreDataClass.m in Sources */,
 				0101A9171DE80B78009F5F90 /* _PFType+CoreDataClass.m in Sources */,
+				017641C81E1B7BF50048595D /* PFLoadingView.m in Sources */,
 				0101A9161DE80B78009F5F90 /* _PFCategory+CoreDataProperties.m in Sources */,
 				0101A9141DE80B65009F5F90 /* _PFAccount+CoreDataProperties.m in Sources */,
 				0101A93E1DE816C6009F5F90 /* PFCategoryManager.m in Sources */,
@@ -1231,7 +1247,7 @@
 		};
 		017C96211DDEE5600030272F /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = 017C961A1DDEE5600030272F /* PuffExtensionKit */;
+			target = 017C961A1DDEE5600030272F /* PFFoundation */;
 			targetProxy = 017C96201DDEE5600030272F /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
@@ -1446,7 +1462,7 @@
 		};
 		017C96251DDEE5600030272F /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = D1150BD4FE4FFEF3BDDA37EE /* Pods-PuffExtensionKit.debug.xcconfig */;
+			baseConfigurationReference = 7C81BFCC9B311FE3D995CB34 /* Pods-PFFoundation.debug.xcconfig */;
 			buildSettings = {
 				CODE_SIGN_IDENTITY = "";
 				CURRENT_PROJECT_VERSION = 1;
@@ -1470,7 +1486,7 @@
 		};
 		017C96261DDEE5600030272F /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = B01FFA4B067106F9C924E74A /* Pods-PuffExtensionKit.release.xcconfig */;
+			baseConfigurationReference = 34D0D530B05CD7FE8AD39CA9 /* Pods-PFFoundation.release.xcconfig */;
 			buildSettings = {
 				CODE_SIGN_IDENTITY = "";
 				CURRENT_PROJECT_VERSION = 1;
@@ -1531,7 +1547,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		017C96241DDEE5600030272F /* Build configuration list for PBXNativeTarget "PuffExtensionKit" */ = {
+		017C96241DDEE5600030272F /* Build configuration list for PBXNativeTarget "PFFoundation" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				017C96251DDEE5600030272F /* Debug */,
