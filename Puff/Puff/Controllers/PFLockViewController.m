@@ -84,8 +84,8 @@
     }
     
     [[NSNotificationCenter defaultCenter] removeObserver:self name:UIKeyboardDidHideNotification object:nil];
-    [self dismissViewControllerAnimated:YES completion:nil];
-    
+//    [self dismissViewControllerAnimated:YES completion:nil];
+    [self.view removeFromSuperview];
 }
 
 - (void)_shakeItBaby {
