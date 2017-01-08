@@ -8,6 +8,8 @@
 
 #import <UIKit/UIKit.h>
 
+#import "PFCardView.h"
+
 @class PFAccount;
 @interface ActionViewController : UIViewController
 

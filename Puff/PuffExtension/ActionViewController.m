@@ -18,6 +18,7 @@
 #import "PFAccountAccess.h"
 #import "PFLoadingView.h"
 
+
 static NSString * const kPFExtActCellReuseId        =   @"kPFExtActCellReuseId";
 
 @interface ActionViewController () <UITableViewDelegate, UITableViewDataSource, PFExtAccountCellDelegate>
@@ -28,6 +29,10 @@ static NSString * const kPFExtActCellReuseId        =   @"kPFExtActCellReuseId";
 
 @property(strong, nonatomic) NSArray<PFAccount*> *accounts;
 @property (assign, nonatomic) BOOL unlocked;
+@property (weak, nonatomic) IBOutlet UIView *snackBar;
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *snackbarHeight;
+
+@property (weak, nonatomic) IBOutlet UILabel *snackBarTitle;
 @end
 
 @implementation ActionViewController
@@ -47,6 +52,7 @@ static NSString * const kPFExtActCellReuseId        =   @"kPFExtActCellReuseId";
     } else {
         [self _authorizeWithPassword];
     }
+    _snackbarHeight.constant = 0;
 }
 
 - (void)didReceiveMemoryWarning {
@@ -75,7 +81,7 @@ static NSString * const kPFExtActCellReuseId        =   @"kPFExtActCellReuseId";
 
 #pragma mark - UITableViewDelegate
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
-    return 60;
+    return 130;
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
@@ -86,6 +92,7 @@ static NSString * const kPFExtActCellReuseId        =   @"kPFExtActCellReuseId";
     [selected decrypt:^(NSError * _Nullable error, NSDictionary * _Nullable result) {
         [PFLoadingView dismiss];
         [PFAccountAccess copyToClipBoard:result];
+        [self showSnackbarWithTitle:@"Copied!" autoClose:YES];
     }];
 }
 
@@ -139,6 +146,7 @@ static NSString * const kPFExtActCellReuseId        =   @"kPFExtActCellReuseId";
     [act decrypt:^(NSError * _Nullable error, NSDictionary * _Nullable result) {
         [PFLoadingView dismiss];
         [PFAccountAccess pinToday:result withIcon:act.icon];
+        [self showSnackbarWithTitle:@"Pinned!" autoClose:YES];
     }];
 }
 
@@ -148,8 +156,31 @@ static NSString * const kPFExtActCellReuseId        =   @"kPFExtActCellReuseId";
     [act decrypt:^(NSError * _Nullable error, NSDictionary * _Nullable result) {
         [PFLoadingView dismiss];
         [PFAccountAccess copyToClipBoard:result];
+        [self showSnackbarWithTitle:@"Copied!" autoClose:YES];
     }];
 }
+
+#pragma mark - Snackbar
+
+- (void)showSnackbarWithTitle:(NSString*)title autoClose:(BOOL)autoClose {
+    _snackbarHeight.constant = 60;
+    _snackBarTitle.text = title;
+    [UIView animateWithDuration:0.2 animations:^{
+        [self.view layoutIfNeeded];
+    }];
+    if (autoClose) {
+        [self performSelector:@selector(hideSnackbar) withObject:nil afterDelay:1.5];
+    }
+}
+
+- (void)hideSnackbar {
+    _snackbarHeight.constant = 0;
+    [UIView animateWithDuration:0.2 animations:^{
+        [self.view layoutIfNeeded];
+    }];
+}
+
+
 
 @end
 
