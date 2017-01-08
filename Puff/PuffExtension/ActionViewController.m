@@ -26,6 +26,7 @@ static NSString * const kPFExtActCellReuseId        =   @"kPFExtActCellReuseId";
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
 @property (weak, nonatomic) IBOutlet UIView *emptyView;
 @property (weak, nonatomic) IBOutlet UIView *lockView;
+@property (weak, nonatomic) IBOutlet UIButton *unlockButton;
 
 @property(strong, nonatomic) NSArray<PFAccount*> *accounts;
 @property (assign, nonatomic) BOOL unlocked;
@@ -129,7 +130,11 @@ static NSString * const kPFExtActCellReuseId        =   @"kPFExtActCellReuseId";
     [[PFAuthorizeDialog sharedInstance] authorize:self callback:^(BOOL verified) {
         _unlocked = verified;
         self.lockView.hidden = _unlocked;
-        [self.tableView reloadData];
+        if (_unlocked) {
+            [self.tableView reloadData];
+        } else {
+            [PFResUtil shakeItBaby:_unlockButton withCompletion:nil];
+        }
     }];
 }
 
@@ -163,7 +168,7 @@ static NSString * const kPFExtActCellReuseId        =   @"kPFExtActCellReuseId";
 #pragma mark - Snackbar
 
 - (void)showSnackbarWithTitle:(NSString*)title autoClose:(BOOL)autoClose {
-    _snackbarHeight.constant = 60;
+    _snackbarHeight.constant = 50;
     _snackBarTitle.text = title;
     [UIView animateWithDuration:0.2 animations:^{
         [self.view layoutIfNeeded];
