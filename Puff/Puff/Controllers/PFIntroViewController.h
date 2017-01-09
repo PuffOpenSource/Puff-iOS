@@ -8,6 +8,6 @@
 
 #import <UIKit/UIKit.h>
 
-@interface PFIntroViewController : UIPageViewController
+@interface PFIntroViewController : UIViewController
 + (instancetype)viewControllerFromStoryboard;
 @end

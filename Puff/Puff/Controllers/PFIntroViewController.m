@@ -8,8 +8,10 @@
 
 #import "PFIntroViewController.h"
 #import "PFSetMasterPasswordViewController.h"
+#import "PFResUtil.h"
 
 @interface PFIntroViewController () <UIPageViewControllerDelegate, UIPageViewControllerDataSource>
+@property (strong, nonatomic) UIPageViewController *pageVC;
 @property (strong, nonatomic) NSMutableArray<UIViewController*> *vcs;
 @end
 
@@ -21,14 +23,23 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    _pageVC = [[UIPageViewController alloc] initWithTransitionStyle:UIPageViewControllerTransitionStyleScroll navigationOrientation:UIPageViewControllerNavigationOrientationHorizontal options:nil];
     UIStoryboard *sb = [UIStoryboard storyboardWithName:@"Intro" bundle:[NSBundle bundleForClass:self.class]];
     _vcs = [@[] mutableCopy];
     for (int i = 0; i < 3; i++) {
         [_vcs addObject: [sb instantiateViewControllerWithIdentifier:[NSString stringWithFormat:@"introVC%d", i + 1]]];
     }
-    self.delegate = self;
-    self.dataSource = self;
-    [self setViewControllers:@[_vcs[0]] direction:UIPageViewControllerNavigationDirectionForward animated:YES completion:nil];
+    _pageVC.delegate = self;
+    _pageVC.dataSource = self;
+    
+//    _pageVC.view.frame = CGRectMake(0, 0, self.view.frame.size.width, self.view.frame.size.height - 30);
+
+    
+    [_pageVC setViewControllers:@[_vcs[0]] direction:UIPageViewControllerNavigationDirectionForward animated:YES completion:nil];
+    [self addChildViewController:_pageVC];
+    [_pageVC didMoveToParentViewController:self];
+    [self.view addSubview:_pageVC.view];
+    
 }
 
 - (void)didReceiveMemoryWarning {
