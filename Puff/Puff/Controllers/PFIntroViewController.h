@@ -9,5 +9,5 @@
 #import <UIKit/UIKit.h>
 
 @interface PFIntroViewController : UIPageViewController
-
++ (instancetype)viewControllerFromStoryboard;
 @end

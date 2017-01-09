@@ -16,4 +16,5 @@
 - (void)setTouchIDEnabled:(BOOL)enabled;
 - (BOOL)clearInfo;
 - (void)setClearInfo:(BOOL)clearInfo;
+- (BOOL)introShown;
 @end

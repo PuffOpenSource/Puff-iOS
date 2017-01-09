@@ -59,7 +59,6 @@
 		01368F0C1DC89CA800055522 /* MobileCoreServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 01368F0B1DC89CA800055522 /* MobileCoreServices.framework */; };
 		0147C2531E0A70950013B1F2 /* PFAddTypeView.m in Sources */ = {isa = PBXBuildFile; fileRef = 0147C2521E0A70950013B1F2 /* PFAddTypeView.m */; };
 		0147C2551E0A70B90013B1F2 /* PFAddTypeView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0147C2541E0A70B90013B1F2 /* PFAddTypeView.xib */; };
-		0150E7091DF51F9B00C0ADF0 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 010CFB391DB4B9B500FEE5DE /* Assets.xcassets */; };
 		0150E70A1DF5693C00C0ADF0 /* PFResUtil.h in Headers */ = {isa = PBXBuildFile; fileRef = 01EB17891DB717DF00C71C4B /* PFResUtil.h */; };
 		0150E70B1DF5696100C0ADF0 /* PFResUtil.m in Sources */ = {isa = PBXBuildFile; fileRef = 01EB178A1DB717DF00C71C4B /* PFResUtil.m */; };
 		0164612F1DC1E66B0083D129 /* LocalAuthentication.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0164612E1DC1E66B0083D129 /* LocalAuthentication.framework */; };
@@ -80,7 +79,6 @@
 		017C961F1DDEE5600030272F /* PuffExtensionKit.h in Headers */ = {isa = PBXBuildFile; fileRef = 017C961D1DDEE5600030272F /* PuffExtensionKit.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		017C96221DDEE5600030272F /* PFFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 017C961B1DDEE5600030272F /* PFFoundation.framework */; };
 		017C96231DDEE5600030272F /* PFFoundation.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 017C961B1DDEE5600030272F /* PFFoundation.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		017C96761DDEE6380030272F /* PFFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 017C961B1DDEE5600030272F /* PFFoundation.framework */; };
 		017C967C1DDEE7D70030272F /* MMDrawerController.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 017C96781DDEE78C0030272F /* MMDrawerController.framework */; };
 		017C967F1DDEE7D80030272F /* MaterialControls.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 017C967D1DDEE7D80030272F /* MaterialControls.framework */; };
 		017C96811DDEEAC80030272F /* Puff.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 011536F51D8932CC00C98268 /* Puff.xcdatamodeld */; };
@@ -90,7 +88,6 @@
 		017C96871DDEEC7A0030272F /* MainAccountCell.h in Sources */ = {isa = PBXBuildFile; fileRef = 017517561DB8B8E40067A586 /* MainAccountCell.h */; };
 		017C96881DDEEC7A0030272F /* MainAccountCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 017517571DB8B8E40067A586 /* MainAccountCell.m */; };
 		017C96891DDEEC7A0030272F /* PFCardView.h in Sources */ = {isa = PBXBuildFile; fileRef = 0106949A1DBCB87D00A15D4D /* PFCardView.h */; };
-		017C968A1DDEEC7A0030272F /* PFCardView.m in Sources */ = {isa = PBXBuildFile; fileRef = 0106949B1DBCB87D00A15D4D /* PFCardView.m */; };
 		017C968B1DDEEC7A0030272F /* PFSpinner.h in Sources */ = {isa = PBXBuildFile; fileRef = 015EEA9E1DC232EC00F207AE /* PFSpinner.h */; };
 		017C968C1DDEEC7A0030272F /* PFSpinner.m in Sources */ = {isa = PBXBuildFile; fileRef = 015EEA9F1DC232EC00F207AE /* PFSpinner.m */; };
 		017C968D1DDEEC7A0030272F /* PFDBManager.h in Sources */ = {isa = PBXBuildFile; fileRef = 01A8B97D1DB0AE8D00D87FCF /* PFDBManager.h */; };
@@ -154,6 +151,9 @@
 		017C96D11DDEEC7A0030272F /* PFStringUtil.h in Sources */ = {isa = PBXBuildFile; fileRef = 010001271DC9F48B0038AD85 /* PFStringUtil.h */; };
 		017C96D21DDEEC7A0030272F /* PFStringUtil.m in Sources */ = {isa = PBXBuildFile; fileRef = 010001281DC9F48B0038AD85 /* PFStringUtil.m */; };
 		017C96D31DDEF25A0030272F /* Constants.h in Sources */ = {isa = PBXBuildFile; fileRef = 010CFB311DB4B3A800FEE5DE /* Constants.h */; };
+		018ED5641E1BD8C400EC9A21 /* PFFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 017C961B1DDEE5600030272F /* PFFoundation.framework */; };
+		018ED5661E1BDCD900EC9A21 /* PFCardView.h in Headers */ = {isa = PBXBuildFile; fileRef = 0106949A1DBCB87D00A15D4D /* PFCardView.h */; };
+		018ED5671E1BDCE200EC9A21 /* PFCardView.m in Sources */ = {isa = PBXBuildFile; fileRef = 0106949B1DBCB87D00A15D4D /* PFCardView.m */; };
 		01910F661DE2D37E0019E541 /* PFPasswordGenerator.m in Sources */ = {isa = PBXBuildFile; fileRef = 01910F651DE2D37E0019E541 /* PFPasswordGenerator.m */; };
 		01910F671DE2FE5E0019E541 /* Assets.xcassets in Sources */ = {isa = PBXBuildFile; fileRef = 010CFB391DB4B9B500FEE5DE /* Assets.xcassets */; };
 		01A005E41E05680B007F484F /* PFPasswordChanger.m in Sources */ = {isa = PBXBuildFile; fileRef = 01A005E31E05680B007F484F /* PFPasswordChanger.m */; };
@@ -168,11 +168,13 @@
 		01C3326C1DF6C05F00F5C493 /* PFSettings.m in Sources */ = {isa = PBXBuildFile; fileRef = 01C3326A1DF6B66200F5C493 /* PFSettings.m */; };
 		01CD7C6C1DF8192500BF989B /* PFAboutViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 01CD7C6B1DF8192500BF989B /* PFAboutViewController.m */; };
 		01D3AF891DB3C99800EE5CA1 /* MasterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 01D3AF881DB3C99800EE5CA1 /* MasterViewController.m */; };
+		01E40BED1E224BDD003AA298 /* Assets.xcassets in Sources */ = {isa = PBXBuildFile; fileRef = 010CFB391DB4B9B500FEE5DE /* Assets.xcassets */; };
+		01E40BF21E227CBC003AA298 /* PFIntroBaseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 01E40BEF1E227CBC003AA298 /* PFIntroBaseViewController.m */; };
+		01E40BF31E227CBC003AA298 /* PFIntroViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 01E40BF11E227CBC003AA298 /* PFIntroViewController.m */; };
 		01F6708D1DFA89EC00903202 /* Intro.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 01F6708C1DFA89EC00903202 /* Intro.storyboard */; };
 		01F670901DFA8A6D00903202 /* PFDialogViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 01F6708F1DFA8A6D00903202 /* PFDialogViewController.m */; };
 		01F670961DFA8BF700903202 /* PFChangePasswordRunner.m in Sources */ = {isa = PBXBuildFile; fileRef = 01F670951DFA8BF700903202 /* PFChangePasswordRunner.m */; };
 		44075CED77D58170C20A4992 /* Pods_Puff.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6B7D49088F66C933BBF2413A /* Pods_Puff.framework */; };
-		89E2CCAF769F204ABA3660E7 /* Pods_PuffExtensionKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4A8ACECC80B15E78B49B8CD2 /* Pods_PuffExtensionKit.framework */; };
 		930E881294B8DE3BB31A7853 /* Pods_PFFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F0489F548E38A2B417A6AC9E /* Pods_PFFoundation.framework */; };
 /* End PBXBuildFile section */
 
@@ -366,6 +368,10 @@
 		01D3AF911DB3CA4500EE5CA1 /* PFTypeManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PFTypeManager.m; path = Models/PFTypeManager.m; sourceTree = "<group>"; };
 		01D84F781D8FC87C00941545 /* PFBlowfish.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PFBlowfish.h; path = Utils/PFBlowfish.h; sourceTree = "<group>"; };
 		01D84F791D8FC87C00941545 /* PFBlowfish.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PFBlowfish.m; path = Utils/PFBlowfish.m; sourceTree = "<group>"; };
+		01E40BEE1E227CBC003AA298 /* PFIntroBaseViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PFIntroBaseViewController.h; path = Controllers/PFIntroBaseViewController.h; sourceTree = "<group>"; };
+		01E40BEF1E227CBC003AA298 /* PFIntroBaseViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PFIntroBaseViewController.m; path = Controllers/PFIntroBaseViewController.m; sourceTree = "<group>"; };
+		01E40BF01E227CBC003AA298 /* PFIntroViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PFIntroViewController.h; path = Controllers/PFIntroViewController.h; sourceTree = "<group>"; };
+		01E40BF11E227CBC003AA298 /* PFIntroViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PFIntroViewController.m; path = Controllers/PFIntroViewController.m; sourceTree = "<group>"; };
 		01EB17891DB717DF00C71C4B /* PFResUtil.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PFResUtil.h; path = Utils/PFResUtil.h; sourceTree = "<group>"; };
 		01EB178A1DB717DF00C71C4B /* PFResUtil.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PFResUtil.m; path = Utils/PFResUtil.m; sourceTree = "<group>"; };
 		01EB178C1DB744A300C71C4B /* PFAddAccountViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PFAddAccountViewController.h; path = Controllers/PFAddAccountViewController.h; sourceTree = "<group>"; };
@@ -425,7 +431,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				017C96761DDEE6380030272F /* PFFoundation.framework in Frameworks */,
+				018ED5641E1BD8C400EC9A21 /* PFFoundation.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -435,7 +441,6 @@
 			files = (
 				017C967F1DDEE7D80030272F /* MaterialControls.framework in Frameworks */,
 				017C967C1DDEE7D70030272F /* MMDrawerController.framework in Frameworks */,
-				89E2CCAF769F204ABA3660E7 /* Pods_PuffExtensionKit.framework in Frameworks */,
 				930E881294B8DE3BB31A7853 /* Pods_PFFoundation.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -566,6 +571,10 @@
 		011537131D8933D000C98268 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
+				01E40BEE1E227CBC003AA298 /* PFIntroBaseViewController.h */,
+				01E40BEF1E227CBC003AA298 /* PFIntroBaseViewController.m */,
+				01E40BF01E227CBC003AA298 /* PFIntroViewController.h */,
+				01E40BF11E227CBC003AA298 /* PFIntroViewController.m */,
 				01D3AF871DB3C99800EE5CA1 /* MasterViewController.h */,
 				01D3AF881DB3C99800EE5CA1 /* MasterViewController.m */,
 				013DC3941DB5F2FF00AB8F50 /* PFDrawerViewController.h */,
@@ -781,6 +790,7 @@
 				0101A91A1DE80B7E009F5F90 /* _PFCategory+CoreDataProperties.h in Headers */,
 				0101A9111DE80B54009F5F90 /* _PFAccount+CoreDataClass.h in Headers */,
 				0101A9191DE80B7E009F5F90 /* _PFCategory+CoreDataClass.h in Headers */,
+				018ED5661E1BDCD900EC9A21 /* PFCardView.h in Headers */,
 				0101A90D1DE80B2A009F5F90 /* PFAccountManager.h in Headers */,
 				0101A9231DE80BB3009F5F90 /* PFDBManager.h in Headers */,
 				0101A92B1DE80BE5009F5F90 /* PFType.h in Headers */,
@@ -994,7 +1004,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				0101A9371DE8116D009F5F90 /* Puff.xcdatamodeld in Resources */,
-				0150E7091DF51F9B00C0ADF0 /* Assets.xcassets in Resources */,
 				017C960D1DDEE3C20030272F /* MainInterface.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -1096,6 +1105,7 @@
 				01CD7C6C1DF8192500BF989B /* PFAboutViewController.m in Sources */,
 				017C96831DDEEC7A0030272F /* Config.h in Sources */,
 				01C3326B1DF6B66200F5C493 /* PFSettings.m in Sources */,
+				01E40BF31E227CBC003AA298 /* PFIntroViewController.m in Sources */,
 				017C96851DDEEC7A0030272F /* PFDrawerCell.h in Sources */,
 				017C96861DDEEC7A0030272F /* PFDrawerCell.m in Sources */,
 				0101A91E1DE80B9D009F5F90 /* _PFAccount+CoreDataProperties.m in Sources */,
@@ -1103,7 +1113,6 @@
 				017C96881DDEEC7A0030272F /* MainAccountCell.m in Sources */,
 				0101A91F1DE80B9D009F5F90 /* _PFCategory+CoreDataClass.m in Sources */,
 				017C96891DDEEC7A0030272F /* PFCardView.h in Sources */,
-				017C968A1DDEEC7A0030272F /* PFCardView.m in Sources */,
 				017C968B1DDEEC7A0030272F /* PFSpinner.h in Sources */,
 				017C968C1DDEEC7A0030272F /* PFSpinner.m in Sources */,
 				01F670961DFA8BF700903202 /* PFChangePasswordRunner.m in Sources */,
@@ -1168,6 +1177,7 @@
 				017C96C61DDEEC7A0030272F /* PFAccountDetailViewController.m in Sources */,
 				017C96C71DDEEC7A0030272F /* PFBlowfish.h in Sources */,
 				017C96C91DDEEC7A0030272F /* PFCategoryUtil.h in Sources */,
+				01E40BF21E227CBC003AA298 /* PFIntroBaseViewController.m in Sources */,
 				017C96CA1DDEEC7A0030272F /* PFCategoryUtil.m in Sources */,
 				017C96CB1DDEEC7A0030272F /* PFResUtil.h in Sources */,
 				017C96CC1DDEEC7A0030272F /* PFResUtil.m in Sources */,
@@ -1197,6 +1207,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				01E40BED1E224BDD003AA298 /* Assets.xcassets in Sources */,
 				017641C01E1B72780048595D /* MaterialControls.framework in Sources */,
 				0101A9361DE80C8D009F5F90 /* Puff.xcdatamodeld in Sources */,
 				017C960A1DDEE3C20030272F /* ActionViewController.m in Sources */,
@@ -1224,6 +1235,7 @@
 				0101A9161DE80B78009F5F90 /* _PFCategory+CoreDataProperties.m in Sources */,
 				0101A9141DE80B65009F5F90 /* _PFAccount+CoreDataProperties.m in Sources */,
 				0101A93E1DE816C6009F5F90 /* PFCategoryManager.m in Sources */,
+				018ED5671E1BDCE200EC9A21 /* PFCardView.m in Sources */,
 				0101A9401DE816CD009F5F90 /* PFTypeManager.m in Sources */,
 				0101A93D1DE816C3009F5F90 /* PFCategory.m in Sources */,
 				01B2B1AF1DF96339009801E7 /* PFAccountAccess.m in Sources */,

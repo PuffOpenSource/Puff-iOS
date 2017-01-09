@@ -12,6 +12,7 @@
 static NSString * const kHasSettings        = @"kHasSettings";
 static NSString * const kTouchIDEnabled     = @"kTouchIdEnabled";
 static NSString * const kClearInfo          = @"kClearInfo";
+static NSString * const kIntroShown         = @"kIntroShown%@";
 
 @interface PFSettings()
 @property (strong, nonatomic) NSUserDefaults *store;
@@ -49,6 +50,11 @@ static NSString * const kClearInfo          = @"kClearInfo";
 
 - (void)save {
     [_store synchronize];
+}
+
+- (BOOL)introShown {
+    NSString *key = [NSString stringWithFormat:kIntroShown, [[NSBundle mainBundle].infoDictionary valueForKey:@"CFBundleVersion"]];
+    return [_store boolForKey:key];
 }
 
 - (void)initDefaults {

@@ -8,6 +8,14 @@
 
 #import <UIKit/UIKit.h>
 
+@protocol PFIntroViewControllerDelegate <NSObject>
+@required
+- (void)next;
+- (void)previous;
+
+@end
+
 @interface PFIntroBaseViewController : UIViewController
 
+@property (weak, nonatomic) id<PFIntroViewControllerDelegate> delegate;
 @end

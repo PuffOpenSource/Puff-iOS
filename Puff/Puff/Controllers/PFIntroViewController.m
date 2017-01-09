@@ -7,31 +7,55 @@
 //
 
 #import "PFIntroViewController.h"
+#import "PFSetMasterPasswordViewController.h"
 
-@interface PFIntroViewController ()
-
+@interface PFIntroViewController () <UIPageViewControllerDelegate, UIPageViewControllerDataSource>
+@property (strong, nonatomic) NSMutableArray<UIViewController*> *vcs;
 @end
 
 @implementation PFIntroViewController
 
++ (instancetype)viewControllerFromStoryboard {
+    return [[UIStoryboard storyboardWithName:@"Intro" bundle:[NSBundle bundleForClass:self.class]] instantiateInitialViewController];
+}
+
 - (void)viewDidLoad {
     [super viewDidLoad];
-    // Do any additional setup after loading the view.
+    UIStoryboard *sb = [UIStoryboard storyboardWithName:@"Intro" bundle:[NSBundle bundleForClass:self.class]];
+    _vcs = [@[] mutableCopy];
+    for (int i = 0; i < 3; i++) {
+        [_vcs addObject: [sb instantiateViewControllerWithIdentifier:[NSString stringWithFormat:@"introVC%d", i + 1]]];
+    }
+    self.delegate = self;
+    self.dataSource = self;
+    [self setViewControllers:@[_vcs[0]] direction:UIPageViewControllerNavigationDirectionForward animated:YES completion:nil];
 }
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
 }
 
-/*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
+- (void)dismiss {
+    PFSetMasterPasswordViewController *vc = [PFSetMasterPasswordViewController viewControllerFromStoryBoard];
+    vc.showMode = showModeSet;
+    
+    [[UIApplication sharedApplication].keyWindow.rootViewController presentViewController:vc animated:YES completion:nil];
+    
 }
-*/
+
+- (UIViewController *)pageViewController:(UIPageViewController *)pageViewController viewControllerBeforeViewController:(UIViewController *)viewController {
+    NSInteger idx = [_vcs indexOfObject:viewController];
+    if (idx == 0) {
+        return nil;
+    }
+    return [_vcs objectAtIndex:idx - 1];
+}
+- (UIViewController *)pageViewController:(UIPageViewController *)pageViewController viewControllerAfterViewController:(UIViewController *)viewController {
+    NSInteger idx = [_vcs indexOfObject:viewController];
+    if (idx == _vcs.count - 1) {
+        return nil;
+    }
+    return [_vcs objectAtIndex:idx + 1];
+}
 
 @end

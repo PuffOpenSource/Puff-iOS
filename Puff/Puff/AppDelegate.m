@@ -16,6 +16,7 @@
 #import "MasterViewController.h"
 #import "PFDrawerViewController.h"
 #import "PFSetMasterPasswordViewController.h"
+#import "PFIntroViewController.h"
 #import "PFCategoryUtil.h"
 #import "PFDBManager.h"
 #import "PFAccountManager.h"
@@ -73,9 +74,13 @@
     
     
     if (![[PFKeychainHelper sharedInstance] hasMasterPassword]) {
-        PFSetMasterPasswordViewController *vc = [PFSetMasterPasswordViewController viewControllerFromStoryBoard];
-        vc.showMode = showModeSet;
-        [self.window.rootViewController presentViewController:vc animated:YES completion:nil];
+        if (![[PFSettings sharedInstance] introShown]) {
+            [self.window.rootViewController presentViewController:[PFIntroViewController viewControllerFromStoryboard] animated:YES completion:nil];
+        } else {
+            PFSetMasterPasswordViewController *vc = [PFSetMasterPasswordViewController viewControllerFromStoryBoard];
+            vc.showMode = showModeSet;
+            [self.window.rootViewController presentViewController:vc animated:YES completion:nil];
+        }
     } else {
         [_appLock showLock];
     }
