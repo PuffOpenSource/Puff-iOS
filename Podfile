@@ -16,7 +16,7 @@ target 'PFFoundation' do
   pod 'MMDrawerController', '~> 0.5.7'
   pod 'BFPaperCheckbox'
   pod 'Masonry'
-  pod 'FCModel'
   pod 'MaterialControls', :git => "https://github.com/PuffOpenSource/Material-Controls-For-iOS.git", :branch => 'master'
+  pod 'FCModel', :git => "https://github.com/PuffOpenSource/FCModel.git", :branch => 'master'
+  #pod 'FCModel', :path => "#{POD_DEV_ROOT}/FCModel"
 end
-

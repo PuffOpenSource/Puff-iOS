@@ -156,6 +156,8 @@
 		018ED5671E1BDCE200EC9A21 /* PFCardView.m in Sources */ = {isa = PBXBuildFile; fileRef = 0106949B1DBCB87D00A15D4D /* PFCardView.m */; };
 		01910F661DE2D37E0019E541 /* PFPasswordGenerator.m in Sources */ = {isa = PBXBuildFile; fileRef = 01910F651DE2D37E0019E541 /* PFPasswordGenerator.m */; };
 		01910F671DE2FE5E0019E541 /* Assets.xcassets in Sources */ = {isa = PBXBuildFile; fileRef = 010CFB391DB4B9B500FEE5DE /* Assets.xcassets */; };
+		019EB86C1E27415800205043 /* FCAccount.m in Sources */ = {isa = PBXBuildFile; fileRef = 019EB86B1E27415800205043 /* FCAccount.m */; };
+		019EB86F1E27612700205043 /* PFDBExporter.m in Sources */ = {isa = PBXBuildFile; fileRef = 019EB86E1E27612700205043 /* PFDBExporter.m */; };
 		01A005E41E05680B007F484F /* PFPasswordChanger.m in Sources */ = {isa = PBXBuildFile; fileRef = 01A005E31E05680B007F484F /* PFPasswordChanger.m */; };
 		01ABDF201E0BC34E00C1273A /* PFAddCategoryView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 01ABDF1F1E0BC34E00C1273A /* PFAddCategoryView.xib */; };
 		01ABDF231E0BC37000C1273A /* PFAddCategoryView.m in Sources */ = {isa = PBXBuildFile; fileRef = 01ABDF221E0BC37000C1273A /* PFAddCategoryView.m */; };
@@ -333,6 +335,10 @@
 		017C967E1DDEE7D80030272F /* UITableView_FDTemplateLayoutCell.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UITableView_FDTemplateLayoutCell.framework; path = "../../../Library/Developer/Xcode/DerivedData/Puff-dxzalaqjdzugdieivqpjgsfzklcs/Build/Products/Debug-iphonesimulator/UITableView+FDTemplateLayoutCell/UITableView_FDTemplateLayoutCell.framework"; sourceTree = "<group>"; };
 		01910F641DE2D37E0019E541 /* PFPasswordGenerator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PFPasswordGenerator.h; path = Utils/PFPasswordGenerator.h; sourceTree = "<group>"; };
 		01910F651DE2D37E0019E541 /* PFPasswordGenerator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PFPasswordGenerator.m; path = Utils/PFPasswordGenerator.m; sourceTree = "<group>"; };
+		019EB86A1E27415800205043 /* FCAccount.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = FCAccount.h; path = FCModels/FCAccount.h; sourceTree = "<group>"; };
+		019EB86B1E27415800205043 /* FCAccount.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = FCAccount.m; path = FCModels/FCAccount.m; sourceTree = "<group>"; };
+		019EB86D1E27612700205043 /* PFDBExporter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PFDBExporter.h; path = FCModels/PFDBExporter.h; sourceTree = "<group>"; };
+		019EB86E1E27612700205043 /* PFDBExporter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PFDBExporter.m; path = FCModels/PFDBExporter.m; sourceTree = "<group>"; };
 		01A005E21E05680B007F484F /* PFPasswordChanger.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PFPasswordChanger.h; path = Utils/PFPasswordChanger.h; sourceTree = "<group>"; };
 		01A005E31E05680B007F484F /* PFPasswordChanger.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PFPasswordChanger.m; path = Utils/PFPasswordChanger.m; sourceTree = "<group>"; };
 		01A8B97D1DB0AE8D00D87FCF /* PFDBManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PFDBManager.h; path = Models/PFDBManager.h; sourceTree = "<group>"; };
@@ -494,6 +500,7 @@
 		011536EE1D8932CC00C98268 /* Puff */ = {
 			isa = PBXGroup;
 			children = (
+				019EB8691E27411A00205043 /* FCModels */,
 				01680F731DFE56CF0076681C /* Animations */,
 				01D26AF71DBBA84B00A32064 /* Puff.entitlements */,
 				01A8B9AF1DB0E08600D87FCF /* Config */,
@@ -691,6 +698,17 @@
 				017C961E1DDEE5600030272F /* Info.plist */,
 			);
 			path = PuffExtensionKit;
+			sourceTree = "<group>";
+		};
+		019EB8691E27411A00205043 /* FCModels */ = {
+			isa = PBXGroup;
+			children = (
+				019EB86A1E27415800205043 /* FCAccount.h */,
+				019EB86B1E27415800205043 /* FCAccount.m */,
+				019EB86D1E27612700205043 /* PFDBExporter.h */,
+				019EB86E1E27612700205043 /* PFDBExporter.m */,
+			);
+			name = FCModels;
 			sourceTree = "<group>";
 		};
 		01A8B97C1DB0AE4300D87FCF /* Models */ = {
@@ -1114,7 +1132,9 @@
 				0101A91F1DE80B9D009F5F90 /* _PFCategory+CoreDataClass.m in Sources */,
 				017C96891DDEEC7A0030272F /* PFCardView.h in Sources */,
 				017C968B1DDEEC7A0030272F /* PFSpinner.h in Sources */,
+				019EB86C1E27415800205043 /* FCAccount.m in Sources */,
 				017C968C1DDEEC7A0030272F /* PFSpinner.m in Sources */,
+				019EB86F1E27612700205043 /* PFDBExporter.m in Sources */,
 				01F670961DFA8BF700903202 /* PFChangePasswordRunner.m in Sources */,
 				017C968D1DDEEC7A0030272F /* PFDBManager.h in Sources */,
 				017C968F1DDEEC7A0030272F /* PFAccountManager.h in Sources */,
@@ -1447,6 +1467,7 @@
 		017C96131DDEE3C20030272F /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = PuffExtension/PuffExtension.entitlements;
 				DEVELOPMENT_TEAM = UMW2HP56AU;
 				INFOPLIST_FILE = PuffExtension/Info.plist;
@@ -1461,6 +1482,7 @@
 		017C96141DDEE3C20030272F /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = PuffExtension/PuffExtension.entitlements;
 				DEVELOPMENT_TEAM = UMW2HP56AU;
 				INFOPLIST_FILE = PuffExtension/Info.plist;

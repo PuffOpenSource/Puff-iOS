@@ -26,6 +26,8 @@
 #import "PFAppLock.h"
 #import "PFSettings.h"
 
+#import "PFDBExporter.h"
+
 @interface AppDelegate ()
 @property (strong, nonatomic) MasterViewController *mainViewController;
 @property (strong, nonatomic) PFAppLock *appLock;
@@ -75,7 +77,7 @@
     
     if (![[PFKeychainHelper sharedInstance] hasMasterPassword]) {
         if (![[PFSettings sharedInstance] introShown]) {
-            [self.window.rootViewController presentViewController:[PFIntroViewController viewControllerFromStoryboard] animated:YES completion:nil];
+            [self.window.rootViewController presentViewController:[PFIntroViewController viewControllerFromStoryboard] animated:NO completion:nil];
         } else {
             PFSetMasterPasswordViewController *vc = [PFSetMasterPasswordViewController viewControllerFromStoryBoard];
             vc.showMode = showModeSet;
