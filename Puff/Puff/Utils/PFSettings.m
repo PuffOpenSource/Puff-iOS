@@ -57,6 +57,11 @@ static NSString * const kIntroShown         = @"kIntroShown%@";
     return [_store boolForKey:key];
 }
 
+- (void)shownIntro {
+    NSString *key = [NSString stringWithFormat:kIntroShown, [[NSBundle mainBundle].infoDictionary valueForKey:@"CFBundleVersion"]];
+    [_store setBool:YES forKey:key];
+}
+
 - (void)initDefaults {
     [_store setBool:YES forKey:kHasSettings];
     [_store setBool:YES forKey:kTouchIDEnabled];

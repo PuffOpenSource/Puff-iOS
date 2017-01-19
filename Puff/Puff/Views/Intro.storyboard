@@ -5,6 +5,7 @@
     </device>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11757"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -19,8 +20,52 @@
                     <view key="view" contentMode="scaleToFill" id="DzP-Ku-cHN">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="R0m-nr-J8z">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            </view>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="KpN-3J-kJs">
+                                <rect key="frame" x="24" y="617" width="31" height="30"/>
+                                <state key="normal" title="Prev"/>
+                                <connections>
+                                    <action selector="didTapOnPrev:" destination="4Gd-uu-VIb" eventType="touchUpInside" id="pgI-td-FNV"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Fej-u7-VsC">
+                                <rect key="frame" x="320" y="617" width="32" height="30"/>
+                                <state key="normal" title="Next"/>
+                                <connections>
+                                    <action selector="didTapOnNext:" destination="4Gd-uu-VIb" eventType="touchUpInside" id="E2h-It-oeF"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fwY-zc-Eqr">
+                                <rect key="frame" x="321" y="28" width="30" height="30"/>
+                                <state key="normal" title="Skip"/>
+                                <connections>
+                                    <action selector="didTapOnSkip:" destination="4Gd-uu-VIb" eventType="touchUpInside" id="ick-rZ-Lg0"/>
+                                </connections>
+                            </button>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="R0m-nr-J8z" firstAttribute="top" secondItem="DzP-Ku-cHN" secondAttribute="topMargin" id="3Cd-VJ-9TI"/>
+                            <constraint firstItem="3NG-DL-jvx" firstAttribute="top" secondItem="KpN-3J-kJs" secondAttribute="bottom" constant="20" id="4Fr-iZ-j2o"/>
+                            <constraint firstItem="3NG-DL-jvx" firstAttribute="top" secondItem="R0m-nr-J8z" secondAttribute="bottom" id="4K2-zC-7DO"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="Fej-u7-VsC" secondAttribute="trailing" constant="7" id="94H-hV-yV5"/>
+                            <constraint firstItem="R0m-nr-J8z" firstAttribute="leading" secondItem="DzP-Ku-cHN" secondAttribute="leading" id="DOa-E4-GxW"/>
+                            <constraint firstItem="KpN-3J-kJs" firstAttribute="leading" secondItem="DzP-Ku-cHN" secondAttribute="leadingMargin" constant="8" id="H0V-m4-b2Z"/>
+                            <constraint firstItem="3NG-DL-jvx" firstAttribute="top" secondItem="Fej-u7-VsC" secondAttribute="bottom" constant="20" id="MY5-6D-pgd"/>
+                            <constraint firstAttribute="trailing" secondItem="R0m-nr-J8z" secondAttribute="trailing" id="dmj-0k-2NT"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="fwY-zc-Eqr" secondAttribute="trailing" constant="8" id="lHg-pd-UbR"/>
+                            <constraint firstItem="fwY-zc-Eqr" firstAttribute="top" secondItem="rxR-1E-QeH" secondAttribute="bottom" constant="8" id="uLI-Re-hp5"/>
+                        </constraints>
                     </view>
+                    <connections>
+                        <outlet property="buttonNext" destination="Fej-u7-VsC" id="Fgg-xb-bQ2"/>
+                        <outlet property="buttonPrev" destination="KpN-3J-kJs" id="K4h-HG-ZiN"/>
+                        <outlet property="vcsContainer" destination="R0m-nr-J8z" id="Occ-Re-6Ol"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="qzT-4e-DgS" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

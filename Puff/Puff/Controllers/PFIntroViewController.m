@@ -7,10 +7,16 @@
 //
 
 #import "PFIntroViewController.h"
+#import <Masonry/Masonry.h>
 #import "PFSetMasterPasswordViewController.h"
+#import "PFSettings.h"
 #import "PFResUtil.h"
 
 @interface PFIntroViewController () <UIPageViewControllerDelegate, UIPageViewControllerDataSource>
+@property (weak, nonatomic) IBOutlet UIView *vcsContainer;
+@property (weak, nonatomic) IBOutlet UIButton *buttonPrev;
+@property (weak, nonatomic) IBOutlet UIButton *buttonNext;
+
 @property (strong, nonatomic) UIPageViewController *pageVC;
 @property (strong, nonatomic) NSMutableArray<UIViewController*> *vcs;
 @end
@@ -38,8 +44,10 @@
     [_pageVC setViewControllers:@[_vcs[0]] direction:UIPageViewControllerNavigationDirectionForward animated:YES completion:nil];
     [self addChildViewController:_pageVC];
     [_pageVC didMoveToParentViewController:self];
-    [self.view addSubview:_pageVC.view];
-    
+    [self.vcsContainer addSubview:_pageVC.view];
+    [_pageVC.view mas_updateConstraints:^(MASConstraintMaker *make) {
+        make.edges.equalTo(self.vcsContainer);
+    }];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -47,10 +55,12 @@
 }
 
 - (void)dismiss {
+    [[PFSettings sharedInstance] shownIntro];
     PFSetMasterPasswordViewController *vc = [PFSetMasterPasswordViewController viewControllerFromStoryBoard];
     vc.showMode = showModeSet;
-    
-    [[UIApplication sharedApplication].keyWindow.rootViewController presentViewController:vc animated:YES completion:nil];
+    [self dismissViewControllerAnimated:YES completion:^{
+        [[UIApplication sharedApplication].keyWindow.rootViewController presentViewController:vc animated:YES completion:nil];
+    }];
     
 }
 
@@ -68,5 +78,18 @@
     }
     return [_vcs objectAtIndex:idx + 1];
 }
+
+#pragma mark - IBActions
+
+- (IBAction)didTapOnPrev:(id)sender {
+}
+
+- (IBAction)didTapOnNext:(id)sender {
+}
+
+- (IBAction)didTapOnSkip:(id)sender {
+    [self dismiss];
+}
+
 
 @end
