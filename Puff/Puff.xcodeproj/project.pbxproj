@@ -845,6 +845,7 @@
 				8731B1BB842D2979E8904A39 /* [CP] Copy Pods Resources */,
 				017C96001DDEE2F70030272F /* Embed App Extensions */,
 				017C96271DDEE5600030272F /* Embed Frameworks */,
+				015D97AF1E30AB3500F5E698 /* Bump Build Number */,
 			);
 			buildRules = (
 			);
@@ -865,6 +866,7 @@
 				017C95EB1DDEE2F70030272F /* Sources */,
 				017C95EC1DDEE2F70030272F /* Frameworks */,
 				017C95ED1DDEE2F70030272F /* Resources */,
+				015D97B01E30AC2300F5E698 /* Bump Build Number */,
 			);
 			buildRules = (
 			);
@@ -882,6 +884,7 @@
 				017C96021DDEE3C20030272F /* Sources */,
 				017C96031DDEE3C20030272F /* Frameworks */,
 				017C96041DDEE3C20030272F /* Resources */,
+				015D97B11E30AC3400F5E698 /* Bump Build Number */,
 			);
 			buildRules = (
 			);
@@ -1038,6 +1041,48 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
+		015D97AF1E30AB3500F5E698 /* Bump Build Number */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Bump Build Number";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "if [$CONFIGURATION == Release]; then\n    buildNumber=$(/usr/libexec/PlistBuddy -c \"Print CFBundleVersion\" \"${PROJECT_DIR}/${INFOPLIST_FILE}\")\n    buildNumber=$(($buildNumber + 1))\n/usr/libexec/PlistBuddy -c \"Set :CFBundleVersion $buildNumber\" \"${PROJECT_DIR}/${INFOPLIST_FILE}\"\nelse\n    echo \"Keep build number.\"\nfi";
+		};
+		015D97B01E30AC2300F5E698 /* Bump Build Number */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Bump Build Number";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "if [$CONFIGURATION == Release]; then\nbuildNumber=$(/usr/libexec/PlistBuddy -c \"Print CFBundleVersion\" \"${PROJECT_DIR}/${INFOPLIST_FILE}\")\nbuildNumber=$(($buildNumber + 1))\n/usr/libexec/PlistBuddy -c \"Set :CFBundleVersion $buildNumber\" \"${PROJECT_DIR}/${INFOPLIST_FILE}\"\nelse\necho \"Keep build number.\"\nfi";
+		};
+		015D97B11E30AC3400F5E698 /* Bump Build Number */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Bump Build Number";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "if [$CONFIGURATION == Release]; then\nbuildNumber=$(/usr/libexec/PlistBuddy -c \"Print CFBundleVersion\" \"${PROJECT_DIR}/${INFOPLIST_FILE}\")\nbuildNumber=$(($buildNumber + 1))\n/usr/libexec/PlistBuddy -c \"Set :CFBundleVersion $buildNumber\" \"${PROJECT_DIR}/${INFOPLIST_FILE}\"\nelse\necho \"Keep build number.\"\nfi";
+		};
 		67CC0A33741E9BC5F2136E11 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
