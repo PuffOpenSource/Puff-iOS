@@ -25,6 +25,7 @@
             [toAdd populateWith:acct];
         }];
     }
+    callback(nil, nil);
 }
 
 - (void)_createDB {

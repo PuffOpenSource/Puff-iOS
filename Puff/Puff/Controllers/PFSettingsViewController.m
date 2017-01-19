@@ -16,6 +16,7 @@
 #import "PFAppLock.h"
 #import "PFAboutViewController.h"
 #import "PFAuthorizeDialog.h"
+#import "PFDBExporter.h"
 
 @interface PFSettingsViewController () <BFPaperCheckboxDelegate>
 @property (weak, nonatomic) IBOutlet BFPaperCheckbox *cbTouchId;
@@ -100,6 +101,19 @@
         [self.navigationController pushViewController:vc animated:YES];
     }];
 }
+
+- (IBAction)didTapOnExport:(id)sender {
+    [[PFAuthorizeDialog sharedInstance] authorize:self callback:^(BOOL verified) {
+        if (!verified) {
+            [[[MDSnackbar alloc] initWithText:NSLocalizedString(@"Master password didn't match", nil) actionTitle:@"" duration:1] show];
+            return;
+        }
+        [[[PFDBExporter alloc] init] runWithCompletion:^(NSError *err, NSObject *result) {
+            [[[MDSnackbar alloc] initWithText:NSLocalizedString(@"Database exported to 'Documents' folder successfully.", nil) actionTitle:@"" duration:1] show];
+        }];
+    }];
+}
+
 - (IBAction)didTapOnAbout:(id)sender {
     PFAboutViewController *vc = [PFAboutViewController viewControllerFromStoryboard];
     [self.navigationController pushViewController:vc animated:YES];
