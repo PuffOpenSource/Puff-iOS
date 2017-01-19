@@ -60,6 +60,7 @@ static NSString * const kIntroShown         = @"kIntroShown%@";
 - (void)shownIntro {
     NSString *key = [NSString stringWithFormat:kIntroShown, [[NSBundle mainBundle].infoDictionary valueForKey:@"CFBundleVersion"]];
     [_store setBool:YES forKey:key];
+    [_store synchronize];
 }
 
 - (void)initDefaults {
