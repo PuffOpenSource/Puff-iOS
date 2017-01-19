@@ -8,13 +8,16 @@
 
 #import "PFSetMasterPasswordViewController.h"
 
+#import <LocalAuthentication/LocalAuthentication.h>
 #import <MaterialControls/MDTextField.h>
 #import <MaterialControls/MDButton.h>
+#import <MaterialControls/MDSnackbar.h>
 
 #import "PFKeychainHelper.h"
 #import "PFAppLock.h"
 #import "PFResUtil.h"
 #import "PFPasswordChanger.h"
+#import "PFSettings.h"
 
 @interface PFSetMasterPasswordViewController () <MDTextFieldDelegate>
 @property (weak, nonatomic) IBOutlet MDTextField *passwordField;
@@ -62,15 +65,11 @@ static CGFloat headerHeight         = 160;
 
 - (IBAction)didClickFab:(id)sender {
     if (![self validateField]) {
-        [PFResUtil shakeItBaby:_passwordField withCompletion:^{
-            [_passwordField becomeFirstResponder];
-        }];
         return;
     }
+    [self.view endEditing:YES];
     if (self.showMode == showModeSet) {
-        PFKeychainHelper *kcHelper = [PFKeychainHelper sharedInstance];
-        [kcHelper setMasterPassword:_passwordField.text];
-        [[PFAppLock sharedLock] unlock];
+        [self _askTouchId];
     } else  {
         PFKeychainHelper *kcHelper = [PFKeychainHelper sharedInstance];
         
@@ -78,9 +77,8 @@ static CGFloat headerHeight         = 160;
         
         [kcHelper updateMasterPassword:_passwordField.text];
         [[PFAppLock sharedLock] unlock];
+        [self dismissViewControllerAnimated:YES completion:nil];
     }
-    
-    [self dismissViewControllerAnimated:YES completion:nil];
     return;
 }
 
@@ -97,6 +95,7 @@ static CGFloat headerHeight         = 160;
     if (_passwordField.isFirstResponder) {
         [_confirmField becomeFirstResponder];
     } else {
+        [_confirmField resignFirstResponder];
         [self.view endEditing:YES];
     }
     return NO;
@@ -105,16 +104,12 @@ static CGFloat headerHeight         = 160;
 #pragma mark - Keyboard
 
 - (void)_keyboardWillShow:(NSNotification*)notification {
-    NSDictionary *info = [notification userInfo];
-    CGSize kbSize = [[info objectForKey:UIKeyboardFrameEndUserInfoKey] CGRectValue].size;
     _headerHeight.constant = toolBarHeight;
     [UIView animateWithDuration:0.5 animations:^{
         [self.view layoutIfNeeded];
     }];
 }
 - (void)_keyboardWillHide:(NSNotification*)notification {
-    NSDictionary *info = [notification userInfo];
-    CGSize kbSize = [[info objectForKey:UIKeyboardFrameEndUserInfoKey] CGRectValue].size;
     _headerHeight.constant = headerHeight;
     [UIView animateWithDuration:0.5 animations:^{
         [self.view layoutIfNeeded];
@@ -126,10 +121,57 @@ static CGFloat headerHeight         = 160;
     NSString *str1, *str2;
     str1 = _passwordField.text;
     str2 = _confirmField.text;
-    if (str1.length == 0 || str2.length == 0) {
-        return false;
+    if (str1.length == 0) {
+        [self _showError:@"Password is empty!" view:_passwordField];
+        return NO;
     }
-    return [str1 isEqualToString:str2];
+    BOOL ret = [str1 isEqualToString:str2];
+    if (!ret) {
+        [self _showError:@"Password don't match!" view:_confirmField];
+    } else {
+        ret = str1.length >= 6;
+        if (!ret) {
+            [self _showError:@"Password is too short!" view:_passwordField];
+        }
+    }
+    return ret;
+}
+
+- (void)_showError:(NSString*)err view:(UIView*)view {
+    [self.view endEditing:YES];
+    [[[MDSnackbar alloc] initWithText:NSLocalizedString(err, nil) actionTitle:@"" duration:1.5] show];
+    [PFResUtil shakeItBaby:view withCompletion:nil];
+}
+
+- (void)_askTouchId {
+    if (![self _hasTouchID]) {
+        return;
+    }
+    UIAlertAction *yes = [UIAlertAction actionWithTitle:@"Yes" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+        [[PFSettings sharedInstance] setTouchIDEnabled:YES];
+        [self _savePassword];
+    }];
+    UIAlertAction *no = [UIAlertAction actionWithTitle:@"No" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+        [[PFSettings sharedInstance] setTouchIDEnabled:NO];
+        [self _savePassword];
+    }];
+    UIAlertController *ac = [UIAlertController alertControllerWithTitle:@"Enable Touch ID ?" message:@"You can change this in settings." preferredStyle:UIAlertControllerStyleAlert];
+    [ac addAction:yes];
+    [ac addAction:no];
+    [self presentViewController:ac animated:YES completion:nil];
+}
+
+- (void)_savePassword {
+    PFKeychainHelper *kcHelper = [PFKeychainHelper sharedInstance];
+    [kcHelper setMasterPassword:_passwordField.text];
+    [[PFAppLock sharedLock] unlock];
+    [self dismissViewControllerAnimated:YES completion:nil];
+}
+
+- (BOOL)_hasTouchID {
+    LAContext *ctx = [[LAContext alloc] init];
+    NSError *err;
+    return [ctx canEvaluatePolicy:LAPolicyDeviceOwnerAuthenticationWithBiometrics error:&err];
 }
 
 /*

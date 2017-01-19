@@ -74,6 +74,9 @@
 - (IBAction)didTapOnCopyButton:(id)sender {
     [_account decrypt:^(NSError * _Nullable error, NSDictionary * _Nullable result) {
         [PFAccountAccess copyToClipBoard:result];
+        if (_delegate) {
+            [_delegate mainAccountCell:self didCopiedAccount:_account];
+        }
     }];
 }
 - (IBAction)didTapOnPinButton:(id)sender {

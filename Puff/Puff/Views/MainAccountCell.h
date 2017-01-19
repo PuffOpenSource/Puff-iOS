@@ -17,6 +17,7 @@ static NSString * const kMainAccountCellReuseId         = @"kMainAccountCellReus
 @required
 - (void)mainAccountCell:(MainAccountCell*)cell didTapOnViewButton:(PFAccount*) account;
 - (void)mainAccountCell:(MainAccountCell*)cell didPinedAccount:(PFAccount*)account;
+- (void)mainAccountCell:(MainAccountCell*)cell didCopiedAccount:(PFAccount*)account;
 
 @end
 

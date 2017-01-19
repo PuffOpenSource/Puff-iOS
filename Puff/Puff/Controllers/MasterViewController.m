@@ -212,6 +212,10 @@
     [snack show];
 }
 
+- (void)mainAccountCell:(MainAccountCell*)cell didCopiedAccount:(PFAccount *)account {
+    [[[MDSnackbar alloc] initWithText:NSLocalizedString(@"Copied!", nil) actionTitle:@""] show];
+}
+
 #pragma mark - PFSpinnerDelegate
 - (void)pfSpinner:(PFSpinner *)spinner didSelectItem:(id)item {
     [_menuSpinner dismiss:^(){
