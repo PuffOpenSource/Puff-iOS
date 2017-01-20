@@ -17,6 +17,7 @@
 #import "PFAboutViewController.h"
 #import "PFAuthorizeDialog.h"
 #import "PFDBExporter.h"
+#import "PFLoadingView.h"
 
 @interface PFSettingsViewController () <BFPaperCheckboxDelegate>
 @property (weak, nonatomic) IBOutlet BFPaperCheckbox *cbTouchId;
@@ -108,7 +109,9 @@
             [[[MDSnackbar alloc] initWithText:NSLocalizedString(@"Master password didn't match", nil) actionTitle:@"" duration:1] show];
             return;
         }
+        [PFLoadingView showIn:self];
         [[[PFDBExporter alloc] init] runWithCompletion:^(NSError *err, NSObject *result) {
+            [PFLoadingView dismiss];
             [[[MDSnackbar alloc] initWithText:NSLocalizedString(@"Database exported to 'Documents' folder successfully.", nil) actionTitle:@"" duration:1] show];
         }];
     }];

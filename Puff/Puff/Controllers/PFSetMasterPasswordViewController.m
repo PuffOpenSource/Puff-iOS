@@ -17,6 +17,7 @@
 #import "PFAppLock.h"
 #import "PFResUtil.h"
 #import "PFPasswordChanger.h"
+#import "PFLoadingView.h"
 #import "PFSettings.h"
 
 @interface PFSetMasterPasswordViewController () <MDTextFieldDelegate>
@@ -73,7 +74,9 @@ static CGFloat headerHeight         = 160;
     } else  {
         PFKeychainHelper *kcHelper = [PFKeychainHelper sharedInstance];
         
+        [PFLoadingView showIn:self];
         [PFPasswordChanger changePwdTo:_passwordField.text];
+        [PFLoadingView dismiss];
         
         [kcHelper updateMasterPassword:_passwordField.text];
         [[PFAppLock sharedLock] unlock];
