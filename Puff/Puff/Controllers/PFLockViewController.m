@@ -83,7 +83,7 @@
         view.hidden = YES;
     }
     
-    [[NSNotificationCenter defaultCenter] removeObserver:self name:UIKeyboardDidHideNotification object:nil];
+    [[NSNotificationCenter defaultCenter] removeObserver:self name:UIKeyboardWillHideNotification object:nil];
 //    [self dismissViewControllerAnimated:YES completion:nil];
     [self.view removeFromSuperview];
 }
@@ -107,6 +107,7 @@
 }
 
 - (void)_authorizeWithTouchId {
+    [_lockPasswordField resignFirstResponder];
     LAContext *ctx = [[LAContext alloc] init];
     if ([self _hasTouchID]) {
         [ctx evaluatePolicy:LAPolicyDeviceOwnerAuthenticationWithBiometrics localizedReason:NSLocalizedString(@"Unlock with Touch ID", nil) reply:^(BOOL success, NSError * _Nullable error) {
@@ -116,7 +117,7 @@
                 }
                 if (error) {
                     if (error.code == LAErrorUserFallback) {
-                        [_lockPasswordField becomeFirstResponder];
+                        [self.view endEditing:NO];
                     } else {
                         [PFResUtil shakeItBaby:_btnTouchId withCompletion:nil];
                     }
