@@ -1,0 +1,18 @@
+
+/* Class = "UILabel"; text = "Step 2"; ObjectID = "60s-eC-fkR"; */
+"60s-eC-fkR.text" = "Step 2";
+
+/* Class = "UIButton"; normalTitle = "Next"; ObjectID = "Fej-u7-VsC"; */
+"Fej-u7-VsC.normalTitle" = "Next";
+
+/* Class = "UILabel"; text = "Step 1"; ObjectID = "JQf-VB-ECX"; */
+"JQf-VB-ECX.text" = "Step 1";
+
+/* Class = "UIButton"; normalTitle = "Prev"; ObjectID = "KpN-3J-kJs"; */
+"KpN-3J-kJs.normalTitle" = "Prev";
+
+/* Class = "UILabel"; text = "Step 3"; ObjectID = "Lek-Xs-1Yl"; */
+"Lek-Xs-1Yl.text" = "Step 3";
+
+/* Class = "UIButton"; normalTitle = "Skip"; ObjectID = "fwY-zc-Eqr"; */
+"fwY-zc-Eqr.normalTitle" = "Skip";

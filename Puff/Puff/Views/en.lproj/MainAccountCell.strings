@@ -1,0 +1,18 @@
+
+/* Class = "UIButton"; normalTitle = "Pin"; ObjectID = "9GN-UP-QPf"; */
+"9GN-UP-QPf.normalTitle" = "Pin";
+
+/* Class = "UIButton"; normalTitle = "Copy"; ObjectID = "Cla-xq-iaQ"; */
+"Cla-xq-iaQ.normalTitle" = "Copy";
+
+/* Class = "UILabel"; text = "Account"; ObjectID = "iTv-bf-zO6"; */
+"iTv-bf-zO6.text" = "Account";
+
+/* Class = "UIButton"; normalTitle = "View"; ObjectID = "lMC-Ve-edu"; */
+"lMC-Ve-edu.normalTitle" = "View";
+
+/* Class = "UILabel"; text = "Type"; ObjectID = "vBI-OM-5me"; */
+"vBI-OM-5me.text" = "Type";
+
+/* Class = "UILabel"; text = "Name"; ObjectID = "ylb-l5-9Fi"; */
+"ylb-l5-9Fi.text" = "Name";

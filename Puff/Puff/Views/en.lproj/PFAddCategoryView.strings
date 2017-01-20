@@ -1,0 +1,9 @@
+
+/* Class = "UILabel"; text = "Add account category"; ObjectID = "2VD-Jm-5hP"; */
+"2VD-Jm-5hP.text" = "Add account category";
+
+/* Class = "UIButton"; normalTitle = "Save"; ObjectID = "bt7-GJ-3oD"; */
+"bt7-GJ-3oD.normalTitle" = "Save";
+
+/* Class = "UILabel"; text = "Tap to add icon:"; ObjectID = "xPl-iI-Oah"; */
+"xPl-iI-Oah.text" = "Tap to add icon:";

@@ -1,0 +1,15 @@
+
+/* Class = "UIButton"; normalTitle = "Save"; ObjectID = "5Pq-CR-rns"; */
+"5Pq-CR-rns.normalTitle" = "Save";
+
+/* Class = "UILabel"; text = "Label"; ObjectID = "AAp-6C-z3T"; */
+"AAp-6C-z3T.text" = "Label";
+
+/* Class = "UILabel"; text = "Add account type"; ObjectID = "nua-J0-UxS"; */
+"nua-J0-UxS.text" = "Add account type";
+
+/* Class = "UILabel"; text = "Create in category:"; ObjectID = "pps-gJ-0R7"; */
+"pps-gJ-0R7.text" = "Create in category:";
+
+/* Class = "UILabel"; text = "Tap to add icon:"; ObjectID = "vty-n3-h1M"; */
+"vty-n3-h1M.text" = "Tap to add icon:";
