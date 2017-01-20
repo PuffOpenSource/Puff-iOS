@@ -1,0 +1,111 @@
+
+/* Class = "UILabel"; text = "Add Account"; ObjectID = "0sJ-Qs-C1x"; */
+"0sJ-Qs-C1x.text" = "添加账户";
+
+/* Class = "UILabel"; text = "Tap to change icon"; ObjectID = "2VH-Dk-RoU"; */
+"2VH-Dk-RoU.text" = "点击更换图标";
+
+/* Class = "UILabel"; text = "Label"; ObjectID = "3h6-fr-CVV"; */
+"3h6-fr-CVV.text" = "Label";
+
+/* Class = "UIButton"; normalTitle = "Icons form icons8.com"; ObjectID = "4se-xq-bZJ"; */
+"4se-xq-bZJ.normalTitle" = "图标来自于 icons8.com";
+
+/* Class = "UILabel"; text = "Secure and Easy to Remember"; ObjectID = "5ca-iz-ojK"; */
+"5ca-iz-ojK.text" = "安全并且容易记忆的";
+
+/* Class = "UILabel"; text = "Which kind of password do you need?"; ObjectID = "6hF-Ki-POT"; */
+"6hF-Ki-POT.text" = "你需要哪种类型的密码?";
+
+/* Class = "UIButton"; normalTitle = "Clear Widget Info after Copy"; ObjectID = "71h-DY-CLU"; */
+"71h-DY-CLU.normalTitle" = "拷贝完成后清除控件里的信息";
+
+/* Class = "UIButton"; normalTitle = "Select Type"; ObjectID = "8eZ-RM-TtI"; */
+"8eZ-RM-TtI.normalTitle" = "选择账户类型";
+
+/* Class = "UIButton"; normalTitle = "Contact us"; ObjectID = "8vd-6O-MV3"; */
+"8vd-6O-MV3.normalTitle" = "联系我们";
+
+/* Class = "UIButton"; normalTitle = "COPY & CLOSE"; ObjectID = "99n-0O-7KQ"; */
+"99n-0O-7KQ.normalTitle" = "拷贝并且关闭";
+
+/* Class = "UIButton"; normalTitle = "GENERATE AGAIN!"; ObjectID = "FNT-hf-vGP"; */
+"FNT-hf-vGP.normalTitle" = "重新生成!";
+
+/* Class = "UILabel"; text = "About"; ObjectID = "HNy-3j-JfQ"; */
+"HNy-3j-JfQ.text" = "关于";
+
+/* Class = "UIButton"; normalTitle = "PASSWORD GENERATOR"; ObjectID = "Ik4-ru-Hqo"; */
+"Ik4-ru-Hqo.normalTitle" = "密码生成器";
+
+/* Class = "UILabel"; text = "password"; ObjectID = "JNU-PD-N8P"; */
+"JNU-PD-N8P.text" = "密码";
+
+/* Class = "UIButton"; normalTitle = "Select Category"; ObjectID = "JYC-C2-em4"; */
+"JYC-C2-em4.normalTitle" = "选择类别";
+
+/* Class = "UILabel"; text = "Categories"; ObjectID = "KO4-WW-5N1"; */
+"KO4-WW-5N1.text" = "类别";
+
+/* Class = "UIButton"; normalTitle = "Fork me on GitHub"; ObjectID = "KSJ-fZ-cso"; */
+"KSJ-fZ-cso.normalTitle" = "在GitHub上Fork我";
+
+/* Class = "UILabel"; text = "Database"; ObjectID = "Np9-oh-O8s"; */
+"Np9-oh-O8s.text" = "数据库";
+
+/* Class = "UIButton"; normalTitle = "SAVE"; ObjectID = "Rir-Pn-bll"; */
+"Rir-Pn-bll.normalTitle" = "保存";
+
+/* Class = "UIButton"; normalTitle = "Visit our website"; ObjectID = "TzI-bk-0YQ"; */
+"TzI-bk-0YQ.normalTitle" = "访问我们的网站";
+
+/* Class = "UIButton"; normalTitle = "About Puff"; ObjectID = "VYH-oB-beu"; */
+"VYH-oB-beu.normalTitle" = "关于Puff";
+
+/* Class = "UILabel"; text = "Security"; ObjectID = "Wp5-wp-LBy"; */
+"Wp5-wp-LBy.text" = "安全";
+
+/* Class = "UILabel"; text = "This utility will generate a secure password for you. Enter password length and click next button.\n"; ObjectID = "XsM-qy-7Hw"; */
+"XsM-qy-7Hw.text" = "这个工具会帮你生成安全的密码。输入密码长度并且点击下一步\n";
+
+/* Class = "UILabel"; text = "Numbers Only"; ObjectID = "eBb-24-nE5"; */
+"eBb-24-nE5.text" = "只有数字";
+
+/* Class = "UIButton"; normalTitle = "+"; ObjectID = "h9q-uc-uQj"; */
+"h9q-uc-uQj.normalTitle" = "+";
+
+/* Class = "UILabel"; text = "About"; ObjectID = "hPp-nJ-L75"; */
+"hPp-nJ-L75.text" = "关于";
+
+/* Class = "UILabel"; text = "Click add button to add an account!"; ObjectID = "ijQ-ig-Qs3"; */
+"ijQ-ig-Qs3.text" = "点击+来创建一个账户!";
+
+/* Class = "UILabel"; text = "Secure Password"; ObjectID = "jLZ-On-Uyv"; */
+"jLZ-On-Uyv.text" = "安全的密码";
+
+/* Class = "UILabel"; text = "Set Master Password"; ObjectID = "m3W-SN-Kf4"; */
+"m3W-SN-Kf4.text" = "设置主密码";
+
+/* Class = "UILabel"; text = "Puff is an open-source offline password manager.\nPuff will never upload your account information to internet.\nPuff uses Blowfish algorithm to encrypt your account information."; ObjectID = "oZc-at-fF3"; */
+"oZc-at-fF3.text" = "Puff是一个开源的离线密码管理器。\nPuff不会将你的账户信息上传到互联网上。\nPuff使用Blowfish加密算法来保护的你的信息。";
+
+/* Class = "UILabel"; text = "Add Account"; ObjectID = "pbb-Gk-blX"; */
+"pbb-Gk-blX.text" = "添加账户";
+
+/* Class = "UILabel"; text = "Your password is:"; ObjectID = "pnZ-Mj-NZH"; */
+"pnZ-Mj-NZH.text" = "你的密码是:";
+
+/* Class = "UIButton"; normalTitle = "Change Master Password"; ObjectID = "qau-zn-XVM"; */
+"qau-zn-XVM.normalTitle" = "更改主密码";
+
+/* Class = "UILabel"; text = "Connect with us"; ObjectID = "sv8-eo-qDa"; */
+"sv8-eo-qDa.text" = "联系我们";
+
+/* Class = "UIButton"; normalTitle = "Export Database"; ObjectID = "uNR-AN-cqH"; */
+"uNR-AN-cqH.normalTitle" = "导出数据库";
+
+/* Class = "UIButton"; normalTitle = "Enable Touch ID"; ObjectID = "vOH-GJ-iV6"; */
+"vOH-GJ-iV6.normalTitle" = "使用Touch ID";
+
+/* Class = "UILabel"; text = "Settings"; ObjectID = "zsf-4b-O6d"; */
+"zsf-4b-O6d.text" = "设置";

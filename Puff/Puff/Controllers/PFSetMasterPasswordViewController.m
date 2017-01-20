@@ -125,16 +125,16 @@ static CGFloat headerHeight         = 160;
     str1 = _passwordField.text;
     str2 = _confirmField.text;
     if (str1.length == 0) {
-        [self _showError:@"Password is empty!" view:_passwordField];
+        [self _showError:NSLocalizedString(@"Password is empty!", nil) view:_passwordField];
         return NO;
     }
     BOOL ret = [str1 isEqualToString:str2];
     if (!ret) {
-        [self _showError:@"Password don't match!" view:_confirmField];
+        [self _showError:NSLocalizedString(@"Password don't match!", nil) view:_confirmField];
     } else {
         ret = str1.length >= 6;
         if (!ret) {
-            [self _showError:@"Password is too short!" view:_passwordField];
+            [self _showError:NSLocalizedString(@"Password is too short!", nil) view:_passwordField];
         }
     }
     return ret;
@@ -142,7 +142,7 @@ static CGFloat headerHeight         = 160;
 
 - (void)_showError:(NSString*)err view:(UIView*)view {
     [self.view endEditing:YES];
-    [[[MDSnackbar alloc] initWithText:NSLocalizedString(err, nil) actionTitle:@"" duration:1.5] show];
+    [[[MDSnackbar alloc] initWithText:err actionTitle:@"" duration:1.5] show];
     [PFResUtil shakeItBaby:view withCompletion:nil];
 }
 

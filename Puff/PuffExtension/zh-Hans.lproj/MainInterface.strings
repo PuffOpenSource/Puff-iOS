@@ -1,0 +1,18 @@
+
+/* Class = "UINavigationItem"; title = "Puff"; ObjectID = "3HJ-uW-3hn"; */
+"3HJ-uW-3hn.title" = "Puff";
+
+/* Class = "UILabel"; text = "Label"; ObjectID = "D0o-3P-88m"; */
+"D0o-3P-88m.text" = "Label";
+
+/* Class = "UILabel"; text = "Tap to unlock"; ObjectID = "Dtt-iL-TTQ"; */
+"Dtt-iL-TTQ.text" = "点击解锁";
+
+/* Class = "UIBarButtonItem"; title = "Done"; ObjectID = "WYi-yp-eM6"; */
+"WYi-yp-eM6.title" = "完成";
+
+/* Class = "UILabel"; text = "Go to Puff to add an account!"; ObjectID = "k4W-V4-ajm"; */
+"k4W-V4-ajm.text" = "打开Puff来添加一个账户!";
+
+/* Class = "UILabel"; text = "Account list is empty!"; ObjectID = "mPy-e6-GvZ"; */
+"mPy-e6-GvZ.text" = "账户列表是空的!";

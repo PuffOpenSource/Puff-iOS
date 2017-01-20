@@ -51,55 +51,55 @@
     NSString *catFolder = @"/icon_category";
     
     cat = [[PFCategory alloc] init];
-    cat.name = @"Recent";
+    cat.name = NSLocalizedString(@"Recent", nil);
     cat.type = catTypeBuiltIn;
     cat.identifier = catIdRecent;
     cat.icon = [catFolder stringByAppendingString:@"/cat_recent.png"];
     [manager saveCategory:cat];
     
     cat = [[PFCategory alloc] init];
-    cat.name = @"Cards";
+    cat.name = NSLocalizedString(@"Cards", nil);
     cat.type = catTypeBuiltIn;
     cat.identifier = catIdCards;
     cat.icon = [catFolder stringByAppendingString:@"/cat_cards.png"];
     [manager saveCategory:cat];
     
     cat = [[PFCategory alloc] init];
-    cat.name = @"Computers";
+    cat.name = NSLocalizedString(@"Computers", nil);
     cat.type = catTypeBuiltIn;
     cat.identifier = catIdComputers;
     cat.icon = [catFolder stringByAppendingString:@"/cat_computer.png"];    [manager saveCategory:cat];
     
     cat = [[PFCategory alloc] init];
-    cat.name = @"Devices";
+    cat.name = NSLocalizedString(@"Devices", nil);
     cat.type = catTypeBuiltIn;
     cat.identifier = catIdDevices;
     cat.icon = [catFolder stringByAppendingString:@"/cat_device.png"];
     [manager saveCategory:cat];
     
     cat = [[PFCategory alloc] init];
-    cat.name = @"Entry";
+    cat.name = NSLocalizedString(@"Entry", nil);
     cat.type = catTypeBuiltIn;
     cat.identifier = catIdEntry;
     cat.icon = [catFolder stringByAppendingString:@"/cat_entry.png"];
     [manager saveCategory:cat];
     
     cat = [[PFCategory alloc] init];
-    cat.name = @"Mail";
+    cat.name = NSLocalizedString(@"Mail", nil);
     cat.type = catTypeBuiltIn;
     cat.identifier = catIdMail;
     cat.icon = [catFolder stringByAppendingString:@"/cat_mail.png"];
     [manager saveCategory:cat];
     
     cat = [[PFCategory alloc] init];
-    cat.name = @"Social";
+    cat.name = NSLocalizedString(@"Social", nil);
     cat.type = catTypeBuiltIn;
     cat.identifier = catIdSocial;
     cat.icon = [catFolder stringByAppendingString:@"/cat_social.png"];
     [manager saveCategory:cat];
     
     cat = [[PFCategory alloc] init];
-    cat.name = @"Website";
+    cat.name = NSLocalizedString(@"Website", nil);
     cat.type = catTypeBuiltIn;
     cat.identifier = catIdWebsite;
     cat.icon = [catFolder stringByAppendingString:@"/cat_website.png"];

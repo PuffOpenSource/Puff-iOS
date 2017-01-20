@@ -55,6 +55,7 @@
 		011537001D8932CC00C98268 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 011536FE1D8932CC00C98268 /* Main.storyboard */; };
 		011537051D8932CC00C98268 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 011537031D8932CC00C98268 /* LaunchScreen.storyboard */; };
 		0115370E1D8932DA00C98268 /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0115370D1D8932DA00C98268 /* Security.framework */; };
+		012CCBBF1E31CA9F00891145 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 012CCBC11E31CA9F00891145 /* Localizable.strings */; };
 		012D5B5D1E0CF06800C2344E /* PFLoadingView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 012D5B5C1E0CF06800C2344E /* PFLoadingView.xib */; };
 		01368F0C1DC89CA800055522 /* MobileCoreServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 01368F0B1DC89CA800055522 /* MobileCoreServices.framework */; };
 		0147C2531E0A70950013B1F2 /* PFAddTypeView.m in Sources */ = {isa = PBXBuildFile; fileRef = 0147C2521E0A70950013B1F2 /* PFAddTypeView.m */; };
@@ -289,6 +290,13 @@
 		012C69B31DAF68F1005E7104 /* NSInvocation+EXT.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSInvocation+EXT.m"; sourceTree = "<group>"; };
 		012C69B41DAF68F1005E7104 /* NSMethodSignature+EXT.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSMethodSignature+EXT.h"; sourceTree = "<group>"; };
 		012C69B51DAF68F1005E7104 /* NSMethodSignature+EXT.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSMethodSignature+EXT.m"; sourceTree = "<group>"; };
+		012CCBB41E31C3E900891145 /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/LaunchScreen.strings"; sourceTree = "<group>"; };
+		012CCBB51E31C3E900891145 /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/Main.strings"; sourceTree = "<group>"; };
+		012CCBB61E31C3E900891145 /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/MainInterface.strings"; sourceTree = "<group>"; };
+		012CCBB71E31C3E900891145 /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/MainInterface.strings"; sourceTree = "<group>"; };
+		012CCBC01E31CA9F00891145 /* Base */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = Base; path = Base.lproj/Localizable.strings; sourceTree = "<group>"; };
+		012CCBC21E31CAA100891145 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
+		012CCBC31E31CAA200891145 /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/Localizable.strings"; sourceTree = "<group>"; };
 		012D5B5C1E0CF06800C2344E /* PFLoadingView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = PFLoadingView.xib; path = Views/PFLoadingView.xib; sourceTree = "<group>"; };
 		012D5B5E1E0CF08800C2344E /* PFLoadingView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PFLoadingView.h; path = Controllers/PFLoadingView.h; sourceTree = "<group>"; };
 		012D5B5F1E0CF08800C2344E /* PFLoadingView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PFLoadingView.m; path = Controllers/PFLoadingView.m; sourceTree = "<group>"; };
@@ -768,6 +776,7 @@
 		01A8B9851DB0AED600D87FCF /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				012CCBC11E31CA9F00891145 /* Localizable.strings */,
 				010CFB391DB4B9B500FEE5DE /* Assets.xcassets */,
 				010CFC2B1DB4C03A00FEE5DE /* cats */,
 			);
@@ -980,6 +989,7 @@
 			knownRegions = (
 				en,
 				Base,
+				"zh-Hans",
 			);
 			mainGroup = 011536E31D8932CC00C98268;
 			productRefGroup = 011536ED1D8932CC00C98268 /* Products */;
@@ -1001,6 +1011,7 @@
 			files = (
 				011537051D8932CC00C98268 /* LaunchScreen.storyboard in Resources */,
 				01ABDF201E0BC34E00C1273A /* PFAddCategoryView.xib in Resources */,
+				012CCBBF1E31CA9F00891145 /* Localizable.strings in Resources */,
 				010CFB3A1DB4B9B500FEE5DE /* Assets.xcassets in Resources */,
 				012D5B5D1E0CF06800C2344E /* PFLoadingView.xib in Resources */,
 				011537001D8932CC00C98268 /* Main.storyboard in Resources */,
@@ -1334,6 +1345,7 @@
 			isa = PBXVariantGroup;
 			children = (
 				011536FF1D8932CC00C98268 /* Base */,
+				012CCBB51E31C3E900891145 /* zh-Hans */,
 			);
 			name = Main.storyboard;
 			sourceTree = "<group>";
@@ -1342,14 +1354,27 @@
 			isa = PBXVariantGroup;
 			children = (
 				011537041D8932CC00C98268 /* Base */,
+				012CCBB41E31C3E900891145 /* zh-Hans */,
 			);
 			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+		012CCBC11E31CA9F00891145 /* Localizable.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				012CCBC01E31CA9F00891145 /* Base */,
+				012CCBC21E31CAA100891145 /* en */,
+				012CCBC31E31CAA200891145 /* zh-Hans */,
+			);
+			name = Localizable.strings;
+			path = Resources;
 			sourceTree = "<group>";
 		};
 		017C95F61DDEE2F70030272F /* MainInterface.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
 				017C95F71DDEE2F70030272F /* Base */,
+				012CCBB61E31C3E900891145 /* zh-Hans */,
 			);
 			name = MainInterface.storyboard;
 			sourceTree = "<group>";
@@ -1358,6 +1383,7 @@
 			isa = PBXVariantGroup;
 			children = (
 				017C960C1DDEE3C20030272F /* Base */,
+				012CCBB71E31C3E900891145 /* zh-Hans */,
 			);
 			name = MainInterface.storyboard;
 			sourceTree = "<group>";
@@ -1369,6 +1395,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
 				CLANG_CXX_LIBRARY = "libc++";
@@ -1416,6 +1443,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
 				CLANG_CXX_LIBRARY = "libc++";

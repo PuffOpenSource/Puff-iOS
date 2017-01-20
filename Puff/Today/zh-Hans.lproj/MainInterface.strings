@@ -1,0 +1,12 @@
+
+/* Class = "UIButton"; normalTitle = "ACCOUNT"; ObjectID = "E4q-0n-Nwg"; */
+"E4q-0n-Nwg.normalTitle" = "账户";
+
+/* Class = "UIButton"; normalTitle = "PASSWORD"; ObjectID = "LQt-VW-79o"; */
+"LQt-VW-79o.normalTitle" = "密码";
+
+/* Class = "UILabel"; text = "No Account Info"; ObjectID = "SmV-e6-Fmv"; */
+"SmV-e6-Fmv.text" = "没有账户信息";
+
+/* Class = "UIButton"; normalTitle = "ADDITIONAL"; ObjectID = "bdi-aa-Eqx"; */
+"bdi-aa-Eqx.normalTitle" = "附加信息";
