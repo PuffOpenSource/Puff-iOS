@@ -39,6 +39,7 @@ static NSString * const kIntroShown         = @"kIntroShown%@";
 }
 - (void)setTouchIDEnabled:(BOOL)enabled {
     [_store setBool:enabled forKey:kTouchIDEnabled];
+    [_store synchronize];
 }
 
 - (BOOL)clearInfo {
@@ -46,6 +47,7 @@ static NSString * const kIntroShown         = @"kIntroShown%@";
 }
 - (void)setClearInfo:(BOOL)enabled {
     [_store setBool:enabled forKey:kClearInfo];
+    [_store synchronize];
 }
 
 - (void)save {
@@ -65,7 +67,7 @@ static NSString * const kIntroShown         = @"kIntroShown%@";
 
 - (void)initDefaults {
     [_store setBool:YES forKey:kHasSettings];
-    [_store setBool:YES forKey:kTouchIDEnabled];
+    [_store setBool:NO forKey:kTouchIDEnabled];
     [_store setBool:YES forKey:kClearInfo];
     [_store synchronize];
 }

@@ -1554,17 +1554,17 @@ Puff uses Blowfish algorithm to encrypt your account information.</string>
                                 <rect key="frame" x="0.0" y="20" width="960" height="548"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="wEd-yV-bnb">
-                                        <rect key="frame" x="0.0" y="0.0" width="320" height="548"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="797.5" height="548"/>
                                         <subviews>
                                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ic-gen-password" translatesAutoresizingMaskIntoConstraints="NO" id="1MN-3b-9dO">
-                                                <rect key="frame" x="96" y="81.5" width="128" height="128"/>
+                                                <rect key="frame" x="335" y="102" width="128" height="128"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="128" id="0hy-6b-d4o"/>
                                                     <constraint firstAttribute="width" constant="128" id="72j-0R-54K"/>
                                                 </constraints>
                                             </imageView>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" lineBreakMode="characterWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XsM-qy-7Hw">
-                                                <rect key="frame" x="32" y="233.5" width="256" height="81.5"/>
+                                                <rect key="frame" x="32" y="254" width="733.5" height="41"/>
                                                 <string key="text">This utility will generate a secure password for you. Enter password length and click next button.
 </string>
                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
@@ -1572,7 +1572,7 @@ Puff uses Blowfish algorithm to encrypt your account information.</string>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="30y-Id-BFF" customClass="MDTextField">
-                                                <rect key="frame" x="40" y="334" width="240" height="50"/>
+                                                <rect key="frame" x="40" y="314" width="717.5" height="50"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="50" id="caJ-F1-X6j"/>
                                                 </constraints>
@@ -1604,33 +1604,32 @@ Puff uses Blowfish algorithm to encrypt your account information.</string>
                                             <constraint firstAttribute="trailing" secondItem="30y-Id-BFF" secondAttribute="trailing" constant="40" id="fkI-7Q-qFj"/>
                                             <constraint firstItem="30y-Id-BFF" firstAttribute="top" secondItem="XsM-qy-7Hw" secondAttribute="bottom" constant="19" id="kdL-6J-lZQ"/>
                                             <constraint firstItem="30y-Id-BFF" firstAttribute="centerX" secondItem="wEd-yV-bnb" secondAttribute="centerX" id="uk1-yD-A3y"/>
-                                            <constraint firstAttribute="width" constant="320" id="wif-FU-tWo"/>
                                         </constraints>
                                     </view>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="8JW-Zr-29i">
-                                        <rect key="frame" x="320" y="0.0" width="320" height="548"/>
+                                        <rect key="frame" x="797.5" y="0.0" width="314.5" height="548"/>
                                         <subviews>
                                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ocd-xa-ItR">
-                                                <rect key="frame" x="0.0" y="0.0" width="320" height="548"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="314.5" height="548"/>
                                                 <subviews>
                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="GHk-cN-XOJ">
-                                                        <rect key="frame" x="0.0" y="0.0" width="320" height="548"/>
+                                                        <rect key="frame" x="0.0" y="0.0" width="314.5" height="548"/>
                                                         <subviews>
-                                                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ic-dice" translatesAutoresizingMaskIntoConstraints="NO" id="ixa-9K-lK4">
-                                                                <rect key="frame" x="96" y="82" width="128" height="128"/>
+                                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ic-dice" translatesAutoresizingMaskIntoConstraints="NO" id="ixa-9K-lK4">
+                                                                <rect key="frame" x="93.5" y="30" width="128" height="128"/>
                                                                 <constraints>
                                                                     <constraint firstAttribute="width" constant="128" id="I14-gY-WXZ"/>
                                                                     <constraint firstAttribute="height" constant="128" id="OvA-AA-gg5"/>
                                                                 </constraints>
                                                             </imageView>
                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Which kind of password do you need?" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6hF-Ki-POT">
-                                                                <rect key="frame" x="0.0" y="194" width="320" height="21"/>
+                                                                <rect key="frame" x="0.0" y="174" width="314.5" height="21"/>
                                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                                 <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                                 <nil key="highlightedColor"/>
                                                             </label>
                                                             <view tag="80" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="aD7-RT-FIC" customClass="BFPaperCheckbox">
-                                                                <rect key="frame" x="16" y="231" width="40" height="40"/>
+                                                                <rect key="frame" x="16" y="211" width="40" height="40"/>
                                                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                                                 <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                                 <constraints>
@@ -1650,7 +1649,7 @@ Puff uses Blowfish algorithm to encrypt your account information.</string>
                                                                 </userDefinedRuntimeAttributes>
                                                             </view>
                                                             <label opaque="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Numbers Only" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eBb-24-nE5">
-                                                                <rect key="frame" x="64" y="231" width="240" height="40"/>
+                                                                <rect key="frame" x="64" y="211" width="234.5" height="40"/>
                                                                 <gestureRecognizers/>
                                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                                 <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -1660,7 +1659,7 @@ Puff uses Blowfish algorithm to encrypt your account information.</string>
                                                                 </connections>
                                                             </label>
                                                             <view tag="81" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="zaJ-SM-QQd" customClass="BFPaperCheckbox">
-                                                                <rect key="frame" x="16" y="279" width="40" height="40"/>
+                                                                <rect key="frame" x="16" y="259" width="40" height="40"/>
                                                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                                                 <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                                 <constraints>
@@ -1680,7 +1679,7 @@ Puff uses Blowfish algorithm to encrypt your account information.</string>
                                                                 </userDefinedRuntimeAttributes>
                                                             </view>
                                                             <label opaque="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Secure Password" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jLZ-On-Uyv">
-                                                                <rect key="frame" x="64" y="279" width="240" height="40"/>
+                                                                <rect key="frame" x="64" y="259" width="234.5" height="40"/>
                                                                 <gestureRecognizers/>
                                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                                 <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -1690,7 +1689,7 @@ Puff uses Blowfish algorithm to encrypt your account information.</string>
                                                                 </connections>
                                                             </label>
                                                             <view tag="82" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="bQf-It-GDm" customClass="BFPaperCheckbox">
-                                                                <rect key="frame" x="16" y="327" width="40" height="40"/>
+                                                                <rect key="frame" x="16" y="307" width="40" height="40"/>
                                                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                                                 <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                                 <constraints>
@@ -1711,7 +1710,7 @@ Puff uses Blowfish algorithm to encrypt your account information.</string>
                                                                 </userDefinedRuntimeAttributes>
                                                             </view>
                                                             <label opaque="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Secure and Easy to Remember" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5ca-iz-ojK">
-                                                                <rect key="frame" x="64" y="327" width="240" height="40"/>
+                                                                <rect key="frame" x="64" y="307" width="234.5" height="40"/>
                                                                 <gestureRecognizers/>
                                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                                 <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -1721,7 +1720,7 @@ Puff uses Blowfish algorithm to encrypt your account information.</string>
                                                                 </connections>
                                                             </label>
                                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="h2D-bt-4ph" customClass="MDTextField">
-                                                                <rect key="frame" x="16" y="383" width="288" height="50"/>
+                                                                <rect key="frame" x="16" y="363" width="282.5" height="50"/>
                                                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                                                 <constraints>
                                                                     <constraint firstAttribute="height" constant="50" id="l6X-kJ-KPy"/>
@@ -1735,7 +1734,7 @@ Puff uses Blowfish algorithm to encrypt your account information.</string>
                                                                 </userDefinedRuntimeAttributes>
                                                             </view>
                                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="XKr-sh-X2l" customClass="MDTextField">
-                                                                <rect key="frame" x="16" y="425" width="288" height="50"/>
+                                                                <rect key="frame" x="16" y="405" width="282.5" height="50"/>
                                                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                                                 <constraints>
                                                                     <constraint firstAttribute="height" constant="50" id="m7c-ig-4QC"/>
@@ -1749,7 +1748,7 @@ Puff uses Blowfish algorithm to encrypt your account information.</string>
                                                                 </userDefinedRuntimeAttributes>
                                                             </view>
                                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="wzV-Nd-GVh" customClass="MDTextField">
-                                                                <rect key="frame" x="16" y="467" width="288" height="50"/>
+                                                                <rect key="frame" x="16" y="447" width="282.5" height="50"/>
                                                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                                                 <constraints>
                                                                     <constraint firstAttribute="height" constant="50" id="lQe-S0-mYg"/>
@@ -1763,7 +1762,7 @@ Puff uses Blowfish algorithm to encrypt your account information.</string>
                                                                 </userDefinedRuntimeAttributes>
                                                             </view>
                                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="3as-r3-FE3" customClass="MDTextField">
-                                                                <rect key="frame" x="16" y="517" width="288" height="50"/>
+                                                                <rect key="frame" x="16" y="497" width="282.5" height="50"/>
                                                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                                                 <constraints>
                                                                     <constraint firstAttribute="height" constant="50" id="l3E-hr-VhW"/>
@@ -1782,7 +1781,7 @@ Puff uses Blowfish algorithm to encrypt your account information.</string>
                                                             <constraint firstItem="eBb-24-nE5" firstAttribute="centerY" secondItem="aD7-RT-FIC" secondAttribute="centerY" id="2PW-Zo-1Gc"/>
                                                             <constraint firstAttribute="trailing" secondItem="eBb-24-nE5" secondAttribute="trailing" constant="16" id="4TH-v2-Um7"/>
                                                             <constraint firstItem="ixa-9K-lK4" firstAttribute="centerX" secondItem="GHk-cN-XOJ" secondAttribute="centerX" id="63r-lN-XhS"/>
-                                                            <constraint firstItem="ixa-9K-lK4" firstAttribute="bottom" secondItem="6hF-Ki-POT" secondAttribute="top" constant="16" id="6Qh-CT-ojY"/>
+                                                            <constraint firstItem="ixa-9K-lK4" firstAttribute="bottom" secondItem="6hF-Ki-POT" secondAttribute="top" constant="-16" id="6Qh-CT-ojY"/>
                                                             <constraint firstItem="h2D-bt-4ph" firstAttribute="leading" secondItem="GHk-cN-XOJ" secondAttribute="leading" constant="16" id="8fO-vQ-EO2"/>
                                                             <constraint firstItem="h2D-bt-4ph" firstAttribute="bottom" secondItem="XKr-sh-X2l" secondAttribute="top" constant="8" id="CHK-SJ-YlR"/>
                                                             <constraint firstItem="jLZ-On-Uyv" firstAttribute="height" secondItem="zaJ-SM-QQd" secondAttribute="height" id="ELT-4U-BLD"/>
@@ -1806,7 +1805,7 @@ Puff uses Blowfish algorithm to encrypt your account information.</string>
                                                             <constraint firstItem="wzV-Nd-GVh" firstAttribute="trailing" secondItem="XKr-sh-X2l" secondAttribute="trailing" id="hwN-Te-vKD"/>
                                                             <constraint firstItem="5ca-iz-ojK" firstAttribute="height" secondItem="bQf-It-GDm" secondAttribute="height" id="jfz-GE-COK"/>
                                                             <constraint firstItem="5ca-iz-ojK" firstAttribute="trailing" secondItem="jLZ-On-Uyv" secondAttribute="trailing" id="lom-In-WS2"/>
-                                                            <constraint firstItem="ixa-9K-lK4" firstAttribute="centerY" secondItem="GHk-cN-XOJ" secondAttribute="centerY" constant="-128" id="onE-dC-dJX"/>
+                                                            <constraint firstItem="ixa-9K-lK4" firstAttribute="centerY" secondItem="GHk-cN-XOJ" secondAttribute="centerY" constant="-180" id="onE-dC-dJX"/>
                                                             <constraint firstItem="wzV-Nd-GVh" firstAttribute="top" secondItem="XKr-sh-X2l" secondAttribute="bottom" constant="-8" id="p16-nl-t1A"/>
                                                             <constraint firstItem="h2D-bt-4ph" firstAttribute="top" secondItem="bQf-It-GDm" secondAttribute="bottom" constant="16" id="qJ9-eW-e49"/>
                                                             <constraint firstItem="zaJ-SM-QQd" firstAttribute="leading" secondItem="aD7-RT-FIC" secondAttribute="leading" id="qo2-yf-Mye"/>
@@ -1835,21 +1834,20 @@ Puff uses Blowfish algorithm to encrypt your account information.</string>
                                             <constraint firstAttribute="trailing" secondItem="ocd-xa-ItR" secondAttribute="trailing" id="dFF-HT-8Ye"/>
                                             <constraint firstItem="ocd-xa-ItR" firstAttribute="centerX" secondItem="8JW-Zr-29i" secondAttribute="centerX" id="pq4-xE-Eu9"/>
                                             <constraint firstItem="ocd-xa-ItR" firstAttribute="centerY" secondItem="8JW-Zr-29i" secondAttribute="centerY" id="xd3-Dj-vJD"/>
-                                            <constraint firstAttribute="width" constant="320" id="xdH-KX-usg"/>
                                         </constraints>
                                     </view>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="vPZ-9S-fY9">
-                                        <rect key="frame" x="640" y="0.0" width="320" height="548"/>
+                                        <rect key="frame" x="1112" y="0.0" width="193" height="548"/>
                                         <subviews>
                                             <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ic-checkmark" translatesAutoresizingMaskIntoConstraints="NO" id="fyv-9g-xWP">
-                                                <rect key="frame" x="110" y="124" width="100" height="100"/>
+                                                <rect key="frame" x="46.5" y="124" width="100" height="100"/>
                                                 <constraints>
                                                     <constraint firstAttribute="width" constant="100" id="2cn-qE-A2g"/>
                                                     <constraint firstAttribute="height" constant="100" id="ifz-Dq-kfX"/>
                                                 </constraints>
                                             </imageView>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Your password is:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pnZ-Mj-NZH">
-                                                <rect key="frame" x="0.0" y="256" width="320" height="40"/>
+                                                <rect key="frame" x="0.0" y="256" width="193" height="40"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="40" id="sUP-RE-SdW"/>
                                                 </constraints>
@@ -1858,7 +1856,7 @@ Puff uses Blowfish algorithm to encrypt your account information.</string>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="password" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JNU-PD-N8P">
-                                                <rect key="frame" x="0.0" y="312" width="320" height="30"/>
+                                                <rect key="frame" x="0.0" y="312" width="193" height="30"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="30" id="xA8-Cd-7Qc"/>
                                                 </constraints>
@@ -1867,7 +1865,7 @@ Puff uses Blowfish algorithm to encrypt your account information.</string>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="FNT-hf-vGP" customClass="MDButton">
-                                                <rect key="frame" x="32" y="358" width="256" height="30"/>
+                                                <rect key="frame" x="32" y="358" width="129" height="30"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="30" id="TTD-1y-xyY"/>
                                                 </constraints>
@@ -1879,7 +1877,7 @@ Puff uses Blowfish algorithm to encrypt your account information.</string>
                                                 </connections>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="99n-0O-7KQ" customClass="MDButton">
-                                                <rect key="frame" x="32" y="404" width="256" height="30"/>
+                                                <rect key="frame" x="32" y="404" width="129" height="30"/>
                                                 <state key="normal" title="COPY &amp; CLOSE">
                                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                 </state>
@@ -1891,7 +1889,6 @@ Puff uses Blowfish algorithm to encrypt your account information.</string>
                                         <color key="backgroundColor" red="0.54901960780000003" green="0.75686274509999996" blue="0.32156862749999998" alpha="1" colorSpace="calibratedRGB"/>
                                         <constraints>
                                             <constraint firstItem="FNT-hf-vGP" firstAttribute="top" secondItem="JNU-PD-N8P" secondAttribute="bottom" constant="16" id="1dF-bc-lFi"/>
-                                            <constraint firstAttribute="width" constant="320" id="A0O-U0-SYp"/>
                                             <constraint firstItem="FNT-hf-vGP" firstAttribute="trailing" secondItem="JNU-PD-N8P" secondAttribute="trailing" constant="-32" id="CoQ-Hf-u2G"/>
                                             <constraint firstItem="pnZ-Mj-NZH" firstAttribute="top" secondItem="fyv-9g-xWP" secondAttribute="bottom" constant="32" id="Eb9-Mx-HnA"/>
                                             <constraint firstItem="fyv-9g-xWP" firstAttribute="centerY" secondItem="vPZ-9S-fY9" secondAttribute="centerY" constant="-100" id="Ev8-5l-uN0"/>
@@ -2034,24 +2031,6 @@ Puff uses Blowfish algorithm to encrypt your account information.</string>
                 </tapGestureRecognizer>
             </objects>
             <point key="canvasLocation" x="2383" y="2366"/>
-        </scene>
-        <!--Add Type View Controller-->
-        <scene sceneID="1lK-oU-aA7">
-            <objects>
-                <viewController id="xrx-Gx-aUW" customClass="PFAddTypeViewController" sceneMemberID="viewController">
-                    <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="Gnv-Zt-O2H"/>
-                        <viewControllerLayoutGuide type="bottom" id="gah-3r-nl3"/>
-                    </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="qjf-ye-goH">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                    </view>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="jYb-NT-ESu" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="1914" y="3078"/>
         </scene>
         <!--Dialog View Controller-->
         <scene sceneID="lfN-8g-ixY">
@@ -2586,7 +2565,7 @@ Puff uses Blowfish algorithm to encrypt your account information.</string>
         <image name="ic-check-mark" width="25" height="25"/>
         <image name="ic-checkmark" width="50" height="50"/>
         <image name="ic-close" width="25" height="25"/>
-        <image name="ic-dice" width="128" height="128"/>
+        <image name="ic-dice" width="256" height="256"/>
         <image name="ic-dropdown-arrow" width="48" height="48"/>
         <image name="ic-empty" width="170" height="170"/>
         <image name="ic-gen-password" width="170" height="170"/>

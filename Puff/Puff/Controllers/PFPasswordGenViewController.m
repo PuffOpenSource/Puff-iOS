@@ -11,6 +11,7 @@
 #import <Foundation/NSNumberFormatter.h>
 #import <MaterialControls/MDTextField.h>
 #import <BFPaperCheckbox/BFPaperCheckbox.h>
+#import <Masonry/Masonry.h>
 
 #import "PFResUtil.h"
 #import "PFPasswordGenerator.h"
@@ -87,6 +88,13 @@ typedef NS_ENUM(NSInteger){
     }
     ((MDTextField*)[_tFields lastObject]).returnKeyType = UIReturnKeyDone;
     _keyboardShown = NO;
+    
+    CGFloat pageWidth = [PFResUtil screenSize].size.width;
+    for (UIView *page in _scrollview.subviews) {
+        [page mas_makeConstraints:^(MASConstraintMaker *make) {
+            make.width.equalTo(@(pageWidth));
+        }];
+    }
 }
 
 - (void)didReceiveMemoryWarning {

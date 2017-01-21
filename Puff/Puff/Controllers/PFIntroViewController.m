@@ -19,6 +19,7 @@
 
 @property (strong, nonatomic) UIPageViewController *pageVC;
 @property (strong, nonatomic) NSMutableArray<UIViewController*> *vcs;
+@property (assign, nonatomic) NSInteger currentIdx;
 @end
 
 @implementation PFIntroViewController
@@ -38,9 +39,6 @@
     _pageVC.delegate = self;
     _pageVC.dataSource = self;
     
-//    _pageVC.view.frame = CGRectMake(0, 0, self.view.frame.size.width, self.view.frame.size.height - 30);
-
-    
     [_pageVC setViewControllers:@[_vcs[0]] direction:UIPageViewControllerNavigationDirectionForward animated:YES completion:nil];
     [self addChildViewController:_pageVC];
     [_pageVC didMoveToParentViewController:self];
@@ -48,6 +46,10 @@
     [_pageVC.view mas_updateConstraints:^(MASConstraintMaker *make) {
         make.edges.equalTo(self.vcsContainer);
     }];
+    
+    _buttonNext.layer.cornerRadius = 25;
+    _buttonPrev.layer.cornerRadius = 25;
+    _currentIdx = 0;
 }
 
 - (void)didReceiveMemoryWarning {
@@ -69,6 +71,7 @@
     if (idx == 0) {
         return nil;
     }
+    _currentIdx -= 1;
     return [_vcs objectAtIndex:idx - 1];
 }
 - (UIViewController *)pageViewController:(UIPageViewController *)pageViewController viewControllerAfterViewController:(UIViewController *)viewController {
@@ -76,15 +79,30 @@
     if (idx == _vcs.count - 1) {
         return nil;
     }
+    _currentIdx += 1;
     return [_vcs objectAtIndex:idx + 1];
 }
 
 #pragma mark - IBActions
 
 - (IBAction)didTapOnPrev:(id)sender {
+    if (_currentIdx == 0) {
+        if ([sender isKindOfClass:UIView.class]) {
+            [PFResUtil shakeItBaby:sender withCompletion:nil];
+        }
+        return;
+    }
+    _currentIdx -= 1;
+    [_pageVC setViewControllers:@[[_vcs objectAtIndex:_currentIdx]] direction:UIPageViewControllerNavigationDirectionReverse animated:YES completion:nil];
 }
 
 - (IBAction)didTapOnNext:(id)sender {
+    if (_currentIdx == _vcs.count - 1) {
+        [self didTapOnSkip:sender];
+        return;
+    }
+    _currentIdx += 1;
+    [_pageVC setViewControllers:@[[_vcs objectAtIndex:_currentIdx]] direction:UIPageViewControllerNavigationDirectionForward animated:YES completion:nil];
 }
 
 - (IBAction)didTapOnSkip:(id)sender {
