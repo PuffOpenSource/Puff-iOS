@@ -13,6 +13,14 @@ Password Utility Free Forever
 
 ## Screenshots
 
+| ![Home](screen-shots/sc-1.png) | ![Category](screen-shots/sc-2.png) | ![View](screen-shots/sc-3.png) |
+| ------------------------------ | ---------------------------------- | -------------------------- |
+| Home                           | Builtin Categories                 | View Detail                |
+
+| ![Password Generator](screen-shots/sc-4.png) | ![Today Widget](screen-shots/sc-5.png) | ![Action Extension](screen-shots/sc-6.png) |
+| -------------------------------------------- | -------------------------------------- | ------------------------------------------ |
+| Password Generator                           | Today Widget                           | Action Extension                           |
+
 
 ## How does it works ?
 
@@ -39,8 +47,8 @@ Puff provide two ways for quick access your account credentials.
 
 ## Roadmap
 
-- [ ] UI tweaks and tutorial page.
-- [ ] Support export database.
+- [x] UI tweaks and tutorial page.
+- [x] Support export database.
 - [ ] Support import database.
 - [ ] Ship iOS app on App Store.
 - [ ] Develop desktop version.
