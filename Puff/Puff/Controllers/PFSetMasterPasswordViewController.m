@@ -148,6 +148,7 @@ static CGFloat headerHeight         = 160;
 
 - (void)_askTouchId {
     if (![self _hasTouchID]) {
+        [self _savePassword];
         return;
     }
     UIAlertAction *yes = [UIAlertAction actionWithTitle:@"Yes" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
