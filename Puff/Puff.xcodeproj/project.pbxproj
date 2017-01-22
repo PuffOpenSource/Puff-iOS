@@ -1531,7 +1531,7 @@
 		017C96131DDEE3C20030272F /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_APPICON_NAME = ActionExtIcon;
 				CODE_SIGN_ENTITLEMENTS = PuffExtension/PuffExtension.entitlements;
 				DEVELOPMENT_TEAM = UMW2HP56AU;
 				INFOPLIST_FILE = PuffExtension/Info.plist;
@@ -1546,7 +1546,7 @@
 		017C96141DDEE3C20030272F /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_APPICON_NAME = ActionExtIcon;
 				CODE_SIGN_ENTITLEMENTS = PuffExtension/PuffExtension.entitlements;
 				DEVELOPMENT_TEAM = UMW2HP56AU;
 				INFOPLIST_FILE = PuffExtension/Info.plist;
