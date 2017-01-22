@@ -36,7 +36,11 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    self.extensionContext.widgetLargestAvailableDisplayMode = NCWidgetDisplayModeCompact;
+    if ([[UIDevice currentDevice] systemVersion].floatValue >= 10.0) {
+        self.extensionContext.widgetLargestAvailableDisplayMode = NCWidgetDisplayModeCompact;
+    } else {
+        self.preferredContentSize = CGSizeMake(0, 80);
+    }
     // Do any additional setup after loading the view from its nib.
     _store = [[NSUserDefaults alloc] initWithSuiteName:kUserDefaultGroup];
     
@@ -55,9 +59,6 @@
     _btnAdditional.layer.borderWidth = 1;
 }
 
-//- (void)widgetActiveDisplayMwodeDidChange:(NCWidgetDisplayMode)activeDisplayMode withMaximumSize:(CGSize)maxSize {
-//    self.preferredContentSize = CGSizeMake(0, 50);
-//}
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
